@@ -1,0 +1,21 @@
+export const MIN_BPM = 30;
+export const MAX_BPM = 300;
+export const TAP_TIMEOUT = 2000;
+export const LOOKAHEAD = 25.0;
+export const SCHEDULE_AHEAD_TIME = 0.1;
+
+export const BEAT_NORMAL = 0;
+export const BEAT_ACCENT = 1;
+export const BEAT_MUTE = 2;
+
+export const SOUND_SINE = 'sine';
+export const SOUND_WOOD = 'wood';
+export const SOUND_DRUM = 'drum';
+export const SOUND_MECH = 'mech';
+
+export const STORAGE_KEY_BPM = 'spatial-metronome-bpm';
+export const STORAGE_KEY_BEATS = 'spatial-metronome-beats';
+export const STORAGE_KEY_STATES = 'spatial-metronome-beat-states-v3'; 
+export const STORAGE_KEY_SUBDIV_VAL = 'spatial-metronome-subdiv-value';
+export const STORAGE_KEY_SOUND = 'spatial-metronome-sound-preset';
+export const STORAGE_KEY_SAVED_BPMS = 'spatial-metronome-saved-bpms';

@@ -1,0 +1,88 @@
+import { clsx } from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronDown, ChevronUp, LucideIcon } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import styles from './styles.module.css';
+
+interface Option {
+  label: string;
+  value: any;
+}
+
+interface CustomGlassSelectProps {
+  icon: LucideIcon;
+  value: any;
+  onChange: (value: any) => void;
+  options: Option[];
+  title: string;
+  displayLabel: string;
+}
+
+export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title, displayLabel }: CustomGlassSelectProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  return (
+    <div className={styles['glass-select']} ref={containerRef}>
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className={clsx(
+          styles['glass-select__btn'],
+          isOpen ? styles['glass-select__btn--open'] : styles['glass-select__btn--closed']
+        )}
+      >
+        <Icon size={16} />
+        <span className={styles['glass-select__label']}>{displayLabel}</span>
+        <div className="flex flex-col -space-y-1 opacity-40 group-hover:opacity-100 transition-opacity">
+            <ChevronUp size={8} />
+            <ChevronDown size={8} />
+        </div>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className={styles['glass-select__dropdown']}
+          >
+            <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent pointer-events-none mix-blend-overlay" />
+            <div className={styles['glass-select__dropdown-title']}>
+                {title}
+            </div>
+            {options.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => {
+                  onChange(opt.value);
+                  setIsOpen(false);
+                }}
+                className={clsx(
+                  styles['glass-select__option'],
+                  opt.value === value && styles['glass-select__option--selected']
+                )}
+              >
+                {opt.label}
+                {opt.value === value && (
+                    <motion.div layoutId={`dot-${title}`} className={styles['glass-select__active-dot']} />
+                )}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};

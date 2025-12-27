@@ -1,0 +1,158 @@
+/* --- Utilities --- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* --- MetronomeApp --- */
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  color: white;
+  background-color: #0a0a0a;
+}
+
+.app__bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.app__bg-gradient--primary {
+  background: radial-gradient(ellipse at top right, rgba(49, 46, 129, 0.4), #0a0a0a, #0a0a0a);
+}
+
+.app__bg-gradient--secondary {
+  background: radial-gradient(ellipse at bottom left, rgba(30, 58, 138, 0.3), #0a0a0a, #0a0a0a);
+}
+
+.app__blob--1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 80vw;
+  height: 80vw;
+  background-color: rgba(124, 58, 237, 0.1);
+  border-radius: 9999px;
+  filter: blur(120px);
+  mix-blend-mode: screen;
+}
+
+.app__blob--2 {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background-color: rgba(14, 165, 233, 0.1);
+  border-radius: 9999px;
+  filter: blur(120px);
+  mix-blend-mode: screen;
+}
+
+.app__blob--3 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40vw;
+  height: 40vw;
+  background-color: rgba(99, 102, 241, 0.05);
+  border-radius: 9999px;
+  filter: blur(100px);
+  mix-blend-mode: screen;
+}
+
+.app__noise-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.app__content {
+  width: 100%;
+  max-width: 36rem;
+  /* max-w-xl */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .app__content {
+    gap: 4rem;
+  }
+}
+
+/* Play Button */
+.play-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .play-btn {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.play-btn--playing {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+}
+
+.play-btn--stopped {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* --- Tap Button --- */
+.tap-btn {
+  height: 2.25rem;
+  width: 6rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 768px) {
+  .tap-btn {
+    height: 2.5rem;
+  }
+}

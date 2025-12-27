@@ -1,0 +1,127 @@
+/* --- BpmDisplay --- */
+.bpm-display {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  width: 100%;
+}
+
+.bpm-display__resize-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.2s;
+  cursor: ns-resize;
+}
+
+.bpm-display__label {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 2rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.25rem;
+  pointer-events: none;
+}
+
+.bpm-display__value-wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3ch;
+  font-size: 8rem;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  font-family: sans-serif;
+}
+
+@media (min-width: 768px) {
+  .bpm-display__value-wrapper {
+    font-size: 12rem;
+  }
+}
+
+.bpm-display__value--main {
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.2s;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  filter: drop-shadow(0 4px 30px rgba(255, 255, 255, 0.25));
+}
+
+.bpm-display__value--blur {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2);
+  filter: blur(1px);
+  transform: translateY(4px);
+  mix-blend-mode: overlay;
+}
+
+.bpm-display__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  font: inherit;
+  -moz-appearance: textfield;
+}
+
+.bpm-display__input::-webkit-inner-spin-button,
+.bpm-display__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bpm-display__controls {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bpm-display__btn {
+  padding: 0.25rem;
+  transition: all 0.2s;
+}
+
+.bpm-display__btn:hover {
+  color: white;
+  transform: scale(1.1);
+}
+
+.bpm-display__btn:active {
+  transform: scale(0.95);
+}

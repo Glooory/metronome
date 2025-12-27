@@ -54,7 +54,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
             <h1 className={clsx(styles['bpm-display__value--blur'], isEditing ? styles.hidden : styles.visible)}>{bpm}</h1>
             {isEditing && <input ref={inputRef} type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onBlur={commitChange} onKeyDown={handleKeyDown} className={styles['bpm-display__input']} />}
         </div>
-        {!isEditing && <div className={styles['bpm-display__controls']}>
+        {<div className={styles['bpm-display__controls']}>
              <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 5)}><ChevronsUp size={24} /></button>
              <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 1)}><ChevronUp size={24} /></button>
              <div className={styles['grip-wrapper']}><GripVertical size={36} /></div>

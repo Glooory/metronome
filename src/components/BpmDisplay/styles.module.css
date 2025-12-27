@@ -13,33 +13,32 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
+  height: 14rem;
   transition: all 0.2s;
   cursor: ns-resize;
 }
 
 .bpm-display__label {
-  position: absolute;
-  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   gap: 2rem;
   color: rgba(255, 255, 255, 0.3);
   font-family: monospace;
   font-weight: bold;
   font-size: 1.25rem;
   pointer-events: none;
+  width: 4rem;
 }
 
 .bpm-display__value-wrapper {
   position: relative;
   display: grid;
   place-items: center;
-  width: 3ch;
+  flex: 1;
   font-size: 8rem;
   font-weight: bold;
   letter-spacing: -0.05em;
@@ -92,10 +91,20 @@
   margin: 0;
   color: white;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-  font: inherit;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 8rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
   -moz-appearance: textfield;
   appearance: textfield;
   caret-color: white;
+}
+
+@media (min-width: 768px) {
+  .bpm-display__input {
+    font-size: 12rem;
+  }
 }
 
 .bpm-display__input::selection {
@@ -117,13 +126,12 @@
 }
 
 .bpm-display__controls {
-  position: absolute;
-  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
   color: rgba(255, 255, 255, 0.6);
+  width: 4rem;
 }
 
 .bpm-display__btn {

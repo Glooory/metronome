@@ -45,7 +45,7 @@
   letter-spacing: -0.05em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -94,6 +94,20 @@
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
   font: inherit;
   -moz-appearance: textfield;
+  appearance: textfield;
+  caret-color: white;
+}
+
+.bpm-display__input::selection {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .bpm-display__input::-webkit-inner-spin-button,
@@ -124,4 +138,11 @@
 
 .bpm-display__btn:active {
   transform: scale(0.95);
+}
+
+.grip-wrapper {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
 }

@@ -14,18 +14,18 @@ import { Visualizer } from './components/Visualizer';
 
 // Import Hooks and Constants
 import {
-    BEAT_ACCENT,
-    BEAT_NORMAL,
-    MAX_BPM,
-    MIN_BPM,
-    SOUND_DRUM, SOUND_MECH,
-    SOUND_SINE, SOUND_WOOD,
-    STORAGE_KEY_BEATS,
-    STORAGE_KEY_BPM,
-    STORAGE_KEY_SAVED_BPMS,
-    STORAGE_KEY_SOUND,
-    STORAGE_KEY_STATES, STORAGE_KEY_SUBDIV_VAL,
-    TAP_TIMEOUT
+  BEAT_ACCENT,
+  BEAT_NORMAL,
+  MAX_BPM,
+  MIN_BPM,
+  SOUND_DRUM, SOUND_MECH,
+  SOUND_SINE, SOUND_WOOD,
+  STORAGE_KEY_BEATS,
+  STORAGE_KEY_BPM,
+  STORAGE_KEY_SAVED_BPMS,
+  STORAGE_KEY_SOUND,
+  STORAGE_KEY_STATES, STORAGE_KEY_SUBDIV_VAL,
+  TAP_TIMEOUT
 } from './constants';
 import { useMetronome } from './hooks/useMetronome';
 
@@ -162,7 +162,7 @@ export default function MetronomeApp() {
       <div className={styles['app__content']}>
           
           {/* BLOCK 1: BPM & HISTORY */}
-          <div className="flex flex-col w-full gap-4">
+          <div className={styles['bpm-section']}>
               <BpmDisplay bpm={bpm} setBpm={setBpm} />
               <BpmHistoryBar currentBpm={bpm} setBpm={setBpm} savedBpms={savedBpms} setSavedBpms={setSavedBpms} />
           </div>
@@ -171,7 +171,7 @@ export default function MetronomeApp() {
           <Visualizer activeBeat={visualBeat} beatsPerMeasure={beatsPerMeasure} beatStates={beatStates} toggleBeatState={toggleBeatState} subdivision={subdivision} />
 
           {/* BLOCK 3: DOCK */}
-          <div className="w-full">
+          <div className={styles['dock-section']}>
             <LiquidGlassDock>
                 
                 {/* 1. Time Signature Select */}
@@ -201,7 +201,7 @@ export default function MetronomeApp() {
                     onClick={() => setIsPlaying(!isPlaying)} 
                     className={clsx(styles['play-btn'], isPlaying ? styles['play-btn--playing'] : styles['play-btn--stopped'])}
                 >
-                    {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className="ml-1" />}
+                    {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className={styles['play-btn__icon-play']} />}
                 </motion.button>
                 
                 {/* 4. Subdivision Select */}

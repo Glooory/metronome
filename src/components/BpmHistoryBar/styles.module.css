@@ -113,3 +113,10 @@
 .history-bar__save-btn:active {
   transform: scale(0.95);
 }
+
+.no-history {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-left: 0.5rem;
+}

@@ -43,7 +43,7 @@ export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title,
       >
         <Icon size={16} />
         <span className={styles['glass-select__label']}>{displayLabel}</span>
-        <div className="flex flex-col -space-y-1 opacity-40 group-hover:opacity-100 transition-opacity">
+        <div className={styles['glass-select__chevrons']}>
             <ChevronUp size={8} />
             <ChevronDown size={8} />
         </div>
@@ -58,7 +58,7 @@ export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title,
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={styles['glass-select__dropdown']}
           >
-            <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent pointer-events-none mix-blend-overlay" />
+            <div className={styles['glass-select__overlay']} />
             <div className={styles['glass-select__dropdown-title']}>
                 {title}
             </div>

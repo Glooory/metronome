@@ -50,14 +50,14 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
              <span>B</span><span>P</span><span>M</span>
         </div>
         <div className={styles['bpm-display__value-wrapper']}>
-            <h1 className={clsx(styles['bpm-display__value--main'], isEditing ? "opacity-0" : "opacity-100")}>{bpm}</h1>
-            <h1 className={clsx(styles['bpm-display__value--blur'], isEditing ? "opacity-0" : "opacity-100")}>{bpm}</h1>
+            <h1 className={clsx(styles['bpm-display__value--main'], isEditing ? styles.hidden : styles.visible)}>{bpm}</h1>
+            <h1 className={clsx(styles['bpm-display__value--blur'], isEditing ? styles.hidden : styles.visible)}>{bpm}</h1>
             {isEditing && <input ref={inputRef} type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onBlur={commitChange} onKeyDown={handleKeyDown} className={styles['bpm-display__input']} />}
         </div>
         {!isEditing && <div className={styles['bpm-display__controls']}>
              <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 5)}><ChevronsUp size={24} /></button>
              <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 1)}><ChevronUp size={24} /></button>
-             <div className="py-2 opacity-100 text-white/60"><GripVertical size={36} /></div>
+             <div className={styles['grip-wrapper']}><GripVertical size={36} /></div>
              <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -1)}><ChevronDown size={24} /></button>
              <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -5)}><ChevronsDown size={24} /></button>
         </div>}

@@ -58,7 +58,7 @@ export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms }: B
           </AnimatePresence>
         </LayoutGroup>
         
-        {savedBpms.length === 0 && <span className="text-white/20 text-xs italic ml-2">No history</span>}
+        {savedBpms.length === 0 && <span className={styles['no-history']}>No history</span>}
       </div>
 
       <motion.button 

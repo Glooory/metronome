@@ -38,7 +38,9 @@ export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeat
                   {isMainBeat && (
                     <div className={clsx(
                         styles['visualizer__label'], 
-                        isActive && !isMute ? (isAccent ? "text-amber-100 scale-110 drop-shadow-[0_0_15px_rgba(251,191,36,0.8)]" : "text-cyan-100 scale-110 drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]") : "text-white/30 scale-100 group-hover:text-white/60"
+                        isActive && !isMute 
+                          ? (isAccent ? styles['visualizer__label--active-accent'] : styles['visualizer__label--active-normal']) 
+                          : styles['visualizer__label--inactive']
                     )}>
                         {mainBeatIndex + 1}
                     </div>
@@ -70,14 +72,20 @@ export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeat
                   >
                      {isMainBeat && isMute && (
                         <div className={styles['visualizer__mute-icon']}>
-                            <VolumeX size={18} className={clsx("transition-colors duration-100", isActive ? "text-black/60" : "text-white/40")} />
+                            <VolumeX size={18} className={clsx(
+                              styles['visualizer__mute-icon-svg'],
+                              isActive && styles['visualizer__mute-icon-svg--active']
+                            )} />
                         </div>
                      )}
                   </motion.div>
                   
                   {/* Reflection only on Main */}
                   {isMainBeat && (
-                     <motion.div animate={{ opacity: isActive ? 0.6 : 0.1 }} className={clsx(styles['visualizer__reflection'], isAccent ? "bg-amber-400/40" : isMute ? "bg-white/10" : "bg-cyan-400/40")} />
+                     <motion.div animate={{ opacity: isActive ? 0.6 : 0.1 }} className={clsx(
+                       styles['visualizer__reflection'], 
+                       isAccent ? styles['visualizer__reflection--accent'] : isMute ? styles['visualizer__reflection--mute'] : styles['visualizer__reflection--normal']
+                     )} />
                   )}
                </div>
              );

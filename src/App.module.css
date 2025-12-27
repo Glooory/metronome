@@ -138,6 +138,17 @@
 }
 
 /* --- Tap Button --- */
+.bpm-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.dock-section {
+  width: 100%;
+}
+
 .tap-btn {
   height: 2.25rem;
   width: 6rem;
@@ -155,4 +166,47 @@
   .tap-btn {
     height: 2.5rem;
   }
+}
+
+.tap-btn__label {
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+/* --- Help Trigger --- */
+.help-modal__trigger-wrapper {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+}
+
+.help-modal__trigger-btn {
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.help-modal__trigger-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.help-modal__trigger-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn svg {
+  display: block;
+}
+
+.play-btn__icon-play {
+  margin-left: 0.25rem;
 }

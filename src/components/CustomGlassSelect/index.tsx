@@ -16,9 +16,10 @@ interface CustomGlassSelectProps {
   options: Option[];
   title: string;
   displayLabel: string;
+  alignment?: 'left' | 'center' | 'right';
 }
 
-export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title, displayLabel }: CustomGlassSelectProps) => {
+export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title, displayLabel, alignment = 'center' }: CustomGlassSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +57,10 @@ export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title,
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className={styles['glass-select__dropdown']}
+            className={clsx(
+              styles['glass-select__dropdown'],
+              styles[`glass-select__dropdown--${alignment}`]
+            )}
           >
             <div className={styles['glass-select__overlay']} />
             <div className={styles['glass-select__dropdown-title']}>

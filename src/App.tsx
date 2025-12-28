@@ -216,6 +216,7 @@ export default function MetronomeApp() {
                   options={beatOptions}
                   title="拍号"
                   displayLabel={`${beatsPerMeasure}/4`}
+                  alignment="left"
                 />
 
                 {/* 2. Play (Center) */}
@@ -236,6 +237,7 @@ export default function MetronomeApp() {
                   options={soundOptions}
                   title="音色"
                   displayLabel={getSoundDisplay(soundPreset)}
+                  alignment="right"
                 />
             </LiquidGlassDock>
           </div>

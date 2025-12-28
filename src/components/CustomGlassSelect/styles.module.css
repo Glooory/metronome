@@ -76,6 +76,22 @@
   -webkit-backdrop-filter: blur(64px);
 }
 
+.glass-select__dropdown--left {
+  left: 0;
+  transform: none;
+}
+
+.glass-select__dropdown--right {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.glass-select__dropdown--center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .glass-select__dropdown-title {
   position: relative;
   padding: 0.5rem 0.75rem;

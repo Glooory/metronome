@@ -168,7 +168,20 @@ export default function MetronomeApp() {
           </div>
 
           {/* BLOCK 2: VISUALIZER */}
-          <Visualizer activeBeat={visualBeat} beatsPerMeasure={beatsPerMeasure} beatStates={beatStates} toggleBeatState={toggleBeatState} subdivision={subdivision} />
+          <div className={styles['visualizer-section']}>
+            <Visualizer activeBeat={visualBeat} beatsPerMeasure={beatsPerMeasure} beatStates={beatStates} toggleBeatState={toggleBeatState} subdivision={subdivision} />
+            <div className={styles['subdivision-row']}>
+              {subdivOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  className={clsx(styles['subdivision-btn'], subdivision === opt.value && styles['subdivision-btn--active'])}
+                  onClick={() => setSubdivision(opt.value)}
+                >
+                  {opt.label.split(' ')[0]}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* BLOCK 3: DOCK */}
           <div className={styles['dock-section']}>

@@ -19,7 +19,7 @@ import {
   SOUND_MECH,
   SOUND_SINE,
   SOUND_WOOD
-} from '../constants'; // I will create this file next.
+} from '../constants';
 
 interface Note {
     note: number;
@@ -87,6 +87,23 @@ export const useMetronome = (
   };
 
   // --- Sound Synthesis Functions ---
+  // --- Sound Utils ---
+  const noiseBufferRef = useRef<AudioBuffer | null>(null);
+  
+  const getNoiseBuffer = (ctx: AudioContext) => {
+      if (!noiseBufferRef.current) {
+          const bufferSize = ctx.sampleRate * 2.0; // 2 seconds of noise
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+              data[i] = Math.random() * 2 - 1;
+          }
+          noiseBufferRef.current = buffer;
+      }
+      return noiseBufferRef.current;
+  };
+
+  // --- Sound Synthesis Functions ---
   const playSine = (ctx: AudioContext, time: number, beatType: number) => {
     const osc = ctx.createOscillator();
     const gainNode = ctx.createGain();
@@ -95,116 +112,172 @@ export const useMetronome = (
     if (convolverRef.current) gainNode.connect(convolverRef.current);
 
     osc.type = 'sine';
-    // Frequency Mappings:
-    // Accent: 1000
-    // SubAccent: 800
-    // Normal: 600
-    let freq = 600;
-    let gain = 0.75;
     
-    if (beatType === BEAT_ACCENT) { freq = 1000; gain = 1.0; }
-    else if (beatType === BEAT_SUB_ACCENT) { freq = 800; gain = 0.85; }
+    // Tighter, cleaner sine beep
+    let freq = 880; 
+    let peakGain = 0.7;
+    let decay = 0.1;
+
+    if (beatType === BEAT_ACCENT) { freq = 1760; peakGain = 0.9; decay = 0.15; } // High ping
+    else if (beatType === BEAT_SUB_ACCENT) { freq = 1320; peakGain = 0.8; decay = 0.12; }
     
     osc.frequency.value = freq;
+    
     gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(gain, time + 0.003); 
-    gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.12);
+    gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.005); 
+    gainNode.gain.exponentialRampToValueAtTime(0.001, time + decay);
+    
     osc.start(time);
-    osc.stop(time + 0.15);
+    osc.stop(time + decay + 0.05);
   };
 
   const playWoodblock = (ctx: AudioContext, time: number, beatType: number) => {
-    const osc = ctx.createOscillator();
+    // Dual oscillator for hollow sound
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
     const gainNode = ctx.createGain();
-    osc.connect(gainNode);
+    
+    osc1.connect(gainNode);
+    osc2.connect(gainNode);
     gainNode.connect(ctx.destination);
     if (convolverRef.current) gainNode.connect(convolverRef.current);
 
-    osc.type = 'sine';
-    // Accent=1200, Sub=1000, Normal=800
-    let freq = 800;
-    let peakGain = 0.7;
+    // High pitched, resonant
+    let baseFreq = 800;
+    let gain = 0.7;
     
-    if (beatType === BEAT_ACCENT) { freq = 1200; peakGain = 1.0; }
-    else if (beatType === BEAT_SUB_ACCENT) { freq = 1000; peakGain = 0.85; }
+    if (beatType === BEAT_ACCENT) { baseFreq = 1600; gain = 0.9; }
+    else if (beatType === BEAT_SUB_ACCENT) { baseFreq = 1200; gain = 0.8; }
 
-    osc.frequency.setValueAtTime(freq, time);
+    osc1.frequency.setValueAtTime(baseFreq, time);
+    osc1.type = 'sine';
     
+    // Slight detune for resonance
+    osc2.frequency.setValueAtTime(baseFreq * 1.58, time); // Inharmonic ratio
+    osc2.type = 'square'; // Adds harmonics, filtered by low decay
+
+    // Filter for osc2 to not be too buzzing
+    // Actually simplicity is better: just sine waves
+    osc2.type = 'sine';
+
     gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.002);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.1);
+    gainNode.gain.linearRampToValueAtTime(gain, time + 0.002);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.08); // Short decay
 
-    osc.start(time);
-    osc.stop(time + 0.12);
+    osc1.start(time);
+    osc2.start(time);
+    osc1.stop(time + 0.1);
+    osc2.stop(time + 0.1);
   };
 
   const playDrum = (ctx: AudioContext, time: number, beatType: number) => {
-    // Drum synth is more complex, usually Bass Drum vs Snare vs HiHat
-    // Accent -> Bass/Kick
-    // SubAccent -> Snareish/Tom
-    // Normal -> Hat/Stick
+    // "动次打" Style
     
     if (beatType === BEAT_ACCENT) {
-        // Kick
+        // --- KICK (动) ---
         const osc = ctx.createOscillator();
-        const g = ctx.createGain();
-        osc.connect(g);
-        g.connect(ctx.destination);
-        if (convolverRef.current) g.connect(convolverRef.current);
+        const gainNode = ctx.createGain();
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        if (convolverRef.current) gainNode.connect(convolverRef.current);
 
-        osc.frequency.setValueAtTime(150, time);
+        // Punchy sweep: 180Hz -> 50Hz very fast
+        osc.frequency.setValueAtTime(180, time);
         osc.frequency.exponentialRampToValueAtTime(50, time + 0.1);
-        g.gain.setValueAtTime(1.0, time);
-        g.gain.exponentialRampToValueAtTime(0.001, time + 0.15);
-        osc.start(time);
-        osc.stop(time + 0.2);
-    } else {
-        const osc = ctx.createOscillator();
-        const g = ctx.createGain();
-        osc.connect(g);
-        g.connect(ctx.destination);
-        if (convolverRef.current) g.connect(convolverRef.current);
         
-        let freq = 400; // Normal stick
-        let gain = 0.6;
-        if (beatType === BEAT_SUB_ACCENT) { freq = 450; gain = 0.8; } // Slightly higher stick
+        // Envelope with click
+        // Increased gain to 1.5 and decay for more punch
+        gainNode.gain.setValueAtTime(1.5, time);
+        gainNode.gain.linearRampToValueAtTime(1.5, time + 0.005);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.25);
 
-        osc.frequency.setValueAtTime(freq, time);
-        osc.type = 'triangle';
-        g.gain.setValueAtTime(0, time);
-        g.gain.linearRampToValueAtTime(gain, time + 0.003);
-        g.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
         osc.start(time);
-        osc.stop(time + 0.1);
+        osc.stop(time + 0.3);
+
+    } else if (beatType === BEAT_SUB_ACCENT) {
+        // --- SNARE/CLAP (次) ---
+        // 1. Noise Snap
+        const noise = ctx.createBufferSource();
+        noise.buffer = getNoiseBuffer(ctx);
+        const noiseFilter = ctx.createBiquadFilter();
+        noiseFilter.type = 'highpass';
+        noiseFilter.frequency.value = 1000;
+        const noiseGain = ctx.createGain();
+        
+        noise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        if (convolverRef.current) noiseGain.connect(convolverRef.current);
+        
+        noiseGain.gain.setValueAtTime(0, time);
+        noiseGain.gain.linearRampToValueAtTime(0.8, time + 0.005);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, time + 0.15);
+        
+        noise.start(time);
+        noise.stop(time + 0.2);
+
+        // 2. Body Tone
+        const osc = ctx.createOscillator();
+        const oscGain = ctx.createGain();
+        osc.connect(oscGain);
+        oscGain.connect(ctx.destination);
+        osc.frequency.setValueAtTime(250, time);
+        osc.type = 'triangle';
+        oscGain.gain.setValueAtTime(0, time);
+        oscGain.gain.linearRampToValueAtTime(0.3, time + 0.005);
+        oscGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
+        osc.start(time);
+        osc.stop(time + 0.15);
+
+    } else {
+        // --- HI-HAT (打) ---
+        // High frequency noise burst
+        const noise = ctx.createBufferSource();
+        noise.buffer = getNoiseBuffer(ctx);
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'highpass';
+        filter.frequency.value = 8000;
+        const gainNode = ctx.createGain();
+
+        noise.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        if (convolverRef.current) gainNode.connect(convolverRef.current);
+
+        gainNode.gain.setValueAtTime(0, time);
+        gainNode.gain.linearRampToValueAtTime(0.3, time + 0.005);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.05); // Very short
+
+        noise.start(time);
+        noise.stop(time + 0.1);
     }
   };
 
   const playMech = (ctx: AudioContext, time: number, beatType: number) => {
+    // Mechanical Click (Broadband impulse)
     const osc = ctx.createOscillator();
     const gainNode = ctx.createGain();
-    const filter = ctx.createBiquadFilter();
     
-    filter.type = 'lowpass';
-    filter.frequency.value = 2000;
-
-    osc.connect(filter);
-    filter.connect(gainNode);
+    osc.connect(gainNode);
     gainNode.connect(ctx.destination);
     if (convolverRef.current) gainNode.connect(convolverRef.current);
 
     osc.type = 'square';
     
-    let freq = 800; // Normal
+    let freq = 2000; // Sharp click
     let gain = 0.5;
-    if (beatType === BEAT_ACCENT) { freq = 1200; gain = 0.8; }
-    else if (beatType === BEAT_SUB_ACCENT) { freq = 1000; gain = 0.65; }
+    
+    if (beatType === BEAT_ACCENT) { freq = 2500; gain = 0.7; }
+    else if (beatType === BEAT_SUB_ACCENT) { freq = 2200; gain = 0.6; }
 
-    osc.frequency.value = freq;
+    osc.frequency.setValueAtTime(freq, time);
+    
     gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(gain, time + 0.002);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.03); 
+    gainNode.gain.linearRampToValueAtTime(gain, time + 0.001);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.03); // Ultra short
+    
     osc.start(time);
-    osc.stop(time + 0.04);
+    osc.stop(time + 0.05);
   };
 
   // Use Ref for stepStates to avoid re-triggering scheduler effect on state change

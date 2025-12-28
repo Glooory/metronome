@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { HelpCircle, Layers, Music2, Pause, Play, Waves } from 'lucide-react';
+import { HelpCircle, Music2, Pause, Play, Waves } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import styles from './App.module.css';
 
@@ -133,10 +133,7 @@ export default function MetronomeApp() {
     { label: '16TH (1/16)', value: 4 },
   ];
 
-  const getSubdivDisplay = (val: number) => {
-    const opt = subdivOptions.find(o => o.value === val);
-    return opt ? opt.label.split(' ')[0] : 'QTR';
-  };
+
   const getSoundDisplay = (val: string) => {
     const opt = soundOptions.find(o => o.value === val);
     return opt ? opt.label : 'SINE';
@@ -187,7 +184,7 @@ export default function MetronomeApp() {
           <div className={styles['dock-section']}>
             <LiquidGlassDock>
                 
-                {/* 1. Time Signature Select */}
+                {/* 1. Time Signature Select (Left) */}
                 <CustomGlassSelect 
                   icon={Music2} 
                   value={beatsPerMeasure} 
@@ -196,18 +193,8 @@ export default function MetronomeApp() {
                   title="拍号"
                   displayLabel={`${beatsPerMeasure}/4`}
                 />
-                
-                {/* 2. Sound Preset Select */}
-                <CustomGlassSelect 
-                  icon={Waves} 
-                  value={soundPreset} 
-                  onChange={setSoundPreset}
-                  options={soundOptions}
-                  title="音色"
-                  displayLabel={getSoundDisplay(soundPreset)}
-                />
-                
-                {/* 3. Play (Center) */}
+
+                {/* 2. Play (Center) */}
                 <motion.button 
                     whileHover={{ scale: 1.02 }} 
                     whileTap={{ scale: 0.98 }} 
@@ -217,20 +204,15 @@ export default function MetronomeApp() {
                     {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className={styles['play-btn__icon-play']} />}
                 </motion.button>
                 
-                {/* 4. Subdivision Select */}
+                {/* 3. Sound Preset Select (Right) */}
                 <CustomGlassSelect 
-                  icon={Layers} 
-                  value={subdivision} 
-                  onChange={(v) => setSubdivision(parseInt(v))}
-                  options={subdivOptions}
-                  title="细分"
-                  displayLabel={getSubdivDisplay(subdivision)}
+                  icon={Waves} 
+                  value={soundPreset} 
+                  onChange={setSoundPreset}
+                  options={soundOptions}
+                  title="音色"
+                  displayLabel={getSoundDisplay(soundPreset)}
                 />
-
-                {/* 5. TAP TEMPO */}
-                <button onClick={handleTap} className={styles['tap-btn']}>
-                    <span className={styles['tap-btn__label']}>TAP</span>
-                </button>
             </LiquidGlassDock>
           </div>
       </div>

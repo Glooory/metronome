@@ -191,30 +191,6 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-.tap-btn {
-  height: 2.25rem;
-  width: 6rem;
-  border-radius: 9999px;
-  border: 1px solid transparent;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-@media (min-width: 768px) {
-  .tap-btn {
-    height: 2.5rem;
-  }
-}
-
-.tap-btn__label {
-  font-family: monospace;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-}
 
 /* --- Help Trigger --- */
 .help-modal__trigger-wrapper {

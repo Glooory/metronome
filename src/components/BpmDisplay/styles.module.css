@@ -191,15 +191,7 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-@keyframes wheel-scroll {
-  0% {
-    background-position-y: 0;
-  }
 
-  100% {
-    background-position-y: 1rem;
-  }
-}
 
 /* Simulated wheel lines */
 .bpm-display__wheel::before {
@@ -214,13 +206,12 @@
       rgba(255, 255, 255, 0.3) 50%,
       transparent 55%);
   background-size: 100% 1rem;
+  background-position-y: var(--wheel-offset, 0);
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
-.bpm-display__wheel:active::before {
-  animation: wheel-scroll 0.2s linear infinite;
-}
+
 
 /* Highlight line in center */
 .bpm-display__wheel::after {

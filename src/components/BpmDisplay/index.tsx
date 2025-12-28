@@ -13,6 +13,7 @@ interface BpmDisplayProps {
 export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [inputValue, setInputValue] = useState(String(bpm));
+  const [wheelOffset, setWheelOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const startY = useRef<number | null>(null);
   const startBpm = useRef<number | null>(null);
@@ -33,13 +34,21 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
   };
   const handlePointerMove = (e: globalThis.PointerEvent) => {
     if (startY.current === null) return;
-    if (Math.abs(startY.current - e.clientY) > 5) hasMoved.current = true;
-    if (hasMoved.current && startBpm.current !== null) { const d = Math.round((startY.current - e.clientY) * 0.5); setBpm(Math.min(Math.max(startBpm.current + d, MIN_BPM), MAX_BPM)); }
+    const deltaY = startY.current - e.clientY;
+    if (Math.abs(deltaY) > 5) hasMoved.current = true;
+    if (hasMoved.current && startBpm.current !== null) {
+      const d = Math.round(deltaY * 0.5);
+      setBpm(Math.min(Math.max(startBpm.current + d, MIN_BPM), MAX_BPM));
+      setWheelOffset(deltaY % 16); // Animate wheel based on drag distance
+    }
   };
   const handlePointerUp = () => {
-    document.body.style.cursor = 'default'; window.removeEventListener('pointermove', handlePointerMove as any); window.removeEventListener('pointerup', handlePointerUp);
+    document.body.style.cursor = 'default';
+    window.removeEventListener('pointermove', handlePointerMove as any);
+    window.removeEventListener('pointerup', handlePointerUp);
     if (!hasMoved.current) setIsEditing(true);
     startY.current = null;
+    setWheelOffset(0); // Reset wheel position
   };
   const handleBtnClick = (e: React.MouseEvent, delta: number) => { e.stopPropagation(); updateBpm(delta); };
 
@@ -65,6 +74,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
             className={styles['bpm-display__wheel']} 
             onPointerDown={handlePointerDown}
             title="Drag to adjust BPM"
+            style={{ '--wheel-offset': `${wheelOffset}px` } as React.CSSProperties}
           >
              <div className={styles['bpm-display__wheel-lines']}></div>
           </div>

@@ -65,10 +65,10 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
         </div>
         <div className={styles['bpm-display__controls']}>
           <div className={styles['bpm-display__buttons-col']}>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 5)}><ChevronsUp size={20} /></button>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 1)}><ChevronUp size={20} /></button>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -1)}><ChevronDown size={20} /></button>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -5)}><ChevronsDown size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 5)} disabled={bpm >= MAX_BPM}><ChevronsUp size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 1)} disabled={bpm >= MAX_BPM}><ChevronUp size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -1)} disabled={bpm <= MIN_BPM}><ChevronDown size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -5)} disabled={bpm <= MIN_BPM}><ChevronsDown size={20} /></button>
           </div>
           <div 
             className={styles['bpm-display__wheel']} 

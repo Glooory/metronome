@@ -167,6 +167,12 @@
   transform: scale(0.98);
 }
 
+.bpm-display__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .bpm-display__wheel {
   width: 2.5rem;
   background: linear-gradient(to right,

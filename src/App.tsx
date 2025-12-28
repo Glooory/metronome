@@ -61,6 +61,10 @@ export default function MetronomeApp() {
   const [subdivision, setSubdivision] = useState<number>(() => getStorageItem(STORAGE_KEY_SUBDIV_VAL, 1, (v) => parseInt(v, 10)));
   const [soundPreset, setSoundPreset] = useState<string>(() => getStorageItem(STORAGE_KEY_SOUND, SOUND_SINE));
   const [savedBpms, setSavedBpms] = useState<number[]>(() => getStorageItem(STORAGE_KEY_SAVED_BPMS, [], JSON.parse));
+  const [subdivisionStates, setSubdivisionStates] = useState<boolean[]>(() => {
+    // Initial state: all true (play)
+    return Array(4 * 1).fill(true); 
+  });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   useEffect(() => {
@@ -77,6 +81,16 @@ export default function MetronomeApp() {
   }, [beatsPerMeasure]);
 
   useEffect(() => {
+    // Resize subdivisionStates when beatsPerMeasure or subdivision changes
+    const totalSteps = beatsPerMeasure * subdivision;
+    setSubdivisionStates(prev => {
+        if (prev.length === totalSteps) return prev;
+        // Create new array of correct size, default to true
+        return Array(totalSteps).fill(true);
+    });
+  }, [beatsPerMeasure, subdivision]);
+
+  useEffect(() => {
     setStorageItem(STORAGE_KEY_BPM, bpm);
     setStorageItem(STORAGE_KEY_BEATS, beatsPerMeasure);
     setStorageItem(STORAGE_KEY_STATES, beatStates);
@@ -86,7 +100,9 @@ export default function MetronomeApp() {
   }, [bpm, beatsPerMeasure, beatStates, subdivision, soundPreset, savedBpms]);
 
   const toggleBeatState = (i: number) => setBeatStates(p => { const n = [...p]; n[i] = ((n[i] ?? BEAT_NORMAL) + 1) % 3; return n; });
-  const { isPlaying, setIsPlaying, visualBeat, ensureAudioContext } = useMetronome(bpm, beatsPerMeasure, beatStates, subdivision, soundPreset);
+  const toggleSubdivisionState = (i: number) => setSubdivisionStates(p => { const n = [...p]; n[i] = !n[i]; return n; });
+
+  const { isPlaying, setIsPlaying, visualBeat, ensureAudioContext } = useMetronome(bpm, beatsPerMeasure, beatStates, subdivision, soundPreset, subdivisionStates);
   
   const tapTimes = useRef<number[]>([]);
   const handleTap = () => {
@@ -166,7 +182,15 @@ export default function MetronomeApp() {
 
           {/* BLOCK 2: VISUALIZER */}
           <div className={styles['visualizer-section']}>
-            <Visualizer activeBeat={visualBeat} beatsPerMeasure={beatsPerMeasure} beatStates={beatStates} toggleBeatState={toggleBeatState} subdivision={subdivision} />
+            <Visualizer 
+                activeBeat={visualBeat} 
+                beatsPerMeasure={beatsPerMeasure} 
+                beatStates={beatStates} 
+                toggleBeatState={toggleBeatState} 
+                subdivision={subdivision}
+                subdivisionStates={subdivisionStates}
+                toggleSubdivisionState={toggleSubdivisionState}
+            />
             <div className={styles['subdivision-row']}>
               {subdivOptions.map((opt) => (
                 <button

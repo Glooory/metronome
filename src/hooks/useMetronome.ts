@@ -31,7 +31,8 @@ export const useMetronome = (
     beatsPerMeasure: number, 
     beatStates: number[], 
     subdivision: number, 
-    soundPreset: string
+    soundPreset: string,
+    subdivisionStates: boolean[]
 ) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioContext = useRef<AudioContext | null>(null);
@@ -164,16 +165,35 @@ export const useMetronome = (
   const playSound = useCallback((time: number, beatNumber: number, subdivisionIndex: number) => {
     if (!audioContext.current) return;
     
-    const isMainBeat = subdivisionIndex === 0;
     const totalSubdivisionsPerMeasure = beatsPerMeasure * subdivision;
     const positionInMeasure = beatNumber % totalSubdivisionsPerMeasure;
+    const isMainBeat = subdivisionIndex === 0;
     const currentMainBeatIndex = Math.floor(positionInMeasure / subdivision);
     
     const currentState = beatStates[currentMainBeatIndex] ?? BEAT_NORMAL;
     const isAccent = currentState === BEAT_ACCENT;
-    const isMute = currentState === BEAT_MUTE;
+    const isMainMute = currentState === BEAT_MUTE;
 
-    if (isMute) return;
+    // Check specific subdivision mute state
+    const isSubdivisionActive = subdivisionStates[positionInMeasure] ?? true;
+
+    // Determine effective mute
+    // If it's a main beat, use main beat internal state (MUTE silences it)
+    // If it's a subdivision, use subdivisionStates check
+    // Wait, the requirement is "allow subdivisions to be muted".
+    // Does Main Beat Mute still silence everything? Plan says:
+    // "For Main Beat slots (index % subdiv == 0): Ignore subdivisionStates. Rely on beatStates."
+    // "For Sub Beat slots: Check subdivisionStates."
+    
+    let shouldPlay = true;
+
+    if (isMainBeat) {
+       if (isMainMute) shouldPlay = false;
+    } else {
+       if (!isSubdivisionActive) shouldPlay = false;
+    }
+
+    if (!shouldPlay) return;
 
     if (isMainBeat) {
       switch(soundPreset) {
@@ -190,7 +210,7 @@ export const useMetronome = (
         case SOUND_SINE: default: playSine(audioContext.current, time, isAccent, true); break;
       }
     }
-  }, [beatsPerMeasure, subdivision, beatStates, soundPreset]);
+  }, [beatsPerMeasure, subdivision, beatStates, soundPreset, subdivisionStates]);
 
   const nextNote = useCallback(() => {
     const secondsPerSubdivision = 60.0 / bpm / subdivision;

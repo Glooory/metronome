@@ -10,9 +10,11 @@ interface VisualizerProps {
   beatStates: number[];
   toggleBeatState: (index: number) => void;
   subdivision: number;
+  subdivisionStates: boolean[];
+  toggleSubdivisionState: (index: number) => void;
 }
 
-export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeatState, subdivision }: VisualizerProps) => {
+export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeatState, subdivision, subdivisionStates, toggleSubdivisionState }: VisualizerProps) => {
   const totalSteps = beatsPerMeasure * subdivision;
 
   return (
@@ -22,24 +24,31 @@ export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeat
              const isMainBeat = i % subdivision === 0;
              const mainBeatIndex = Math.floor(i / subdivision);
              
-             const currentState = beatStates[mainBeatIndex] ?? BEAT_NORMAL;
-             const isAccent = currentState === BEAT_ACCENT;
-             const isMute = currentState === BEAT_MUTE;
+             const currentMainState = beatStates[mainBeatIndex] ?? BEAT_NORMAL;
+             const isMainAccent = currentMainState === BEAT_ACCENT;
+             const isMainMute = currentMainState === BEAT_MUTE;
+
+             const isSubdivisionActive = subdivisionStates[i] ?? true;
 
              const isActive = activeBeat === i;
+
+             // Determine effective mute state for display
+             // Main beat: uses beatStates
+             // Sub beat: uses subdivisionStates
+             const isEffectiveMute = isMainBeat ? isMainMute : !isSubdivisionActive;
 
              return (
                <div 
                  key={i} 
-                 onClick={() => toggleBeatState(mainBeatIndex)} 
+                 onClick={() => isMainBeat ? toggleBeatState(mainBeatIndex) : toggleSubdivisionState(i)} 
                  className={styles['visualizer__column']}
                >
                   {/* Label only on Main Beats */}
                   {isMainBeat && (
                     <div className={clsx(
                         styles['visualizer__label'], 
-                        isActive && !isMute 
-                          ? (isAccent ? styles['visualizer__label--active-accent'] : styles['visualizer__label--active-normal']) 
+                        isActive && !isMainMute 
+                          ? (isMainAccent ? styles['visualizer__label--active-accent'] : styles['visualizer__label--active-normal']) 
                           : styles['visualizer__label--inactive']
                     )}>
                         {mainBeatIndex + 1}
@@ -51,28 +60,28 @@ export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeat
                     initial={false} 
                     animate={{ 
                         backgroundColor: isActive 
-                            ? (isMute ? "rgba(255, 255, 255, 0.4)" : isAccent ? "rgba(251, 191, 36, 1)" : "rgba(34, 211, 238, 1)") 
-                            : (isMute ? "rgba(255, 255, 255, 0.05)" : isAccent ? "rgba(251, 191, 36, 0.15)" : "rgba(34, 211, 238, 0.15)"), 
+                            ? (isEffectiveMute ? "rgba(255, 255, 255, 0.4)" : isMainAccent ? "rgba(251, 191, 36, 1)" : "rgba(34, 211, 238, 1)") 
+                            : (isEffectiveMute ? "rgba(255, 255, 255, 0.05)" : isMainAccent ? "rgba(251, 191, 36, 0.15)" : "rgba(34, 211, 238, 0.15)"), 
                         
                         borderColor: isActive ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.1)",
                         
                         // HEIGHT LOGIC
                         height: isMainBeat ? "48px" : "32px",
                         
-                        boxShadow: isActive && !isMute
-                            ? (isAccent ? "0 0 50px 10px rgba(245, 158, 11, 0.5)" : "0 0 40px 8px rgba(34, 211, 238, 0.5)") 
+                        boxShadow: isActive && !isEffectiveMute
+                            ? (isMainAccent ? "0 0 50px 10px rgba(245, 158, 11, 0.5)" : "0 0 40px 8px rgba(34, 211, 238, 0.5)") 
                             : "none"
                     }} 
                     transition={{ duration: 0.05, ease: "easeOut" }} 
                     className={clsx(
                         styles['visualizer__bar'],
                         isMainBeat ? styles['visualizer__bar--main'] : styles['visualizer__bar--sub'], 
-                        isMute && !isActive && "opacity-30" 
+                        isEffectiveMute && !isActive && "opacity-30" 
                     )}
                   >
-                     {isMainBeat && isMute && (
+                     {isEffectiveMute && (
                         <div className={styles['visualizer__mute-icon']}>
-                            <VolumeX size={18} className={clsx(
+                            <VolumeX size={14} className={clsx(
                               styles['visualizer__mute-icon-svg'],
                               isActive && styles['visualizer__mute-icon-svg--active']
                             )} />
@@ -84,7 +93,7 @@ export const Visualizer = ({ activeBeat, beatsPerMeasure, beatStates, toggleBeat
                   {isMainBeat && (
                      <motion.div animate={{ opacity: isActive ? 0.6 : 0.1 }} className={clsx(
                        styles['visualizer__reflection'], 
-                       isAccent ? styles['visualizer__reflection--accent'] : isMute ? styles['visualizer__reflection--mute'] : styles['visualizer__reflection--normal']
+                       isMainAccent ? styles['visualizer__reflection--accent'] : isMainMute ? styles['visualizer__reflection--mute'] : styles['visualizer__reflection--normal']
                      )} />
                   )}
                </div>

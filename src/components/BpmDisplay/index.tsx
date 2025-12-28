@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { ChevronDown, ChevronsDown, ChevronsUp, ChevronUp, GripVertical } from 'lucide-react';
+import { ChevronDown, ChevronsDown, ChevronsUp, ChevronUp } from 'lucide-react';
 import { KeyboardEvent, PointerEvent, useEffect, useRef, useState } from 'react';
 import { MAX_BPM, MIN_BPM } from '../../constants';
 import styles from './styles.module.css';
@@ -45,7 +45,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
 
   return (
     <div className={styles['bpm-display']}>
-      <div className={styles['bpm-display__resize-area']} onPointerDown={handlePointerDown}>
+      <div className={styles['bpm-display__resize-area']}>
         <div className={styles['bpm-display__label']}>
              <span>B</span><span>P</span><span>M</span>
         </div>
@@ -54,13 +54,21 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
             <h1 className={clsx(styles['bpm-display__value--blur'], isEditing ? styles.hidden : styles.visible)}>{bpm}</h1>
             {isEditing && <input ref={inputRef} type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onBlur={commitChange} onKeyDown={handleKeyDown} className={styles['bpm-display__input']} />}
         </div>
-        {<div className={styles['bpm-display__controls']}>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 5)}><ChevronsUp size={24} /></button>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 1)}><ChevronUp size={24} /></button>
-             <div className={styles['grip-wrapper']}><GripVertical size={36} /></div>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -1)}><ChevronDown size={24} /></button>
-             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -5)}><ChevronsDown size={24} /></button>
-        </div>}
+        <div className={styles['bpm-display__controls']}>
+          <div className={styles['bpm-display__buttons-col']}>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 5)}><ChevronsUp size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, 1)}><ChevronUp size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -1)}><ChevronDown size={20} /></button>
+             <button className={clsx("bpm-control-btn", styles['bpm-display__btn'])} onClick={(e) => handleBtnClick(e, -5)}><ChevronsDown size={20} /></button>
+          </div>
+          <div 
+            className={styles['bpm-display__wheel']} 
+            onPointerDown={handlePointerDown}
+            title="Drag to adjust BPM"
+          >
+             <div className={styles['bpm-display__wheel-lines']}></div>
+          </div>
+        </div>
       </div>
     </div>
   );

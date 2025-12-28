@@ -17,7 +17,6 @@
   width: 100%;
   height: 14rem;
   transition: all 0.2s;
-  cursor: ns-resize;
 }
 
 .bpm-display__label {
@@ -45,6 +44,7 @@
   line-height: 1;
   font-variant-numeric: tabular-nums;
   font-family: 'Inter', sans-serif;
+  min-width: 3ch;
 }
 
 @media (min-width: 768px) {
@@ -127,30 +127,111 @@
 
 .bpm-display__controls {
   display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  width: auto;
+  height: 80%;
+}
+
+.bpm-display__buttons-col {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: 0.25rem;
-  color: rgba(255, 255, 255, 0.6);
-  width: 4rem;
+  width: 2.5rem;
 }
 
 .bpm-display__btn {
   padding: 0.25rem;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .bpm-display__btn:hover {
   color: white;
-  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: none;
 }
 
 .bpm-display__btn:active {
-  transform: scale(0.95);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.98);
 }
 
-.grip-wrapper {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
-  opacity: 1;
+.bpm-display__wheel {
+  width: 2.5rem;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.4),
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(0, 0, 0, 0.4));
+  border-radius: 0.75rem;
+  cursor: ns-resize;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.bpm-display__wheel:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bpm-display__wheel:active {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes wheel-scroll {
+  0% {
+    background-position-y: 0;
+  }
+
+  100% {
+    background-position-y: 1rem;
+  }
+}
+
+/* Simulated wheel lines */
+.bpm-display__wheel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom,
+      transparent 45%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 55%);
+  background-size: 100% 1rem;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.bpm-display__wheel:active::before {
+  animation: wheel-scroll 0.2s linear infinite;
+}
+
+/* Highlight line in center */
+.bpm-display__wheel::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 120, 120, 0.8);
+  box-shadow: 0 0 5px rgba(255, 120, 120, 0.5);
+  transform: translateY(-50%);
+  pointer-events: none;
 }

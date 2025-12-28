@@ -141,6 +141,8 @@
 
 .dock-section {
   width: 100%;
+  position: relative;
+  z-index: 50;
 }
 
 .tap-btn {

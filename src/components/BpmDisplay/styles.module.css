@@ -1,5 +1,6 @@
 /* --- BpmDisplay --- */
 .bpm-display {
+  --bpm-lable-fz: 6rem;
   position: relative;
   z-index: 20;
   display: flex;
@@ -7,6 +8,12 @@
   align-items: center;
   user-select: none;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .bpm-display {
+    --bpm-lable-fz: 10rem;
+  }
 }
 
 .bpm-display__resize-area {
@@ -38,19 +45,13 @@
   display: grid;
   place-items: center;
   flex: 1;
-  font-size: 8rem;
+  font-size: var(--bpm-lable-fz);
   font-weight: bold;
   letter-spacing: -0.05em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   font-family: 'Inter', sans-serif;
   min-width: 3ch;
-}
-
-@media (min-width: 768px) {
-  .bpm-display__value-wrapper {
-    font-size: 12rem;
-  }
 }
 
 .bpm-display__value--main {
@@ -93,18 +94,12 @@
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
   font-family: 'Inter', sans-serif;
   font-weight: bold;
-  font-size: 8rem;
+  font-size: var(--bpm-lable-fz);
   line-height: 1;
   letter-spacing: -0.05em;
   -moz-appearance: textfield;
   appearance: textfield;
   caret-color: white;
-}
-
-@media (min-width: 768px) {
-  .bpm-display__input {
-    font-size: 12rem;
-  }
 }
 
 .bpm-display__input::selection {

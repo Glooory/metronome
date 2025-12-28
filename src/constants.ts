@@ -7,6 +7,7 @@ export const SCHEDULE_AHEAD_TIME = 0.1;
 export const BEAT_NORMAL = 0;
 export const BEAT_ACCENT = 1;
 export const BEAT_MUTE = 2;
+export const BEAT_SUB_ACCENT = 3;
 
 export const SOUND_SINE = 'sine';
 export const SOUND_WOOD = 'wood';

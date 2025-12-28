@@ -16,7 +16,8 @@ export const SOUND_MECH = 'mech';
 
 export const STORAGE_KEY_BPM = 'spatial-metronome-bpm';
 export const STORAGE_KEY_BEATS = 'spatial-metronome-beats';
-export const STORAGE_KEY_STATES = 'spatial-metronome-beat-states-v3'; 
+export const STORAGE_KEY_STATES = 'spatial-metronome-beat-states-v3'; // Legacy/Unused
+export const STORAGE_KEY_STEP_STATES = 'spatial-metronome-step-states-v4'; // New unified states
 export const STORAGE_KEY_SUBDIV_VAL = 'spatial-metronome-subdiv-value';
 export const STORAGE_KEY_SOUND = 'spatial-metronome-sound-preset';
 export const STORAGE_KEY_SAVED_BPMS = 'spatial-metronome-saved-bpms';

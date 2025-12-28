@@ -26,6 +26,7 @@ import {
   STORAGE_KEY_BPM,
   STORAGE_KEY_SAVED_BPMS,
   STORAGE_KEY_SOUND,
+  STORAGE_KEY_STEP_STATES,
   STORAGE_KEY_SUBDIV_VAL,
   TAP_TIMEOUT
 } from './constants';
@@ -54,8 +55,6 @@ const setStorageItem = (key: string, value: any) => {
   }
 };
 
-// --- Main Application ---
-
 export default function MetronomeApp() {
   const [bpm, setBpm] = useState<number>(() => getStorageItem(STORAGE_KEY_BPM, 120, (v) => Math.min(Math.max(parseInt(v, 10), MIN_BPM), MAX_BPM)));
   const [beatsPerMeasure, setBeatsPerMeasure] = useState<number>(() => getStorageItem(STORAGE_KEY_BEATS, 4, (v) => Math.max(parseInt(v, 10), 1)));
@@ -63,55 +62,49 @@ export default function MetronomeApp() {
   const [soundPreset, setSoundPreset] = useState<string>(() => getStorageItem(STORAGE_KEY_SOUND, SOUND_SINE));
   const [savedBpms, setSavedBpms] = useState<number[]>(() => getStorageItem(STORAGE_KEY_SAVED_BPMS, [], JSON.parse));
   
-  // Unified Step States: Stores the state (Accent, Sub, Normal, Mute) for every tick
-  // Length = beatsPerMeasure * subdivision
-  const [stepStates, setStepStates] = useState<number[]>(() => {
-    // Initial default: 4/4, subdiv 1. 
-    // Default pattern: Accent, Normal, Normal, Normal
-    return [BEAT_ACCENT, BEAT_NORMAL, BEAT_NORMAL, BEAT_NORMAL];
-  });
-  const [isHelpOpen, setIsHelpOpen] = useState(false);
-
   // Helper to create a default beat chunk (Main + Subdivisions)
   const createDefaultBeat = (subdivs: number, visualIndex: number) => {
     const chunk = [];
-    // First tick is main beat (Accent on 1, Normal on others)
     chunk.push(visualIndex === 0 ? BEAT_ACCENT : BEAT_NORMAL);
-    // Remaining ticks are Normal
-    for (let i = 1; i < subdivs; i++) {
-        chunk.push(BEAT_NORMAL);
-    }
+    for (let i = 1; i < subdivs; i++) chunk.push(BEAT_NORMAL);
     return chunk;
   };
 
-  // Effect: Handle BeatsPerMeasure or Subdivision changes
-  // We try to preserve existing patterns where possible
+  // Unified Step States: Stores the state (Accent, Sub, Normal, Mute) for every tick
+  const [stepStates, setStepStates] = useState<number[]>(() => {
+    const saved = getStorageItem(STORAGE_KEY_STEP_STATES, [] as number[], JSON.parse);
+    const requiredLength = beatsPerMeasure * subdivision;
+    
+    // Validation: If saved data matches current dimension requirements, use it.
+    if (Array.isArray(saved) && saved.length === requiredLength) {
+        return saved;
+    }
+    
+    // Fallback: Generate default pattern
+    const newSteps: number[] = [];
+    for (let b = 0; b < beatsPerMeasure; b++) {
+        const chunk = [];
+        chunk.push(b === 0 ? BEAT_ACCENT : BEAT_NORMAL);
+        for (let i = 1; i < subdivision; i++) chunk.push(BEAT_NORMAL);
+        newSteps.push(...chunk);
+    }
+    return newSteps;
+  });
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+
+  // ... (Effect for resizing stepStates on config change - same as before) ...
   useEffect(() => {
     setStepStates(prev => {
         const currentTotal = prev.length;
         const targetTotal = beatsPerMeasure * subdivision;
-        
-        // If exact match (unlikely if inputs changed, but possible on init loops), do nothing
         if (currentTotal === targetTotal) return prev;
-
-        // Reconstruct visual beats
-        // We need to know previous subdivision to map correctly
-        // But we don't store "prevSubdivision" here easily without ref. 
-        // Strategy: 
-        // 1. If length matches logic (prev.length % subdiv == 0?), try to reshape.
-        // 2. Simplification: Just regenerate from scratch if subdivision changes? 
-        //    User might lose data, but it's cleaner. 
-        //    Let's try to be smart: Assume previous state was valid for *current* beats/subdiv? No.
         
-        // Let's rely on a simpler macro logic: 
-        // Just Reset to Defaults when structure changes. 
-        // Providing "smart resize" for complex rhythmic patterns is hard without history.
-        // ACTUALLY: The user Experience is better if we just reset to standard metronome pattern 
-        // (Accent on 1) when structure changes.
-        
+        // Reset to Defaults when structure changes
         const newSteps: number[] = [];
         for (let b = 0; b < beatsPerMeasure; b++) {
-            newSteps.push(...createDefaultBeat(subdivision, b));
+             // simplified inline default generation
+            newSteps.push(b === 0 ? BEAT_ACCENT : BEAT_NORMAL);
+            for (let i = 1; i < subdivision; i++) newSteps.push(BEAT_NORMAL);
         }
         return newSteps;
     });
@@ -120,9 +113,7 @@ export default function MetronomeApp() {
   useEffect(() => {
     setStorageItem(STORAGE_KEY_BPM, bpm);
     setStorageItem(STORAGE_KEY_BEATS, beatsPerMeasure);
-    // Not storing stepStates just yet to avoid complexity or adding new key? 
-    // User probably wants persistence. Let's add STORAGE_KEY_STEPS later or reuse STATES key.
-    // For now, let's skip persistence of complex patterns to avoid conflicts with old data.
+    setStorageItem(STORAGE_KEY_STEP_STATES, stepStates); // Now persisting steps!
     setStorageItem(STORAGE_KEY_SUBDIV_VAL, subdivision);
     setStorageItem(STORAGE_KEY_SOUND, soundPreset);
     setStorageItem(STORAGE_KEY_SAVED_BPMS, savedBpms);

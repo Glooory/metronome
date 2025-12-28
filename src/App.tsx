@@ -164,7 +164,7 @@ export default function MetronomeApp() {
           {/* BLOCK 1: BPM & HISTORY */}
           <div className={styles['bpm-section']}>
               <BpmDisplay bpm={bpm} setBpm={setBpm} />
-              <BpmHistoryBar currentBpm={bpm} setBpm={setBpm} savedBpms={savedBpms} setSavedBpms={setSavedBpms} />
+              <BpmHistoryBar currentBpm={bpm} setBpm={setBpm} savedBpms={savedBpms} setSavedBpms={setSavedBpms} onTap={handleTap} />
           </div>
 
           {/* BLOCK 2: VISUALIZER */}

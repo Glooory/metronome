@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { Star, X } from 'lucide-react';
+import { useRef } from 'react';
 import styles from './styles.module.css';
 
 interface BpmHistoryBarProps {
@@ -8,18 +9,25 @@ interface BpmHistoryBarProps {
   setBpm: (value: number | ((prev: number) => number)) => void;
   savedBpms: number[];
   setSavedBpms: (value: number[] | ((prev: number[]) => number[])) => void;
+  onTap: () => void;
 }
 
-export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms }: BpmHistoryBarProps) => {
+export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms, onTap }: BpmHistoryBarProps) => {
+  const listRef = useRef<HTMLDivElement>(null);
+
   const saveCurrentBpm = () => {
-    // We need to handle the state update logic here or pass simpler props. 
-    // The prop is setSavedBpms which matches useState setter signature.
-    // The App logic was: setSavedBpms([...savedBpms.filter(b => b !== currentBpm), currentBpm].slice(-20));
-    // Let's replicate safe logic.
+    // Prepend new BPM at the beginning (newest first, left to right = new to old)
     setSavedBpms((prev: number[]) => {
-       const newSaved = [...prev.filter(b => b !== currentBpm), currentBpm].slice(-20);
+       const filtered = prev.filter(b => b !== currentBpm);
+       const newSaved = [currentBpm, ...filtered].slice(0, 20);
        return newSaved;
     });
+    // Scroll to the leftmost position
+    setTimeout(() => {
+      if (listRef.current) {
+        listRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   const removeBpm = (e: React.MouseEvent, bpmToRemove: number) => {
@@ -29,7 +37,7 @@ export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms }: B
 
   return (
     <div className={styles['history-bar']}>
-      <div className={styles['history-bar__list']}>
+      <div ref={listRef} className={styles['history-bar__list']}>
         <LayoutGroup>
           <AnimatePresence mode='popLayout'>
             {savedBpms.map((b) => (
@@ -68,6 +76,10 @@ export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms }: B
       >
         <Star size={18} fill="currentColor" />
       </motion.button>
+
+      <button onClick={onTap} className={styles['history-bar__tap-btn']}>
+        <span className={styles['history-bar__tap-label']}>TAP</span>
+      </button>
     </div>
   );
 };

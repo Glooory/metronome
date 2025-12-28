@@ -39,7 +39,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
     if (hasMoved.current && startBpm.current !== null) {
       const d = Math.round(deltaY * 0.5);
       setBpm(Math.min(Math.max(startBpm.current + d, MIN_BPM), MAX_BPM));
-      setWheelOffset(deltaY % 16); // Animate wheel based on drag distance
+      setWheelOffset(-deltaY % 16); // Animate wheel based on drag distance (negative for natural direction)
     }
   };
   const handlePointerUp = () => {

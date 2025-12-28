@@ -49,7 +49,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
         <div className={styles['bpm-display__label']}>
              <span>B</span><span>P</span><span>M</span>
         </div>
-        <div className={styles['bpm-display__value-wrapper']}>
+        <div className={styles['bpm-display__value-wrapper']} onClick={() => !isEditing && setIsEditing(true)} style={{ cursor: 'pointer' }}>
             <h1 className={clsx(styles['bpm-display__value--main'], isEditing ? styles.hidden : styles.visible)}>{bpm}</h1>
             <h1 className={clsx(styles['bpm-display__value--blur'], isEditing ? styles.hidden : styles.visible)}>{bpm}</h1>
             {isEditing && <input ref={inputRef} type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} onBlur={commitChange} onKeyDown={handleKeyDown} className={styles['bpm-display__input']} />}

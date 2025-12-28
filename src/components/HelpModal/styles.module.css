@@ -1,4 +1,3 @@
-/* --- Help Modal --- */
 .help-modal__trigger-wrapper {
   position: absolute;
   top: 1.5rem;
@@ -44,7 +43,6 @@
   position: relative;
   width: 100%;
   max-width: 28rem;
-  /* max-w-md */
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);

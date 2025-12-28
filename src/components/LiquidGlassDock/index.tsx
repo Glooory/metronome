@@ -9,7 +9,6 @@ interface LiquidGlassDockProps {
 
 export const LiquidGlassDock = ({ children, className }: LiquidGlassDockProps) => (
   <div className={clsx(styles.dock, className)}>
-    {/* Top light leak */}
     <div className={styles['dock__top-light']} />
     {children}
   </div>

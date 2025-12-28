@@ -1,4 +1,3 @@
-/* --- BpmDisplay --- */
 .bpm-display {
   --bpm-lable-fz: 6rem;
   position: relative;
@@ -193,9 +192,6 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-
-
-/* Simulated wheel lines */
 .bpm-display__wheel::before {
   content: '';
   position: absolute;
@@ -213,9 +209,6 @@
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
-
-
-/* Highlight line in center */
 .bpm-display__wheel::after {
   content: '';
   position: absolute;

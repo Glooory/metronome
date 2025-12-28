@@ -16,13 +16,11 @@ export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms, onT
   const listRef = useRef<HTMLDivElement>(null);
 
   const saveCurrentBpm = () => {
-    // Prepend new BPM at the beginning (newest first, left to right = new to old)
     setSavedBpms((prev: number[]) => {
        const filtered = prev.filter(b => b !== currentBpm);
        const newSaved = [currentBpm, ...filtered].slice(0, 20);
        return newSaved;
     });
-    // Scroll to the leftmost position
     setTimeout(() => {
       if (listRef.current) {
         listRef.current.scrollTo({ left: 0, behavior: 'smooth' });

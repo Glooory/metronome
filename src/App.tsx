@@ -204,11 +204,8 @@ export default function MetronomeApp() {
       <AnimatePresence>{isHelpOpen && <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />}</AnimatePresence>
 
       {/* BACKGROUND */}
-      <div className={clsx(styles['app__bg-overlay'], styles['app__bg-gradient--primary'])} />
-      <div className={clsx(styles['app__bg-overlay'], styles['app__bg-gradient--secondary'])} />
-      <div className={styles['app__blob--1']} />
-      <div className={styles['app__blob--2']} />
-      <div className={styles['app__blob--3']} />
+      <div className={styles['app__bg-gradient']} />
+      {/* Optional: Keeping noise overlay for texture if it's lightweight enough, usually is */}
       <div className={styles['app__noise-overlay']} />
 
       {/* MAIN CONTAINER: CENTERED LAYOUT WITH UNIFIED SPACING */}

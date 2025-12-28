@@ -1,4 +1,3 @@
-/* --- Utilities --- */
 .glass-panel {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(24px);
@@ -7,7 +6,6 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* --- MetronomeApp --- */
 .app {
   position: fixed;
   inset: 0;
@@ -27,49 +25,21 @@
   pointer-events: none;
 }
 
+.app__bg-gradient {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .app__bg-gradient--primary {
-  background: radial-gradient(ellipse at top right, rgba(49, 46, 129, 0.4), #0a0a0a, #0a0a0a);
-}
-
-.app__bg-gradient--secondary {
-  background: radial-gradient(ellipse at bottom left, rgba(30, 58, 138, 0.3), #0a0a0a, #0a0a0a);
-}
-
-.app__blob--1 {
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 80vw;
-  height: 80vw;
-  background-color: rgba(124, 58, 237, 0.1);
-  border-radius: 9999px;
-  filter: blur(120px);
-  mix-blend-mode: screen;
-}
-
-.app__blob--2 {
-  position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 70vw;
-  height: 70vw;
-  background-color: rgba(14, 165, 233, 0.1);
-  border-radius: 9999px;
-  filter: blur(120px);
-  mix-blend-mode: screen;
-}
-
-.app__blob--3 {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40vw;
-  height: 40vw;
-  background-color: rgba(99, 102, 241, 0.05);
-  border-radius: 9999px;
-  filter: blur(100px);
-  mix-blend-mode: screen;
+  background-color: #0a0a0a;
 }
 
 .app__noise-overlay {
@@ -95,7 +65,6 @@
   z-index: 10;
 }
 
-/* Play Button */
 .play-btn {
   width: 3.5rem;
   height: 3.5rem;
@@ -129,7 +98,6 @@
   color: white;
 }
 
-/* --- Tap Button --- */
 .bpm-section {
   display: flex;
   flex-direction: column;
@@ -142,7 +110,6 @@
   z-index: 50;
 }
 
-/* Subdivision Controls */
 .visualizer-section {
   display: flex;
   flex-direction: column;
@@ -191,8 +158,6 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-
-/* --- Help Trigger --- */
 .help-modal__trigger-wrapper {
   position: absolute;
   top: 1.5rem;

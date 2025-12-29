@@ -10,15 +10,16 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 // Let's create src/constants.ts for constants.
 
 import {
-  BEAT_ACCENT,
-  BEAT_MUTE,
-  BEAT_SUB_ACCENT,
-  LOOKAHEAD,
-  SCHEDULE_AHEAD_TIME,
-  SOUND_DRUM,
-  SOUND_MECH,
-  SOUND_SINE,
-  SOUND_WOOD
+    BEAT_ACCENT,
+    BEAT_MUTE,
+    BEAT_SUB_ACCENT,
+    LOOKAHEAD,
+    SCHEDULE_AHEAD_TIME,
+    SOUND_DRUM,
+    SOUND_MECH,
+    SOUND_SINE,
+    SOUND_WOOD,
+    type RhythmTrainerConfig
 } from '../constants';
 
 interface Note {
@@ -26,14 +27,31 @@ interface Note {
     time: number;
 }
 
+interface UseMetronomeOptions {
+  rhythmTrainer?: RhythmTrainerConfig;
+  onMeasureComplete?: (measureCount: number) => void;
+}
+
 export const useMetronome = (
     bpm: number, 
     beatsPerMeasure: number, 
     subdivision: number, 
     soundPreset: string,
-    stepStates: number[]
+    stepStates: number[],
+    options: UseMetronomeOptions = {}
 ) => {
+  // Store options in refs for stable access in callbacks
+  const rhythmTrainerRef = useRef(options.rhythmTrainer);
+  const onMeasureCompleteRef = useRef(options.onMeasureComplete);
+  
+  useEffect(() => {
+    rhythmTrainerRef.current = options.rhythmTrainer;
+    onMeasureCompleteRef.current = options.onMeasureComplete;
+  }, [options.rhythmTrainer, options.onMeasureComplete]);
+  
   const [isPlaying, setIsPlaying] = useState(false);
+  const [measureCount, setMeasureCount] = useState(0);
+  const lastMeasureRef = useRef(-1); // Track last processed measure to avoid duplicates
   const audioContext = useRef<AudioContext | null>(null);
   const nextNoteTime = useRef(0.0);
   const timerID = useRef<number | null>(null);
@@ -289,7 +307,17 @@ export const useMetronome = (
 
   // ... (existing code) ...
 
-  const playSound = useCallback((time: number, beatNumber: number) => {
+  // Helper to check if current measure should be muted (Rhythm Trainer)
+  const isMeasureMuted = useCallback((currentMeasure: number): boolean => {
+    const rt = rhythmTrainerRef.current;
+    if (!rt || !rt.enabled) return false;
+    
+    const cycleLength = rt.playBars + rt.muteBars;
+    const positionInCycle = currentMeasure % cycleLength;
+    return positionInCycle >= rt.playBars; // Muted if past play bars
+  }, []);
+
+  const playSound = useCallback((time: number, beatNumber: number, currentMeasure: number) => {
     if (!audioContext.current) return;
     
     // Read from Ref to ensure stability without dependency update
@@ -302,6 +330,9 @@ export const useMetronome = (
     const beatType = currentStepStates[currentStepIndex];
 
     if (beatType === BEAT_MUTE) return;
+    
+    // Rhythm Trainer: Skip audio if in muted phase
+    if (isMeasureMuted(currentMeasure)) return;
 
     switch(soundPreset) {
         case SOUND_WOOD: playWoodblock(audioContext.current, time, beatType); break;
@@ -309,7 +340,7 @@ export const useMetronome = (
         case SOUND_MECH: playMech(audioContext.current, time, beatType); break;
         case SOUND_SINE: default: playSine(audioContext.current, time, beatType); break;
     }
-  }, [soundPreset]); // stepStates removed from dependency
+  }, [soundPreset, isMeasureMuted]);
 
   const nextNote = useCallback(() => {
     // Safety check to prevent infinite loop
@@ -319,9 +350,32 @@ export const useMetronome = (
     nextNoteTime.current += secondsPerSubdivision;
   }, [bpm, subdivision]);
 
+  // Calculate current measure from beat counter
+  const beatsPerMeasureRef = useRef(beatsPerMeasure);
+  const subdivisionRef = useRef(subdivision);
+  
+  useEffect(() => {
+    beatsPerMeasureRef.current = beatsPerMeasure;
+    subdivisionRef.current = subdivision;
+  }, [beatsPerMeasure, subdivision]);
+
   const scheduleNote = useCallback((beatCounter: number, time: number) => {
+    const stepsPerMeasure = beatsPerMeasureRef.current * subdivisionRef.current;
+    const currentMeasure = Math.floor(beatCounter / stepsPerMeasure);
+    
     notesInQueue.current.push({ note: beatCounter, time: time });
-    playSound(time, beatCounter); // Fixed: Removed 3rd argument
+    playSound(time, beatCounter, currentMeasure);
+    
+    // Track measure completion (fire once per new measure)
+    if (currentMeasure > lastMeasureRef.current) {
+      lastMeasureRef.current = currentMeasure;
+      setMeasureCount(currentMeasure);
+      
+      // Fire callback for speed trainer etc.
+      if (onMeasureCompleteRef.current) {
+        onMeasureCompleteRef.current(currentMeasure);
+      }
+    }
   }, [playSound]);
 
   const scheduler = useCallback(() => {
@@ -346,7 +400,9 @@ export const useMetronome = (
       if (audioContext.current) {
           nextNoteTime.current = audioContext.current.currentTime + 0.05;
       }
-      schedulerRef.current.beatCounter = 0; 
+      schedulerRef.current.beatCounter = 0;
+      lastMeasureRef.current = -1; // Reset measure tracking
+      setMeasureCount(0);
       scheduler();
     } else {
       if (timerID.current) window.clearTimeout(timerID.current);
@@ -381,5 +437,9 @@ export const useMetronome = (
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPlaying, beatsPerMeasure, subdivision]); // removed stepStates from dep, handled via ref reading logic implicitly or perfectly fine if it just syncs to beats
 
-  return { isPlaying, setIsPlaying, visualBeat, ensureAudioContext };
+  // Compute current muted state for UI display
+  const currentMeasure = measureCount;
+  const isCurrentlyMuted = isMeasureMuted(currentMeasure);
+
+  return { isPlaying, setIsPlaying, visualBeat, ensureAudioContext, measureCount, isMeasureMuted: isCurrentlyMuted };
 };

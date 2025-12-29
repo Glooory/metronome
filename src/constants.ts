@@ -21,3 +21,32 @@ export const STORAGE_KEY_STEP_STATES = 'spatial-metronome-step-states-v4'; // Ne
 export const STORAGE_KEY_SUBDIV_VAL = 'spatial-metronome-subdiv-value';
 export const STORAGE_KEY_SOUND = 'spatial-metronome-sound-preset';
 export const STORAGE_KEY_SAVED_BPMS = 'spatial-metronome-saved-bpms';
+export const STORAGE_KEY_PRESETS = 'spatial-metronome-presets-v1';
+export const STORAGE_KEY_SPEED_TRAINER = 'spatial-metronome-speed-trainer-v1';
+export const STORAGE_KEY_RHYTHM_TRAINER = 'spatial-metronome-rhythm-trainer-v1';
+
+// Preset Type
+export interface Preset {
+  id: string;
+  name: string;
+  bpm: number;
+  beatsPerMeasure: number;
+  subdivision: number;
+  soundPreset: string;
+  stepStates: number[];
+  createdAt: number;
+}
+
+// Trainer Types
+export interface SpeedTrainerConfig {
+  enabled: boolean;
+  increment: number;
+  everyMeasures: number;
+  targetBpm: number;
+}
+
+export interface RhythmTrainerConfig {
+  enabled: boolean;
+  playBars: number;
+  muteBars: number;
+}

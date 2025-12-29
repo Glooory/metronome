@@ -41,13 +41,9 @@ export const PresetsModal = ({
   };
 
   const formatDate = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString(language === 'zh' ? 'zh-CN' : 'en-US', {
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    });
+    const date = new Date(timestamp);
+    const pad = (n: number) => n.toString().padStart(2, '0');
+    return `${date.getFullYear()}/${pad(date.getMonth() + 1)}/${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
   };
 
   return (

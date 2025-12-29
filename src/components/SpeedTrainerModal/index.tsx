@@ -2,6 +2,8 @@ import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { Gauge, X } from 'lucide-react';
 import type { SpeedTrainerConfig } from '../../constants';
+import type { Language } from '../../i18n';
+import { translations } from '../../i18n';
 import styles from './styles.module.css';
 
 interface SpeedTrainerModalProps {
@@ -10,6 +12,7 @@ interface SpeedTrainerModalProps {
   onClose: () => void;
   currentBpm: number;
   measureCount: number;
+  language: Language;
 }
 
 export const SpeedTrainerModal = ({
@@ -18,7 +21,10 @@ export const SpeedTrainerModal = ({
   onClose,
   currentBpm,
   measureCount,
+  language,
 }: SpeedTrainerModalProps) => {
+  const t = translations.speedTrainer;
+
   const handleToggle = () => {
     onConfigChange({ ...config, enabled: !config.enabled });
   };
@@ -48,7 +54,7 @@ export const SpeedTrainerModal = ({
         <div className={styles['speed-trainer-modal__header']}>
           <div className={styles['speed-trainer-modal__title']}>
             <Gauge size={20} className={styles['speed-trainer-modal__title-icon']} />
-            速度渐变训练
+            {t.title[language]}
           </div>
           <button className={styles['speed-trainer-modal__close-btn']} onClick={onClose}>
             <X size={18} />
@@ -57,7 +63,7 @@ export const SpeedTrainerModal = ({
 
         <div className={styles['speed-trainer-modal__content']}>
           <div className={styles['speed-trainer-modal__row']}>
-            <span className={styles['speed-trainer-modal__label']}>启用训练</span>
+            <span className={styles['speed-trainer-modal__label']}>{t.enableTraining[language]}</span>
             <div
               className={clsx(styles['speed-trainer-modal__toggle'], config.enabled && styles['speed-trainer-modal__toggle--active'])}
               onClick={handleToggle}
@@ -69,7 +75,7 @@ export const SpeedTrainerModal = ({
           <div className={styles['speed-trainer-modal__divider']} />
 
           <div className={styles['speed-trainer-modal__row']}>
-            <span className={styles['speed-trainer-modal__label']}>每隔 (小节)</span>
+            <span className={styles['speed-trainer-modal__label']}>{t.everyMeasures[language]}</span>
             <input
               type="number"
               className={styles['speed-trainer-modal__input']}
@@ -81,7 +87,7 @@ export const SpeedTrainerModal = ({
           </div>
 
           <div className={styles['speed-trainer-modal__row']}>
-            <span className={styles['speed-trainer-modal__label']}>增加 BPM</span>
+            <span className={styles['speed-trainer-modal__label']}>{t.incrementBpm[language]}</span>
             <input
               type="number"
               className={styles['speed-trainer-modal__input']}
@@ -93,7 +99,7 @@ export const SpeedTrainerModal = ({
           </div>
 
           <div className={styles['speed-trainer-modal__row']}>
-            <span className={styles['speed-trainer-modal__label']}>目标 BPM</span>
+            <span className={styles['speed-trainer-modal__label']}>{t.targetBpm[language]}</span>
             <input
               type="number"
               className={styles['speed-trainer-modal__input']}
@@ -112,10 +118,10 @@ export const SpeedTrainerModal = ({
           >
             <div className={styles['speed-trainer-modal__status-text']}>
               {hasReachedTarget ? (
-                <>🎉 已达到目标 <span className={styles['speed-trainer-modal__status-highlight']}>{config.targetBpm} BPM</span></>
+                <>{t.reachedTarget[language]} <span className={styles['speed-trainer-modal__status-highlight']}>{config.targetBpm} BPM</span></>
               ) : (
                 <>
-                  还有 <span className={styles['speed-trainer-modal__status-highlight']}>{measuresUntilNext}</span> 小节后<br />
+                  {measuresUntilNext} {t.measuresUntil[language]}<br />
                   BPM: {currentBpm} → <span className={styles['speed-trainer-modal__status-highlight']}>{Math.min(currentBpm + config.increment, config.targetBpm)}</span>
                 </>
               )}

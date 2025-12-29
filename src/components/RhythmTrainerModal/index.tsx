@@ -2,6 +2,8 @@ import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { VolumeX, X } from 'lucide-react';
 import type { RhythmTrainerConfig } from '../../constants';
+import type { Language } from '../../i18n';
+import { translations } from '../../i18n';
 import styles from './styles.module.css';
 
 interface RhythmTrainerModalProps {
@@ -10,6 +12,7 @@ interface RhythmTrainerModalProps {
   onClose: () => void;
   measureCount: number;
   isMuted: boolean;
+  language: Language;
 }
 
 export const RhythmTrainerModal = ({
@@ -18,7 +21,10 @@ export const RhythmTrainerModal = ({
   onClose,
   measureCount,
   isMuted,
+  language,
 }: RhythmTrainerModalProps) => {
+  const t = translations.rhythmTrainer;
+
   const handleToggle = () => {
     onConfigChange({ ...config, enabled: !config.enabled });
   };
@@ -51,7 +57,7 @@ export const RhythmTrainerModal = ({
         <div className={styles['rhythm-trainer-modal__header']}>
           <div className={styles['rhythm-trainer-modal__title']}>
             <VolumeX size={20} className={styles['rhythm-trainer-modal__title-icon']} />
-            节奏检测训练
+            {t.title[language]}
           </div>
           <button className={styles['rhythm-trainer-modal__close-btn']} onClick={onClose}>
             <X size={18} />
@@ -60,7 +66,7 @@ export const RhythmTrainerModal = ({
 
         <div className={styles['rhythm-trainer-modal__content']}>
           <div className={styles['rhythm-trainer-modal__row']}>
-            <span className={styles['rhythm-trainer-modal__label']}>启用训练</span>
+            <span className={styles['rhythm-trainer-modal__label']}>{t.enableTraining[language]}</span>
             <div
               className={clsx(styles['rhythm-trainer-modal__toggle'], config.enabled && styles['rhythm-trainer-modal__toggle--active'])}
               onClick={handleToggle}
@@ -72,7 +78,7 @@ export const RhythmTrainerModal = ({
           <div className={styles['rhythm-trainer-modal__divider']} />
 
           <div className={styles['rhythm-trainer-modal__row']}>
-            <span className={styles['rhythm-trainer-modal__label']}>播放 (小节)</span>
+            <span className={styles['rhythm-trainer-modal__label']}>{t.playBars[language]}</span>
             <input
               type="number"
               className={styles['rhythm-trainer-modal__input']}
@@ -84,7 +90,7 @@ export const RhythmTrainerModal = ({
           </div>
 
           <div className={styles['rhythm-trainer-modal__row']}>
-            <span className={styles['rhythm-trainer-modal__label']}>静音 (小节)</span>
+            <span className={styles['rhythm-trainer-modal__label']}>{t.muteBars[language]}</span>
             <input
               type="number"
               className={styles['rhythm-trainer-modal__input']}
@@ -102,19 +108,19 @@ export const RhythmTrainerModal = ({
                 <div className={styles['rhythm-trainer-modal__status-text']}>
                   {isMuted ? (
                     <>
-                      🔇 <span className={clsx(styles['rhythm-trainer-modal__status-highlight'], styles['rhythm-trainer-modal__status-highlight--muted'])}>静音中</span><br />
-                      还有 {barsUntilChange} 小节恢复播放
+                      <span className={clsx(styles['rhythm-trainer-modal__status-highlight'], styles['rhythm-trainer-modal__status-highlight--muted'])}>{t.muted[language]}</span><br />
+                      {barsUntilChange} {t.untilResume[language]}
                     </>
                   ) : (
                     <>
-                      🔊 <span className={styles['rhythm-trainer-modal__status-highlight']}>播放中</span><br />
-                      还有 {barsUntilChange} 小节进入静音
+                      <span className={styles['rhythm-trainer-modal__status-highlight']}>{t.playing[language]}</span><br />
+                      {barsUntilChange} {t.untilMute[language]}
                     </>
                   )}
                 </div>
               </div>
               <p className={styles['rhythm-trainer-modal__hint']}>
-                💡 静音期间可视化效果仍在运行，<br />用来检测你内心的节奏是否稳定
+                {t.hint[language]}
               </p>
             </>
           )}

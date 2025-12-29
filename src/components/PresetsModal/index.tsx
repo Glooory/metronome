@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { ListMusic, X } from 'lucide-react';
 import { useState } from 'react';
 import type { Preset } from '../../constants';
+import type { Language } from '../../i18n';
+import { translations } from '../../i18n';
 import styles from './styles.module.css';
 
 interface PresetsModalProps {
@@ -10,6 +12,7 @@ interface PresetsModalProps {
   onLoad: (preset: Preset) => void;
   onDelete: (id: string) => void;
   onClose: () => void;
+  language: Language;
 }
 
 export const PresetsModal = ({
@@ -18,8 +21,11 @@ export const PresetsModal = ({
   onLoad,
   onDelete,
   onClose,
+  language,
 }: PresetsModalProps) => {
   const [name, setName] = useState('');
+  const t = translations.presets;
+  const tc = translations.common;
 
   const handleSave = () => {
     if (name.trim()) {
@@ -35,7 +41,7 @@ export const PresetsModal = ({
   };
 
   const formatDate = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString('zh-CN', {
+    return new Date(timestamp).toLocaleString(language === 'zh' ? 'zh-CN' : 'en-US', {
       month: 'short',
       day: 'numeric',
       hour: '2-digit',
@@ -62,7 +68,7 @@ export const PresetsModal = ({
         <div className={styles['presets-modal__header']}>
           <div className={styles['presets-modal__title']}>
             <ListMusic size={20} className={styles['presets-modal__title-icon']} />
-            预设与曲目单
+            {t.title[language]}
           </div>
           <button className={styles['presets-modal__close-btn']} onClick={onClose}>
             <X size={18} />
@@ -75,7 +81,7 @@ export const PresetsModal = ({
             <input
               type="text"
               className={styles['presets-modal__name-input']}
-              placeholder="输入预设名称..."
+              placeholder={t.inputPlaceholder[language]}
               value={name}
               onChange={(e) => setName(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -86,7 +92,7 @@ export const PresetsModal = ({
               onClick={handleSave}
               disabled={!name.trim()}
             >
-              保存当前
+              {t.saveCurrent[language]}
             </button>
           </div>
 
@@ -97,7 +103,7 @@ export const PresetsModal = ({
             {presets.length === 0 ? (
               <div className={styles['presets-modal__empty-state']}>
                 <div className={styles['presets-modal__empty-icon']}>📝</div>
-                <div>暂无预设<br />保存当前配置以便快速切换</div>
+                <div>{t.emptyTitle[language]}<br />{t.emptyHint[language]}</div>
               </div>
             ) : (
               presets.map((preset) => (
@@ -115,13 +121,13 @@ export const PresetsModal = ({
                       className={`${styles['presets-modal__action-btn']} ${styles['presets-modal__action-btn--load']}`}
                       onClick={() => onLoad(preset)}
                     >
-                      加载
+                      {tc.load[language]}
                     </button>
                     <button
                       className={`${styles['presets-modal__action-btn']} ${styles['presets-modal__action-btn--delete']}`}
                       onClick={() => onDelete(preset.id)}
                     >
-                      删除
+                      {tc.delete[language]}
                     </button>
                   </div>
                 </div>

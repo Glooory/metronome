@@ -1,6 +1,8 @@
 import { clsx } from 'clsx';
 import { Gauge, ListMusic, VolumeX } from 'lucide-react';
 import type { RhythmTrainerConfig, SpeedTrainerConfig } from '../../constants';
+import type { Language } from '../../i18n';
+import { translations } from '../../i18n';
 import styles from './styles.module.css';
 
 interface TrainerDockProps {
@@ -9,6 +11,7 @@ interface TrainerDockProps {
   onSpeedClick: () => void;
   onRhythmClick: () => void;
   onPresetsClick: () => void;
+  language: Language;
 }
 
 export const TrainerDock = ({
@@ -17,34 +20,37 @@ export const TrainerDock = ({
   onSpeedClick,
   onRhythmClick,
   onPresetsClick,
+  language,
 }: TrainerDockProps) => {
+  const t = translations.trainer;
+
   return (
     <div className={styles['trainer-dock']}>
       <button
         className={clsx(styles['trainer-dock__btn'], speedTrainer.enabled && styles['trainer-dock__btn--active'])}
         onClick={onSpeedClick}
-        title="速度渐变训练"
+        title={t.speedTooltip[language]}
       >
         <Gauge size={16} className={styles['trainer-dock__btn-icon']} />
-        <span>速度</span>
+        <span>{t.speed[language]}</span>
       </button>
 
       <button
         className={clsx(styles['trainer-dock__btn'], rhythmTrainer.enabled && styles['trainer-dock__btn--active'])}
         onClick={onRhythmClick}
-        title="节奏检测训练"
+        title={t.rhythmTooltip[language]}
       >
         <VolumeX size={16} className={styles['trainer-dock__btn-icon']} />
-        <span>节奏</span>
+        <span>{t.rhythm[language]}</span>
       </button>
 
       <button
         className={styles['trainer-dock__btn']}
         onClick={onPresetsClick}
-        title="预设与曲目单"
+        title={t.presetsTooltip[language]}
       >
         <ListMusic size={16} className={styles['trainer-dock__btn-icon']} />
-        <span>预设</span>
+        <span>{t.presets[language]}</span>
       </button>
     </div>
   );

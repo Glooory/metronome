@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { HelpCircle, Music2, Pause, Play, Waves } from 'lucide-react';
+import { Globe, HelpCircle, Music2, Pause, Play, Waves } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import styles from './App.module.css';
+import { STORAGE_KEY_LANGUAGE, type Language } from './i18n';
 
 // Import Components
 import { BpmDisplay } from './components/BpmDisplay';
@@ -40,6 +41,7 @@ import {
   type SpeedTrainerConfig
 } from './constants';
 import { useMetronome } from './hooks/useMetronome';
+import { translations } from './i18n';
 
 // --- Helper: Safe LocalStorage Access (Typed) ---
 function getStorageItem<T>(key: string, defaultValue: T, parser: ((val: string) => T) | null = null): T {
@@ -101,6 +103,15 @@ export default function MetronomeApp() {
   });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   
+  // Language state (default: English)
+  const [language, setLanguage] = useState<Language>(() => 
+    getStorageItem(STORAGE_KEY_LANGUAGE, 'en' as Language) as Language
+  );
+  
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'en' ? 'zh' : 'en');
+  };
+  
   // --- Trainer States ---
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() => 
     getStorageItem(STORAGE_KEY_SPEED_TRAINER, { enabled: false, increment: 5, everyMeasures: 4, targetBpm: 200 }, JSON.parse)
@@ -145,7 +156,8 @@ export default function MetronomeApp() {
     setStorageItem(STORAGE_KEY_SPEED_TRAINER, speedTrainer);
     setStorageItem(STORAGE_KEY_RHYTHM_TRAINER, rhythmTrainer);
     setStorageItem(STORAGE_KEY_PRESETS, presets);
-  }, [bpm, beatsPerMeasure, stepStates, subdivision, soundPreset, savedBpms, speedTrainer, rhythmTrainer, presets]);
+    setStorageItem(STORAGE_KEY_LANGUAGE, language);
+  }, [bpm, beatsPerMeasure, stepStates, subdivision, soundPreset, savedBpms, speedTrainer, rhythmTrainer, presets, language]);
 
   const toggleStepState = (i: number) => setStepStates(p => { 
     const n = [...p]; 
@@ -261,11 +273,21 @@ export default function MetronomeApp() {
 
   return (
     <div className={styles.app}>
-      {/* HELP */}
-      <div className={styles['help-modal__trigger-wrapper']}>
-        <button onClick={() => setIsHelpOpen(true)} className={styles['help-modal__trigger-btn']}><HelpCircle size={20} /></button>
+      {/* HEADER BUTTONS */}
+      <div className={styles['header-buttons']}>
+        <button 
+          onClick={toggleLanguage} 
+          className={styles['header-btn']}
+          title={language === 'en' ? '切换到中文' : 'Switch to English'}
+        >
+          <Globe size={18} />
+          <span className={styles['header-btn__label']}>{language === 'en' ? 'EN' : '中'}</span>
+        </button>
+        <button onClick={() => setIsHelpOpen(true)} className={styles['header-btn']}>
+          <HelpCircle size={20} />
+        </button>
       </div>
-      <AnimatePresence>{isHelpOpen && <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />}</AnimatePresence>
+      <AnimatePresence>{isHelpOpen && <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} language={language} />}</AnimatePresence>
 
       {/* BACKGROUND */}
       <div className={styles['app__bg-gradient']} />
@@ -312,6 +334,7 @@ export default function MetronomeApp() {
               onSpeedClick={() => setShowSpeedModal(true)}
               onRhythmClick={() => setShowRhythmModal(true)}
               onPresetsClick={() => setShowPresetsModal(true)}
+              language={language}
             />
             
             {/* Main Dock */}
@@ -323,7 +346,7 @@ export default function MetronomeApp() {
                   value={beatsPerMeasure} 
                   onChange={(v) => setBeatsPerMeasure(parseInt(v))}
                   options={beatOptions}
-                  title="拍号"
+                  title={translations.dock.timeSignature[language]}
                   displayLabel={`${beatsPerMeasure}/4`}
                   alignment="left"
                 />
@@ -344,7 +367,7 @@ export default function MetronomeApp() {
                   value={soundPreset} 
                   onChange={setSoundPreset}
                   options={soundOptions}
-                  title="音色"
+                  title={translations.dock.soundPreset[language]}
                   displayLabel={getSoundDisplay(soundPreset)}
                   alignment="right"
                 />
@@ -361,6 +384,7 @@ export default function MetronomeApp() {
             onClose={() => setShowSpeedModal(false)}
             currentBpm={bpm}
             measureCount={measureCount}
+            language={language}
           />
         )}
       </AnimatePresence>
@@ -373,6 +397,7 @@ export default function MetronomeApp() {
             onClose={() => setShowRhythmModal(false)}
             measureCount={measureCount}
             isMuted={isMeasureMuted}
+            language={language}
           />
         )}
       </AnimatePresence>
@@ -385,6 +410,7 @@ export default function MetronomeApp() {
             onLoad={handleLoadPreset}
             onDelete={handleDeletePreset}
             onClose={() => setShowPresetsModal(false)}
+            language={language}
           />
         )}
       </AnimatePresence>

@@ -10,16 +10,16 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 // Let's create src/constants.ts for constants.
 
 import {
-    BEAT_ACCENT,
-    BEAT_MUTE,
-    BEAT_SUB_ACCENT,
-    LOOKAHEAD,
-    SCHEDULE_AHEAD_TIME,
-    SOUND_DRUM,
-    SOUND_MECH,
-    SOUND_SINE,
-    SOUND_WOOD,
-    type RhythmTrainerConfig
+  BEAT_ACCENT,
+  BEAT_MUTE,
+  BEAT_SUB_ACCENT,
+  LOOKAHEAD,
+  SCHEDULE_AHEAD_TIME,
+  SOUND_DRUM,
+  SOUND_MECH,
+  SOUND_SINE,
+  SOUND_WOOD,
+  type RhythmTrainerConfig
 } from '../constants';
 
 interface Note {
@@ -471,7 +471,11 @@ export const useMetronome = (
     let animationFrameId: number;
     const draw = () => {
       const currentTime = audioContext.current?.currentTime || 0;
-      while (notesInQueue.current.length && notesInQueue.current[0].time < currentTime) {
+      // Add small lookahead to compensate for React render cycle latency (~30-50ms)
+      // This ensures the visual highlight hits closer to the actual sound
+      const VISUAL_OFFSET = 0.05; 
+      
+      while (notesInQueue.current.length && notesInQueue.current[0].time < currentTime + VISUAL_OFFSET) {
         const currentNote = notesInQueue.current[0];
         
         // Use Ref here too for consistency, though visual doesn't need perfect stability like audio

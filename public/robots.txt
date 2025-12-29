@@ -1,0 +1,8 @@
+# Robots.txt for Spatial Metronome
+# https://glooory.github.io/metronome/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://glooory.github.io/metronome/sitemap.xml

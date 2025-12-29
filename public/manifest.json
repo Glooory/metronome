@@ -1,0 +1,21 @@
+{
+  "name": "Spatial Metronome",
+  "short_name": "Metronome",
+  "description": "Professional online metronome with speed trainer, rhythm trainer, and preset management",
+  "start_url": "/metronome/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/metronome/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "utilities", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}

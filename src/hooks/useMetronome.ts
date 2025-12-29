@@ -122,70 +122,101 @@ export const useMetronome = (
   };
 
   // --- Sound Synthesis Functions ---
+  // Digital / Beep Style (研究报告 3.1)
+  // Square wave + lowpass filter, Casio-style digital beep
   const playSine = (ctx: AudioContext, time: number, beatType: number) => {
     const osc = ctx.createOscillator();
+    const filter = ctx.createBiquadFilter();
     const gainNode = ctx.createGain();
-    osc.connect(gainNode);
+    
+    osc.connect(filter);
+    filter.connect(gainNode);
     gainNode.connect(ctx.destination);
     if (convolverRef.current) gainNode.connect(convolverRef.current);
 
-    osc.type = 'sine';
+    osc.type = 'square'; // Square wave for penetrating digital sound
+    filter.type = 'lowpass';
     
-    // Tighter, cleaner sine beep
-    let freq = 880; 
-    let peakGain = 0.7;
-    let decay = 0.1;
+    // Octave relationship: A6 (accent) / A5 (weak) - clear pitch distinction
+    let freq = 880;  // A5 base
+    let filterFreq = 3000;
+    let peakGain = 0.4;  // -8dB for weak beat
+    let decay = 0.05;
 
-    if (beatType === BEAT_ACCENT) { freq = 1760; peakGain = 0.9; decay = 0.15; } // High ping
-    else if (beatType === BEAT_SUB_ACCENT) { freq = 1320; peakGain = 0.8; decay = 0.12; }
+    if (beatType === BEAT_ACCENT) { 
+      freq = 1760;        // A6 - one octave higher
+      filterFreq = 4000;  // Brighter filter
+      peakGain = 1.0;     // 0dB
+      decay = 0.1;        // Longer decay
+    } else if (beatType === BEAT_SUB_ACCENT) { 
+      freq = 1320;        // E6
+      filterFreq = 3500;  
+      peakGain = 0.7;     // -3dB
+      decay = 0.08;
+    }
     
     osc.frequency.value = freq;
+    filter.frequency.value = filterFreq;
     
+    // Fast attack, exponential decay (capacitor discharge simulation)
     gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.005); 
+    gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.002); 
     gainNode.gain.exponentialRampToValueAtTime(0.001, time + decay);
     
     osc.start(time);
     osc.stop(time + decay + 0.05);
   };
 
+  // Woodblock / Clave - FM Synthesis (研究报告 3.3)
+  // Non-harmonic C:M ratio 1:1.5 produces hollow wood/metal timbre
   const playWoodblock = (ctx: AudioContext, time: number, beatType: number) => {
-    // Dual oscillator for hollow sound
-    const osc1 = ctx.createOscillator();
-    const osc2 = ctx.createOscillator();
-    const gainNode = ctx.createGain();
+    const carrier = ctx.createOscillator();
+    const modulator = ctx.createOscillator();
+    const modGain = ctx.createGain();
+    const masterGain = ctx.createGain();
     
-    osc1.connect(gainNode);
-    osc2.connect(gainNode);
-    gainNode.connect(ctx.destination);
-    if (convolverRef.current) gainNode.connect(convolverRef.current);
+    // FM chain: Modulator -> ModGain -> Carrier.frequency
+    modulator.connect(modGain);
+    modGain.connect(carrier.frequency);
+    carrier.connect(masterGain);
+    masterGain.connect(ctx.destination);
+    if (convolverRef.current) masterGain.connect(convolverRef.current);
 
-    // High pitched, resonant
-    let baseFreq = 800;
-    let gain = 0.7;
+    // Beat hierarchy parameters
+    let carrierFreq = 800;
+    let modIndex = 300;     // Modulation depth
+    let peakGain = 0.4;     // -8dB
+    let decay = 0.05;
     
-    if (beatType === BEAT_ACCENT) { baseFreq = 1600; gain = 0.9; }
-    else if (beatType === BEAT_SUB_ACCENT) { baseFreq = 1200; gain = 0.8; }
+    if (beatType === BEAT_ACCENT) { 
+      carrierFreq = 1000;
+      modIndex = 500;       // More harmonics on accent
+      peakGain = 1.0;       // 0dB
+      decay = 0.15;
+    } else if (beatType === BEAT_SUB_ACCENT) { 
+      carrierFreq = 900;
+      modIndex = 400;
+      peakGain = 0.7;       // -3dB
+      decay = 0.1;
+    }
 
-    osc1.frequency.setValueAtTime(baseFreq, time);
-    osc1.type = 'sine';
+    // FM parameters: C:M ratio = 1:1.5 (golden ratio for wood timbre)
+    carrier.frequency.value = carrierFreq;
+    modulator.frequency.value = carrierFreq * 1.5;
     
-    // Slight detune for resonance
-    osc2.frequency.setValueAtTime(baseFreq * 1.58, time); // Inharmonic ratio
-    osc2.type = 'square'; // Adds harmonics, filtered by low decay
+    // Modulation index envelope: rapid decay simulates transient harmonic burst
+    modGain.gain.setValueAtTime(modIndex, time);
+    modGain.gain.exponentialRampToValueAtTime(1, time + 0.05);
 
-    // Filter for osc2 to not be too buzzing
-    // Actually simplicity is better: just sine waves
-    osc2.type = 'sine';
+    // Master envelope: ultra-fast attack, exponential decay
+    masterGain.gain.setValueAtTime(0, time);
+    masterGain.gain.linearRampToValueAtTime(peakGain, time + 0.002);
+    masterGain.gain.exponentialRampToValueAtTime(0.001, time + decay);
 
-    gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(gain, time + 0.002);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, time + 0.08); // Short decay
-
-    osc1.start(time);
-    osc2.start(time);
-    osc1.stop(time + 0.1);
-    osc2.stop(time + 0.1);
+    carrier.start(time);
+    modulator.start(time);
+    carrier.stop(time + decay + 0.05);
+    modulator.stop(time + decay + 0.05);
   };
 
   const playDrum = (ctx: AudioContext, time: number, beatType: number) => {
@@ -254,7 +285,7 @@ export const useMetronome = (
         noise.buffer = getNoiseBuffer(ctx);
         const filter = ctx.createBiquadFilter();
         filter.type = 'highpass';
-        filter.frequency.value = 8000;
+        filter.frequency.value = 9000; // Higher for more shimmer
         const gainNode = ctx.createGain();
 
         noise.connect(filter);
@@ -271,31 +302,51 @@ export const useMetronome = (
     }
   };
 
+  // Mechanical Click - Noise-based Bandpass (研究报告 3.2)
+  // White noise burst through bandpass filter simulates Wittner wood box resonance
   const playMech = (ctx: AudioContext, time: number, beatType: number) => {
-    // Mechanical Click (Broadband impulse)
-    const osc = ctx.createOscillator();
+    // Noise source for broadband impact
+    const noise = ctx.createBufferSource();
+    noise.buffer = getNoiseBuffer(ctx);
+    
+    const filter = ctx.createBiquadFilter();
     const gainNode = ctx.createGain();
     
-    osc.connect(gainNode);
+    noise.connect(filter);
+    filter.connect(gainNode);
     gainNode.connect(ctx.destination);
     if (convolverRef.current) gainNode.connect(convolverRef.current);
 
-    osc.type = 'square';
+    filter.type = 'bandpass';
     
-    let freq = 2000; // Sharp click
-    let gain = 0.5;
+    // Beat hierarchy: vary resonant frequency and Q
+    let centerFreq = 1500;
+    let q = 5.0;           // High Q for "wooden" character
+    let peakGain = 0.4;    // -8dB
+    let decay = 0.03;      // Ultra-short for dry click
     
-    if (beatType === BEAT_ACCENT) { freq = 2500; gain = 0.7; }
-    else if (beatType === BEAT_SUB_ACCENT) { freq = 2200; gain = 0.6; }
+    if (beatType === BEAT_ACCENT) { 
+      centerFreq = 2000;   // Higher, brighter click
+      q = 4.0;             // Slightly wider
+      peakGain = 1.0;      // 0dB
+      decay = 0.05;
+    } else if (beatType === BEAT_SUB_ACCENT) { 
+      centerFreq = 1800;
+      q = 4.5;
+      peakGain = 0.7;      // -3dB
+      decay = 0.04;
+    }
 
-    osc.frequency.setValueAtTime(freq, time);
+    filter.frequency.value = centerFreq;
+    filter.Q.value = q;
     
+    // Instant attack, very fast exponential decay (dry mechanical impact)
     gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(gain, time + 0.001);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.03); // Ultra short
+    gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.001);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, time + decay);
     
-    osc.start(time);
-    osc.stop(time + 0.05);
+    noise.start(time);
+    noise.stop(time + decay + 0.02);
   };
 
   // Use Ref for stepStates to avoid re-triggering scheduler effect on state change

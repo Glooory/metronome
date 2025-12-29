@@ -128,3 +128,50 @@
   border-radius: 0.25rem;
   font-family: monospace;
 }
+
+.header-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.section-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.text-cyan {
+  color: rgb(34, 211, 238);
+}
+
+.text-amber {
+  color: rgb(251, 191, 36);
+}
+
+.text-mute {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.help-modal__footer-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}

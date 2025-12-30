@@ -89,13 +89,6 @@ export default function MetronomeApp() {
     getStorageItem(STORAGE_KEY_SAVED_BPMS, [], JSON.parse)
   );
 
-  const createDefaultBeat = (subdivs: number, visualIndex: number) => {
-    const chunk = [];
-    chunk.push(visualIndex === 0 ? BEAT_ACCENT : BEAT_NORMAL);
-    for (let i = 1; i < subdivs; i++) chunk.push(BEAT_NORMAL);
-    return chunk;
-  };
-
   const [stepStates, setStepStates] = useState<number[]>(() => {
     const saved = getStorageItem(STORAGE_KEY_STEP_STATES, [] as number[], JSON.parse);
     const requiredLength = beatsPerMeasure * subdivision;

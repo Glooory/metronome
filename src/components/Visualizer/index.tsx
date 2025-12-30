@@ -12,8 +12,6 @@ interface VisualizerProps {
 
 export const Visualizer = ({
   activeBeat,
-  beatsPerMeasure,
-  subdivision,
   stepStates,
   toggleStepState,
 }: VisualizerProps) => {

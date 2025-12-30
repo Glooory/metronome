@@ -39,7 +39,7 @@ export const Visualizer = ({
                   animate={{
                     backgroundColor:
                       isActive && isAccent
-                        ? "rgba(34, 211, 238, 1)" // Active Cyan
+                        ? "rgba(34, 211, 238, 1)"
                         : isAccent
                           ? "rgba(34, 211, 238, 0.3)"
                           : "rgba(255, 255, 255, 0.02)",

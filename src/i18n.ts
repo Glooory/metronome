@@ -1,11 +1,8 @@
-// Internationalization (i18n) System
 export type Language = "en" | "zh";
 
 export const STORAGE_KEY_LANGUAGE = "spatial-metronome-language";
 
-// Translation keys organized by component/feature
 export const translations = {
-  // Common
   common: {
     bpm: { en: "BPM", zh: "BPM" },
     measures: { en: "measures", zh: "小节" },
@@ -16,19 +13,16 @@ export const translations = {
     close: { en: "Close", zh: "关闭" },
   },
 
-  // Header buttons
   header: {
     help: { en: "Help", zh: "帮助" },
     language: { en: "Language", zh: "语言" },
   },
 
-  // Main dock tooltips
   dock: {
     timeSignature: { en: "Time Signature", zh: "拍号" },
     soundPreset: { en: "Sound", zh: "音色" },
   },
 
-  // Trainer Dock
   trainer: {
     speed: { en: "Speed", zh: "速度" },
     rhythm: { en: "Rhythm", zh: "节奏" },
@@ -38,7 +32,6 @@ export const translations = {
     presetsTooltip: { en: "Presets & Setlists", zh: "预设与曲目单" },
   },
 
-  // Speed Trainer Modal
   speedTrainer: {
     title: { en: "Speed Trainer", zh: "速度渐变训练" },
     enableTraining: { en: "Enable Training", zh: "启用训练" },
@@ -49,7 +42,6 @@ export const translations = {
     measuresUntil: { en: "measures until", zh: "小节后" },
   },
 
-  // Rhythm Trainer Modal
   rhythmTrainer: {
     title: { en: "Rhythm Trainer", zh: "节奏检测训练" },
     enableTraining: { en: "Enable Training", zh: "启用训练" },
@@ -65,7 +57,6 @@ export const translations = {
     },
   },
 
-  // Presets Modal
   presets: {
     title: { en: "Presets & Setlists", zh: "预设与曲目单" },
     inputPlaceholder: { en: "Enter preset name...", zh: "输入预设名称..." },
@@ -77,7 +68,6 @@ export const translations = {
     },
   },
 
-  // Help Modal
   help: {
     title: { en: "User Guide", zh: "使用说明" },
     bpmControl: { en: "BPM Control", zh: "BPM 速度控制" },
@@ -147,7 +137,6 @@ export const translations = {
   },
 } as const;
 
-// Helper function to get translation
 export function t(key: string, lang: Language, section?: keyof typeof translations): string {
   const parts = key.split(".");
   let value: any = translations;

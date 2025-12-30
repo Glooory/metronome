@@ -59,7 +59,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
     if (hasMoved.current && startBpm.current !== null) {
       const d = Math.round(deltaY * 0.5);
       setBpm(Math.min(Math.max(startBpm.current + d, MIN_BPM), MAX_BPM));
-      setWheelOffset(-deltaY % 16); // Animate wheel based on drag distance (negative for natural direction)
+      setWheelOffset(-deltaY % 16);
     }
   };
   const handlePointerUp = () => {
@@ -68,7 +68,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
     window.removeEventListener("pointerup", handlePointerUp);
     if (!hasMoved.current) setIsEditing(true);
     startY.current = null;
-    setWheelOffset(0); // Reset wheel position
+    setWheelOffset(0);
   };
   const handleBtnClick = (e: React.MouseEvent, delta: number) => {
     e.stopPropagation();

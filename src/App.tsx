@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
 
-// Import Components
 import { BpmDisplay } from "./components/BpmDisplay";
 import { BpmHistoryBar } from "./components/BpmHistoryBar";
 import { CustomGlassSelect } from "./components/CustomGlassSelect";
@@ -45,7 +44,6 @@ import {
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
 
-// --- Helper: Safe LocalStorage Access (Typed) ---
 function getStorageItem<T>(
   key: string,
   defaultValue: T,
@@ -91,7 +89,6 @@ export default function MetronomeApp() {
     getStorageItem(STORAGE_KEY_SAVED_BPMS, [], JSON.parse)
   );
 
-  // Helper to create a default beat chunk (Main + Subdivisions)
   const createDefaultBeat = (subdivs: number, visualIndex: number) => {
     const chunk = [];
     chunk.push(visualIndex === 0 ? BEAT_ACCENT : BEAT_NORMAL);
@@ -99,17 +96,14 @@ export default function MetronomeApp() {
     return chunk;
   };
 
-  // Unified Step States: Stores the state (Accent, Sub, Normal, Mute) for every tick
   const [stepStates, setStepStates] = useState<number[]>(() => {
     const saved = getStorageItem(STORAGE_KEY_STEP_STATES, [] as number[], JSON.parse);
     const requiredLength = beatsPerMeasure * subdivision;
 
-    // Validation: If saved data matches current dimension requirements, use it.
     if (Array.isArray(saved) && saved.length === requiredLength) {
       return saved;
     }
 
-    // Fallback: Generate default pattern
     const newSteps: number[] = [];
     for (let b = 0; b < beatsPerMeasure; b++) {
       const chunk = [];
@@ -121,7 +115,6 @@ export default function MetronomeApp() {
   });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
-  // Language state (default: English)
   const [language, setLanguage] = useState<Language>(
     () => getStorageItem(STORAGE_KEY_LANGUAGE, "en" as Language) as Language
   );
@@ -130,7 +123,6 @@ export default function MetronomeApp() {
     setLanguage((prev) => (prev === "en" ? "zh" : "en"));
   };
 
-  // --- Trainer States ---
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
     getStorageItem(
       STORAGE_KEY_SPEED_TRAINER,
@@ -149,22 +141,18 @@ export default function MetronomeApp() {
     getStorageItem(STORAGE_KEY_PRESETS, [] as Preset[], JSON.parse)
   );
 
-  // Modal visibility
   const [showSpeedModal, setShowSpeedModal] = useState(false);
   const [showRhythmModal, setShowRhythmModal] = useState(false);
   const [showPresetsModal, setShowPresetsModal] = useState(false);
 
-  // ... (Effect for resizing stepStates on config change - same as before) ...
   useEffect(() => {
     setStepStates((prev) => {
       const currentTotal = prev.length;
       const targetTotal = beatsPerMeasure * subdivision;
       if (currentTotal === targetTotal) return prev;
 
-      // Reset to Defaults when structure changes
       const newSteps: number[] = [];
       for (let b = 0; b < beatsPerMeasure; b++) {
-        // simplified inline default generation
         newSteps.push(b === 0 ? BEAT_ACCENT : BEAT_NORMAL);
         for (let i = 1; i < subdivision; i++) newSteps.push(BEAT_NORMAL);
       }
@@ -201,8 +189,6 @@ export default function MetronomeApp() {
       const n = [...p];
       const current = n[i] ?? BEAT_NORMAL;
       let next: number;
-      // Cycle: Mute(2) -> Normal(0) -> SubAccent(3) -> Accent(1) -> Mute(2)
-      // "Click to Strengthen"
       if (current === BEAT_MUTE) next = BEAT_NORMAL;
       else if (current === BEAT_NORMAL) next = BEAT_SUB_ACCENT;
       else if (current === BEAT_SUB_ACCENT) next = BEAT_ACCENT;
@@ -212,12 +198,10 @@ export default function MetronomeApp() {
       return n;
     });
 
-  // Speed Trainer: Handle measure completion callback
   const handleMeasureComplete = (measure: number) => {
     if (!speedTrainer.enabled) return;
-    if (bpm >= speedTrainer.targetBpm) return; // Already at target
+    if (bpm >= speedTrainer.targetBpm) return;
 
-    // Check if this measure is a trigger point
     if (measure > 0 && measure % speedTrainer.everyMeasures === 0) {
       const newBpm = Math.min(bpm + speedTrainer.increment, speedTrainer.targetBpm, MAX_BPM);
       setBpm(newBpm);
@@ -271,7 +255,6 @@ export default function MetronomeApp() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [setIsPlaying]);
 
-  // --- Configuration Options ---
   const beatOptions = [2, 3, 4, 5, 6].map((b) => ({ label: `${b}/4`, value: b }));
   const soundOptions = [
     { label: translations.options.sounds.sine[language], value: SOUND_SINE },
@@ -291,7 +274,6 @@ export default function MetronomeApp() {
     return opt ? opt.label : "SINE";
   };
 
-  // --- Preset Handlers ---
   const handleSavePreset = (name: string) => {
     const newPreset: Preset = {
       id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -311,8 +293,6 @@ export default function MetronomeApp() {
     setBeatsPerMeasure(preset.beatsPerMeasure);
     setSubdivision(preset.subdivision);
     setSoundPreset(preset.soundPreset);
-    // stepStates will be regenerated by the useEffect when beats/subdiv change
-    // But we want to restore the exact pattern, so we need to set it after a tick
     setTimeout(() => setStepStates(preset.stepStates), 0);
     setShowPresetsModal(false);
   };
@@ -323,7 +303,6 @@ export default function MetronomeApp() {
 
   return (
     <div className={styles.app}>
-      {/* HEADER BUTTONS */}
       <div className={styles["header-buttons"]}>
         <button
           onClick={toggleLanguage}
@@ -343,14 +322,10 @@ export default function MetronomeApp() {
         )}
       </AnimatePresence>
 
-      {/* BACKGROUND */}
       <div className={styles["app__bg-gradient"]} />
-      {/* Optional: Keeping noise overlay for texture if it's lightweight enough, usually is */}
       <div className={styles["app__noise-overlay"]} />
 
-      {/* MAIN CONTAINER: CENTERED LAYOUT WITH UNIFIED SPACING */}
       <div className={styles["app__content"]}>
-        {/* BLOCK 1: BPM & HISTORY */}
         <div className={styles["bpm-section"]}>
           <BpmDisplay bpm={bpm} setBpm={setBpm} />
           <BpmHistoryBar
@@ -363,7 +338,6 @@ export default function MetronomeApp() {
           />
         </div>
 
-        {/* BLOCK 2: VISUALIZER */}
         <div className={styles["visualizer-section"]}>
           <Visualizer
             activeBeat={visualBeat}
@@ -388,9 +362,7 @@ export default function MetronomeApp() {
           </div>
         </div>
 
-        {/* BLOCK 3: DOCK */}
         <div className={styles["dock-section"]}>
-          {/* Trainer Dock (Secondary) */}
           <TrainerDock
             speedTrainer={speedTrainer}
             rhythmTrainer={rhythmTrainer}
@@ -400,9 +372,7 @@ export default function MetronomeApp() {
             language={language}
           />
 
-          {/* Main Dock */}
           <LiquidGlassDock>
-            {/* 1. Time Signature Select (Left) */}
             <CustomGlassSelect
               icon={Music2}
               value={beatsPerMeasure}
@@ -413,7 +383,6 @@ export default function MetronomeApp() {
               alignment="left"
             />
 
-            {/* 2. Play (Center) */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -430,7 +399,6 @@ export default function MetronomeApp() {
               )}
             </motion.button>
 
-            {/* 3. Sound Preset Select (Right) */}
             <CustomGlassSelect
               icon={Waves}
               value={soundPreset}
@@ -444,7 +412,6 @@ export default function MetronomeApp() {
         </div>
       </div>
 
-      {/* TRAINER MODALS */}
       <AnimatePresence>
         {showSpeedModal && (
           <SpeedTrainerModal

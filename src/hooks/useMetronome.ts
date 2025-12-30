@@ -185,18 +185,18 @@ export const useMetronome = (
     // Beat hierarchy parameters
     let carrierFreq = 800;
     let modIndex = 300;     // Modulation depth
-    let peakGain = 0.4;     // -8dB
+    let peakGain = 1.2;     // -8dB
     let decay = 0.05;
     
     if (beatType === BEAT_ACCENT) { 
       carrierFreq = 1000;
       modIndex = 500;       // More harmonics on accent
-      peakGain = 1.0;       // 0dB
+      peakGain = 3;       // 0dB
       decay = 0.15;
     } else if (beatType === BEAT_SUB_ACCENT) { 
       carrierFreq = 900;
       modIndex = 400;
-      peakGain = 0.7;       // -3dB
+      peakGain = 2.1;       // -3dB
       decay = 0.1;
     }
 
@@ -322,18 +322,18 @@ export const useMetronome = (
     // Beat hierarchy: vary resonant frequency and Q
     let centerFreq = 1500;
     let q = 5.0;           // High Q for "wooden" character
-    let peakGain = 0.4;    // -8dB
+    let peakGain = 4;    // Boosted x2 again (was 1.2)
     let decay = 0.03;      // Ultra-short for dry click
     
     if (beatType === BEAT_ACCENT) { 
       centerFreq = 2000;   // Higher, brighter click
       q = 4.0;             // Slightly wider
-      peakGain = 1.0;      // 0dB
+      peakGain = 10;      // Boosted (was 2.5)
       decay = 0.05;
     } else if (beatType === BEAT_SUB_ACCENT) { 
       centerFreq = 1800;
       q = 4.5;
-      peakGain = 0.7;      // -3dB
+      peakGain = 7;      // Boosted (was 1.8)
       decay = 0.04;
     }
 

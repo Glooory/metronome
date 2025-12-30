@@ -201,11 +201,12 @@ export default function MetronomeApp() {
       const n = [...p];
       const current = n[i] ?? BEAT_NORMAL;
       let next: number;
-      // Cycle: Accent(1) -> SubAccent(3) -> Normal(0) -> Mute(2) -> Accent(1)
-      if (current === BEAT_ACCENT) next = BEAT_SUB_ACCENT;
-      else if (current === BEAT_SUB_ACCENT) next = BEAT_NORMAL;
-      else if (current === BEAT_NORMAL) next = BEAT_MUTE;
-      else next = BEAT_ACCENT;
+      // Cycle: Mute(2) -> Normal(0) -> SubAccent(3) -> Accent(1) -> Mute(2)
+      // "Click to Strengthen"
+      if (current === BEAT_MUTE) next = BEAT_NORMAL;
+      else if (current === BEAT_NORMAL) next = BEAT_SUB_ACCENT;
+      else if (current === BEAT_SUB_ACCENT) next = BEAT_ACCENT;
+      else next = BEAT_MUTE;
 
       n[i] = next;
       return n;

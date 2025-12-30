@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { Star, X } from 'lucide-react';
 import { useRef } from 'react';
+import { translations, type Language } from '../../i18n';
 import styles from './styles.module.css';
 
 interface BpmHistoryBarProps {
@@ -10,9 +11,10 @@ interface BpmHistoryBarProps {
   savedBpms: number[];
   setSavedBpms: (value: number[] | ((prev: number[]) => number[])) => void;
   onTap: () => void;
+  language: Language;
 }
 
-export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms, onTap }: BpmHistoryBarProps) => {
+export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms, onTap, language }: BpmHistoryBarProps) => {
   const listRef = useRef<HTMLDivElement>(null);
 
   const saveCurrentBpm = () => {
@@ -64,7 +66,7 @@ export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms, onT
           </AnimatePresence>
         </LayoutGroup>
         
-        {savedBpms.length === 0 && <span className={styles['no-history']}>No history</span>}
+        {savedBpms.length === 0 && <span className={styles['no-history']}>{translations.bpmHistory.noHistory[language]}</span>}
       </div>
 
       <motion.button 
@@ -76,8 +78,9 @@ export const BpmHistoryBar = ({ currentBpm, setBpm, savedBpms, setSavedBpms, onT
       </motion.button>
 
       <button onClick={onTap} className={styles['history-bar__tap-btn']}>
-        <span className={styles['history-bar__tap-label']}>TAP</span>
+        <span className={styles['history-bar__tap-label']}>{translations.bpmHistory.tap[language]}</span>
       </button>
     </div>
   );
 };
+

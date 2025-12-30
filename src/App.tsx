@@ -18,27 +18,27 @@ import { TrainerDock } from './components/TrainerDock';
 import { Visualizer } from './components/Visualizer';
 
 import {
-    BEAT_ACCENT,
-    BEAT_MUTE,
-    BEAT_NORMAL,
-    BEAT_SUB_ACCENT,
-    MAX_BPM,
-    MIN_BPM,
-    SOUND_DRUM, SOUND_MECH,
-    SOUND_SINE, SOUND_WOOD,
-    STORAGE_KEY_BEATS,
-    STORAGE_KEY_BPM,
-    STORAGE_KEY_PRESETS,
-    STORAGE_KEY_RHYTHM_TRAINER,
-    STORAGE_KEY_SAVED_BPMS,
-    STORAGE_KEY_SOUND,
-    STORAGE_KEY_SPEED_TRAINER,
-    STORAGE_KEY_STEP_STATES,
-    STORAGE_KEY_SUBDIV_VAL,
-    TAP_TIMEOUT,
-    type Preset,
-    type RhythmTrainerConfig,
-    type SpeedTrainerConfig
+  BEAT_ACCENT,
+  BEAT_MUTE,
+  BEAT_NORMAL,
+  BEAT_SUB_ACCENT,
+  MAX_BPM,
+  MIN_BPM,
+  SOUND_DRUM, SOUND_MECH,
+  SOUND_SINE, SOUND_WOOD,
+  STORAGE_KEY_BEATS,
+  STORAGE_KEY_BPM,
+  STORAGE_KEY_PRESETS,
+  STORAGE_KEY_RHYTHM_TRAINER,
+  STORAGE_KEY_SAVED_BPMS,
+  STORAGE_KEY_SOUND,
+  STORAGE_KEY_SPEED_TRAINER,
+  STORAGE_KEY_STEP_STATES,
+  STORAGE_KEY_SUBDIV_VAL,
+  TAP_TIMEOUT,
+  type Preset,
+  type RhythmTrainerConfig,
+  type SpeedTrainerConfig
 } from './constants';
 import { useMetronome } from './hooks/useMetronome';
 import { translations } from './i18n';
@@ -300,7 +300,7 @@ export default function MetronomeApp() {
           {/* BLOCK 1: BPM & HISTORY */}
           <div className={styles['bpm-section']}>
               <BpmDisplay bpm={bpm} setBpm={setBpm} />
-              <BpmHistoryBar currentBpm={bpm} setBpm={setBpm} savedBpms={savedBpms} setSavedBpms={setSavedBpms} onTap={handleTap} />
+              <BpmHistoryBar currentBpm={bpm} setBpm={setBpm} savedBpms={savedBpms} setSavedBpms={setSavedBpms} onTap={handleTap} language={language} />
           </div>
 
           {/* BLOCK 2: VISUALIZER */}
@@ -358,7 +358,7 @@ export default function MetronomeApp() {
                     onClick={() => setIsPlaying(!isPlaying)} 
                     className={clsx(styles['play-btn'], isPlaying ? styles['play-btn--playing'] : styles['play-btn--stopped'])}
                 >
-                    {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className={styles['play-btn__icon-play']} />}
+                    {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor"  />}
                 </motion.button>
                 
                 {/* 3. Sound Preset Select (Right) */}

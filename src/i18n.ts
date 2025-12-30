@@ -137,6 +137,11 @@ export const translations = {
       sixteenth: { en: '16TH (1/16)', zh: '十六 (1/16)' },
     }
   },
+  
+  bpmHistory: {
+    noHistory: { en: 'No history', zh: '暂无记录' },
+    tap: { en: 'TAP', zh: '点按' }
+  },
 } as const;
 
 // Helper function to get translation

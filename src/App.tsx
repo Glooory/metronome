@@ -18,27 +18,27 @@ import { TrainerDock } from './components/TrainerDock';
 import { Visualizer } from './components/Visualizer';
 
 import {
-  BEAT_ACCENT,
-  BEAT_MUTE,
-  BEAT_NORMAL,
-  BEAT_SUB_ACCENT,
-  MAX_BPM,
-  MIN_BPM,
-  SOUND_DRUM, SOUND_MECH,
-  SOUND_SINE, SOUND_WOOD,
-  STORAGE_KEY_BEATS,
-  STORAGE_KEY_BPM,
-  STORAGE_KEY_PRESETS,
-  STORAGE_KEY_RHYTHM_TRAINER,
-  STORAGE_KEY_SAVED_BPMS,
-  STORAGE_KEY_SOUND,
-  STORAGE_KEY_SPEED_TRAINER,
-  STORAGE_KEY_STEP_STATES,
-  STORAGE_KEY_SUBDIV_VAL,
-  TAP_TIMEOUT,
-  type Preset,
-  type RhythmTrainerConfig,
-  type SpeedTrainerConfig
+    BEAT_ACCENT,
+    BEAT_MUTE,
+    BEAT_NORMAL,
+    BEAT_SUB_ACCENT,
+    MAX_BPM,
+    MIN_BPM,
+    SOUND_DRUM, SOUND_MECH,
+    SOUND_SINE, SOUND_WOOD,
+    STORAGE_KEY_BEATS,
+    STORAGE_KEY_BPM,
+    STORAGE_KEY_PRESETS,
+    STORAGE_KEY_RHYTHM_TRAINER,
+    STORAGE_KEY_SAVED_BPMS,
+    STORAGE_KEY_SOUND,
+    STORAGE_KEY_SPEED_TRAINER,
+    STORAGE_KEY_STEP_STATES,
+    STORAGE_KEY_SUBDIV_VAL,
+    TAP_TIMEOUT,
+    type Preset,
+    type RhythmTrainerConfig,
+    type SpeedTrainerConfig
 } from './constants';
 import { useMetronome } from './hooks/useMetronome';
 import { translations } from './i18n';
@@ -223,16 +223,16 @@ export default function MetronomeApp() {
   // --- Configuration Options ---
   const beatOptions = [2,3,4,5,6].map(b => ({ label: `${b}/4`, value: b }));
   const soundOptions = [
-    { label: 'SINE', value: SOUND_SINE },
-    { label: 'WOOD', value: SOUND_WOOD },
-    { label: 'DRUM', value: SOUND_DRUM },
-    { label: 'MECH', value: SOUND_MECH },
+    { label: translations.options.sounds.sine[language], value: SOUND_SINE },
+    { label: translations.options.sounds.wood[language], value: SOUND_WOOD },
+    { label: translations.options.sounds.drum[language], value: SOUND_DRUM },
+    { label: translations.options.sounds.mech[language], value: SOUND_MECH },
   ];
   const subdivOptions = [
-    { label: 'QTR (1/4)', value: 1 },
-    { label: '8TH (1/8)', value: 2 },
-    { label: 'TRIP (1/3)', value: 3 },
-    { label: '16TH (1/16)', value: 4 },
+    { label: translations.options.subdivisions.qtr[language], value: 1 },
+    { label: translations.options.subdivisions.eighth[language], value: 2 },
+    { label: translations.options.subdivisions.triplet[language], value: 3 },
+    { label: translations.options.subdivisions.sixteenth[language], value: 4 },
   ];
 
 

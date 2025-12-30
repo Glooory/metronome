@@ -122,6 +122,21 @@ export const translations = {
     },
     footer: { en: 'All settings auto-saved', zh: '所有设置自动保存' },
   },
+
+  options: {
+    sounds: {
+      sine: { en: 'SINE', zh: '电子' },
+      wood: { en: 'WOOD', zh: '木鱼' },
+      drum: { en: 'DRUM', zh: '鼓组' },
+      mech: { en: 'MECH', zh: '机械' },
+    },
+    subdivisions: {
+      qtr: { en: 'QTR (1/4)', zh: '四分 (1/4)' },
+      eighth: { en: '8TH (1/8)', zh: '八分 (1/8)' },
+      triplet: { en: 'TRIP (1/3)', zh: '三连 (1/3)' },
+      sixteenth: { en: '16TH (1/16)', zh: '十六 (1/16)' },
+    }
+  },
 } as const;
 
 // Helper function to get translation

@@ -1,8 +1,8 @@
-import { clsx } from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, ChevronUp, LucideIcon } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import styles from './styles.module.css';
+import { clsx } from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ChevronUp, LucideIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import styles from "./styles.module.css";
 
 interface Option {
   label: string;
@@ -16,10 +16,18 @@ interface CustomGlassSelectProps {
   options: Option[];
   title: string;
   displayLabel: string;
-  alignment?: 'left' | 'center' | 'right';
+  alignment?: "left" | "center" | "right";
 }
 
-export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title, displayLabel, alignment = 'center' }: CustomGlassSelectProps) => {
+export const CustomGlassSelect = ({
+  icon: Icon,
+  value,
+  onChange,
+  options,
+  title,
+  displayLabel,
+  alignment = "center",
+}: CustomGlassSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -29,24 +37,24 @@ export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title,
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div className={styles['glass-select']} ref={containerRef}>
-      <button 
+    <div className={styles["glass-select"]} ref={containerRef}>
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
-          styles['glass-select__btn'],
-          isOpen ? styles['glass-select__btn--open'] : styles['glass-select__btn--closed']
+          styles["glass-select__btn"],
+          isOpen ? styles["glass-select__btn--open"] : styles["glass-select__btn--closed"]
         )}
       >
         <Icon size={16} />
-        <span className={styles['glass-select__label']}>{displayLabel}</span>
-        <div className={styles['glass-select__chevrons']}>
-            <ChevronUp size={8} />
-            <ChevronDown size={8} />
+        <span className={styles["glass-select__label"]}>{displayLabel}</span>
+        <div className={styles["glass-select__chevrons"]}>
+          <ChevronUp size={8} />
+          <ChevronDown size={8} />
         </div>
       </button>
 
@@ -58,14 +66,12 @@ export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title,
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={clsx(
-              styles['glass-select__dropdown'],
+              styles["glass-select__dropdown"],
               styles[`glass-select__dropdown--${alignment}`]
             )}
           >
-            <div className={styles['glass-select__overlay']} />
-            <div className={styles['glass-select__dropdown-title']}>
-                {title}
-            </div>
+            <div className={styles["glass-select__overlay"]} />
+            <div className={styles["glass-select__dropdown-title"]}>{title}</div>
             {options.map((opt) => (
               <button
                 key={opt.value}
@@ -74,13 +80,16 @@ export const CustomGlassSelect = ({ icon: Icon, value, onChange, options, title,
                   setIsOpen(false);
                 }}
                 className={clsx(
-                  styles['glass-select__option'],
-                  opt.value === value && styles['glass-select__option--selected']
+                  styles["glass-select__option"],
+                  opt.value === value && styles["glass-select__option--selected"]
                 )}
               >
                 {opt.label}
                 {opt.value === value && (
-                    <motion.div layoutId={`dot-${title}`} className={styles['glass-select__active-dot']} />
+                  <motion.div
+                    layoutId={`dot-${title}`}
+                    className={styles["glass-select__active-dot"]}
+                  />
                 )}
               </button>
             ))}

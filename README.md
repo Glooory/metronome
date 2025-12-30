@@ -9,25 +9,28 @@ A professional online metronome with advanced training features, built with Reac
 ## ✨ Features
 
 ### Core Metronome
+
 - **BPM Control** (30-300) - Drag slider or use keyboard arrows
 - **Time Signatures** - 2/4, 3/4, 4/4, 5/4, 6/4, 7/4
 - **Subdivisions** - Quarter, Eighth, Triplet, Sixteenth notes
 - **Sound Presets** - Sine, Woodblock, Drum Kit, Mechanical
 
 ### Beat Customization
+
 - Click beat bars to cycle through states: Accent → Sub-accent → Normal → Mute
 - Visual indicator shows beat strength (3 blocks = accent, 1 = normal, 0 = muted)
 - BPM memory bar for quick tempo switching
 
 ### 🚀 Training Tools
 
-| Feature | Description |
-|---------|-------------|
-| **Speed Trainer** | Auto-increment BPM every N measures with target limit |
-| **Rhythm Trainer** | Play X bars, mute Y bars - visualizer continues during mute |
-| **Presets** | Save/load complete configurations (BPM, time sig, sound, pattern) |
+| Feature            | Description                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| **Speed Trainer**  | Auto-increment BPM every N measures with target limit             |
+| **Rhythm Trainer** | Play X bars, mute Y bars - visualizer continues during mute       |
+| **Presets**        | Save/load complete configurations (BPM, time sig, sound, pattern) |
 
 ### 🌐 Internationalization
+
 - English / 中文 toggle
 - All UI elements translated
 
@@ -62,10 +65,10 @@ npm run build
 
 ## 🎹 Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Space` | Play / Pause |
-| `↑` / `↓` | Adjust BPM ±1 |
+| Key           | Action         |
+| ------------- | -------------- |
+| `Space`       | Play / Pause   |
+| `↑` / `↓`     | Adjust BPM ±1  |
 | `Shift + ↑/↓` | Adjust BPM ±10 |
 
 ## 📁 Project Structure
@@ -102,4 +105,3 @@ All sounds are generated in real-time using Web Audio API:
 ## 📄 License
 
 MIT © [Glooory](https://github.com/Glooory)
-

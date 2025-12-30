@@ -139,7 +139,7 @@
   transition: opacity 0.2s;
 }
 
-.glass-select__chevrons>*:not(:first-child) {
+.glass-select__chevrons > *:not(:first-child) {
   margin-top: -0.25rem;
 }
 

@@ -49,7 +49,7 @@
   letter-spacing: -0.05em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   min-width: 3ch;
 }
 
@@ -62,7 +62,12 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.5)
+  );
   filter: drop-shadow(0 4px 30px rgba(255, 255, 255, 0.25));
 }
 
@@ -91,7 +96,7 @@
   margin: 0;
   color: white;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: var(--bpm-lable-fz);
   line-height: 1;
@@ -170,11 +175,13 @@
 .bpm-display__wheel {
   width: 2.5rem;
   flex-shrink: 0;
-  background: linear-gradient(to right,
-      rgba(0, 0, 0, 0.4),
-      rgba(255, 255, 255, 0.1) 20%,
-      rgba(255, 255, 255, 0.1) 80%,
-      rgba(0, 0, 0, 0.4));
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4),
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.1) 80%,
+    rgba(0, 0, 0, 0.4)
+  );
   border-radius: 0.75rem;
   cursor: ns-resize;
   position: relative;
@@ -193,16 +200,18 @@
 }
 
 .bpm-display__wheel::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(to bottom,
-      transparent 45%,
-      rgba(255, 255, 255, 0.3) 50%,
-      transparent 55%);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 55%
+  );
   background-size: 100% 1rem;
   background-position-y: var(--wheel-offset, 0);
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
@@ -210,7 +219,7 @@
 }
 
 .bpm-display__wheel::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;

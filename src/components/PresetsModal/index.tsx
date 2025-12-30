@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
-import { ListMusic, X } from 'lucide-react';
-import { useState } from 'react';
-import type { Preset } from '../../constants';
-import type { Language } from '../../i18n';
-import { translations } from '../../i18n';
-import styles from './styles.module.css';
+import { motion } from "framer-motion";
+import { ListMusic, X } from "lucide-react";
+import { useState } from "react";
+import type { Preset } from "../../constants";
+import type { Language } from "../../i18n";
+import { translations } from "../../i18n";
+import styles from "./styles.module.css";
 
 interface PresetsModalProps {
   presets: Preset[];
@@ -23,60 +23,60 @@ export const PresetsModal = ({
   onClose,
   language,
 }: PresetsModalProps) => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const t = translations.presets;
   const tc = translations.common;
 
   const handleSave = () => {
     if (name.trim()) {
       onSave(name.trim());
-      setName('');
+      setName("");
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && name.trim()) {
+    if (e.key === "Enter" && name.trim()) {
       handleSave();
     }
   };
 
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp);
-    const pad = (n: number) => n.toString().padStart(2, '0');
+    const pad = (n: number) => n.toString().padStart(2, "0");
     return `${date.getFullYear()}/${pad(date.getMonth() + 1)}/${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
   };
 
   return (
     <motion.div
-      className={styles['presets-modal__overlay']}
+      className={styles["presets-modal__overlay"]}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
       <motion.div
-        className={styles['presets-modal']}
+        className={styles["presets-modal"]}
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={styles['presets-modal__header']}>
-          <div className={styles['presets-modal__title']}>
-            <ListMusic size={20} className={styles['presets-modal__title-icon']} />
+        <div className={styles["presets-modal__header"]}>
+          <div className={styles["presets-modal__title"]}>
+            <ListMusic size={20} className={styles["presets-modal__title-icon"]} />
             {t.title[language]}
           </div>
-          <button className={styles['presets-modal__close-btn']} onClick={onClose}>
+          <button className={styles["presets-modal__close-btn"]} onClick={onClose}>
             <X size={18} />
           </button>
         </div>
 
-        <div className={styles['presets-modal__content']}>
+        <div className={styles["presets-modal__content"]}>
           {/* Save Current */}
-          <div className={styles['presets-modal__save-section']}>
+          <div className={styles["presets-modal__save-section"]}>
             <input
               type="text"
-              className={styles['presets-modal__name-input']}
+              className={styles["presets-modal__name-input"]}
               placeholder={t.inputPlaceholder[language]}
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -84,7 +84,7 @@ export const PresetsModal = ({
               maxLength={30}
             />
             <button
-              className={styles['presets-modal__save-btn']}
+              className={styles["presets-modal__save-btn"]}
               onClick={handleSave}
               disabled={!name.trim()}
             >
@@ -92,35 +92,39 @@ export const PresetsModal = ({
             </button>
           </div>
 
-          <div className={styles['presets-modal__divider']} />
+          <div className={styles["presets-modal__divider"]} />
 
           {/* Presets List */}
-          <div className={styles['presets-modal__list']}>
+          <div className={styles["presets-modal__list"]}>
             {presets.length === 0 ? (
-              <div className={styles['presets-modal__empty-state']}>
-                <div className={styles['presets-modal__empty-icon']}>📝</div>
-                <div>{t.emptyTitle[language]}<br />{t.emptyHint[language]}</div>
+              <div className={styles["presets-modal__empty-state"]}>
+                <div className={styles["presets-modal__empty-icon"]}>📝</div>
+                <div>
+                  {t.emptyTitle[language]}
+                  <br />
+                  {t.emptyHint[language]}
+                </div>
               </div>
             ) : (
               presets.map((preset) => (
-                <div key={preset.id} className={styles['presets-modal__item']}>
-                  <div className={styles['presets-modal__item-info']}>
-                    <div className={styles['presets-modal__item-name']}>{preset.name}</div>
-                    <div className={styles['presets-modal__item-meta']}>
+                <div key={preset.id} className={styles["presets-modal__item"]}>
+                  <div className={styles["presets-modal__item-info"]}>
+                    <div className={styles["presets-modal__item-name"]}>{preset.name}</div>
+                    <div className={styles["presets-modal__item-meta"]}>
                       <span>{preset.bpm} BPM</span>
                       <span>{preset.beatsPerMeasure}/4</span>
                       <span>{formatDate(preset.createdAt)}</span>
                     </div>
                   </div>
-                  <div className={styles['presets-modal__item-actions']}>
+                  <div className={styles["presets-modal__item-actions"]}>
                     <button
-                      className={`${styles['presets-modal__action-btn']} ${styles['presets-modal__action-btn--load']}`}
+                      className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--load"]}`}
                       onClick={() => onLoad(preset)}
                     >
                       {tc.load[language]}
                     </button>
                     <button
-                      className={`${styles['presets-modal__action-btn']} ${styles['presets-modal__action-btn--delete']}`}
+                      className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--delete"]}`}
                       onClick={() => onDelete(preset.id)}
                     >
                       {tc.delete[language]}

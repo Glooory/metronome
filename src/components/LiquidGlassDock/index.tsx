@@ -1,6 +1,6 @@
-import { clsx } from 'clsx';
-import { ReactNode } from 'react';
-import styles from './styles.module.css';
+import { clsx } from "clsx";
+import { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 interface LiquidGlassDockProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface LiquidGlassDockProps {
 
 export const LiquidGlassDock = ({ children, className }: LiquidGlassDockProps) => (
   <div className={clsx(styles.dock, className)}>
-    <div className={styles['dock__top-light']} />
+    <div className={styles["dock__top-light"]} />
     {children}
   </div>
 );

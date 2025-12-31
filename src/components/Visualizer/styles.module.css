@@ -45,11 +45,11 @@
 
 .visualizer__mute-icon-svg {
   transition: color 0.1s;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--theme-text-dim);
 }
 
 .visualizer__mute-icon-svg--active {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--theme-bg-overlay);
 }
 
 .visualizer__stack {
@@ -65,8 +65,8 @@
   width: 100%;
   flex: 1;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--theme-glass-border-subtle);
+  background-color: var(--theme-glass-bg-subtle);
   transition: background-color 0.1s;
   will-change: background-color;
 }

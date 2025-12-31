@@ -27,20 +27,20 @@
 }
 
 .glass-select__btn--open {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: white;
+  background-color: var(--theme-glass-bg-active);
+  border-color: var(--theme-glass-border-bright);
+  color: var(--theme-text-primary);
 }
 
 .glass-select__btn--closed {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
+  background-color: var(--theme-glass-bg-subtle);
+  border-color: var(--theme-glass-border-subtle);
+  color: var(--theme-text-secondary);
 }
 
 .glass-select__btn--closed:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: var(--theme-glass-bg);
+  color: var(--theme-text-primary);
 }
 
 .glass-select__label {
@@ -66,11 +66,11 @@
   gap: 0.25rem;
   overflow: hidden;
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--theme-glass-border);
+  box-shadow: var(--theme-shadow-panel);
   background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(var(--theme-glass-blur));
+  -webkit-backdrop-filter: blur(var(--theme-glass-blur));
   will-change: transform, opacity;
 }
 
@@ -107,19 +107,19 @@
 }
 
 .glass-select__option--selected {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--theme-glass-bg);
+  color: var(--theme-text-primary);
+  box-shadow: 0 0 10px var(--theme-glass-bg);
+  border: 1px solid var(--theme-glass-border-subtle);
 }
 
 .glass-select__option:not(.glass-select__option--selected) {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--theme-text-bright);
 }
 
 .glass-select__option:not(.glass-select__option--selected):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: var(--theme-glass-bg);
+  color: var(--theme-text-primary);
 }
 
 .glass-select__active-dot {
@@ -127,7 +127,7 @@
   right: 0.5rem;
   width: 0.375rem;
   height: 0.375rem;
-  background-color: #fbbf24;
+  background-color: var(--theme-accent-amber);
   border-radius: 9999px;
   box-shadow: 0 0 5px rgba(251, 191, 36, 0.8);
 }
@@ -139,7 +139,7 @@
   transition: opacity 0.2s;
 }
 
-.glass-select__chevrons > *:not(:first-child) {
+.glass-select__chevrons>*:not(:first-child) {
   margin-top: -0.25rem;
 }
 
@@ -153,7 +153,7 @@
   left: 0;
   right: 0;
   height: 50%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+  background: var(--theme-glass-top-light);
   pointer-events: none;
   mix-blend-mode: overlay;
 }

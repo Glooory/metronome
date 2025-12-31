@@ -1,7 +1,7 @@
 .rhythm-trainer-modal__overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--theme-bg-overlay);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -12,15 +12,15 @@
 }
 
 .rhythm-trainer-modal {
-  background: linear-gradient(145deg, rgba(30, 30, 45, 0.95) 0%, rgba(20, 20, 35, 0.98) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--theme-bg-modal-gradient);
+  border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 20px;
   padding: 24px;
   min-width: 320px;
   max-width: 400px;
   width: 100%;
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
+    var(--theme-shadow-modal),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -34,14 +34,14 @@
 .rhythm-trainer-modal__title {
   font-size: 18px;
   font-weight: 600;
-  color: white;
+  color: var(--theme-text-primary);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .rhythm-trainer-modal__title-icon {
-  color: rgba(59, 130, 246, 0.9);
+  color: var(--theme-accent-blue);
 }
 
 .rhythm-trainer-modal__close-btn {
@@ -49,17 +49,17 @@
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 8px;
   padding: 6px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--theme-text-secondary);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .rhythm-trainer-modal__close-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
+  background: var(--theme-glass-bg-hover);
+  color: var(--theme-text-primary);
 }
 
 .rhythm-trainer-modal__content {
@@ -79,16 +79,16 @@
 
 .rhythm-trainer-modal__label {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--theme-text-bright);
 }
 
 .rhythm-trainer-modal__input {
   width: 80px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 8px;
-  color: white;
+  color: var(--theme-text-primary);
   font-size: 14px;
   text-align: center;
   outline: none;
@@ -97,23 +97,23 @@
 
 .rhythm-trainer-modal__input:focus {
   border-color: rgba(59, 130, 246, 0.5);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--theme-glass-bg);
 }
 
 .rhythm-trainer-modal__toggle {
   position: relative;
   width: 52px;
   height: 28px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--theme-glass-bg);
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.2s;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--theme-glass-border-subtle);
 }
 
 .rhythm-trainer-modal__toggle--active {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(34, 197, 94, 0.5));
-  border-color: rgba(34, 197, 94, 0.5);
+  background: var(--theme-toggle-active-rhythm);
+  border-color: var(--theme-accent-green-border);
 }
 
 .rhythm-trainer-modal__toggle-knob {
@@ -122,7 +122,7 @@
   left: 3px;
   width: 20px;
   height: 20px;
-  background: white;
+  background: var(--theme-text-primary);
   border-radius: 50%;
   transition: transform 0.2s;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -134,21 +134,21 @@
 
 .rhythm-trainer-modal__divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--theme-glass-border-subtle);
   margin: 4px 0;
 }
 
 .rhythm-trainer-modal__status {
   padding: 12px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: var(--theme-accent-blue-bg);
+  border: 1px solid var(--theme-accent-blue-border);
   border-radius: 10px;
   text-align: center;
 }
 
 .rhythm-trainer-modal__status--muted {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.2);
+  background: var(--theme-accent-red-bg);
+  border-color: var(--theme-accent-red-border);
 }
 
 .rhythm-trainer-modal__status-text {
@@ -158,17 +158,17 @@
 }
 
 .rhythm-trainer-modal__status-highlight {
-  color: rgba(59, 130, 246, 1);
+  color: var(--theme-accent-blue);
   font-weight: 600;
 }
 
 .rhythm-trainer-modal__status-highlight--muted {
-  color: rgba(239, 68, 68, 1);
+  color: var(--theme-accent-red);
 }
 
 .rhythm-trainer-modal__hint {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--theme-text-secondary);
   text-align: center;
   line-height: 1.4;
 }

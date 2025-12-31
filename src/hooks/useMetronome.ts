@@ -434,7 +434,7 @@ export const useMetronome = (
     let animationFrameId: number;
     const draw = () => {
       const currentTime = audioContext.current?.currentTime || 0;
-      const VISUAL_OFFSET = 0.05;
+      const VISUAL_OFFSET = 0.025;
 
       while (
         notesInQueue.current.length &&

@@ -42,6 +42,7 @@ export const Visualizer = ({
                           ? "rgba(34, 211, 238, 0.3)"
                           : "rgba(255, 255, 255, 0.02)",
                   }}
+                  transition={{ duration: isActive ? 0 : 0.1 }}
                   className={styles["visualizer__block"]}
                 />
                 <motion.div
@@ -54,6 +55,7 @@ export const Visualizer = ({
                           ? "rgba(34, 211, 238, 0.3)"
                           : "rgba(255, 255, 255, 0.02)",
                   }}
+                  transition={{ duration: isActive ? 0 : 0.1 }}
                   className={styles["visualizer__block"]}
                 />
                 <motion.div
@@ -66,6 +68,7 @@ export const Visualizer = ({
                           ? "rgba(34, 211, 238, 0.3)"
                           : "rgba(255, 255, 255, 0.02)",
                   }}
+                  transition={{ duration: isActive ? 0 : 0.1 }}
                   className={styles["visualizer__block"]}
                 />
               </div>

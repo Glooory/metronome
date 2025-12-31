@@ -11,14 +11,14 @@ A professional online metronome with advanced training features, built with Reac
 ### Core Metronome
 
 - **BPM Control** (30-300) - Drag slider or use keyboard arrows
-- **Time Signatures** - 2/4, 3/4, 4/4, 5/4, 6/4, 7/4
+- **Time Signatures** - 2/4, 3/4, 4/4, 5/4, 6/4
 - **Subdivisions** - Quarter, Eighth, Triplet, Sixteenth notes
 - **Sound Presets** - Sine, Woodblock, Drum Kit, Mechanical
 
 ### Beat Customization
 
-- Click beat bars to cycle through states: Accent → Sub-accent → Normal → Mute
-- Visual indicator shows beat strength (3 blocks = accent, 1 = normal, 0 = muted)
+- Click beat bars to cycle through states: Normal → Mute → Sub-accent → Accent
+- Visual indicator shows beat strength (3 blocks = accent, 2 blocks = sub-accent, 1 = normal, 0 = muted)
 - BPM memory bar for quick tempo switching
 
 ### 🚀 Training Tools
@@ -32,11 +32,10 @@ A professional online metronome with advanced training features, built with Reac
 ### 🌐 Internationalization
 
 - English / 中文 toggle
-- All UI elements translated
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18 + TypeScript
+- **Frontend**: React 19 + TypeScript
 - **Build Tool**: Vite
 - **Styling**: CSS Modules (BEM naming)
 - **Animation**: Framer Motion
@@ -69,7 +68,7 @@ npm run build
 | ------------- | -------------- |
 | `Space`       | Play / Pause   |
 | `↑` / `↓`     | Adjust BPM ±1  |
-| `Shift + ↑/↓` | Adjust BPM ±10 |
+| `Shift + ↑/↓` | Adjust BPM ±5 |
 
 ## 📁 Project Structure
 

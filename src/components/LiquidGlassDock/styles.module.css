@@ -32,7 +32,8 @@
   height: 50%;
   background: var(--theme-glass-top-light);
   pointer-events: none;
-  mix-blend-mode: overlay;
+  mix-blend-mode: normal;
+  opacity: 0.5;
   border-top-left-radius: 9999px;
   border-top-right-radius: 9999px;
 }

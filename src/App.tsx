@@ -350,7 +350,7 @@ export default function MetronomeApp() {
       </AnimatePresence>
 
       <div className={styles["app__bg-gradient"]} />
-      <div className={styles["app__noise-overlay"]} />
+
 
       <div className={styles["app__content"]}>
         <div className={styles["bpm-section"]}>

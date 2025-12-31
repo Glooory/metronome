@@ -83,6 +83,132 @@
   --theme-toggle-active-rhythm: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(34, 197, 94, 0.5));
 }
 
+
+/* =========================================
+   Cyberpunk Theme (Neon & Void)
+   ========================================= */
+/* =========================================
+   Cyberpunk Theme (Neon & Void)
+   ========================================= */
+.theme-cyberpunk {
+  /* 
+   * [Aesthetics]: Deep Void Black
+   * Instead of pure #000, we use a rich, deep midnight shade.
+   * This provides a "warm" darkness that supports neon overlays better.
+   */
+  --theme-bg-primary: #050508;
+
+  /* 
+   * [Material]: Holographic Interface 
+   * High saturation glass allows background colors to "bleed" through vibrantly.
+   */
+  --theme-glass-bg: rgba(6, 11, 15, 0.7);
+  --theme-glass-bg-subtle: rgba(6, 11, 15, 0.5);
+  --theme-glass-bg-hover: rgba(0, 243, 255, 0.05);
+  --theme-glass-bg-active: rgba(0, 243, 255, 0.1);
+
+  /* 
+   * [Typography]: Data Terminal
+   * High contrast, slight blue tint to simulate screen phosphors. 
+   */
+  --theme-text-primary: #e0f7fa;
+  --theme-text-secondary: #00f3ff;
+  --theme-text-muted: #567e8a;
+  --theme-text-dim: #2d454f;
+  --theme-text-bright: #ffffff;
+
+  /* 
+   * [Color Palette]: Chromatic Aberration
+   * Key colors inspired by excessive neon signage.
+   */
+  --theme-accent-amber: #fcee0a;
+  /* Warning Yellow */
+  --theme-accent-amber-bg: rgba(252, 238, 10, 0.15);
+  --theme-accent-amber-border: rgba(252, 238, 10, 0.8);
+  --theme-accent-amber-glow: 0 0 15px rgba(252, 238, 10, 0.6);
+
+  --theme-accent-cyan: #00f3ff;
+  /* Electric Cyan */
+  --theme-accent-purple: #d900ff;
+  /* Hyper Magenta */
+
+  /* Retuning component accents to match the palette */
+  --theme-accent-purple-bg: rgba(217, 0, 255, 0.1);
+  --theme-accent-purple-border: rgba(217, 0, 255, 0.6);
+
+  --theme-accent-blue: #00f3ff;
+  --theme-accent-blue-bg: rgba(0, 243, 255, 0.1);
+  --theme-accent-blue-border: rgba(0, 243, 255, 0.6);
+
+  --theme-accent-red: #ff2a6d;
+  /* Glitch Red */
+  --theme-accent-red-bg: rgba(255, 42, 109, 0.15);
+  --theme-accent-red-border: rgba(255, 42, 109, 0.7);
+
+  --theme-accent-green-border: #05ffa1;
+  /* Matrix Green */
+
+  /* 
+   * [Structure]: Hard Light Borders
+   * Thin, sharp lines defining the UI structure. No soft edges.
+   */
+  --theme-glass-border: 1px solid rgba(0, 243, 255, 0.25);
+  --theme-glass-border-subtle: 1px solid rgba(0, 243, 255, 0.1);
+  --theme-glass-border-bright: 1px solid rgba(0, 243, 255, 0.7);
+
+  --theme-glass-blur: 12px;
+  --theme-glass-blur-sm: 8px;
+  --theme-glass-blur-xl: 24px;
+
+  /* 
+   * [Atmosphere]: The Grid
+   * A perspective grid fading into the darkness.
+   */
+  --theme-gradient-bg:
+    /* Scanline texture */
+    repeating-linear-gradient(0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(0, 0, 0, 0.3) 4px),
+    /* Vertical grid lines */
+    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    /* Horizontal grid lines */
+    linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    /* Deep glow vignettes */
+    radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05), transparent 60%),
+    radial-gradient(circle at 90% 90%, rgba(217, 0, 255, 0.08), transparent 50%);
+
+  --theme-bpm-text-gradient: linear-gradient(180deg, #ffffff 40%, #00f3ff 100%);
+
+  /* 
+   * [Lighting]: Neon Bloom
+   * Multi-layered shadows for realistic light falloff.
+   */
+  --theme-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 30px rgba(0, 243, 255, 0.2);
+  --theme-shadow-panel: 0 0 0 1px rgba(0, 243, 255, 0.1), 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+  --theme-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --theme-shadow-modal: 0 0 0 1px rgba(0, 243, 255, 0.4), 0 0 50px rgba(0, 243, 255, 0.1), 0 0 0 100vmax rgba(0, 0, 0, 0.8);
+  --theme-shadow-inset: inset 0 0 15px rgba(0, 0, 0, 0.5);
+
+  /* Active States */
+  --theme-trainer-active-bg: linear-gradient(135deg, rgba(217, 0, 255, 0.2), rgba(0, 243, 255, 0.1));
+  --theme-trainer-active-border: #00f3ff;
+  --theme-trainer-active-glow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
+
+  --theme-toggle-active-speed: linear-gradient(to right, #d900ff, #00f3ff);
+  --theme-toggle-active-rhythm: linear-gradient(to right, #00f3ff, #05ffa1);
+
+  --theme-bg-modal: rgba(5, 5, 8, 0.95);
+  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(8, 8, 12, 0.98), rgba(4, 4, 6, 0.98));
+}
+
+/* Specific Cyberpunk Enhancements via CSS classes if needed, 
+   but adhering to standard variable overrides where possible */
+.theme-cyberpunk {
+  /* CRT Scanline Effect Overlay on the app container */
+  background-size: 100% 4px, 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+}
+
 *,
 ::before,
 ::after {

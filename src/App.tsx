@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe, HelpCircle, Music2, Pause, Play, Waves } from "lucide-react";
+import { Globe, HelpCircle, Music2, Paintbrush, Pause, Play, Waves } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
@@ -36,10 +36,12 @@ import {
   STORAGE_KEY_SPEED_TRAINER,
   STORAGE_KEY_STEP_STATES,
   STORAGE_KEY_SUBDIV_VAL,
+  STORAGE_KEY_THEME,
   TAP_TIMEOUT,
   type Preset,
   type RhythmTrainerConfig,
   type SpeedTrainerConfig,
+  type ThemeName,
 } from "./constants";
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
@@ -116,6 +118,14 @@ export default function MetronomeApp() {
     setLanguage((prev) => (prev === "en" ? "zh" : "en"));
   };
 
+  const [theme, setTheme] = useState<ThemeName>(
+    () => getStorageItem(STORAGE_KEY_THEME, "default" as ThemeName) as ThemeName
+  );
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "default" ? "cyberpunk" : "default"));
+  };
+
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
     getStorageItem(
       STORAGE_KEY_SPEED_TRAINER,
@@ -164,6 +174,7 @@ export default function MetronomeApp() {
     setStorageItem(STORAGE_KEY_RHYTHM_TRAINER, rhythmTrainer);
     setStorageItem(STORAGE_KEY_PRESETS, presets);
     setStorageItem(STORAGE_KEY_LANGUAGE, language);
+    setStorageItem(STORAGE_KEY_THEME, theme);
   }, [
     bpm,
     beatsPerMeasure,
@@ -175,6 +186,7 @@ export default function MetronomeApp() {
     rhythmTrainer,
     presets,
     language,
+    theme,
   ]);
 
   const toggleStepState = (i: number) =>
@@ -294,8 +306,10 @@ export default function MetronomeApp() {
     setPresets((prev) => prev.filter((p) => p.id !== id));
   };
 
+  const themeClass = theme === "cyberpunk" ? "theme-cyberpunk" : "";
+
   return (
-    <div className={styles.app}>
+    <div className={clsx(styles.app, themeClass)}>
       <div className={styles["header-buttons"]}>
         <button
           onClick={toggleLanguage}
@@ -304,6 +318,13 @@ export default function MetronomeApp() {
         >
           <Globe size={18} />
           <span className={styles["header-btn__label"]}>{language === "en" ? "EN" : "中"}</span>
+        </button>
+        <button
+          onClick={toggleTheme}
+          className={styles["header-btn"]}
+          title={theme === "default" ? "Switch to Cyberpunk" : "Switch to Default"}
+        >
+          <Paintbrush size={18} />
         </button>
         <button onClick={() => setIsHelpOpen(true)} className={styles["header-btn"]}>
           <HelpCircle size={20} />

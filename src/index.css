@@ -541,6 +541,7 @@
   border-width: 0;
   border-style: solid;
   border-color: currentColor;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

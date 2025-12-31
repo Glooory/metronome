@@ -86,9 +86,8 @@
   --theme-toggle-active-rhythm: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(34, 197, 94, 0.5));
   --theme-toggle-knob: #ffffff;
   --theme-text-on-accent: #ffffff;
+  --theme-text-active-glass: var(--theme-text-primary);
 }
-
-
 
 /* =========================================
    Cyberpunk Theme (Neon & Void)
@@ -279,7 +278,7 @@
    * Darker "subtle" border for visibility of empty squares.
    */
   --theme-glass-border: 3px solid #6c5ce7;
-  --theme-glass-border-subtle: 2px solid #b2bec3;
+  --theme-glass-border-subtle: 2px solid #636e72;
   /* Stronger grey border for empty slots */
   --theme-glass-border-bright: 3px solid #a29bfe;
 
@@ -416,7 +415,7 @@
    * 0px Radius. 1px Solid Black Borders.
    */
   --theme-glass-border: 1px solid #000000;
-  --theme-glass-border-subtle: 1px solid #b2bec3;
+  --theme-glass-border-subtle: 1px solid #636e72;
   /* Darker grey for inputs */
   --theme-glass-border-bright: 1px solid #000000;
 
@@ -462,6 +461,9 @@
   --theme-wheel-line: #ff3300;
   --theme-wheel-line-glow: transparent;
   --theme-wheel-tick: #000000;
+
+  --theme-text-active-glass: #ffffff;
+  /* White text on Black active BG */
 }
 
 
@@ -569,8 +571,8 @@
    * [Structure]: Pebble
    * Very rounded, soft corners. No sharp edges.
    */
-  --theme-glass-border: 1px solid rgba(255, 255, 255, 0.4);
-  --theme-glass-border-subtle: 1px solid rgba(255, 255, 255, 0.2);
+  --theme-glass-border: 1px solid rgba(141, 163, 153, 0.5);
+  --theme-glass-border-subtle: 1px solid rgba(74, 80, 67, 0.2);
   --theme-glass-border-bright: 1px solid rgba(255, 255, 255, 0.6);
 
   --theme-glass-blur: 40px;
@@ -741,6 +743,8 @@
   --theme-wheel-line: #000000;
   --theme-wheel-line-glow: transparent;
   --theme-wheel-tick: #000000;
+
+  --theme-text-active-glass: #ffffff;
 }
 
 /* E-Ink Theme Specific Overrides */

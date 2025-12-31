@@ -28,8 +28,8 @@
 
 .glass-select__btn--open {
   background-color: var(--theme-glass-bg-active);
-  border-color: var(--theme-glass-border-bright);
-  color: var(--theme-text-primary);
+  border-color: var(--theme-text-active-glass);
+  color: var(--theme-text-active-glass);
 }
 
 .glass-select__btn--closed {

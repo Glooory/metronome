@@ -125,7 +125,8 @@ export default function MetronomeApp() {
   const toggleTheme = () => {
     setTheme((prev) => {
       if (prev === "default") return "swiss";
-      if (prev === "swiss") return "cyberpunk";
+      if (prev === "swiss") return "zen";
+      if (prev === "zen") return "cyberpunk";
       if (prev === "cyberpunk") return "kids";
       return "default";
     });
@@ -315,6 +316,7 @@ export default function MetronomeApp() {
     "theme-cyberpunk": theme === "cyberpunk",
     "theme-kids": theme === "kids",
     "theme-swiss": theme === "swiss",
+    "theme-zen": theme === "zen",
   });
 
   return (

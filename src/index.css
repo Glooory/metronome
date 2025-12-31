@@ -495,6 +495,132 @@
   display: none;
 }
 
+
+/* =========================================
+   Zen Theme (Organic & Natural)
+   ========================================= */
+.theme-zen {
+  /* 
+   * [Aesthetics]: Morning Mist / Stone
+   * Calming, earthy tones.
+   */
+  --theme-bg-primary: #e8e8e6;
+  /* Stone Grey */
+
+  /* 
+   * [Material]: Frosted Stone / Rice Paper
+   * Soft, diffused, high blur.
+   */
+  --theme-glass-bg: rgba(255, 255, 255, 0.6);
+  --theme-glass-bg-subtle: rgba(255, 255, 255, 0.4);
+  --theme-glass-bg-hover: rgba(141, 163, 153, 0.2);
+  /* Sage Green Hover */
+  --theme-glass-bg-active: rgba(141, 163, 153, 0.3);
+
+  --theme-input-bg: rgba(255, 255, 255, 0.5);
+
+  /* 
+   * [Typography]: Humanist
+   * Dark grey/green for softness.
+   */
+  --theme-text-primary: #4a5043;
+  /* Swamp Green / Dark Grey */
+  --theme-text-secondary: #7d9d8c;
+  /* Forest Green */
+  --theme-text-muted: #a3b1a8;
+  --theme-text-dim: #bbc2be;
+  --theme-text-bright: #2d3436;
+
+  /* 
+   * [Color Palette]: Nature
+   * Desaturated, earthy accents.
+   */
+  --theme-accent-amber: #d6b08c;
+  /* Sand / Wood */
+  --theme-accent-amber-bg: rgba(214, 176, 140, 0.2);
+  --theme-accent-amber-border: #d6b08c;
+  --theme-accent-amber-glow: 0 0 20px rgba(214, 176, 140, 0.4);
+
+  --theme-accent-cyan: #8da399;
+  /* Sage */
+  --theme-accent-purple: #9aa899;
+  /* Moss */
+
+  /* Component accents */
+  --theme-accent-purple-bg: rgba(154, 168, 153, 0.2);
+  --theme-accent-purple-border: #9aa899;
+
+  --theme-accent-blue: #8da399;
+  /* Sage */
+  --theme-accent-blue-bg: rgba(141, 163, 153, 0.2);
+  --theme-accent-blue-border: #8da399;
+
+  --theme-accent-red: #cfa5a5;
+  /* Dried Rose */
+  --theme-accent-red-bg: rgba(207, 165, 165, 0.2);
+  --theme-accent-red-border: #cfa5a5;
+
+  --theme-accent-green-border: #8da399;
+
+  /* 
+   * [Structure]: Pebble
+   * Very rounded, soft corners. No sharp edges.
+   */
+  --theme-glass-border: 1px solid rgba(255, 255, 255, 0.4);
+  --theme-glass-border-subtle: 1px solid rgba(255, 255, 255, 0.2);
+  --theme-glass-border-bright: 1px solid rgba(255, 255, 255, 0.6);
+
+  --theme-glass-blur: 40px;
+  --theme-glass-blur-sm: 20px;
+  --theme-glass-blur-xl: 60px;
+
+  /* 
+   * [Atmosphere]: Washi Paper
+   * Subtle noise/texture via main app overlay (which uses overlay blend mode).
+   * Background gradient mimics uneven lighting.
+   */
+  --theme-gradient-bg:
+    radial-gradient(circle at 10% 20%, rgba(141, 163, 153, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(214, 176, 140, 0.15) 0%, transparent 50%);
+
+  /* Typography Gradient - Stone */
+  --theme-bpm-text-gradient: linear-gradient(180deg, #5b655a 0%, #4a5043 100%);
+
+  /* 
+   * [Lighting]: Ambient
+   * Soft, diffused shadows.
+   */
+  --theme-shadow-glow: 0 0 30px rgba(141, 163, 153, 0.3);
+  --theme-shadow-panel: 0 20px 40px -10px rgba(74, 80, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --theme-shadow-sm: 0 4px 6px -1px rgba(74, 80, 67, 0.05);
+  --theme-shadow-modal: 0 20px 60px rgba(74, 80, 67, 0.1), 0 0 0 100vmax rgba(232, 232, 230, 0.8);
+  --theme-shadow-inset: inset 0 2px 4px rgba(74, 80, 67, 0.05);
+
+  /* Active Elements */
+  --theme-trainer-active-bg: #8da399;
+  --theme-trainer-active-border: #8da399;
+  --theme-trainer-active-glow: 0 0 15px rgba(141, 163, 153, 0.4);
+
+  --theme-toggle-active-speed: linear-gradient(to right, #d6b08c, #cfa5a5);
+  --theme-toggle-active-rhythm: linear-gradient(to right, #8da399, #9aa899);
+
+  --theme-bg-modal: rgba(255, 255, 255, 0.9);
+  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(246, 246, 244, 0.95));
+
+  /* Wheel Styling */
+  --theme-wheel-bg: rgba(255, 255, 255, 0.5);
+  --theme-wheel-line: #cfa5a5;
+  /* Dried Rose */
+  --theme-wheel-line-glow: 0 0 10px rgba(207, 165, 165, 0.4);
+  --theme-wheel-tick: #a3b1a8;
+}
+
+/* Zen Theme Specific Overrides */
+.theme-zen * {
+  border-radius: 24px !important;
+  /* Soft pebble shapes */
+}
+
 /* Specific Cyberpunk Enhancements via CSS classes if needed, 
    but adhering to standard variable overrides where possible */
 .theme-cyberpunk {

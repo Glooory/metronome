@@ -39,8 +39,6 @@
   background-color: var(--theme-bg-primary);
 }
 
-
-
 .app__content {
   width: 100%;
   max-width: 36rem;
@@ -50,7 +48,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 75dvh;
+  height: 85dvh;
   position: relative;
   z-index: 10;
 }

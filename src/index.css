@@ -547,7 +547,7 @@
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100dvh;
   background-color: var(--theme-bg-primary);
   color: var(--theme-text-primary);
 }

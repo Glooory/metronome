@@ -37,10 +37,10 @@ export const Visualizer = ({
                   animate={{
                     backgroundColor:
                       isActive && isAccent
-                        ? "rgba(34, 211, 238, 1)"
+                        ? "var(--theme-visualizer-accent)"
                         : isAccent
-                          ? "rgba(34, 211, 238, 0.3)"
-                          : "rgba(255, 255, 255, 0.02)",
+                          ? "var(--theme-visualizer-accent-dim)"
+                          : "var(--theme-visualizer-empty)",
                   }}
                   transition={{ duration: isActive ? 0 : 0.1 }}
                   className={styles["visualizer__block"]}
@@ -50,10 +50,10 @@ export const Visualizer = ({
                   animate={{
                     backgroundColor:
                       isActive && (isAccent || isSubAccent)
-                        ? "rgba(34, 211, 238, 1)"
+                        ? "var(--theme-visualizer-accent)"
                         : isAccent || isSubAccent
-                          ? "rgba(34, 211, 238, 0.3)"
-                          : "rgba(255, 255, 255, 0.02)",
+                          ? "var(--theme-visualizer-accent-dim)"
+                          : "var(--theme-visualizer-empty)",
                   }}
                   transition={{ duration: isActive ? 0 : 0.1 }}
                   className={styles["visualizer__block"]}
@@ -63,10 +63,10 @@ export const Visualizer = ({
                   animate={{
                     backgroundColor:
                       isActive && !isMute
-                        ? "rgba(34, 211, 238, 1)"
+                        ? "var(--theme-visualizer-accent)"
                         : !isMute
-                          ? "rgba(34, 211, 238, 0.3)"
-                          : "rgba(255, 255, 255, 0.02)",
+                          ? "var(--theme-visualizer-accent-dim)"
+                          : "var(--theme-visualizer-empty)",
                   }}
                   transition={{ duration: isActive ? 0 : 0.1 }}
                   className={styles["visualizer__block"]}

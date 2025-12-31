@@ -123,7 +123,11 @@ export default function MetronomeApp() {
   );
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "default" ? "cyberpunk" : "default"));
+    setTheme((prev) => {
+      if (prev === "default") return "cyberpunk";
+      if (prev === "cyberpunk") return "kids";
+      return "default";
+    });
   };
 
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
@@ -306,7 +310,10 @@ export default function MetronomeApp() {
     setPresets((prev) => prev.filter((p) => p.id !== id));
   };
 
-  const themeClass = theme === "cyberpunk" ? "theme-cyberpunk" : "";
+  const themeClass = clsx({
+    "theme-cyberpunk": theme === "cyberpunk",
+    "theme-kids": theme === "kids",
+  });
 
   return (
     <div className={clsx(styles.app, themeClass)}>
@@ -322,7 +329,7 @@ export default function MetronomeApp() {
         <button
           onClick={toggleTheme}
           className={styles["header-btn"]}
-          title={theme === "default" ? "Switch to Cyberpunk" : "Switch to Default"}
+          title={`Current: ${theme}. Click to switch.`}
         >
           <Paintbrush size={18} />
         </button>

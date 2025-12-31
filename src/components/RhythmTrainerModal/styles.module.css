@@ -48,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 8px;
   padding: 6px;
@@ -85,7 +85,7 @@
 .rhythm-trainer-modal__input {
   width: 80px;
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 8px;
   color: var(--theme-text-primary);
@@ -153,7 +153,7 @@
 
 .rhythm-trainer-modal__status-text {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--theme-text-primary);
   line-height: 1.5;
 }
 

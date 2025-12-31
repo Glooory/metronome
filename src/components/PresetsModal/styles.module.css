@@ -24,7 +24,7 @@
   flex-direction: column;
   box-shadow:
     var(--theme-shadow-modal),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    inset 0 1px 0 var(--theme-glass-border-subtle);
 }
 
 .presets-modal__header {
@@ -51,7 +51,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 8px;
   padding: 6px;
@@ -81,7 +81,7 @@
 .presets-modal__name-input {
   flex: 1;
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 10px;
   color: var(--theme-text-primary);
@@ -159,13 +159,13 @@
   gap: 12px;
   padding: 12px;
   background: var(--theme-glass-bg-subtle);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 12px;
   transition: all 0.2s;
 }
 
 .presets-modal__item:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border-color: var(--theme-glass-border-subtle);
 }
 
@@ -199,7 +199,7 @@
 
 .presets-modal__action-btn {
   padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 6px;
   color: var(--theme-text-bright);

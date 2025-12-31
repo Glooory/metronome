@@ -21,7 +21,7 @@
   justify-content: center;
   gap: 6px;
   padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 10px;
   color: var(--theme-text-bright);
@@ -34,7 +34,7 @@
 
 .trainer-dock__btn:hover {
   background: var(--theme-glass-bg-hover);
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--theme-text-primary);
   transform: translateY(-1px);
 }
 

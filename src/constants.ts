@@ -26,7 +26,7 @@ export const STORAGE_KEY_SPEED_TRAINER = "spatial-metronome-speed-trainer";
 export const STORAGE_KEY_RHYTHM_TRAINER = "spatial-metronome-rhythm-trainer";
 export const STORAGE_KEY_THEME = "spatial-metronome-theme";
 
-export type ThemeName = "default" | "cyberpunk";
+export type ThemeName = "default" | "cyberpunk" | "kids";
 
 export interface Preset {
   id: string;

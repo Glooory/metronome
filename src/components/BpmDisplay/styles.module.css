@@ -197,7 +197,7 @@
   bottom: 0;
   background-image: linear-gradient(to bottom,
       transparent 45%,
-      var(--theme-glass-border-bright) 50%,
+      var(--theme-wheel-tick, var(--theme-glass-border-bright)) 50%,
       transparent 55%);
   background-size: 100% 1rem;
   background-position-y: var(--wheel-offset, 0);

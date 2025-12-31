@@ -10,22 +10,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* ===== Theme Variables ===== */
-
-  /* Background Colors */
   --theme-bg-primary: #0a0a0a;
   --theme-bg-overlay: rgba(0, 0, 0, 0.6);
   --theme-bg-modal: rgba(10, 10, 10, 0.9);
   --theme-bg-modal-gradient: linear-gradient(145deg, rgba(30, 30, 45, 0.95) 0%, rgba(20, 20, 35, 0.98) 100%);
 
-  /* Text Colors */
   --theme-text-primary: #ffffff;
   --theme-text-secondary: rgba(255, 255, 255, 0.6);
   --theme-text-muted: rgba(255, 255, 255, 0.3);
   --theme-text-dim: rgba(255, 255, 255, 0.4);
   --theme-text-bright: rgba(255, 255, 255, 0.7);
 
-  /* Glass Effect */
   --theme-glass-bg: rgba(255, 255, 255, 0.1);
   --theme-glass-bg-subtle: rgba(255, 255, 255, 0.05);
   --theme-glass-bg-hover: rgba(255, 255, 255, 0.15);
@@ -35,11 +30,10 @@
   --theme-glass-border-bright: rgba(255, 255, 255, 0.3);
   --theme-glass-blur: 24px;
   --theme-glass-blur-sm: 12px;
+  --theme-glass-blur-xl: 40px;
 
-  /* Input Backgrounds */
   --theme-input-bg: rgba(255, 255, 255, 0.08);
 
-  /* Accent Colors */
   --theme-accent-amber: #fbbf24;
   --theme-accent-amber-bg: rgba(245, 158, 11, 0.1);
   --theme-accent-amber-border: rgba(245, 158, 11, 0.4);
@@ -56,85 +50,55 @@
   --theme-accent-red-border: rgba(239, 68, 68, 0.3);
   --theme-accent-green-border: rgba(34, 197, 94, 0.5);
 
-  /* Background Gradients */
-  --theme-gradient-bg:
-    radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+  --theme-gradient-bg: radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 40%), radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.15) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
   --theme-bpm-text-gradient: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
   --theme-glass-top-light: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
 
-  /* Wheel */
   --theme-wheel-bg: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, rgba(0, 0, 0, 0.4));
   --theme-wheel-line: rgba(255, 120, 120, 0.8);
   --theme-wheel-line-glow: rgba(255, 120, 120, 0.5);
+  --theme-wheel-tick: rgba(255, 255, 255, 0.5);
 
-  /* Shadows */
   --theme-shadow-glow: 0 0 50px rgba(255, 255, 255, 0.3);
   --theme-shadow-panel: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
   --theme-shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.4);
   --theme-shadow-inset: inset 0 0 20px rgba(0, 0, 0, 0.5);
 
-  /* Button Gradients for Trainers */
   --theme-trainer-active-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.3));
   --theme-trainer-active-border: rgba(139, 92, 246, 0.5);
   --theme-trainer-active-glow: 0 0 12px rgba(139, 92, 246, 0.3);
 
-  /* Toggle Gradients */
   --theme-toggle-active-speed: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(139, 92, 246, 0.5));
   --theme-toggle-active-rhythm: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(34, 197, 94, 0.5));
+  --theme-toggle-border-rhythm: var(--theme-accent-green-border);
   --theme-toggle-knob: #ffffff;
   --theme-text-on-accent: #ffffff;
   --theme-text-active-glass: var(--theme-text-primary);
 }
 
-/* =========================================
-   Cyberpunk Theme (Neon & Void)
-   ========================================= */
 .theme-cyberpunk {
-  /* 
-   * [Aesthetics]: Deep Void Black
-   * Instead of pure #000, we use a rich, deep midnight shade.
-   * This provides a "warm" darkness that supports neon overlays better.
-   */
   --theme-bg-primary: #050508;
 
-  /* 
-   * [Material]: Holographic Interface 
-   * High saturation glass allows background colors to "bleed" through vibrantly.
-   */
   --theme-glass-bg: rgba(6, 11, 15, 0.7);
   --theme-glass-bg-subtle: rgba(6, 11, 15, 0.5);
   --theme-glass-bg-hover: rgba(0, 243, 255, 0.05);
   --theme-glass-bg-active: rgba(0, 243, 255, 0.1);
 
-  /* 
-   * [Typography]: Data Terminal
-   * High contrast, slight blue tint to simulate screen phosphors. 
-   */
   --theme-text-primary: #e0f7fa;
   --theme-text-secondary: #00f3ff;
   --theme-text-muted: #567e8a;
   --theme-text-dim: #2d454f;
   --theme-text-bright: #ffffff;
 
-  /* 
-   * [Color Palette]: Chromatic Aberration
-   * Key colors inspired by excessive neon signage.
-   */
   --theme-accent-amber: #fcee0a;
-  /* Warning Yellow */
   --theme-accent-amber-bg: rgba(252, 238, 10, 0.15);
   --theme-accent-amber-border: rgba(252, 238, 10, 0.8);
   --theme-accent-amber-glow: 0 0 15px rgba(252, 238, 10, 0.6);
 
   --theme-accent-cyan: #00f3ff;
-  /* Electric Cyan */
   --theme-accent-purple: #d900ff;
-  /* Hyper Magenta */
 
-  /* Retuning component accents to match the palette */
   --theme-accent-purple-bg: rgba(217, 0, 255, 0.1);
   --theme-accent-purple-border: rgba(217, 0, 255, 0.6);
 
@@ -143,17 +107,11 @@
   --theme-accent-blue-border: rgba(0, 243, 255, 0.6);
 
   --theme-accent-red: #ff2a6d;
-  /* Glitch Red */
   --theme-accent-red-bg: rgba(255, 42, 109, 0.15);
   --theme-accent-red-border: rgba(255, 42, 109, 0.7);
 
   --theme-accent-green-border: #05ffa1;
-  /* Matrix Green */
 
-  /* 
-   * [Structure]: Hard Light Borders
-   * Thin, sharp lines defining the UI structure. No soft edges.
-   */
   --theme-glass-border: rgba(0, 243, 255, 0.25);
   --theme-glass-border-subtle: rgba(0, 243, 255, 0.1);
   --theme-glass-border-bright: rgba(0, 243, 255, 0.7);
@@ -162,95 +120,50 @@
   --theme-glass-blur-sm: 8px;
   --theme-glass-blur-xl: 24px;
 
-  /* 
-   * [Atmosphere]: The Grid
-   * A perspective grid fading into the darkness.
-   */
-  --theme-gradient-bg:
-    /* Scanline texture */
-    repeating-linear-gradient(0deg,
-      transparent 0,
-      transparent 3px,
-      rgba(0, 0, 0, 0.3) 4px),
-    /* Vertical grid lines */
-    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-    /* Horizontal grid lines */
-    linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-    /* Deep glow vignettes */
-    radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05), transparent 60%),
-    radial-gradient(circle at 90% 90%, rgba(217, 0, 255, 0.08), transparent 50%);
+  --theme-gradient-bg: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.3) 4px), linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px), linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px), radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05), transparent 60%), radial-gradient(circle at 90% 90%, rgba(217, 0, 255, 0.08), transparent 50%);
 
   --theme-bpm-text-gradient: linear-gradient(180deg, #ffffff 40%, #00f3ff 100%);
 
-  /* 
-   * [Lighting]: Neon Bloom
-   * Multi-layered shadows for realistic light falloff.
-   */
   --theme-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 30px rgba(0, 243, 255, 0.2);
   --theme-shadow-panel: 0 0 0 1px rgba(0, 243, 255, 0.1), 0 10px 30px -10px rgba(0, 0, 0, 0.8);
   --theme-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
   --theme-shadow-modal: 0 0 0 1px rgba(0, 243, 255, 0.4), 0 0 50px rgba(0, 243, 255, 0.1), 0 0 0 100vmax rgba(0, 0, 0, 0.8);
   --theme-shadow-inset: inset 0 0 15px rgba(0, 0, 0, 0.5);
 
-  /* Active Elements */
   --theme-trainer-active-bg: linear-gradient(135deg, rgba(217, 0, 255, 0.2), rgba(0, 243, 255, 0.1));
   --theme-trainer-active-border: #00f3ff;
   --theme-trainer-active-glow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
 
   --theme-toggle-active-speed: linear-gradient(to right, #d900ff, #00f3ff);
   --theme-toggle-active-rhythm: linear-gradient(to right, #00f3ff, #05ffa1);
+  --theme-toggle-border-rhythm: #05ffa1;
 
   --theme-bg-modal: rgba(5, 5, 8, 0.95);
   --theme-bg-modal-gradient: linear-gradient(180deg, rgba(8, 8, 12, 0.98), rgba(4, 4, 6, 0.98));
 
-  /* Wheel Styling - Neon */
   --theme-wheel-bg: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 243, 255, 0.05) 20%, rgba(0, 243, 255, 0.05) 80%, rgba(0, 0, 0, 0.8));
   --theme-wheel-line: #00f3ff;
   --theme-wheel-line-glow: rgba(0, 243, 255, 0.8);
+  --theme-wheel-tick: rgba(0, 243, 255, 0.3);
 }
 
-/* =========================================
-   Kids Pop Theme (Candy & Playful)
-   ========================================= */
 .theme-kids {
-  /* 
-   * [Aesthetics]: Candy Store
-   * Soft, warm, and inviting background.
-   * Slightly darker cream to reduce glare (#fff9e6 -> #f8f1d8).
-   */
   --theme-bg-primary: #f8f1d8;
 
-  /* 
-   * [Material]: Bubbles
-   * Glass becomes colorful translucent plastic/jelly.
-   */
   --theme-glass-bg: rgba(255, 255, 255, 0.9);
   --theme-glass-bg-subtle: rgba(255, 255, 255, 1.0);
-  /* Solid white for empty slots = better contrast */
   --theme-glass-bg-hover: rgba(255, 107, 107, 0.1);
   --theme-glass-bg-active: rgba(255, 107, 107, 0.2);
 
   --theme-input-bg: rgba(0, 0, 0, 0.05);
-  /* Greyish input background for white modal */
 
-  /* 
-   * [Typography]: Comic Book
-   * Dark indigo text for good contrast against light bg.
-   */
   --theme-text-primary: #2d3436;
   --theme-text-secondary: #6c5ce7;
-  /* Soft Purple */
   --theme-text-muted: #a29bfe;
   --theme-text-dim: #b2bec3;
-  /* Darker grey for visible placeholders */
   --theme-text-bright: #000000;
 
-  /* 
-   * [Color Palette]: Toy Box
-   * Primary colors with a soft pastel twist.
-   */
   --theme-accent-amber: #ff9ff3;
-  /* Bubblegum Pink */
   --theme-accent-amber-bg: rgba(255, 159, 243, 0.2);
   --theme-accent-amber-border: #ff9ff3;
   --theme-accent-amber-glow: 0 0 0 rgba(0, 0, 0, 0);
@@ -258,7 +171,6 @@
   --theme-accent-cyan: #00d2d3;
   --theme-accent-purple: #5f27cd;
 
-  /* Component accents */
   --theme-accent-purple-bg: rgba(95, 39, 205, 0.1);
   --theme-accent-purple-border: #5f27cd;
 
@@ -272,131 +184,76 @@
 
   --theme-accent-green-border: #1dd1a1;
 
-  /* 
-   * [Structure]: Sticker Art
-   * Bold, rounded borders.
-   * Darker "subtle" border for visibility of empty squares.
-   */
-  --theme-glass-border: 3px solid #6c5ce7;
-  --theme-glass-border-subtle: 2px solid #636e72;
-  /* Stronger grey border for empty slots */
+  --theme-glass-border: 4px solid #6c5ce7;
+  --theme-glass-border-subtle: 2px solid #b2bec3;
   --theme-glass-border-bright: 3px solid #a29bfe;
 
-  /* No blur */
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  /* 
-   * [Atmosphere]: Doodles
-   * Polka dots pattern - REDUCED CONTRAST
-   * Using very faint dots to be less distracting.
-   */
-  --theme-gradient-bg:
-    radial-gradient(rgba(250, 177, 160, 0.4) 20%, transparent 21%) 0 0 / 20px 20px,
-    radial-gradient(rgba(116, 185, 255, 0.4) 20%, transparent 21%) 10px 10px / 20px 20px;
+  --theme-gradient-bg: radial-gradient(rgba(250, 177, 160, 0.4) 20%, transparent 21%) 0 0 / 20px 20px, radial-gradient(rgba(116, 185, 255, 0.4) 20%, transparent 21%) 10px 10px / 20px 20px;
 
-  /* Typography Gradient */
   --theme-bpm-text-gradient: linear-gradient(180deg, #ff9ff3 0%, #feca57 50%, #54a0ff 100%);
 
-  /* 
-   * [Lighting]: Flat & Chunky
-   */
   --theme-shadow-glow: 4px 4px 0px rgba(0, 0, 0, 0.1);
   --theme-shadow-panel: 6px 6px 0px rgba(108, 92, 231, 0.1);
-  /* Lighter shadow */
   --theme-shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.1);
   --theme-shadow-modal: 10px 10px 0px rgba(0, 0, 0, 0.1), 0 0 0 100vmax rgba(255, 255, 255, 0.5);
   --theme-shadow-inset: inset 2px 2px 0px rgba(0, 0, 0, 0.05);
 
-  /* Active Elements */
   --theme-trainer-active-bg: #ff9ff3;
   --theme-trainer-active-border: #f368e0;
   --theme-trainer-active-glow: 0 4px 0 #f368e0;
 
   --theme-toggle-active-speed: linear-gradient(to right, #ff9ff3, #feca57);
   --theme-toggle-active-rhythm: linear-gradient(to right, #54a0ff, #1dd1a1);
+  --theme-toggle-border-rhythm: #1dd1a1;
 
   --theme-bg-modal: #ffffff;
   --theme-bg-modal-gradient: linear-gradient(180deg, #ffffff, #f0f0f0);
 
-  /* Wheel Styling */
   --theme-wheel-bg: #ffffff;
   --theme-wheel-line: #ff6b6b;
-  /* Center Indicator */
   --theme-wheel-line-glow: transparent;
   --theme-wheel-tick: #b2bec3;
-  /* Visible Grey Ticks for scrolling effect */
 
   --theme-text-on-accent: #2d3436;
   --theme-toggle-knob: #2d3436;
 }
 
-/* Cleanup: Removed specific .theme-kids background-size override
-   since we moved it into the variable shorthand */
 .theme-kids * {
   border-radius: 12px !important;
-  /* Force softer corners */
 }
 
-/* Adjust BPM display for kids */
 .theme-kids div[class*="bpm-display__value--blur"] {
   display: none;
-  /* No blur effect needed */
 }
 
-
-/* =========================================
-   Swiss International Style (Grid & Typography)
-   ========================================= */
 .theme-swiss {
-  /* 
-   * [Aesthetics]: International Typographic Style
-   * Order, readability, objectivity.
-   * Stark white background with high-contrast elements.
-   */
   --theme-bg-primary: #f4f4f0;
-  /* Off-white Paper */
 
-  /* 
-   * [Material]: Structure
-   * No glass blur. Solid, honest materials.
-   */
   --theme-glass-bg: #ffffff;
   --theme-glass-bg-subtle: #ffffff;
   --theme-glass-bg-hover: #0033ff;
-  /* Klein Blue Hover */
   --theme-glass-bg-active: #000000;
 
   --theme-input-bg: #f0f0f0;
 
-  /* 
-   * [Typography]: Helvetica/Inter
-   * Pure Black text.
-   */
   --theme-text-primary: #000000;
   --theme-text-secondary: #0033ff;
-  /* Klein Blue */
   --theme-text-muted: #636e72;
   --theme-text-dim: #b2bec3;
   --theme-text-bright: #000000;
 
-  /* 
-   * [Color Palette]: Bauhaus
-   * Primary colors, high saturation.
-   */
   --theme-accent-amber: #ff3300;
-  /* International Orange */
   --theme-accent-amber-bg: rgba(255, 51, 0, 0.1);
   --theme-accent-amber-border: #ff3300;
   --theme-accent-amber-glow: 0 0 0 transparent;
 
   --theme-accent-cyan: #0033ff;
-  /* Klein Blue */
   --theme-accent-purple: #000000;
-  /* Black */
 
-  /* Component accents */
   --theme-accent-purple-bg: rgba(0, 0, 0, 0.05);
   --theme-accent-purple-border: #000000;
 
@@ -410,64 +267,43 @@
 
   --theme-accent-green-border: #00b894;
 
-  /* 
-   * [Structure]: Grid System
-   * 0px Radius. 1px Solid Black Borders.
-   */
   --theme-glass-border: 1px solid #000000;
-  --theme-glass-border-subtle: 1px solid #636e72;
-  /* Darker grey for inputs */
+  --theme-glass-border-subtle: 1px solid #999999;
   --theme-glass-border-bright: 1px solid #000000;
 
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  /* 
-   * [Atmosphere]: Graph Paper
-   * Subtle grid background.
-   */
-  --theme-gradient-bg:
-    linear-gradient(#e5e5e5 1px, transparent 1px) 0 0 / 20px 20px,
-    linear-gradient(90deg, #e5e5e5 1px, transparent 1px) 0 0 / 20px 20px;
+  --theme-gradient-bg: linear-gradient(#e5e5e5 1px, transparent 1px) 0 0 / 20px 20px, linear-gradient(90deg, #e5e5e5 1px, transparent 1px) 0 0 / 20px 20px;
 
-  /* Typography Gradient - Solid Black */
   --theme-bpm-text-gradient: #000000;
 
-  /* 
-   * [Lighting]: Flat
-   * No shadows, or purely functional separation.
-   */
   --theme-shadow-glow: none;
   --theme-shadow-panel: none;
   --theme-shadow-sm: none;
   --theme-shadow-modal: 10px 10px 0px rgba(0, 0, 0, 0.1);
-  /* Hard shadow drop */
   --theme-shadow-inset: none;
 
-  /* Active Elements */
   --theme-trainer-active-bg: #ff3300;
   --theme-trainer-active-border: #ff3300;
   --theme-trainer-active-glow: none;
 
   --theme-toggle-active-speed: #ff3300;
   --theme-toggle-active-rhythm: #0033ff;
+  --theme-toggle-border-rhythm: #0033ff;
 
   --theme-bg-modal: #ffffff;
   --theme-bg-modal-gradient: #ffffff;
 
-  /* Wheel Styling */
   --theme-wheel-bg: #ffffff;
   --theme-wheel-line: #ff3300;
   --theme-wheel-line-glow: transparent;
   --theme-wheel-tick: #000000;
 
   --theme-text-active-glass: #ffffff;
-  /* White text on Black active BG */
 }
 
-
-/* Swiss Theme Specific Overrides */
 .theme-swiss * {
   border-radius: 0px !important;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -496,176 +332,98 @@
   filter: drop-shadow(2px 2px 0px #000000) !important;
 }
 
-.theme-kids [class*="bpm-display__value--blur"] {
-  display: none;
-}
-
-
-/* =========================================
-   Zen Theme (Organic & Natural)
-   ========================================= */
 .theme-zen {
-  /* 
-   * [Aesthetics]: Morning Mist / Stone
-   * Calming, earthy tones.
-   */
   --theme-bg-primary: #e8e8e6;
-  /* Stone Grey */
 
-  /* 
-   * [Material]: Frosted Stone / Rice Paper
-   * Soft, diffused, high blur.
-   */
   --theme-glass-bg: rgba(255, 255, 255, 0.6);
   --theme-glass-bg-subtle: rgba(255, 255, 255, 0.4);
   --theme-glass-bg-hover: rgba(141, 163, 153, 0.2);
-  /* Sage Green Hover */
   --theme-glass-bg-active: rgba(141, 163, 153, 0.3);
 
   --theme-input-bg: rgba(255, 255, 255, 0.5);
 
-  /* 
-   * [Typography]: Humanist
-   * Dark grey/green for softness.
-   */
   --theme-text-primary: #4a5043;
-  /* Swamp Green / Dark Grey */
   --theme-text-secondary: #7d9d8c;
-  /* Forest Green */
   --theme-text-muted: #a3b1a8;
   --theme-text-dim: #bbc2be;
   --theme-text-bright: #2d3436;
 
-  /* 
-   * [Color Palette]: Nature
-   * Desaturated, earthy accents.
-   */
   --theme-accent-amber: #d6b08c;
-  /* Sand / Wood */
   --theme-accent-amber-bg: rgba(214, 176, 140, 0.2);
   --theme-accent-amber-border: #d6b08c;
   --theme-accent-amber-glow: 0 0 20px rgba(214, 176, 140, 0.4);
 
   --theme-accent-cyan: #8da399;
-  /* Sage */
   --theme-accent-purple: #9aa899;
-  /* Moss */
 
-  /* Component accents */
   --theme-accent-purple-bg: rgba(154, 168, 153, 0.2);
   --theme-accent-purple-border: #9aa899;
 
   --theme-accent-blue: #8da399;
-  /* Sage */
   --theme-accent-blue-bg: rgba(141, 163, 153, 0.2);
   --theme-accent-blue-border: #8da399;
 
   --theme-accent-red: #cfa5a5;
-  /* Dried Rose */
   --theme-accent-red-bg: rgba(207, 165, 165, 0.2);
   --theme-accent-red-border: #cfa5a5;
 
   --theme-accent-green-border: #8da399;
 
-  /* 
-   * [Structure]: Pebble
-   * Very rounded, soft corners. No sharp edges.
-   */
-  --theme-glass-border: 1px solid rgba(141, 163, 153, 0.5);
-  --theme-glass-border-subtle: 1px solid rgba(74, 80, 67, 0.2);
-  --theme-glass-border-bright: 1px solid rgba(255, 255, 255, 0.6);
+  --theme-glass-border: 1px solid #8fa399;
+  --theme-glass-border-subtle: 1px solid #b7c4be;
+  --theme-glass-border-bright: 1px solid #6b7a72;
 
   --theme-glass-blur: 40px;
   --theme-glass-blur-sm: 20px;
   --theme-glass-blur-xl: 60px;
 
-  /* 
-   * [Atmosphere]: Washi Paper
-   * Subtle noise/texture via main app overlay (which uses overlay blend mode).
-   * Background gradient mimics uneven lighting.
-   */
-  --theme-gradient-bg:
-    radial-gradient(circle at 10% 20%, rgba(141, 163, 153, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(214, 176, 140, 0.15) 0%, transparent 50%);
+  --theme-gradient-bg: radial-gradient(circle at 10% 20%, rgba(141, 163, 153, 0.15) 0%, transparent 50%), radial-gradient(circle at 90% 80%, rgba(214, 176, 140, 0.15) 0%, transparent 50%);
 
-  /* Typography Gradient - Stone */
   --theme-bpm-text-gradient: linear-gradient(180deg, #5b655a 0%, #4a5043 100%);
 
-  /* 
-   * [Lighting]: Ambient
-   * Soft, diffused shadows.
-   */
   --theme-shadow-glow: 0 0 30px rgba(141, 163, 153, 0.3);
   --theme-shadow-panel: 0 20px 40px -10px rgba(74, 80, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   --theme-shadow-sm: 0 4px 6px -1px rgba(74, 80, 67, 0.05);
   --theme-shadow-modal: 0 20px 60px rgba(74, 80, 67, 0.1), 0 0 0 100vmax rgba(232, 232, 230, 0.8);
   --theme-shadow-inset: inset 0 2px 4px rgba(74, 80, 67, 0.05);
 
-  /* Active Elements */
   --theme-trainer-active-bg: #8da399;
   --theme-trainer-active-border: #8da399;
   --theme-trainer-active-glow: 0 0 15px rgba(141, 163, 153, 0.4);
 
   --theme-toggle-active-speed: linear-gradient(to right, #d6b08c, #cfa5a5);
   --theme-toggle-active-rhythm: linear-gradient(to right, #8da399, #9aa899);
+  --theme-toggle-border-rhythm: #9aa899;
 
   --theme-bg-modal: rgba(255, 255, 255, 0.9);
   --theme-bg-modal-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(246, 246, 244, 0.95));
 
-  /* Wheel Styling */
   --theme-wheel-bg: rgba(255, 255, 255, 0.5);
   --theme-wheel-line: #cfa5a5;
-  /* Dried Rose */
   --theme-wheel-line-glow: 0 0 10px rgba(207, 165, 165, 0.4);
   --theme-wheel-tick: #a3b1a8;
 }
 
-/* Zen Theme Specific Overrides */
 .theme-zen * {
   border-radius: 24px !important;
-  /* Soft pebble shapes */
 }
 
-
-/* =========================================
-   E-Ink Theme (Retro/Paper)
-   ========================================= */
 .theme-e-ink {
-  /* 
-   * [Aesthetics]: E-Paper Display
-   * Bi-chromatic Black & White.
-   */
   --theme-bg-primary: #f0f0f0;
-  /* Light Grey backing */
 
-  /* 
-   * [Material]: Electronic Ink
-   * Opaque, solid, high contrast.
-   */
   --theme-glass-bg: #ffffff;
   --theme-glass-bg-subtle: #ffffff;
   --theme-glass-bg-hover: #000000;
-  /* Invert on Hover */
   --theme-glass-bg-active: #000000;
 
   --theme-input-bg: rgba(0, 0, 0, 0.05);
-  /* Slight grey for inputs/switches */
 
-  /* 
-   * [Typography]: Monospace / Serif
-   * Pixel-perfect bitmap look simulated with generic fonts.
-   */
   --theme-text-primary: #000000;
   --theme-text-secondary: #000000;
   --theme-text-muted: #666666;
-  /* Dithered grey simulation */
   --theme-text-dim: #999999;
   --theme-text-bright: #000000;
 
-  /* 
-   * [Color Palette]: Monochrome
-   * Everything is Black.
-   */
   --theme-accent-amber: #000000;
   --theme-accent-amber-bg: transparent;
   --theme-accent-amber-border: #000000;
@@ -674,13 +432,11 @@
   --theme-accent-cyan: #000000;
   --theme-accent-purple: #000000;
 
-  /* Component accents */
   --theme-accent-purple-bg: transparent;
   --theme-accent-purple-border: #000000;
 
   --theme-accent-blue: #000000;
   --theme-accent-blue-bg: transparent;
-  /* No tint */
   --theme-accent-blue-border: #000000;
 
   --theme-accent-red: #000000;
@@ -689,56 +445,37 @@
 
   --theme-accent-green-border: #000000;
 
-  /* 
-   * [Structure]: Bezel
-   * Thick borders. Rounded corners like a device case.
-   */
   --theme-glass-border: 2px solid #000000;
-  --theme-glass-border-subtle: 1px dashed #000000;
-  /* Dashed lines for subtle structure */
+  --theme-glass-border-subtle: 1px solid #000000;
   --theme-glass-border-bright: 2px solid #000000;
 
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  /* 
-   * [Atmosphere]: Dithering
-   * Pattern to simulate grey.
-   */
-  --theme-gradient-bg:
-    radial-gradient(#000000 15%, transparent 16%) 0 0 / 4px 4px;
-  /* Dot matrix pattern */
+  --theme-gradient-bg: radial-gradient(#000000 15%, transparent 16%) 0 0 / 4px 4px;
 
   opacity: 1;
-  /* Ensure opacity is max */
 
-  /* Typography Gradient - None */
   --theme-bpm-text-gradient: #000000;
 
-  /* 
-   * [Lighting]: None (Reflective)
-   * Simulated by hard 1-bit shadows.
-   */
   --theme-shadow-glow: none;
   --theme-shadow-panel: 4px 4px 0px #000000;
-  /* Hard shadow */
   --theme-shadow-sm: 2px 2px 0px #000000;
   --theme-shadow-modal: 8px 8px 0px #000000;
   --theme-shadow-inset: inset 2px 2px 0px #000000;
 
-  /* Active Elements */
   --theme-trainer-active-bg: #000000;
   --theme-trainer-active-border: #000000;
   --theme-trainer-active-glow: none;
 
   --theme-toggle-active-speed: linear-gradient(to right, #000000, #333333);
   --theme-toggle-active-rhythm: linear-gradient(to right, #000000, #333333);
+  --theme-toggle-border-rhythm: #000000;
 
   --theme-bg-modal: #ffffff;
   --theme-bg-modal-gradient: #ffffff;
 
-  /* Wheel Styling */
   --theme-wheel-bg: #ffffff;
   --theme-wheel-line: #000000;
   --theme-wheel-line-glow: transparent;
@@ -747,12 +484,10 @@
   --theme-text-active-glass: #ffffff;
 }
 
-/* E-Ink Theme Specific Overrides */
 .theme-e-ink * {
   border-radius: 6px !important;
 }
 
-/* Invert text on hover for interactive elements */
 .theme-e-ink button:hover:not(:disabled) {
   background-color: #000000 !important;
   color: #ffffff !important;
@@ -764,7 +499,6 @@
   color: #ffffff !important;
 }
 
-/* Force crisp text */
 .theme-e-ink [class*="bpm-display__value--main"] {
   filter: none !important;
   background: none !important;
@@ -778,10 +512,7 @@
   display: none;
 }
 
-/* Specific Cyberpunk Enhancements via CSS classes if needed, 
-   but adhering to standard variable overrides where possible */
 .theme-cyberpunk {
-  /* CRT Scanline Effect Overlay on the app container */
   background-size: 100% 4px, 40px 40px, 40px 40px, 100% 100%, 100% 100%;
 }
 

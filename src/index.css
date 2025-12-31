@@ -343,9 +343,156 @@
   /* No blur effect needed */
 }
 
-.theme-kids div[class*="bpm-display__value--main"] {
+
+/* =========================================
+   Swiss International Style (Grid & Typography)
+   ========================================= */
+.theme-swiss {
+  /* 
+   * [Aesthetics]: International Typographic Style
+   * Order, readability, objectivity.
+   * Stark white background with high-contrast elements.
+   */
+  --theme-bg-primary: #f4f4f0;
+  /* Off-white Paper */
+
+  /* 
+   * [Material]: Structure
+   * No glass blur. Solid, honest materials.
+   */
+  --theme-glass-bg: #ffffff;
+  --theme-glass-bg-subtle: #ffffff;
+  --theme-glass-bg-hover: #0033ff;
+  /* Klein Blue Hover */
+  --theme-glass-bg-active: #000000;
+
+  --theme-input-bg: #ffffff;
+
+  /* 
+   * [Typography]: Helvetica/Inter
+   * Pure Black text.
+   */
+  --theme-text-primary: #000000;
+  --theme-text-secondary: #0033ff;
+  /* Klein Blue */
+  --theme-text-muted: #636e72;
+  --theme-text-dim: #b2bec3;
+  --theme-text-bright: #000000;
+
+  /* 
+   * [Color Palette]: Bauhaus
+   * Primary colors, high saturation.
+   */
+  --theme-accent-amber: #ff3300;
+  /* International Orange */
+  --theme-accent-amber-bg: rgba(255, 51, 0, 0.1);
+  --theme-accent-amber-border: #ff3300;
+  --theme-accent-amber-glow: 0 0 0 transparent;
+
+  --theme-accent-cyan: #0033ff;
+  /* Klein Blue */
+  --theme-accent-purple: #000000;
+  /* Black */
+
+  /* Component accents */
+  --theme-accent-purple-bg: rgba(0, 0, 0, 0.05);
+  --theme-accent-purple-border: #000000;
+
+  --theme-accent-blue: #0033ff;
+  --theme-accent-blue-bg: rgba(0, 51, 255, 0.1);
+  --theme-accent-blue-border: #0033ff;
+
+  --theme-accent-red: #ff3300;
+  --theme-accent-red-bg: rgba(255, 51, 0, 0.1);
+  --theme-accent-red-border: #ff3300;
+
+  --theme-accent-green-border: #00b894;
+
+  /* 
+   * [Structure]: Grid System
+   * 0px Radius. 1px Solid Black Borders.
+   */
+  --theme-glass-border: 1px solid #000000;
+  --theme-glass-border-subtle: 1px solid #b2bec3;
+  /* Darker grey for inputs */
+  --theme-glass-border-bright: 1px solid #000000;
+
+  --theme-glass-blur: 0px;
+  --theme-glass-blur-sm: 0px;
+  --theme-glass-blur-xl: 0px;
+
+  /* 
+   * [Atmosphere]: Graph Paper
+   * Subtle grid background.
+   */
+  --theme-gradient-bg:
+    linear-gradient(#e5e5e5 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px) 0 0 / 20px 20px;
+
+  /* Typography Gradient - Solid Black */
+  --theme-bpm-text-gradient: #000000;
+
+  /* 
+   * [Lighting]: Flat
+   * No shadows, or purely functional separation.
+   */
+  --theme-shadow-glow: none;
+  --theme-shadow-panel: none;
+  --theme-shadow-sm: none;
+  --theme-shadow-modal: 10px 10px 0px rgba(0, 0, 0, 0.1);
+  /* Hard shadow drop */
+  --theme-shadow-inset: none;
+
+  /* Active Elements */
+  --theme-trainer-active-bg: #ff3300;
+  --theme-trainer-active-border: #ff3300;
+  --theme-trainer-active-glow: none;
+
+  --theme-toggle-active-speed: #ff3300;
+  --theme-toggle-active-rhythm: #0033ff;
+
+  --theme-bg-modal: #ffffff;
+  --theme-bg-modal-gradient: #ffffff;
+
+  /* Wheel Styling */
+  --theme-wheel-bg: #ffffff;
+  --theme-wheel-line: #ff3300;
+  --theme-wheel-line-glow: transparent;
+  --theme-wheel-tick: #000000;
+}
+
+
+/* Swiss Theme Specific Overrides */
+.theme-swiss * {
+  border-radius: 0px !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.theme-swiss [class*="bpm-display__value--blur"] {
+  display: none;
+}
+
+.theme-swiss [class*="bpm-display__value--main"] {
+  filter: none !important;
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: initial !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-swiss button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none !important;
+}
+
+.theme-kids [class*="bpm-display__value--main"] {
   filter: drop-shadow(2px 2px 0px #000000) !important;
-  /* Hard shadow for text */
+}
+
+.theme-kids [class*="bpm-display__value--blur"] {
+  display: none;
 }
 
 /* Specific Cyberpunk Enhancements via CSS classes if needed, 

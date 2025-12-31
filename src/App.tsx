@@ -41,7 +41,7 @@ import {
   type Preset,
   type RhythmTrainerConfig,
   type SpeedTrainerConfig,
-  type ThemeName,
+  type Theme,
 } from "./constants";
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
@@ -118,13 +118,14 @@ export default function MetronomeApp() {
     setLanguage((prev) => (prev === "en" ? "zh" : "en"));
   };
 
-  const [theme, setTheme] = useState<ThemeName>(
-    () => getStorageItem(STORAGE_KEY_THEME, "default" as ThemeName) as ThemeName
+  const [theme, setTheme] = useState<Theme>(
+    () => getStorageItem(STORAGE_KEY_THEME, "default" as Theme) as Theme
   );
 
   const toggleTheme = () => {
     setTheme((prev) => {
-      if (prev === "default") return "cyberpunk";
+      if (prev === "default") return "swiss";
+      if (prev === "swiss") return "cyberpunk";
       if (prev === "cyberpunk") return "kids";
       return "default";
     });
@@ -313,6 +314,7 @@ export default function MetronomeApp() {
   const themeClass = clsx({
     "theme-cyberpunk": theme === "cyberpunk",
     "theme-kids": theme === "kids",
+    "theme-swiss": theme === "swiss",
   });
 
   return (

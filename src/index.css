@@ -152,9 +152,9 @@
    * [Structure]: Hard Light Borders
    * Thin, sharp lines defining the UI structure. No soft edges.
    */
-  --theme-glass-border: 1px solid rgba(0, 243, 255, 0.25);
-  --theme-glass-border-subtle: 1px solid rgba(0, 243, 255, 0.1);
-  --theme-glass-border-bright: 1px solid rgba(0, 243, 255, 0.7);
+  --theme-glass-border: rgba(0, 243, 255, 0.25);
+  --theme-glass-border-subtle: rgba(0, 243, 255, 0.1);
+  --theme-glass-border-bright: rgba(0, 243, 255, 0.7);
 
   --theme-glass-blur: 12px;
   --theme-glass-blur-sm: 8px;
@@ -190,7 +190,7 @@
   --theme-shadow-modal: 0 0 0 1px rgba(0, 243, 255, 0.4), 0 0 50px rgba(0, 243, 255, 0.1), 0 0 0 100vmax rgba(0, 0, 0, 0.8);
   --theme-shadow-inset: inset 0 0 15px rgba(0, 0, 0, 0.5);
 
-  /* Active States */
+  /* Active Elements */
   --theme-trainer-active-bg: linear-gradient(135deg, rgba(217, 0, 255, 0.2), rgba(0, 243, 255, 0.1));
   --theme-trainer-active-border: #00f3ff;
   --theme-trainer-active-glow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
@@ -200,6 +200,11 @@
 
   --theme-bg-modal: rgba(5, 5, 8, 0.95);
   --theme-bg-modal-gradient: linear-gradient(180deg, rgba(8, 8, 12, 0.98), rgba(4, 4, 6, 0.98));
+
+  /* Wheel Styling - Neon */
+  --theme-wheel-bg: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 243, 255, 0.05) 20%, rgba(0, 243, 255, 0.05) 80%, rgba(0, 0, 0, 0.8));
+  --theme-wheel-line: #00f3ff;
+  --theme-wheel-line-glow: rgba(0, 243, 255, 0.8);
 }
 
 /* Specific Cyberpunk Enhancements via CSS classes if needed, 

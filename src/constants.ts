@@ -26,7 +26,7 @@ export const STORAGE_KEY_SPEED_TRAINER = "spatial-metronome-speed-trainer";
 export const STORAGE_KEY_RHYTHM_TRAINER = "spatial-metronome-rhythm-trainer";
 export const STORAGE_KEY_THEME = "spatial-metronome-theme";
 
-export type Theme = 'default' | 'cyberpunk' | 'kids' | 'swiss' | 'zen';
+export type Theme = 'default' | 'cyberpunk' | 'kids' | 'swiss' | 'zen' | 'e-ink';
 
 export const THEMES: { id: Theme; label: string }[] = [
   { id: 'default', label: 'Classic Dark' },
@@ -34,6 +34,7 @@ export const THEMES: { id: Theme; label: string }[] = [
   { id: 'kids', label: 'Kids Pop' },
   { id: 'swiss', label: 'Swiss Style' },
   { id: 'zen', label: 'Zen Mode' },
+  { id: 'e-ink', label: 'E-Paper' },
 ];
 
 export interface Preset {

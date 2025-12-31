@@ -84,12 +84,12 @@
   /* Toggle Gradients */
   --theme-toggle-active-speed: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(139, 92, 246, 0.5));
   --theme-toggle-active-rhythm: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(34, 197, 94, 0.5));
+  --theme-toggle-knob: #ffffff;
+  --theme-text-on-accent: #ffffff;
 }
 
 
-/* =========================================
-   Cyberpunk Theme (Neon & Void)
-   ========================================= */
+
 /* =========================================
    Cyberpunk Theme (Neon & Void)
    ========================================= */
@@ -328,9 +328,12 @@
   --theme-wheel-line-glow: transparent;
   --theme-wheel-tick: #b2bec3;
   /* Visible Grey Ticks for scrolling effect */
+
+  --theme-text-on-accent: #2d3436;
+  --theme-toggle-knob: #2d3436;
 }
 
-/* Cleanup: Removed specific .theme-kids background-size override 
+/* Cleanup: Removed specific .theme-kids background-size override
    since we moved it into the variable shorthand */
 .theme-kids * {
   border-radius: 12px !important;
@@ -619,6 +622,156 @@
 .theme-zen * {
   border-radius: 24px !important;
   /* Soft pebble shapes */
+}
+
+
+/* =========================================
+   E-Ink Theme (Retro/Paper)
+   ========================================= */
+.theme-e-ink {
+  /* 
+   * [Aesthetics]: E-Paper Display
+   * Bi-chromatic Black & White.
+   */
+  --theme-bg-primary: #f0f0f0;
+  /* Light Grey backing */
+
+  /* 
+   * [Material]: Electronic Ink
+   * Opaque, solid, high contrast.
+   */
+  --theme-glass-bg: #ffffff;
+  --theme-glass-bg-subtle: #ffffff;
+  --theme-glass-bg-hover: #000000;
+  /* Invert on Hover */
+  --theme-glass-bg-active: #000000;
+
+  --theme-input-bg: rgba(0, 0, 0, 0.05);
+  /* Slight grey for inputs/switches */
+
+  /* 
+   * [Typography]: Monospace / Serif
+   * Pixel-perfect bitmap look simulated with generic fonts.
+   */
+  --theme-text-primary: #000000;
+  --theme-text-secondary: #000000;
+  --theme-text-muted: #666666;
+  /* Dithered grey simulation */
+  --theme-text-dim: #999999;
+  --theme-text-bright: #000000;
+
+  /* 
+   * [Color Palette]: Monochrome
+   * Everything is Black.
+   */
+  --theme-accent-amber: #000000;
+  --theme-accent-amber-bg: transparent;
+  --theme-accent-amber-border: #000000;
+  --theme-accent-amber-glow: 0 0 0 transparent;
+
+  --theme-accent-cyan: #000000;
+  --theme-accent-purple: #000000;
+
+  /* Component accents */
+  --theme-accent-purple-bg: transparent;
+  --theme-accent-purple-border: #000000;
+
+  --theme-accent-blue: #000000;
+  --theme-accent-blue-bg: transparent;
+  /* No tint */
+  --theme-accent-blue-border: #000000;
+
+  --theme-accent-red: #000000;
+  --theme-accent-red-bg: transparent;
+  --theme-accent-red-border: #000000;
+
+  --theme-accent-green-border: #000000;
+
+  /* 
+   * [Structure]: Bezel
+   * Thick borders. Rounded corners like a device case.
+   */
+  --theme-glass-border: 2px solid #000000;
+  --theme-glass-border-subtle: 1px dashed #000000;
+  /* Dashed lines for subtle structure */
+  --theme-glass-border-bright: 2px solid #000000;
+
+  --theme-glass-blur: 0px;
+  --theme-glass-blur-sm: 0px;
+  --theme-glass-blur-xl: 0px;
+
+  /* 
+   * [Atmosphere]: Dithering
+   * Pattern to simulate grey.
+   */
+  --theme-gradient-bg:
+    radial-gradient(#000000 15%, transparent 16%) 0 0 / 4px 4px;
+  /* Dot matrix pattern */
+
+  opacity: 1;
+  /* Ensure opacity is max */
+
+  /* Typography Gradient - None */
+  --theme-bpm-text-gradient: #000000;
+
+  /* 
+   * [Lighting]: None (Reflective)
+   * Simulated by hard 1-bit shadows.
+   */
+  --theme-shadow-glow: none;
+  --theme-shadow-panel: 4px 4px 0px #000000;
+  /* Hard shadow */
+  --theme-shadow-sm: 2px 2px 0px #000000;
+  --theme-shadow-modal: 8px 8px 0px #000000;
+  --theme-shadow-inset: inset 2px 2px 0px #000000;
+
+  /* Active Elements */
+  --theme-trainer-active-bg: #000000;
+  --theme-trainer-active-border: #000000;
+  --theme-trainer-active-glow: none;
+
+  --theme-toggle-active-speed: linear-gradient(to right, #000000, #333333);
+  --theme-toggle-active-rhythm: linear-gradient(to right, #000000, #333333);
+
+  --theme-bg-modal: #ffffff;
+  --theme-bg-modal-gradient: #ffffff;
+
+  /* Wheel Styling */
+  --theme-wheel-bg: #ffffff;
+  --theme-wheel-line: #000000;
+  --theme-wheel-line-glow: transparent;
+  --theme-wheel-tick: #000000;
+}
+
+/* E-Ink Theme Specific Overrides */
+.theme-e-ink * {
+  border-radius: 6px !important;
+}
+
+/* Invert text on hover for interactive elements */
+.theme-e-ink button:hover:not(:disabled) {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  --theme-text-secondary: #ffffff !important;
+}
+
+.theme-e-ink [class*="glass-select__option--selected"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Force crisp text */
+.theme-e-ink [class*="bpm-display__value--main"] {
+  filter: none !important;
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: initial !important;
+  color: #000000 !important;
+}
+
+.theme-e-ink [class*="bpm-display__value--blur"] {
+  display: none;
 }
 
 /* Specific Cyberpunk Enhancements via CSS classes if needed, 

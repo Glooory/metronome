@@ -151,7 +151,7 @@
 }
 
 .subdivision-btn--active {
-  color: var(--theme-text-primary);
+  color: var(--theme-text-on-accent);
   background-color: var(--theme-glass-bg-hover);
   border-color: var(--theme-glass-border-bright);
   box-shadow: 0 0 10px var(--theme-glass-bg);

@@ -41,7 +41,7 @@
 .trainer-dock__btn--active {
   background: var(--theme-trainer-active-bg);
   border-color: var(--theme-trainer-active-border);
-  color: var(--theme-text-primary);
+  color: var(--theme-text-on-accent);
   box-shadow: var(--theme-trainer-active-glow);
 }
 

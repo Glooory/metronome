@@ -54,7 +54,7 @@
 .history-bar__item--active {
   background-color: var(--theme-glass-bg-active);
   border-color: var(--theme-glass-border-bright);
-  color: var(--theme-text-primary);
+  color: var(--theme-text-active-glass);
   font-weight: bold;
   box-shadow: 0 0 15px var(--theme-glass-bg-active);
 }

@@ -1,4 +1,4 @@
-.rhythm-trainer-modal__overlay {
+.interval-trainer-modal__overlay {
   position: fixed;
   inset: 0;
   background: var(--theme-bg-overlay);
@@ -11,7 +11,7 @@
   padding: 20px;
 }
 
-.rhythm-trainer-modal {
+.interval-trainer-modal {
   background: var(--theme-bg-modal-gradient);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 20px;
@@ -24,14 +24,14 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.rhythm-trainer-modal__header {
+.interval-trainer-modal__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.rhythm-trainer-modal__title {
+.interval-trainer-modal__title {
   font-size: 18px;
   font-weight: 600;
   color: var(--theme-text-primary);
@@ -40,11 +40,11 @@
   gap: 10px;
 }
 
-.rhythm-trainer-modal__title-icon {
+.interval-trainer-modal__title-icon {
   color: var(--theme-accent-blue);
 }
 
-.rhythm-trainer-modal__close-btn {
+.interval-trainer-modal__close-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,12 +57,12 @@
   transition: all 0.2s;
 }
 
-.rhythm-trainer-modal__close-btn:hover {
+.interval-trainer-modal__close-btn:hover {
   background: var(--theme-glass-bg-hover);
   color: var(--theme-text-primary);
 }
 
-.rhythm-trainer-modal__content {
+.interval-trainer-modal__content {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -70,19 +70,19 @@
   /* Fixed height to prevent jitter when status toggles */
 }
 
-.rhythm-trainer-modal__row {
+.interval-trainer-modal__row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
-.rhythm-trainer-modal__label {
+.interval-trainer-modal__label {
   font-size: 14px;
   color: var(--theme-text-bright);
 }
 
-.rhythm-trainer-modal__input {
+.interval-trainer-modal__input {
   width: 80px;
   padding: 8px 12px;
   background: var(--theme-input-bg);
@@ -95,12 +95,12 @@
   transition: all 0.2s;
 }
 
-.rhythm-trainer-modal__input:focus {
+.interval-trainer-modal__input:focus {
   border-color: rgba(59, 130, 246, 0.5);
   background: var(--theme-glass-bg);
 }
 
-.rhythm-trainer-modal__toggle {
+.interval-trainer-modal__toggle {
   position: relative;
   width: 52px;
   height: 28px;
@@ -111,12 +111,12 @@
   border: 1px solid var(--theme-glass-border-subtle);
 }
 
-.rhythm-trainer-modal__toggle--active {
-  background: var(--theme-toggle-active-rhythm);
+.interval-trainer-modal__toggle--active {
+  background: var(--theme-toggle-active-interval);
   border-color: var(--theme-accent-green-border);
 }
 
-.rhythm-trainer-modal__toggle-knob {
+.interval-trainer-modal__toggle-knob {
   position: absolute;
   top: 3px;
   left: 3px;
@@ -128,17 +128,17 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.rhythm-trainer-modal__toggle--active .rhythm-trainer-modal__toggle-knob {
+.interval-trainer-modal__toggle--active .interval-trainer-modal__toggle-knob {
   transform: translateX(24px);
 }
 
-.rhythm-trainer-modal__divider {
+.interval-trainer-modal__divider {
   height: 1px;
   background: var(--theme-glass-border-subtle);
   margin: 4px 0;
 }
 
-.rhythm-trainer-modal__status {
+.interval-trainer-modal__status {
   padding: 12px;
   background: var(--theme-accent-blue-bg);
   border: 1px solid var(--theme-accent-blue-border);
@@ -146,27 +146,27 @@
   text-align: center;
 }
 
-.rhythm-trainer-modal__status--muted {
+.interval-trainer-modal__status--muted {
   background: var(--theme-accent-red-bg);
   border-color: var(--theme-accent-red-border);
 }
 
-.rhythm-trainer-modal__status-text {
+.interval-trainer-modal__status-text {
   font-size: 13px;
   color: var(--theme-text-primary);
   line-height: 1.5;
 }
 
-.rhythm-trainer-modal__status-highlight {
+.interval-trainer-modal__status-highlight {
   color: var(--theme-accent-blue);
   font-weight: 600;
 }
 
-.rhythm-trainer-modal__status-highlight--muted {
+.interval-trainer-modal__status-highlight--muted {
   color: var(--theme-accent-red);
 }
 
-.rhythm-trainer-modal__hint {
+.interval-trainer-modal__hint {
   font-size: 12px;
   color: var(--theme-text-secondary);
   text-align: center;

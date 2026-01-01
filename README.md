@@ -26,7 +26,7 @@ A professional online metronome with advanced training features, built with Reac
 | Feature            | Description                                                       |
 | ------------------ | ----------------------------------------------------------------- |
 | **Speed Trainer**  | Auto-increment BPM every N measures with target limit             |
-| **Rhythm Trainer** | Play X bars, mute Y bars - visualizer continues during mute       |
+| **Interval Trainer** | Play X bars, mute Y bars - visualizer continues during mute       |
 | **Presets**        | Save/load complete configurations (BPM, time sig, sound, pattern) |
 
 ### 🌐 Internationalization
@@ -81,7 +81,7 @@ src/
 │   ├── HelpModal/           # User guide modal
 │   ├── LiquidGlassDock/     # Bottom control dock
 │   ├── PresetsModal/        # Preset management
-│   ├── RhythmTrainerModal/  # Rhythm training config
+│   ├── IntervalTrainerModal/  # Interval training config
 │   ├── SpeedTrainerModal/   # Speed training config
 │   ├── TrainerDock/         # Training tools toolbar
 │   └── Visualizer/          # Beat visualization

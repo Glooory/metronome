@@ -9,9 +9,9 @@ import { BpmDisplay } from "./components/BpmDisplay";
 import { BpmHistoryBar } from "./components/BpmHistoryBar";
 import { CustomGlassSelect } from "./components/CustomGlassSelect";
 import { HelpModal } from "./components/HelpModal";
+import { IntervalTrainerModal } from "./components/IntervalTrainerModal";
 import { LiquidGlassDock } from "./components/LiquidGlassDock";
 import { PresetsModal } from "./components/PresetsModal";
-import { RhythmTrainerModal } from "./components/RhythmTrainerModal";
 import { SpeedTrainerModal } from "./components/SpeedTrainerModal";
 import { TrainerDock } from "./components/TrainerDock";
 import { Visualizer } from "./components/Visualizer";
@@ -29,8 +29,8 @@ import {
   SOUND_WOOD,
   STORAGE_KEY_BEATS,
   STORAGE_KEY_BPM,
+  STORAGE_KEY_INTERVAL_TRAINER,
   STORAGE_KEY_PRESETS,
-  STORAGE_KEY_RHYTHM_TRAINER,
   STORAGE_KEY_SAVED_BPMS,
   STORAGE_KEY_SOUND,
   STORAGE_KEY_SPEED_TRAINER,
@@ -38,8 +38,8 @@ import {
   STORAGE_KEY_SUBDIV_VAL,
   STORAGE_KEY_THEME,
   TAP_TIMEOUT,
+  type IntervalTrainerConfig,
   type Preset,
-  type RhythmTrainerConfig,
   type SpeedTrainerConfig,
   type Theme,
 } from "./constants";
@@ -140,9 +140,9 @@ export default function MetronomeApp() {
       JSON.parse
     )
   );
-  const [rhythmTrainer, setRhythmTrainer] = useState<RhythmTrainerConfig>(() =>
+  const [intervalTrainer, setIntervalTrainer] = useState<IntervalTrainerConfig>(() =>
     getStorageItem(
-      STORAGE_KEY_RHYTHM_TRAINER,
+      STORAGE_KEY_INTERVAL_TRAINER,
       { enabled: false, playBars: 3, muteBars: 1 },
       JSON.parse
     )
@@ -152,7 +152,7 @@ export default function MetronomeApp() {
   );
 
   const [showSpeedModal, setShowSpeedModal] = useState(false);
-  const [showRhythmModal, setShowRhythmModal] = useState(false);
+  const [showIntervalModal, setShowIntervalModal] = useState(false);
   const [showPresetsModal, setShowPresetsModal] = useState(false);
 
   useEffect(() => {
@@ -178,7 +178,7 @@ export default function MetronomeApp() {
     setStorageItem(STORAGE_KEY_SOUND, soundPreset);
     setStorageItem(STORAGE_KEY_SAVED_BPMS, savedBpms);
     setStorageItem(STORAGE_KEY_SPEED_TRAINER, speedTrainer);
-    setStorageItem(STORAGE_KEY_RHYTHM_TRAINER, rhythmTrainer);
+    setStorageItem(STORAGE_KEY_INTERVAL_TRAINER, intervalTrainer);
     setStorageItem(STORAGE_KEY_PRESETS, presets);
     setStorageItem(STORAGE_KEY_LANGUAGE, language);
     setStorageItem(STORAGE_KEY_THEME, theme);
@@ -190,7 +190,7 @@ export default function MetronomeApp() {
     soundPreset,
     savedBpms,
     speedTrainer,
-    rhythmTrainer,
+    intervalTrainer,
     presets,
     language,
     theme,
@@ -222,7 +222,7 @@ export default function MetronomeApp() {
 
   const { isPlaying, setIsPlaying, visualBeat, ensureAudioContext, measureCount, isMeasureMuted } =
     useMetronome(bpm, beatsPerMeasure, subdivision, soundPreset, stepStates, {
-      rhythmTrainer,
+      intervalTrainer: intervalTrainer,
       onMeasureComplete: handleMeasureComplete,
     });
 
@@ -392,9 +392,9 @@ export default function MetronomeApp() {
         <div className={styles["dock-section"]}>
           <TrainerDock
             speedTrainer={speedTrainer}
-            rhythmTrainer={rhythmTrainer}
+            intervalTrainer={intervalTrainer}
             onSpeedClick={() => setShowSpeedModal(true)}
-            onRhythmClick={() => setShowRhythmModal(true)}
+            onIntervalClick={() => setShowIntervalModal(true)}
             onPresetsClick={() => setShowPresetsModal(true)}
             language={language}
           />
@@ -453,11 +453,11 @@ export default function MetronomeApp() {
       </AnimatePresence>
 
       <AnimatePresence>
-        {showRhythmModal && (
-          <RhythmTrainerModal
-            config={rhythmTrainer}
-            onConfigChange={setRhythmTrainer}
-            onClose={() => setShowRhythmModal(false)}
+        {showIntervalModal && (
+          <IntervalTrainerModal
+            config={intervalTrainer}
+            onConfigChange={setIntervalTrainer}
+            onClose={() => setShowIntervalModal(false)}
             measureCount={measureCount}
             isMuted={isMeasureMuted}
             language={language}

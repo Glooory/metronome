@@ -99,14 +99,14 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
             </div>
           </div>
 
-          {/* Rhythm Trainer */}
+          {/* Interval Trainer */}
           <div className={styles["help-modal__row"]}>
             <div className={styles["help-modal__icon-box"]}>
               <VolumeX size={20} />
             </div>
             <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.rhythmTrainer[language]}</h3>
-              <p className={styles["section-text"]}>{t.rhythmTrainerDesc[language]}</p>
+              <h3 className={styles["section-title"]}>{t.intervalTrainer[language]}</h3>
+              <p className={styles["section-text"]}>{t.intervalTrainerDesc[language]}</p>
             </div>
           </div>
 

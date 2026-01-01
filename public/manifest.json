@@ -1,7 +1,7 @@
 {
   "name": "Spatial Metronome",
   "short_name": "Metronome",
-  "description": "Professional online metronome with speed trainer, rhythm trainer, and preset management",
+  "description": "Professional online metronome with speed trainer, interval trainer, and preset management",
   "start_url": "/metronome/",
   "display": "standalone",
   "background_color": "#0a0a0a",

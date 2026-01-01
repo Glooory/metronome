@@ -1,24 +1,24 @@
 import { clsx } from "clsx";
 import { Gauge, ListMusic, VolumeX } from "lucide-react";
-import type { RhythmTrainerConfig, SpeedTrainerConfig } from "../../constants";
+import type { IntervalTrainerConfig, SpeedTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
 import styles from "./styles.module.css";
 
 interface TrainerDockProps {
   speedTrainer: SpeedTrainerConfig;
-  rhythmTrainer: RhythmTrainerConfig;
+  intervalTrainer: IntervalTrainerConfig;
   onSpeedClick: () => void;
-  onRhythmClick: () => void;
+  onIntervalClick: () => void;
   onPresetsClick: () => void;
   language: Language;
 }
 
 export const TrainerDock = ({
   speedTrainer,
-  rhythmTrainer,
+  intervalTrainer,
   onSpeedClick,
-  onRhythmClick,
+  onIntervalClick,
   onPresetsClick,
   language,
 }: TrainerDockProps) => {
@@ -41,13 +41,13 @@ export const TrainerDock = ({
       <button
         className={clsx(
           styles["trainer-dock__btn"],
-          rhythmTrainer.enabled && styles["trainer-dock__btn--active"]
+          intervalTrainer.enabled && styles["trainer-dock__btn--active"]
         )}
-        onClick={onRhythmClick}
-        title={t.rhythmTooltip[language]}
+        onClick={onIntervalClick}
+        title={t.intervalTooltip[language]}
       >
         <VolumeX size={16} className={styles["trainer-dock__btn-icon"]} />
-        <span>{t.rhythm[language]}</span>
+        <span>{t.interval[language]}</span>
       </button>
 
       <button

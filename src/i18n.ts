@@ -25,10 +25,10 @@ export const translations = {
 
   trainer: {
     speed: { en: "Speed", zh: "速度" },
-    rhythm: { en: "Rhythm", zh: "节奏" },
+    interval: { en: "Interval", zh: "间隔" },
     presets: { en: "Presets", zh: "预设" },
     speedTooltip: { en: "Speed Trainer", zh: "速度渐变训练" },
-    rhythmTooltip: { en: "Rhythm Trainer", zh: "节奏检测训练" },
+    intervalTooltip: { en: "Interval Trainer", zh: "间隔训练" },
     presetsTooltip: { en: "Presets & Setlists", zh: "预设与曲目单" },
   },
 
@@ -42,8 +42,8 @@ export const translations = {
     measuresUntil: { en: "measures until", zh: "小节后" },
   },
 
-  rhythmTrainer: {
-    title: { en: "Rhythm Trainer", zh: "节奏检测训练" },
+  intervalTrainer: {
+    title: { en: "Interval Trainer", zh: "间隔训练" },
     enableTraining: { en: "Enable Training", zh: "启用训练" },
     playBars: { en: "Play (measures)", zh: "播放 (小节)" },
     muteBars: { en: "Mute (measures)", zh: "静音 (小节)" },
@@ -52,15 +52,15 @@ export const translations = {
     untilResume: { en: "measures until resume", zh: "小节恢复播放" },
     untilMute: { en: "measures until mute", zh: "小节进入静音" },
     hint: {
-      en: "💡 Visualizer continues during mute to check your internal rhythm",
-      zh: "💡 静音期间可视化效果仍在运行，用来检测你内心的节奏是否稳定",
+      en: "💡 Visualizer continues during mute to check your internal interval",
+      zh: "💡 静音期间可视化效果仍在运行，用来检测你内心的间隔是否稳定",
     },
   },
 
   presets: {
     title: { en: "Presets & Setlists", zh: "预设与曲目单" },
     inputPlaceholder: { en: "Enter preset name...", zh: "输入预设名称..." },
-    saveCurrent: { en: "Save Current", zh: "保存当前" },
+    saveCurrent: { en: "Save", zh: "保存" },
     emptyTitle: { en: "No presets yet", zh: "暂无预设" },
     emptyHint: {
       en: "Save your current settings for quick access",
@@ -98,10 +98,10 @@ export const translations = {
       en: "Auto-increment BPM every N measures. Set target BPM to auto-stop.",
       zh: "每隔 N 小节自动加速，适合爬音阶练习。可设置目标 BPM，达到后自动停止。",
     },
-    rhythmTrainer: { en: "Rhythm Trainer", zh: "节奏检测训练" },
-    rhythmTrainerDesc: {
+    intervalTrainer: { en: "Interval Trainer", zh: "间隔检测训练" },
+    intervalTrainerDesc: {
       en: "Play X measures, then mute Y measures. Watch the visualizer to check your internal timing.",
-      zh: "播放 X 小节后自动静音 Y 小节。静音期间观察光柱，检测你内心的节奏是否稳定。",
+      zh: "播放 X 小节后自动静音 Y 小节。静音期间观察光柱，检测你内心的间隔是否稳定。",
     },
     presetsFeature: { en: "Presets", zh: "预设与曲目单" },
     presetsDesc: {

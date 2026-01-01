@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  BEAT_ACCENT,
-  BEAT_MUTE,
-  BEAT_SUB_ACCENT,
-  LOOKAHEAD,
-  SCHEDULE_AHEAD_TIME,
-  SOUND_DRUM,
-  SOUND_MECH,
-  SOUND_SINE,
-  SOUND_WOOD,
-  type RhythmTrainerConfig,
+    BEAT_ACCENT,
+    BEAT_MUTE,
+    BEAT_SUB_ACCENT,
+    LOOKAHEAD,
+    SCHEDULE_AHEAD_TIME,
+    SOUND_DRUM,
+    SOUND_MECH,
+    SOUND_SINE,
+    SOUND_WOOD,
+    type IntervalTrainerConfig,
 } from "../constants";
 
 interface Note {
@@ -18,7 +18,7 @@ interface Note {
 }
 
 interface UseMetronomeOptions {
-  rhythmTrainer?: RhythmTrainerConfig;
+  intervalTrainer?: IntervalTrainerConfig;
   onMeasureComplete?: (measureCount: number) => void;
 }
 
@@ -30,13 +30,13 @@ export const useMetronome = (
   stepStates: number[],
   options: UseMetronomeOptions = {}
 ) => {
-  const rhythmTrainerRef = useRef(options.rhythmTrainer);
+  const intervalTrainerRef = useRef(options.intervalTrainer);
   const onMeasureCompleteRef = useRef(options.onMeasureComplete);
 
   useEffect(() => {
-    rhythmTrainerRef.current = options.rhythmTrainer;
+    intervalTrainerRef.current = options.intervalTrainer;
     onMeasureCompleteRef.current = options.onMeasureComplete;
-  }, [options.rhythmTrainer, options.onMeasureComplete]);
+  }, [options.intervalTrainer, options.onMeasureComplete]);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [measureCount, setMeasureCount] = useState(0);
@@ -311,7 +311,7 @@ export const useMetronome = (
   }, [stepStates]);
 
   const isMeasureMuted = useCallback((currentMeasure: number): boolean => {
-    const rt = rhythmTrainerRef.current;
+    const rt = intervalTrainerRef.current;
     if (!rt || !rt.enabled) return false;
 
     const cycleLength = rt.playBars + rt.muteBars;

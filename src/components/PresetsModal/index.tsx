@@ -24,6 +24,7 @@ export const PresetsModal = ({
   language,
 }: PresetsModalProps) => {
   const [name, setName] = useState("");
+  const [deletingPresetId, setDeletingPresetId] = useState<string | null>(null);
   const t = translations.presets;
   const tc = translations.common;
 
@@ -126,7 +127,7 @@ export const PresetsModal = ({
                     </button>
                     <button
                       className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--delete"]}`}
-                      onClick={() => onDelete(preset.id)}
+                      onClick={() => setDeletingPresetId(preset.id)}
                       title={tc.delete[language]}
                     >
                       <Trash2 size={16} />
@@ -138,6 +139,43 @@ export const PresetsModal = ({
           </div>
         </div>
       </motion.div>
+
+      {/* Delete Confirmation Modal */}
+      {deletingPresetId && (
+        <div className={styles["presets-modal__confirm-overlay"]} onClick={(e) => e.stopPropagation()}>
+          <motion.div
+            className={styles["presets-modal__confirm-dialog"]}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+          >
+            <div className={styles["presets-modal__confirm-title"]}>
+              {t.confirmDeleteTitle[language]}
+            </div>
+            <div className={styles["presets-modal__confirm-message"]}>
+              {t.confirmDeleteMessage[language]}
+            </div>
+            <div className={styles["presets-modal__confirm-actions"]}>
+              <button
+                className={styles["presets-modal__confirm-btn-cancel"]}
+                onClick={() => setDeletingPresetId(null)}
+              >
+                {t.cancel[language]}
+              </button>
+              <button
+                className={styles["presets-modal__confirm-btn-delete"]}
+                onClick={() => {
+                  if (deletingPresetId) {
+                    onDelete(deletingPresetId);
+                    setDeletingPresetId(null);
+                  }
+                }}
+              >
+                {t.confirm[language]}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   );
 };

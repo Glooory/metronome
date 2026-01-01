@@ -62,6 +62,10 @@ export const translations = {
     title: { en: "Presets & Setlists", zh: "预设与曲目单" },
     inputPlaceholder: { en: "Enter preset name...", zh: "输入预设名称..." },
     saveCurrent: { en: "Save", zh: "保存" },
+    confirmDeleteTitle: { en: "Delete Preset", zh: "删除预设" },
+    confirmDeleteMessage: { en: "Are you sure you want to delete this preset?", zh: "确定要删除这个预设吗？" },
+    cancel: { en: "Cancel", zh: "取消" },
+    confirm: { en: "Delete", zh: "删除" },
     emptyTitle: { en: "No presets yet", zh: "暂无预设" },
     emptyHint: {
       en: "Save your current settings for quick access",

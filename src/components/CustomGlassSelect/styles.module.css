@@ -71,7 +71,6 @@
   background-color: var(--theme-bg-modal);
   backdrop-filter: blur(var(--theme-glass-blur));
   -webkit-backdrop-filter: blur(var(--theme-glass-blur));
-  will-change: transform, opacity;
 }
 
 .glass-select__dropdown--top {

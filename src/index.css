@@ -547,7 +547,7 @@
   --theme-text-primary: #4a5568;
   --theme-text-secondary: #718096;
   --theme-text-muted: #a0aec0;
-  --theme-text-dim: #cbd5e0;
+  --theme-text-dim: #a0aec0;
   --theme-text-bright: #2d3748;
 
   --theme-accent-amber: #d69e2e;
@@ -597,8 +597,8 @@
   --theme-toggle-active-interval: #e0e5ec;
   --theme-toggle-border-interval: transparent;
 
-  --theme-bg-modal: #e0e5ec;
-  --theme-bg-modal-gradient: #e0e5ec;
+  --theme-bg-modal: #c1c9d6;
+  --theme-bg-modal-gradient: #c1c9d6;
 
   --theme-wheel-bg: #e0e5ec;
   --theme-wheel-line: #e53e3e;
@@ -631,6 +631,12 @@
 .theme-neumorphism button:active {
   box-shadow: inset 4px 4px 8px rgb(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.5) !important;
   transform: translateY(1px);
+}
+
+.theme-neumorphism [class*="visualizer__block"] {
+  border-radius: 4px !important;
+  border: 1px solid rgba(163, 177, 198, 0.5) !important;
+  background-color: transparent;
 }
 
 .theme-amoled {

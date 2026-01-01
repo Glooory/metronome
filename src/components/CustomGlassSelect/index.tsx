@@ -17,6 +17,7 @@ interface CustomGlassSelectProps {
   title: string;
   displayLabel: string;
   alignment?: "left" | "center" | "right";
+  placement?: "top" | "bottom";
 }
 
 export const CustomGlassSelect = ({
@@ -27,6 +28,7 @@ export const CustomGlassSelect = ({
   title,
   displayLabel,
   alignment = "center",
+  placement = "top",
 }: CustomGlassSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,6 +43,8 @@ export const CustomGlassSelect = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const initialY = placement === "top" ? 10 : -10;
+
   return (
     <div className={styles["glass-select"]} ref={containerRef}>
       <button
@@ -53,21 +57,22 @@ export const CustomGlassSelect = ({
         <Icon size={16} />
         <span className={styles["glass-select__label"]}>{displayLabel}</span>
         <div className={styles["glass-select__chevrons"]}>
-          <ChevronUp size={8} />
-          <ChevronDown size={8} />
+          <ChevronUp size={12} />
+          <ChevronDown size={12} />
         </div>
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            initial={{ opacity: 0, scale: 0.95, y: initialY }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            exit={{ opacity: 0, scale: 0.95, y: initialY }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={clsx(
               styles["glass-select__dropdown"],
-              styles[`glass-select__dropdown--${alignment}`]
+              styles[`glass-select__dropdown--${alignment}`],
+              styles[`glass-select__dropdown--${placement}`]
             )}
           >
             <div className={styles["glass-select__overlay"]} />

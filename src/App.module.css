@@ -48,7 +48,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 85dvh;
+  height: 80dvh;
   position: relative;
   z-index: 10;
 }

@@ -122,16 +122,7 @@ export default function MetronomeApp() {
     () => getStorageItem(STORAGE_KEY_THEME, "glass" as Theme) as Theme
   );
 
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      if (prev === "glass") return "swiss";
-      if (prev === "swiss") return "zen";
-      if (prev === "zen") return "e-ink";
-      if (prev === "e-ink") return "cyberpunk";
-      if (prev === "cyberpunk") return "kids";
-      return "glass";
-    });
-  };
+
 
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
     getStorageItem(
@@ -347,6 +338,23 @@ export default function MetronomeApp() {
   return (
     <div className={clsx(styles.app, themeClass)}>
       <div className={styles["header-buttons"]}>
+        <CustomGlassSelect
+          icon={Paintbrush}
+          value={theme}
+          onChange={setTheme}
+          options={[
+            { label: translations.options.themes.glass[language], value: "glass" },
+            { label: translations.options.themes.swiss[language], value: "swiss" },
+            { label: translations.options.themes.zen[language], value: "zen" },
+            { label: translations.options.themes["e-ink"][language], value: "e-ink" },
+            { label: translations.options.themes.cyberpunk[language], value: "cyberpunk" },
+            { label: translations.options.themes.kids[language], value: "kids" },
+          ]}
+          title={translations.dock.theme[language]}
+          displayLabel={translations.options.themes[theme][language]}
+          alignment="right"
+          placement="bottom"
+        />
         <button
           onClick={toggleLanguage}
           className={styles["header-btn"]}
@@ -354,13 +362,6 @@ export default function MetronomeApp() {
         >
           <Globe size={18} />
           <span className={styles["header-btn__label"]}>{language === "en" ? "EN" : "中"}</span>
-        </button>
-        <button
-          onClick={toggleTheme}
-          className={styles["header-btn"]}
-          title={`Current: ${theme}. Click to switch.`}
-        >
-          <Paintbrush size={18} />
         </button>
         <button onClick={() => setIsHelpOpen(true)} className={styles["header-btn"]}>
           <HelpCircle size={20} />

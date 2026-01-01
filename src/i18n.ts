@@ -21,6 +21,7 @@ export const translations = {
   dock: {
     timeSignature: { en: "Time Signature", zh: "拍号" },
     soundPreset: { en: "Sound", zh: "音色" },
+    theme: { en: "Theme", zh: "主题" },
   },
 
   trainer: {
@@ -128,6 +129,14 @@ export const translations = {
       eighth: { en: "8TH (1/8)", zh: "八分 (1/8)" },
       triplet: { en: "TRIP (1/3)", zh: "三连 (1/3)" },
       sixteenth: { en: "16TH (1/16)", zh: "十六 (1/16)" },
+    },
+    themes: {
+      glass: { en: "Glass", zh: "玻璃" },
+      swiss: { en: "Swiss", zh: "瑞士" },
+      zen: { en: "Zen", zh: "禅意" },
+      "e-ink": { en: "E-Ink", zh: "墨水" },
+      cyberpunk: { en: "Cyberpunk", zh: "赛博" },
+      kids: { en: "Kids", zh: "童趣" },
     },
   },
 

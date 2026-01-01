@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe, HelpCircle, Music2, Paintbrush, Pause, Play, Waves } from "lucide-react";
+import { Globe, HelpCircle, Music2, Pause, Play, Shirt, Waves } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
@@ -327,12 +327,11 @@ export default function MetronomeApp() {
     setPresets((prev) => prev.filter((p) => p.id !== id));
   };
 
-
   return (
     <div className={clsx(styles.app, `theme-${theme}`)}>
       <div className={styles["header-buttons"]}>
         <CustomGlassSelect
-          icon={Paintbrush}
+          icon={Shirt}
           value={theme}
           onChange={setTheme}
           options={[

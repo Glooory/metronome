@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ListMusic, X } from "lucide-react";
+import { ListMusic, Play, Trash2, X } from "lucide-react";
 import { useState } from "react";
 import type { Preset } from "../../constants";
 import type { Language } from "../../i18n";
@@ -120,14 +120,16 @@ export const PresetsModal = ({
                     <button
                       className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--load"]}`}
                       onClick={() => onLoad(preset)}
+                      title={tc.load[language]}
                     >
-                      {tc.load[language]}
+                      <Play size={16} fill="currentColor" />
                     </button>
                     <button
                       className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--delete"]}`}
                       onClick={() => onDelete(preset.id)}
+                      title={tc.delete[language]}
                     >
-                      {tc.delete[language]}
+                      <Trash2 size={16} />
                     </button>
                   </div>
                 </div>

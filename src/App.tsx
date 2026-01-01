@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe, HelpCircle, Music2, Pause, Play, Shirt, Waves } from "lucide-react";
+import { Globe, HelpCircle, Music2, Palette, Pause, Play, Shirt, Waves } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
@@ -293,6 +293,26 @@ export default function MetronomeApp() {
     { label: translations.options.subdivisions.sixteenth[language], value: 4 },
   ];
 
+  const themeOrder: Theme[] = [
+    "glass",
+    "swiss",
+    "zen",
+    "e-ink",
+    "cyberpunk",
+    "kids",
+    "neumorphism",
+    "amoled",
+    "retro",
+  ];
+
+  const cycleTheme = () => {
+    setTheme((prev) => {
+      const idx = themeOrder.indexOf(prev);
+      const nextIdx = (idx + 1) % themeOrder.length;
+      return themeOrder[nextIdx];
+    });
+  };
+
   const getSoundDisplay = (val: string) => {
     const opt = soundOptions.find((o) => o.value === val);
     return opt ? opt.label : "SINE";
@@ -328,6 +348,13 @@ export default function MetronomeApp() {
   return (
     <div className={clsx(styles.app, `theme-${theme}`)}>
       <div className={styles["header-buttons"]}>
+        <button
+          onClick={cycleTheme}
+          className={styles["header-btn"]}
+          title={translations.dock.theme[language]}
+        >
+          <Palette size={20} />
+        </button>
         <CustomGlassSelect
           icon={Shirt}
           value={theme}
@@ -350,7 +377,7 @@ export default function MetronomeApp() {
         />
         <button
           onClick={toggleLanguage}
-          className={styles["header-btn"]}
+          className={clsx(styles["header-btn"], styles["header-btn__lang"])}
           title={language === "en" ? "切换到中文" : "Switch to English"}
         >
           <Globe size={18} />

@@ -186,6 +186,13 @@
   }
 }
 
+.header-btn__lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+}
+
 .header-btn:active {
   transform: scale(0.95);
 }

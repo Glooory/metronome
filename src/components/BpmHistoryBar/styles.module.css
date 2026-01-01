@@ -59,11 +59,9 @@
   box-shadow: 0 0 15px var(--theme-glass-bg-active);
 }
 
-@media (hover: hover) {
-  .history-bar__item:hover:not(.history-bar__item--active) {
-    background-color: var(--theme-glass-bg);
-    color: var(--theme-text-primary);
-  }
+.history-bar__item:hover:not(.history-bar__item--active) {
+  background-color: var(--theme-glass-bg);
+  color: var(--theme-text-primary);
 }
 
 .history-bar__item-text {
@@ -89,10 +87,8 @@
   box-shadow: var(--theme-shadow-sm);
 }
 
-@media (hover: hover) {
-  .history-bar__item:hover .history-bar__remove-btn {
-    opacity: 1;
-  }
+.history-bar__item:hover .history-bar__remove-btn {
+  opacity: 1;
 }
 
 .history-bar__save-btn {

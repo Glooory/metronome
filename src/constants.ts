@@ -26,7 +26,7 @@ export const STORAGE_KEY_SPEED_TRAINER = "spatial-metronome-speed-trainer";
 export const STORAGE_KEY_INTERVAL_TRAINER = "spatial-metronome-interval-trainer";
 export const STORAGE_KEY_THEME = "spatial-metronome-theme";
 
-export type Theme = 'glass' | 'cyberpunk' | 'kids' | 'swiss' | 'zen' | 'e-ink';
+export type Theme = 'glass' | 'cyberpunk' | 'kids' | 'swiss' | 'zen' | 'e-ink' | 'neumorphism' | 'amoled' | 'retro';
 
 export const THEMES: { id: Theme; label: string }[] = [
   { id: 'glass', label: 'Glass' },
@@ -35,6 +35,9 @@ export const THEMES: { id: Theme; label: string }[] = [
   { id: 'swiss', label: 'Swiss Style' },
   { id: 'zen', label: 'Zen Mode' },
   { id: 'e-ink', label: 'E-Paper' },
+  { id: 'neumorphism', label: 'Neumorphism' },
+  { id: 'amoled', label: 'Amoled' },
+  { id: 'retro', label: 'Retro' },
 ];
 
 export interface Preset {

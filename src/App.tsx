@@ -327,16 +327,9 @@ export default function MetronomeApp() {
     setPresets((prev) => prev.filter((p) => p.id !== id));
   };
 
-  const themeClass = clsx({
-    "theme-cyberpunk": theme === "cyberpunk",
-    "theme-kids": theme === "kids",
-    "theme-swiss": theme === "swiss",
-    "theme-zen": theme === "zen",
-    "theme-e-ink": theme === "e-ink",
-  });
 
   return (
-    <div className={clsx(styles.app, themeClass)}>
+    <div className={clsx(styles.app, `theme-${theme}`)}>
       <div className={styles["header-buttons"]}>
         <CustomGlassSelect
           icon={Paintbrush}
@@ -349,6 +342,9 @@ export default function MetronomeApp() {
             { label: translations.options.themes["e-ink"][language], value: "e-ink" },
             { label: translations.options.themes.cyberpunk[language], value: "cyberpunk" },
             { label: translations.options.themes.kids[language], value: "kids" },
+            { label: translations.options.themes.neumorphism[language], value: "neumorphism" },
+            { label: translations.options.themes.amoled[language], value: "amoled" },
+            { label: translations.options.themes.retro[language], value: "retro" },
           ]}
           title={translations.dock.theme[language]}
           displayLabel={translations.options.themes[theme][language]}

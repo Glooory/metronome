@@ -137,6 +137,9 @@ export const translations = {
       "e-ink": { en: "E-Ink", zh: "墨水" },
       cyberpunk: { en: "Cyberpunk", zh: "赛博" },
       kids: { en: "Kids", zh: "童趣" },
+      neumorphism: { en: "Soft", zh: "拟物" },
+      amoled: { en: "OLED", zh: "极黑" },
+      retro: { en: "80s", zh: "复古" },
     },
   },
 

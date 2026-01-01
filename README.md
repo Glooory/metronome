@@ -6,6 +6,17 @@ A professional online metronome with advanced training features, built with Reac
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript) ![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?logo=vite)
 
+
+## 🎨 Themes
+
+| Glass | Cyberpunk | Kids Pop |
+| :---: | :---: | :---: |
+| <img src="screenshots/glass.png" width="200" /> | <img src="screenshots/cyberpunk.png" width="200" /> | <img src="screenshots/kids.png" width="200" /> |
+| **Swiss Style** | **Zen Mode** | **E-Paper** |
+| <img src="screenshots/swiss.png" width="200" /> | <img src="screenshots/zen.png" width="200" /> | <img src="screenshots/eink.png" width="200" /> |
+| **Neumorphism** | **Amoled** | **Retro** |
+| <img src="screenshots/neumorphism.png" width="200" /> | <img src="screenshots/amoled.png" width="200" /> | <img src="screenshots/retro.png" width="200" /> |
+
 ## ✨ Features
 
 ### Core Metronome

@@ -72,7 +72,6 @@
   overflow: hidden;
 }
 
-/* Save Section */
 .presets-modal__save-section {
   display: flex;
   gap: 8px;
@@ -80,6 +79,7 @@
 
 .presets-modal__name-input {
   flex: 1;
+  min-width: 0;
   padding: 10px 14px;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
@@ -128,7 +128,6 @@
   background: var(--theme-glass-border-subtle);
 }
 
-/* Presets List */
 .presets-modal__list {
   flex: 1;
   overflow-y: auto;

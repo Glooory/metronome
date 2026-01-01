@@ -16,10 +16,12 @@
   -webkit-backdrop-filter: blur(var(--theme-glass-blur-sm));
 }
 
-.help-modal__trigger-btn:hover {
-  color: var(--theme-text-primary);
-  background-color: var(--theme-glass-bg);
-  border-color: var(--theme-glass-border);
+@media (hover: hover) {
+  .help-modal__trigger-btn:hover {
+    color: var(--theme-text-primary);
+    background-color: var(--theme-glass-bg);
+    border-color: var(--theme-glass-border);
+  }
 }
 
 .help-modal__trigger-btn:active {
@@ -83,9 +85,11 @@
   color: var(--theme-text-secondary);
 }
 
-.help-modal__close-btn:hover {
-  background-color: var(--theme-glass-bg);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .help-modal__close-btn:hover {
+    background-color: var(--theme-glass-bg);
+    color: var(--theme-text-primary);
+  }
 }
 
 .help-modal__body {

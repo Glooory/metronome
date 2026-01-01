@@ -38,9 +38,11 @@
   color: var(--theme-text-secondary);
 }
 
-.glass-select__btn--closed:hover {
-  background-color: var(--theme-glass-bg);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .glass-select__btn--closed:hover {
+    background-color: var(--theme-glass-bg);
+    color: var(--theme-text-primary);
+  }
 }
 
 .glass-select__label {
@@ -124,9 +126,11 @@
   color: var(--theme-text-bright);
 }
 
-.glass-select__option:not(.glass-select__option--selected):hover {
-  background-color: var(--theme-glass-bg);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .glass-select__option:not(.glass-select__option--selected):hover {
+    background-color: var(--theme-glass-bg);
+    color: var(--theme-text-primary);
+  }
 }
 
 .glass-select__active-dot {
@@ -151,8 +155,10 @@
   margin-top: -0.25rem;
 }
 
-.glass-select__btn:hover .glass-select__chevrons {
-  opacity: 1;
+@media (hover: hover) {
+  .glass-select__btn:hover .glass-select__chevrons {
+    opacity: 1;
+  }
 }
 
 .glass-select__overlay {

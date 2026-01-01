@@ -32,10 +32,12 @@
   white-space: nowrap;
 }
 
-.trainer-dock__btn:hover {
-  background: var(--theme-glass-bg-hover);
-  color: var(--theme-text-primary);
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .trainer-dock__btn:hover {
+    background: var(--theme-glass-bg-hover);
+    color: var(--theme-text-primary);
+    transform: translateY(-1px);
+  }
 }
 
 .trainer-dock__btn--active {

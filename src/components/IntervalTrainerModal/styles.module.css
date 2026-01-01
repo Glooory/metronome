@@ -57,9 +57,11 @@
   transition: all 0.2s;
 }
 
-.interval-trainer-modal__close-btn:hover {
-  background: var(--theme-glass-bg-hover);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .interval-trainer-modal__close-btn:hover {
+    background: var(--theme-glass-bg-hover);
+    color: var(--theme-text-primary);
+  }
 }
 
 .interval-trainer-modal__content {

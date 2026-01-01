@@ -57,9 +57,11 @@
   transition: all 0.2s;
 }
 
-.speed-trainer-modal__close-btn:hover {
-  background: var(--theme-glass-bg-hover);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .speed-trainer-modal__close-btn:hover {
+    background: var(--theme-glass-bg-hover);
+    color: var(--theme-text-primary);
+  }
 }
 
 .speed-trainer-modal__content {

@@ -175,10 +175,12 @@
   -webkit-backdrop-filter: blur(var(--theme-glass-blur-sm));
 }
 
-.header-btn:hover {
-  color: var(--theme-text-primary);
-  background-color: var(--theme-glass-bg);
-  border-color: var(--theme-glass-border);
+@media (hover: hover) {
+  .header-btn:hover {
+    color: var(--theme-text-primary);
+    background-color: var(--theme-glass-bg);
+    border-color: var(--theme-glass-border);
+  }
 }
 
 .header-btn:active {

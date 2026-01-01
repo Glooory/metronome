@@ -60,9 +60,11 @@
   transition: all 0.2s;
 }
 
-.presets-modal__close-btn:hover {
-  background: var(--theme-glass-bg-hover);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .presets-modal__close-btn:hover {
+    background: var(--theme-glass-bg-hover);
+    color: var(--theme-text-primary);
+  }
 }
 
 .presets-modal__content {
@@ -112,9 +114,11 @@
   white-space: nowrap;
 }
 
-.presets-modal__save-btn:hover {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.5), rgba(245, 158, 11, 0.4));
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .presets-modal__save-btn:hover {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.5), rgba(245, 158, 11, 0.4));
+    transform: translateY(-1px);
+  }
 }
 
 .presets-modal__save-btn:disabled {
@@ -163,9 +167,11 @@
   transition: all 0.2s;
 }
 
-.presets-modal__item:hover {
-  background: var(--theme-input-bg);
-  border-color: var(--theme-glass-border-subtle);
+@media (hover: hover) {
+  .presets-modal__item:hover {
+    background: var(--theme-input-bg);
+    border-color: var(--theme-glass-border-subtle);
+  }
 }
 
 .presets-modal__item-info {
@@ -210,9 +216,11 @@
   justify-content: center;
 }
 
-.presets-modal__action-btn:hover {
-  background: var(--theme-glass-bg-hover);
-  color: var(--theme-text-primary);
+@media (hover: hover) {
+  .presets-modal__action-btn:hover {
+    background: var(--theme-glass-bg-hover);
+    color: var(--theme-text-primary);
+  }
 }
 
 .presets-modal__action-btn--load {
@@ -221,18 +229,22 @@
   color: var(--theme-accent-blue);
 }
 
-.presets-modal__action-btn--load:hover {
-  background: rgba(59, 130, 246, 0.3);
+@media (hover: hover) {
+  .presets-modal__action-btn--load:hover {
+    background: rgba(59, 130, 246, 0.3);
+  }
 }
 
 .presets-modal__action-btn--delete {
   color: var(--theme-accent-red);
 }
 
-.presets-modal__action-btn--delete:hover {
-  background: var(--theme-accent-red-bg);
-  border-color: var(--theme-accent-red-border);
-  color: rgba(239, 68, 68, 1);
+@media (hover: hover) {
+  .presets-modal__action-btn--delete:hover {
+    background: var(--theme-accent-red-bg);
+    border-color: var(--theme-accent-red-border);
+    color: rgba(239, 68, 68, 1);
+  }
 }
 
 .presets-modal__empty-state {

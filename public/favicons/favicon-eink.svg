@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <!-- Sketchy Body -->
+  <path d="M120 450 L390 445 L310 85 L200 90 Z" fill="none" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+  <!-- Double stroke for sketch effect -->
+  <path d="M130 460 L380 455 L305 95 L205 100 Z" fill="none" stroke="#000000" stroke-width="4" stroke-opacity="0.6"/>
+  <!-- Scribbled Pointer -->
+  <path d="M260 380 Q 250 200 240 100" fill="none" stroke="#000000" stroke-width="8" stroke-linecap="round"/>
+</svg>

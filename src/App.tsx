@@ -119,17 +119,17 @@ export default function MetronomeApp() {
   };
 
   const [theme, setTheme] = useState<Theme>(
-    () => getStorageItem(STORAGE_KEY_THEME, "default" as Theme) as Theme
+    () => getStorageItem(STORAGE_KEY_THEME, "glass" as Theme) as Theme
   );
 
   const toggleTheme = () => {
     setTheme((prev) => {
-      if (prev === "default") return "swiss";
+      if (prev === "glass") return "swiss";
       if (prev === "swiss") return "zen";
       if (prev === "zen") return "e-ink";
       if (prev === "e-ink") return "cyberpunk";
       if (prev === "cyberpunk") return "kids";
-      return "default";
+      return "glass";
     });
   };
 
@@ -195,6 +195,29 @@ export default function MetronomeApp() {
     language,
     theme,
   ]);
+
+  useEffect(() => {
+    const baseUrl = import.meta.env.BASE_URL;
+    const faviconMap: Record<string, string> = {
+      glass: `${baseUrl}favicons/favicon-glass.svg`,
+      zen: `${baseUrl}favicons/favicon-zen.svg`,
+      swiss: `${baseUrl}favicons/favicon-swiss.svg`,
+      kids: `${baseUrl}favicons/favicon-kids.svg`,
+      cyberpunk: `${baseUrl}favicons/favicon-cyberpunk.svg`,
+      "e-ink": `${baseUrl}favicons/favicon-eink.svg`,
+    };
+
+    const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    if (link) {
+      link.href = faviconMap[theme] || faviconMap.glass;
+    } else {
+      // Fallback if no favicon link exists
+      const newLink = document.createElement("link");
+      newLink.rel = "icon";
+      newLink.href = faviconMap[theme] || faviconMap.glass;
+      document.head.appendChild(newLink);
+    }
+  }, [theme]);
 
   const toggleStepState = (i: number) =>
     setStepStates((p) => {

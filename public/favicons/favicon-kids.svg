@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Soft Pyramid -->
+  <path d="M140 440 L372 440 L300 100 L212 100 Z" fill="#00d2d3" stroke="#5f27cd" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Tilted Pointer -->
+  <line x1="256" y1="380" x2="340" y2="120" stroke="#ff9ff3" stroke-width="16" stroke-linecap="round"/>
+  <!-- Big Toy Weight -->
+  <circle cx="330" cy="160" r="30" fill="#feca57" stroke="#5f27cd" stroke-width="8"/>
+</svg>

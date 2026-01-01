@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Body -->
+  <path d="M128 448 L384 448 L300 80 L212 80 Z" fill="#4a5043" stroke="none" rx="20"/>
+  <!-- Pendulum Rod -->
+  <line x1="256" y1="360" x2="210" y2="100" stroke="#cfa5a5" stroke-width="8" stroke-linecap="round"/>
+  <!-- Weight -->
+  <circle cx="215" cy="130" r="16" fill="#cfa5a5"/>
+  <!-- Base Highlight -->
+  <path d="M150 448 L362 448" stroke="#7d9d8c" stroke-width="4" stroke-opacity="0.3"/>
+</svg>

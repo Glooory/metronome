@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="glass-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a72;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#009ffd;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="glass-edge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  <!-- Glass Pyramid -->
+  <path d="M128 448 L384 448 L300 80 L212 80 Z" fill="url(#glass-body)"/>
+  <path d="M128 448 L384 448 L300 80 L212 80 Z" fill="none" stroke="url(#glass-edge)" stroke-width="4"/>
+  
+  <!-- Refracted Pointer (internal) -->
+  <line x1="256" y1="360" x2="256" y2="120" stroke="#fff" stroke-width="4" opacity="0.5"/>
+  <!-- Weight -->
+  <rect x="236" y="160" width="40" height="20" rx="4" fill="#fff" opacity="0.9"/>
+</svg>

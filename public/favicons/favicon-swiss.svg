@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#f4f4f0"/>
+  <!-- Abstract Body -->
+  <path d="M100 480 L412 480 L256 32 Z" fill="#0033ff"/>
+  <!-- Slicing Red Pointer -->
+  <rect x="236" y="80" width="40" height="360" fill="#ff3300" transform="rotate(15, 256, 400)"/>
+  <!-- Bauhaus Circle -->
+  <circle cx="360" cy="120" r="40" fill="#000000"/>
+</svg>

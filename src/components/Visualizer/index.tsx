@@ -10,11 +10,7 @@ interface VisualizerProps {
   toggleStepState: (index: number) => void;
 }
 
-export const Visualizer = ({
-  activeBeat,
-  stepStates,
-  toggleStepState,
-}: VisualizerProps) => {
+export const Visualizer = ({ activeBeat, stepStates, toggleStepState }: VisualizerProps) => {
   return (
     <div className={styles.visualizer}>
       <div className={styles["visualizer__container"]}>

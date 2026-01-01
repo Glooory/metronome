@@ -142,7 +142,10 @@ export const PresetsModal = ({
 
       {/* Delete Confirmation Modal */}
       {deletingPresetId && (
-        <div className={styles["presets-modal__confirm-overlay"]} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={styles["presets-modal__confirm-overlay"]}
+          onClick={(e) => e.stopPropagation()}
+        >
           <motion.div
             className={styles["presets-modal__confirm-dialog"]}
             initial={{ scale: 0.9, opacity: 0 }}

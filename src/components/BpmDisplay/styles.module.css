@@ -90,7 +90,10 @@
   margin: 0;
   color: var(--theme-text-primary);
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: bold;
   font-size: var(--bpm-lable-fz);
   line-height: 1;
@@ -194,10 +197,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(to bottom,
-      transparent 45%,
-      var(--theme-wheel-tick, var(--theme-glass-border-bright)) 50%,
-      transparent 55%);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 45%,
+    var(--theme-wheel-tick, var(--theme-glass-border-bright)) 50%,
+    transparent 55%
+  );
   background-size: 100% 1rem;
   background-position-y: var(--wheel-offset, 0);
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);

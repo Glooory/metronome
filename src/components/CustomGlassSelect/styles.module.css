@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.glass-select__btn>svg {
+.glass-select__btn > svg {
   flex-shrink: 0;
 }
 
@@ -151,7 +151,7 @@
   flex-shrink: 0;
 }
 
-.glass-select__chevrons>*:not(:first-child) {
+.glass-select__chevrons > *:not(:first-child) {
   margin-top: -0.25rem;
 }
 

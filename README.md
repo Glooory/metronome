@@ -23,11 +23,11 @@ A professional online metronome with advanced training features, built with Reac
 
 ### 🚀 Training Tools
 
-| Feature            | Description                                                       |
-| ------------------ | ----------------------------------------------------------------- |
-| **Speed Trainer**  | Auto-increment BPM every N measures with target limit             |
+| Feature              | Description                                                       |
+| -------------------- | ----------------------------------------------------------------- |
+| **Speed Trainer**    | Auto-increment BPM every N measures with target limit             |
 | **Interval Trainer** | Play X bars, mute Y bars - visualizer continues during mute       |
-| **Presets**        | Save/load complete configurations (BPM, time sig, sound, pattern) |
+| **Presets**          | Save/load complete configurations (BPM, time sig, sound, pattern) |
 
 ### 🌐 Internationalization
 
@@ -64,10 +64,10 @@ npm run build
 
 ## 🎹 Keyboard Shortcuts
 
-| Key           | Action         |
-| ------------- | -------------- |
-| `Space`       | Play / Pause   |
-| `↑` / `↓`     | Adjust BPM ±1  |
+| Key           | Action        |
+| ------------- | ------------- |
+| `Space`       | Play / Pause  |
+| `↑` / `↓`     | Adjust BPM ±1 |
 | `Shift + ↑/↓` | Adjust BPM ±5 |
 
 ## 📁 Project Structure

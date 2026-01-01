@@ -1,5 +1,16 @@
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,7 +22,11 @@
   --theme-bg-primary: #0a0a0a;
   --theme-bg-overlay: rgba(0, 0, 0, 0.6);
   --theme-bg-modal: rgba(10, 10, 10, 0.9);
-  --theme-bg-modal-gradient: linear-gradient(145deg, rgba(30, 30, 45, 0.95) 0%, rgba(20, 20, 35, 0.98) 100%);
+  --theme-bg-modal-gradient: linear-gradient(
+    145deg,
+    rgba(30, 30, 45, 0.95) 0%,
+    rgba(20, 20, 35, 0.98) 100%
+  );
 
   --theme-text-primary: #ffffff;
   --theme-text-secondary: rgba(255, 255, 255, 0.6);
@@ -48,11 +63,25 @@
   --theme-accent-red-border: rgba(239, 68, 68, 0.3);
   --theme-accent-green-border: rgba(34, 197, 94, 0.5);
 
-  --theme-gradient-bg: radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 40%), radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.15) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-  --theme-bpm-text-gradient: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  --theme-gradient-bg:
+    radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+  --theme-bpm-text-gradient: linear-gradient(
+    to bottom,
+    #ffffff,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.5)
+  );
   --theme-glass-top-light: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
 
-  --theme-wheel-bg: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, rgba(0, 0, 0, 0.4));
+  --theme-wheel-bg: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4),
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.1) 80%,
+    rgba(0, 0, 0, 0.4)
+  );
   --theme-wheel-line: rgba(255, 120, 120, 0.8);
   --theme-wheel-line-glow: rgba(255, 120, 120, 0.5);
   --theme-wheel-tick: rgba(255, 255, 255, 0.5);
@@ -63,12 +92,24 @@
   --theme-shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.4);
   --theme-shadow-inset: inset 0 0 20px rgba(0, 0, 0, 0.5);
 
-  --theme-trainer-active-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.3));
+  --theme-trainer-active-bg: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.4),
+    rgba(139, 92, 246, 0.3)
+  );
   --theme-trainer-active-border: rgba(139, 92, 246, 0.5);
   --theme-trainer-active-glow: 0 0 12px rgba(139, 92, 246, 0.3);
 
-  --theme-toggle-active-speed: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(139, 92, 246, 0.5));
-  --theme-toggle-active-interval: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(34, 197, 94, 0.5));
+  --theme-toggle-active-speed: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.6),
+    rgba(139, 92, 246, 0.5)
+  );
+  --theme-toggle-active-interval: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.6),
+    rgba(34, 197, 94, 0.5)
+  );
   --theme-toggle-border-interval: var(--theme-accent-green-border);
   --theme-toggle-knob: #ffffff;
   --theme-text-on-accent: #ffffff;
@@ -121,19 +162,31 @@
   --theme-glass-blur-sm: 8px;
   --theme-glass-blur-xl: 24px;
 
-  --theme-gradient-bg: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.3) 4px), linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px), linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px), radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05), transparent 60%), radial-gradient(circle at 90% 90%, rgba(217, 0, 255, 0.08), transparent 50%);
+  --theme-gradient-bg:
+    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.3) 4px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05), transparent 60%),
+    radial-gradient(circle at 90% 90%, rgba(217, 0, 255, 0.08), transparent 50%);
 
   --theme-bpm-text-gradient: linear-gradient(180deg, #ffffff 40%, #00f3ff 100%);
 
   --theme-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 30px rgba(0, 243, 255, 0.2);
   --theme-shadow-panel: 0 0 0 1px rgba(0, 243, 255, 0.1), 0 10px 30px -10px rgba(0, 0, 0, 0.8);
   --theme-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --theme-shadow-modal: 0 0 0 1px rgba(0, 243, 255, 0.4), 0 0 50px rgba(0, 243, 255, 0.1), 0 0 0 100vmax rgba(0, 0, 0, 0.8);
+  --theme-shadow-modal:
+    0 0 0 1px rgba(0, 243, 255, 0.4), 0 0 50px rgba(0, 243, 255, 0.1),
+    0 0 0 100vmax rgba(0, 0, 0, 0.8);
   --theme-shadow-inset: inset 0 0 15px rgba(0, 0, 0, 0.5);
 
-  --theme-trainer-active-bg: linear-gradient(135deg, rgba(217, 0, 255, 0.2), rgba(0, 243, 255, 0.1));
+  --theme-trainer-active-bg: linear-gradient(
+    135deg,
+    rgba(217, 0, 255, 0.2),
+    rgba(0, 243, 255, 0.1)
+  );
   --theme-trainer-active-border: #00f3ff;
-  --theme-trainer-active-glow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
+  --theme-trainer-active-glow:
+    0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
 
   --theme-toggle-active-speed: linear-gradient(to right, #d900ff, #00f3ff);
   --theme-toggle-active-interval: linear-gradient(to right, #00f3ff, #05ffa1);
@@ -142,7 +195,13 @@
   --theme-bg-modal: rgba(5, 5, 8, 0.95);
   --theme-bg-modal-gradient: linear-gradient(180deg, rgba(8, 8, 12, 0.98), rgba(4, 4, 6, 0.98));
 
-  --theme-wheel-bg: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 243, 255, 0.05) 20%, rgba(0, 243, 255, 0.05) 80%, rgba(0, 0, 0, 0.8));
+  --theme-wheel-bg: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 243, 255, 0.05) 20%,
+    rgba(0, 243, 255, 0.05) 80%,
+    rgba(0, 0, 0, 0.8)
+  );
   --theme-wheel-line: #00f3ff;
   --theme-wheel-line-glow: rgba(0, 243, 255, 0.8);
   --theme-wheel-tick: rgba(0, 243, 255, 0.3);
@@ -155,7 +214,7 @@
   --theme-bg-primary: #f8f1d8;
 
   --theme-glass-bg: rgba(255, 255, 255, 0.9);
-  --theme-glass-bg-subtle: rgba(255, 255, 255, 1.0);
+  --theme-glass-bg-subtle: rgba(255, 255, 255, 1);
   --theme-glass-bg-hover: rgba(255, 107, 107, 0.1);
   --theme-glass-bg-active: rgba(255, 107, 107, 0.2);
 
@@ -196,7 +255,9 @@
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  --theme-gradient-bg: radial-gradient(rgba(250, 177, 160, 0.4) 20%, transparent 21%) 0 0 / 20px 20px, radial-gradient(rgba(116, 185, 255, 0.4) 20%, transparent 21%) 10px 10px / 20px 20px;
+  --theme-gradient-bg:
+    radial-gradient(rgba(250, 177, 160, 0.4) 20%, transparent 21%) 0 0 / 20px 20px,
+    radial-gradient(rgba(116, 185, 255, 0.4) 20%, transparent 21%) 10px 10px / 20px 20px;
 
   --theme-bpm-text-gradient: linear-gradient(180deg, #ff9ff3 0%, #feca57 50%, #54a0ff 100%);
 
@@ -282,7 +343,9 @@
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  --theme-gradient-bg: linear-gradient(#e5e5e5 1px, transparent 1px) 0 0 / 20px 20px, linear-gradient(90deg, #e5e5e5 1px, transparent 1px) 0 0 / 20px 20px;
+  --theme-gradient-bg:
+    linear-gradient(#e5e5e5 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px) 0 0 / 20px 20px;
 
   --theme-bpm-text-gradient: #000000;
 
@@ -387,12 +450,15 @@
   --theme-glass-blur-sm: 20px;
   --theme-glass-blur-xl: 60px;
 
-  --theme-gradient-bg: radial-gradient(circle at 10% 20%, rgba(141, 163, 153, 0.15) 0%, transparent 50%), radial-gradient(circle at 90% 80%, rgba(214, 176, 140, 0.15) 0%, transparent 50%);
+  --theme-gradient-bg:
+    radial-gradient(circle at 10% 20%, rgba(141, 163, 153, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(214, 176, 140, 0.15) 0%, transparent 50%);
 
   --theme-bpm-text-gradient: linear-gradient(180deg, #5b655a 0%, #4a5043 100%);
 
   --theme-shadow-glow: 0 0 30px rgba(141, 163, 153, 0.3);
-  --theme-shadow-panel: 0 20px 40px -10px rgba(74, 80, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --theme-shadow-panel:
+    0 20px 40px -10px rgba(74, 80, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   --theme-shadow-sm: 0 4px 6px -1px rgba(74, 80, 67, 0.05);
   --theme-shadow-modal: 0 20px 60px rgba(74, 80, 67, 0.1), 0 0 0 100vmax rgba(232, 232, 230, 0.8);
   --theme-shadow-inset: inset 0 2px 4px rgba(74, 80, 67, 0.05);
@@ -406,7 +472,11 @@
   --theme-toggle-border-interval: #9aa899;
 
   --theme-bg-modal: rgba(255, 255, 255, 0.9);
-  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(246, 246, 244, 0.95));
+  --theme-bg-modal-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(246, 246, 244, 0.95)
+  );
 
   --theme-wheel-bg: rgba(255, 255, 255, 0.5);
   --theme-wheel-line: #cfa5a5;
@@ -529,7 +599,12 @@
 }
 
 .theme-cyberpunk {
-  background-size: 100% 4px, 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+  background-size:
+    100% 4px,
+    40px 40px,
+    40px 40px,
+    100% 100%,
+    100% 100%;
 }
 
 .theme-neumorphism {
@@ -582,14 +657,18 @@
   --theme-bpm-text-gradient: #4a5568;
 
   --theme-shadow-glow: none;
-  --theme-shadow-panel: 9px 9px 16px rgb(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+  --theme-shadow-panel:
+    9px 9px 16px rgb(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
   --theme-shadow-sm: 5px 5px 10px rgb(163, 177, 198, 0.6), -5px -5px 10px rgba(255, 255, 255, 0.5);
-  --theme-shadow-modal: 20px 20px 60px rgb(163, 177, 198, 0.6), -20px -20px 60px rgba(255, 255, 255, 0.5);
-  --theme-shadow-inset: inset 6px 6px 10px 0 rgb(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+  --theme-shadow-modal:
+    20px 20px 60px rgb(163, 177, 198, 0.6), -20px -20px 60px rgba(255, 255, 255, 0.5);
+  --theme-shadow-inset:
+    inset 6px 6px 10px 0 rgb(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
 
   --theme-trainer-active-bg: #e0e5ec;
   --theme-trainer-active-border: #e0e5ec;
-  --theme-trainer-active-glow: inset 6px 6px 10px 0 rgb(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+  --theme-trainer-active-glow:
+    inset 6px 6px 10px 0 rgb(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
 
   --theme-toggle-active-speed: #e0e5ec;
   --theme-toggle-active-interval: #e0e5ec;
@@ -620,14 +699,17 @@
 }
 
 .theme-neumorphism [class*="bpm-display__value--main"] {
-  filter: drop-shadow(2px 2px 4px rgba(163, 177, 198, 0.6)) drop-shadow(-2px -2px 4px rgba(255, 255, 255, 0.5)) !important;
+  filter: drop-shadow(2px 2px 4px rgba(163, 177, 198, 0.6))
+    drop-shadow(-2px -2px 4px rgba(255, 255, 255, 0.5)) !important;
   color: #4a5568 !important;
   -webkit-text-fill-color: #4a5568 !important;
   background: none !important;
 }
 
 .theme-neumorphism button:active {
-  box-shadow: inset 4px 4px 8px rgb(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.5) !important;
+  box-shadow:
+    inset 4px 4px 8px rgb(163, 177, 198, 0.6),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.5) !important;
   transform: translateY(1px);
 }
 
@@ -778,7 +860,8 @@
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  --theme-gradient-bg: linear-gradient(180deg, #2b213a 0%, #241734 50%, #2b213a 100%),
+  --theme-gradient-bg:
+    linear-gradient(180deg, #2b213a 0%, #241734 50%, #2b213a 100%),
     repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0, 255, 255, 0.1) 3px),
     repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255, 0, 255, 0.05) 41px);
 

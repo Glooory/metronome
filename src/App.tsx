@@ -122,8 +122,6 @@ export default function MetronomeApp() {
     () => getStorageItem(STORAGE_KEY_THEME, "glass" as Theme) as Theme
   );
 
-
-
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
     getStorageItem(
       STORAGE_KEY_SPEED_TRAINER,
@@ -369,7 +367,6 @@ export default function MetronomeApp() {
       </AnimatePresence>
 
       <div className={styles["app__bg-gradient"]} />
-
 
       <div className={styles["app__content"]}>
         <div className={styles["bpm-section"]}>

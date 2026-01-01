@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-    BEAT_ACCENT,
-    BEAT_MUTE,
-    BEAT_SUB_ACCENT,
-    LOOKAHEAD,
-    SCHEDULE_AHEAD_TIME,
-    SOUND_DRUM,
-    SOUND_MECH,
-    SOUND_SINE,
-    SOUND_WOOD,
-    type IntervalTrainerConfig,
+  BEAT_ACCENT,
+  BEAT_MUTE,
+  BEAT_SUB_ACCENT,
+  LOOKAHEAD,
+  SCHEDULE_AHEAD_TIME,
+  SOUND_DRUM,
+  SOUND_MECH,
+  SOUND_SINE,
+  SOUND_WOOD,
+  type IntervalTrainerConfig,
 } from "../constants";
 
 interface Note {

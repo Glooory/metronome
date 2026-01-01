@@ -1,6 +1,6 @@
 export type Language = "en" | "zh";
 
-export const STORAGE_KEY_LANGUAGE = "spatial-metronome-language";
+export const STORAGE_KEY_LANGUAGE = "vibe-metronome-language";
 
 export const translations = {
   common: {

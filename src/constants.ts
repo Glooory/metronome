@@ -14,17 +14,17 @@ export const SOUND_WOOD = "wood";
 export const SOUND_DRUM = "drum";
 export const SOUND_MECH = "mech";
 
-export const STORAGE_KEY_BPM = "spatial-metronome-bpm";
-export const STORAGE_KEY_BEATS = "spatial-metronome-beats";
-export const STORAGE_KEY_STATES = "spatial-metronome-beat-states";
-export const STORAGE_KEY_STEP_STATES = "spatial-metronome-step-states";
-export const STORAGE_KEY_SUBDIV_VAL = "spatial-metronome-subdiv-value";
-export const STORAGE_KEY_SOUND = "spatial-metronome-sound-preset";
-export const STORAGE_KEY_SAVED_BPMS = "spatial-metronome-saved-bpms";
-export const STORAGE_KEY_PRESETS = "spatial-metronome-presets";
-export const STORAGE_KEY_SPEED_TRAINER = "spatial-metronome-speed-trainer";
-export const STORAGE_KEY_INTERVAL_TRAINER = "spatial-metronome-interval-trainer";
-export const STORAGE_KEY_THEME = "spatial-metronome-theme";
+export const STORAGE_KEY_BPM = "vibe-metronome-bpm";
+export const STORAGE_KEY_BEATS = "vibe-metronome-beats";
+export const STORAGE_KEY_STATES = "vibe-metronome-beat-states";
+export const STORAGE_KEY_STEP_STATES = "vibe-metronome-step-states";
+export const STORAGE_KEY_SUBDIV_VAL = "vibe-metronome-subdiv-value";
+export const STORAGE_KEY_SOUND = "vibe-metronome-sound-preset";
+export const STORAGE_KEY_SAVED_BPMS = "vibe-metronome-saved-bpms";
+export const STORAGE_KEY_PRESETS = "vibe-metronome-presets";
+export const STORAGE_KEY_SPEED_TRAINER = "vibe-metronome-speed-trainer";
+export const STORAGE_KEY_INTERVAL_TRAINER = "vibe-metronome-interval-trainer";
+export const STORAGE_KEY_THEME = "vibe-metronome-theme";
 
 export type Theme =
   | "glass"

@@ -2,6 +2,7 @@ import { clsx } from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe, HelpCircle, Music2, Palette, Pause, Play, Shirt, Waves } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
 
@@ -12,6 +13,7 @@ import { HelpModal } from "./components/HelpModal";
 import { IntervalTrainerModal } from "./components/IntervalTrainerModal";
 import { LiquidGlassDock } from "./components/LiquidGlassDock";
 import { PresetsModal } from "./components/PresetsModal";
+import { SEO } from "./components/SEO";
 import { SpeedTrainerModal } from "./components/SpeedTrainerModal";
 import { SwingSettingModal } from "./components/SwingSettingModal";
 import { TrainerDock } from "./components/TrainerDock";
@@ -122,6 +124,12 @@ export default function MetronomeApp() {
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   const [language, setLanguage] = useState<Language>(() => {
+    // SEO: Check URL param first for server-side like behavior
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get("lang");
+      if (urlLang === "zh" || urlLang === "en") return urlLang as Language;
+    }
     const _lang = getStorageItem(STORAGE_KEY_LANGUAGE, "en" as Language) as Language;
     return _lang === "zh" || _lang === "en" ? _lang : "en";
   });
@@ -194,6 +202,15 @@ export default function MetronomeApp() {
     setStorageItem(STORAGE_KEY_PRESETS, presets);
     setStorageItem(STORAGE_KEY_LANGUAGE, language);
     setStorageItem(STORAGE_KEY_THEME, theme);
+
+    // SEO: Sync URL with language
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (url.searchParams.get("lang") !== language) {
+        url.searchParams.set("lang", language);
+        window.history.replaceState({}, "", url);
+      }
+    }
   }, [
     bpm,
     beatsPerMeasure,
@@ -377,8 +394,29 @@ export default function MetronomeApp() {
   };
 
   return (
-    <div className={clsx(styles.app, `theme-${theme}`)}>
-      <div className={styles["header-buttons"]}>
+    <HelmetProvider>
+      <SEO language={language} />
+      <div className={clsx(styles.app, `theme-${theme}`)}>
+        {/* SEO: Hidden H1 for semantics */}
+        <h1
+          style={{
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            padding: 0,
+            margin: "-1px",
+            overflow: "hidden",
+            clip: "rect(0, 0, 0, 0)",
+            whiteSpace: "nowrap",
+            border: 0,
+          }}
+        >
+          {language === "zh"
+            ? "Vibe Metronome 随变节拍器 - 专业在线节拍与节奏训练工具"
+            : "Vibe Metronome - Professional Online Rhythm Trainer"}
+        </h1>
+
+        <div className={styles["header-buttons"]}>
         <button
           onClick={cycleTheme}
           className={styles["header-btn"]}
@@ -567,6 +605,7 @@ export default function MetronomeApp() {
           />
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </HelmetProvider>
   );
 }

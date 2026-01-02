@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { Gauge, ListMusic, VolumeX } from "lucide-react";
+import { Gauge, ListMusic, VolumeX, Zap } from "lucide-react";
 import type { IntervalTrainerConfig, SpeedTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
@@ -8,8 +8,10 @@ import styles from "./styles.module.css";
 interface TrainerDockProps {
   speedTrainer: SpeedTrainerConfig;
   intervalTrainer: IntervalTrainerConfig;
+  swing: number;
   onSpeedClick: () => void;
   onIntervalClick: () => void;
+  onSwingClick: () => void;
   onPresetsClick: () => void;
   language: Language;
 }
@@ -17,8 +19,10 @@ interface TrainerDockProps {
 export const TrainerDock = ({
   speedTrainer,
   intervalTrainer,
+  swing,
   onSpeedClick,
   onIntervalClick,
+  onSwingClick,
   onPresetsClick,
   language,
 }: TrainerDockProps) => {
@@ -48,6 +52,18 @@ export const TrainerDock = ({
       >
         <VolumeX size={16} className={styles["trainer-dock__btn-icon"]} />
         <span>{t.interval[language]}</span>
+      </button>
+
+      <button
+        className={clsx(
+          styles["trainer-dock__btn"],
+          swing > 0 && styles["trainer-dock__btn--active"]
+        )}
+        onClick={onSwingClick}
+        title={t.swingTooltip[language]}
+      >
+        <Zap size={16} className={styles["trainer-dock__btn-icon"]} />
+        <span>{t.swing[language]}</span>
       </button>
 
       <button

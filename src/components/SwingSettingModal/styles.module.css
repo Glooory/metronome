@@ -1,0 +1,196 @@
+.swing-trainer-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--theme-bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.swing-trainer-modal {
+  background: var(--theme-bg-modal-gradient);
+  border: 1px solid var(--theme-glass-border-subtle);
+  border-radius: 20px;
+  padding: 24px;
+  min-width: 320px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow:
+    var(--theme-shadow-modal),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.swing-trainer-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.swing-trainer-modal__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--theme-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.swing-trainer-modal__title-icon {
+  color: var(--theme-accent-amber);
+}
+
+.swing-trainer-modal__close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--theme-input-bg);
+  border: 1px solid var(--theme-glass-border-subtle);
+  border-radius: 8px;
+  padding: 6px;
+  color: var(--theme-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+@media (hover: hover) {
+  .swing-trainer-modal__close-btn:hover {
+    background: var(--theme-glass-bg-hover);
+    color: var(--theme-text-primary);
+  }
+}
+
+.swing-trainer-modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.swing-trainer-modal__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.swing-trainer-modal__label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.swing-trainer-modal__label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--theme-text-bright);
+}
+
+.swing-trainer-modal__value {
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  color: var(--theme-text-primary);
+  background: var(--theme-input-bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--theme-glass-border-subtle);
+}
+
+.swing-trainer-modal__desc {
+  font-size: 12px;
+  color: var(--theme-text-secondary);
+  margin-top: -8px;
+  margin-bottom: 4px;
+}
+
+.swing-trainer-modal__slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.swing-trainer-modal__slider {
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 6px;
+  background: var(--theme-input-bg);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.swing-trainer-modal__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--theme-accent-amber);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.1s;
+}
+
+.swing-trainer-modal__slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.swing-trainer-modal__stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.swing-trainer-modal__stepper-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--theme-input-bg);
+  border: 1px solid var(--theme-glass-border-subtle);
+  border-radius: 8px;
+  color: var(--theme-text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.swing-trainer-modal__stepper-btn:hover {
+  background: var(--theme-glass-bg-hover);
+  border-color: var(--theme-accent-amber);
+}
+
+.swing-trainer-modal__stepper-value {
+  font-family: var(--font-mono, monospace);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--theme-text-primary);
+  min-width: 40px;
+  text-align: center;
+}
+
+.swing-trainer-modal__divider {
+  height: 1px;
+  background: var(--theme-glass-border-subtle);
+  margin: 0 8px;
+}
+
+.swing-trainer-modal__reset-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--theme-glass-border-subtle);
+  border-radius: 10px;
+  color: var(--theme-text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.swing-trainer-modal__reset-btn:hover {
+  background: var(--theme-glass-bg-hover);
+  color: var(--theme-text-primary);
+  border-color: var(--theme-text-secondary);
+}

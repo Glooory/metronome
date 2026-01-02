@@ -13,6 +13,7 @@ import { IntervalTrainerModal } from "./components/IntervalTrainerModal";
 import { LiquidGlassDock } from "./components/LiquidGlassDock";
 import { PresetsModal } from "./components/PresetsModal";
 import { SpeedTrainerModal } from "./components/SpeedTrainerModal";
+import { SwingSettingModal } from "./components/SwingSettingModal";
 import { TrainerDock } from "./components/TrainerDock";
 import { Visualizer } from "./components/Visualizer";
 
@@ -21,6 +22,7 @@ import {
   BEAT_MUTE,
   BEAT_NORMAL,
   BEAT_SUB_ACCENT,
+  DEFAULT_THEME,
   MAX_BPM,
   MIN_BPM,
   SOUND_DRUM,
@@ -32,12 +34,15 @@ import {
   STORAGE_KEY_INTERVAL_TRAINER,
   STORAGE_KEY_PRESETS,
   STORAGE_KEY_SAVED_BPMS,
+  STORAGE_KEY_SHIFT,
   STORAGE_KEY_SOUND,
   STORAGE_KEY_SPEED_TRAINER,
   STORAGE_KEY_STEP_STATES,
   STORAGE_KEY_SUBDIV_VAL,
+  STORAGE_KEY_SWING,
   STORAGE_KEY_THEME,
   TAP_TIMEOUT,
+  THEMES,
   type IntervalTrainerConfig,
   type Preset,
   type SpeedTrainerConfig,
@@ -84,6 +89,12 @@ export default function MetronomeApp() {
   const [subdivision, setSubdivision] = useState<number>(() =>
     getStorageItem(STORAGE_KEY_SUBDIV_VAL, 1, (v) => parseInt(v, 10))
   );
+  const [swing, setSwing] = useState<number>(() =>
+    getStorageItem(STORAGE_KEY_SWING, 0, (v) => parseInt(v, 10))
+  );
+  const [shift, setShift] = useState<number>(() =>
+    getStorageItem(STORAGE_KEY_SHIFT, 0, (v) => parseInt(v, 10))
+  );
   const [soundPreset, setSoundPreset] = useState<string>(() =>
     getStorageItem(STORAGE_KEY_SOUND, SOUND_SINE)
   );
@@ -110,17 +121,19 @@ export default function MetronomeApp() {
   });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
-  const [language, setLanguage] = useState<Language>(
-    () => getStorageItem(STORAGE_KEY_LANGUAGE, "en" as Language) as Language
-  );
+  const [language, setLanguage] = useState<Language>(() => {
+    const _lang = getStorageItem(STORAGE_KEY_LANGUAGE, "en" as Language) as Language;
+    return _lang === "zh" || _lang === "en" ? _lang : "en";
+  });
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "en" ? "zh" : "en"));
   };
 
-  const [theme, setTheme] = useState<Theme>(
-    () => getStorageItem(STORAGE_KEY_THEME, "glass" as Theme) as Theme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    const _theme = getStorageItem(STORAGE_KEY_THEME, DEFAULT_THEME) as Theme;
+    return THEMES.find((t) => t.id === _theme)?.id || DEFAULT_THEME;
+  });
 
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
     getStorageItem(
@@ -142,6 +155,7 @@ export default function MetronomeApp() {
 
   const [showSpeedModal, setShowSpeedModal] = useState(false);
   const [showIntervalModal, setShowIntervalModal] = useState(false);
+  const [showSwingModal, setShowSwingModal] = useState(false);
   const [showPresetsModal, setShowPresetsModal] = useState(false);
 
   useEffect(() => {
@@ -160,10 +174,19 @@ export default function MetronomeApp() {
   }, [beatsPerMeasure, subdivision]);
 
   useEffect(() => {
+    const totalSteps = stepStates.length;
+    if (totalSteps > 0 && Math.abs(shift) >= totalSteps) {
+      setShift(0);
+    }
+  }, [stepStates, shift]);
+
+  useEffect(() => {
     setStorageItem(STORAGE_KEY_BPM, bpm);
     setStorageItem(STORAGE_KEY_BEATS, beatsPerMeasure);
     setStorageItem(STORAGE_KEY_STEP_STATES, stepStates);
     setStorageItem(STORAGE_KEY_SUBDIV_VAL, subdivision);
+    setStorageItem(STORAGE_KEY_SWING, swing);
+    setStorageItem(STORAGE_KEY_SHIFT, shift);
     setStorageItem(STORAGE_KEY_SOUND, soundPreset);
     setStorageItem(STORAGE_KEY_SAVED_BPMS, savedBpms);
     setStorageItem(STORAGE_KEY_SPEED_TRAINER, speedTrainer);
@@ -176,6 +199,8 @@ export default function MetronomeApp() {
     beatsPerMeasure,
     stepStates,
     subdivision,
+    swing,
+    shift,
     soundPreset,
     savedBpms,
     speedTrainer,
@@ -234,6 +259,8 @@ export default function MetronomeApp() {
 
   const { isPlaying, setIsPlaying, visualBeat, ensureAudioContext, measureCount, isMeasureMuted } =
     useMetronome(bpm, beatsPerMeasure, subdivision, soundPreset, stepStates, {
+      swing,
+      shift,
       intervalTrainer: intervalTrainer,
       onMeasureComplete: handleMeasureComplete,
     });
@@ -327,6 +354,8 @@ export default function MetronomeApp() {
       subdivision,
       soundPreset,
       stepStates: [...stepStates],
+      swing,
+      shift,
       createdAt: Date.now(),
     };
     setPresets((prev) => [newPreset, ...prev]);
@@ -337,6 +366,8 @@ export default function MetronomeApp() {
     setBeatsPerMeasure(preset.beatsPerMeasure);
     setSubdivision(preset.subdivision);
     setSoundPreset(preset.soundPreset);
+    if (preset.swing !== undefined) setSwing(preset.swing);
+    if (preset.shift !== undefined) setShift(preset.shift);
     setTimeout(() => setStepStates(preset.stepStates), 0);
     setShowPresetsModal(false);
   };
@@ -415,6 +446,9 @@ export default function MetronomeApp() {
             subdivision={subdivision}
             stepStates={stepStates}
             toggleStepState={toggleStepState}
+            shift={shift}
+            onShiftChange={setShift}
+            language={language}
           />
           <div className={styles["subdivision-row"]}>
             {subdivOptions.map((opt) => (
@@ -436,8 +470,10 @@ export default function MetronomeApp() {
           <TrainerDock
             speedTrainer={speedTrainer}
             intervalTrainer={intervalTrainer}
+            swing={swing}
             onSpeedClick={() => setShowSpeedModal(true)}
             onIntervalClick={() => setShowIntervalModal(true)}
+            onSwingClick={() => setShowSwingModal(true)}
             onPresetsClick={() => setShowPresetsModal(true)}
             language={language}
           />
@@ -503,6 +539,17 @@ export default function MetronomeApp() {
             onClose={() => setShowIntervalModal(false)}
             measureCount={measureCount}
             isMuted={isMeasureMuted}
+            language={language}
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showSwingModal && (
+          <SwingSettingModal
+            swing={swing}
+            onSwingChange={setSwing}
+            onClose={() => setShowSwingModal(false)}
             language={language}
           />
         )}

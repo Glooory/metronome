@@ -24,6 +24,8 @@ export const STORAGE_KEY_SAVED_BPMS = "vibe-metronome-saved-bpms";
 export const STORAGE_KEY_PRESETS = "vibe-metronome-presets";
 export const STORAGE_KEY_SPEED_TRAINER = "vibe-metronome-speed-trainer";
 export const STORAGE_KEY_INTERVAL_TRAINER = "vibe-metronome-interval-trainer";
+export const STORAGE_KEY_SWING = "vibe-metronome-swing";
+export const STORAGE_KEY_SHIFT = "vibe-metronome-shift";
 export const STORAGE_KEY_THEME = "vibe-metronome-theme";
 
 export type Theme =
@@ -36,6 +38,8 @@ export type Theme =
   | "neumorphism"
   | "amoled"
   | "retro";
+
+export const DEFAULT_THEME = "glass";
 
 export const THEMES: { id: Theme; label: string }[] = [
   { id: "glass", label: "Glass" },
@@ -57,6 +61,8 @@ export interface Preset {
   subdivision: number;
   soundPreset: string;
   stepStates: number[];
+  swing?: number;
+  shift?: number;
   createdAt: number;
 }
 

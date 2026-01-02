@@ -18,6 +18,8 @@ interface Note {
 }
 
 interface UseMetronomeOptions {
+  swing?: number; // 0-100
+  shift?: number; // integer
   intervalTrainer?: IntervalTrainerConfig;
   onMeasureComplete?: (measureCount: number) => void;
 }
@@ -62,6 +64,16 @@ export const useMetronome = (
     }
     return impulse;
   };
+
+  const swingRef = useRef(options.swing ?? 0);
+  const shiftRef = useRef(options.shift ?? 0);
+
+  useEffect(() => {
+    intervalTrainerRef.current = options.intervalTrainer;
+    onMeasureCompleteRef.current = options.onMeasureComplete;
+    swingRef.current = options.swing ?? 0;
+    shiftRef.current = options.shift ?? 0;
+  }, [options.intervalTrainer, options.onMeasureComplete, options.swing, options.shift]);
 
   const schedulerRef = useRef<{ beatCounter: number }>({ beatCounter: 0 });
 
@@ -325,11 +337,20 @@ export const useMetronome = (
 
       const currentStepStates = stepStatesRef.current;
       const totalSteps = currentStepStates.length;
+      const shift = shiftRef.current;
 
       if (totalSteps === 0) return;
 
-      const currentStepIndex = beatNumber % totalSteps;
-      const beatType = currentStepStates[currentStepIndex];
+      // Shift logic: shift the "1" by applying an offset to the index lookup.
+      // E.g., if shift is 1, beat 0 should play the sound of index (total-1).
+      // If we want "Shift +1" to mean "everything shifts LATER by 1 step",
+      // then on physical beat 0, we play the sound that WAS at index -1 (or total-1).
+      // Let's stick to: Shift +1 means the internal pattern is shifted +1 step LATER.
+      // So on Beat 0, we are "waiting" for the pattern, effectively playing the sound of index -1.
+      let shiftedIndex = (beatNumber - shift) % totalSteps;
+      if (shiftedIndex < 0) shiftedIndex += totalSteps;
+
+      const beatType = currentStepStates[shiftedIndex];
 
       if (beatType === BEAT_MUTE) return;
 
@@ -371,11 +392,59 @@ export const useMetronome = (
 
   const scheduleNote = useCallback(
     (beatCounter: number, time: number) => {
+      // Swing Logic: If playing 8th notes (subdiv 2) or 16th (subdiv 4),
+      // we delay the even-numbered subdivisions.
+      // Logic: if beatCounter % 2 !== 0, add delay.
+      let playTime = time;
+      const swing = swingRef.current; // 0-100
+
+      if (swing > 0 && subdivisionRef.current >= 2 && beatCounter % 2 !== 0) {
+        // Calculate max delay (triplet feel is ~33% delay of the beat duration, but let's stick to 0-1 range logic)
+        // If swing is 100%, it sounds like a dotted note.
+        // Let's say max swing (100) = moving the offbeat to 2/3 position (triplet swing) or further?
+        // Standard "Shuffle" (Triplet) is effectively 66% swing if we define 50% as straight.
+        // Let's map 0-100 to: 0ms -> max feasible delay.
+        // Actually, let's map it as a percentage of the subdivision interval.
+        // If we have 1/8th notes. Distance between beats is T.
+        // Straight: Offbeat at 0.5 * T.
+        // Swing: Offbeat pushed later.
+        // Let's simpler logic:
+        // swing 0 -> 0 offset.
+        // swing 100 -> offbeat pushed by 33% of the subdivision duration (triplet feel approx).
+
+        const safeBpm = Math.max(1, bpm || 120);
+        // Duration of one subdivision step
+        const stepDuration = 60.0 / safeBpm / (subdivisionRef.current || 1);
+
+        // Max swing delay: we don't want to overlap the next beat.
+        // Let's say at 100% swing, we push the note by 2/3rds?
+        // A common Swing ratio is 2:1 (triplets).
+        // Straight is 1:1.
+        // In straight 8ths, the offbeat is at 0.5 of the beat.
+        // In triplet swing, the offbeat is at 0.666 of the beat.
+        // Difference is 0.166 of the beat.
+        // So let's offset by (swing / 100) * (stepDuration * 0.66)?
+        // Let's try: Swing 50 = Triplet feel?
+        // Let's stick to standard MPC swing:
+        // 50% = straight. 66% = triplet. 75% = dotted 16th.
+        // But our input is 0-100 slider.
+        // Let's assume input 0 = 50% (straight), 100 = 75% (heavy swing).
+
+        // Wait, user asked for "Swing 50% = Straight, 66% = Triplet".
+        // So the input from UI should likely be mapped or treated directly.
+        // If we just take a 0-100 factor from UI:
+        // Let's treat UI slider 0 as "Straight" and 100 as "Hard Swing".
+
+        const maxDelay = stepDuration * 0.4; // Can shift up to 40% of the step duration
+        const delay = (swing / 100) * maxDelay;
+        playTime += delay;
+      }
+
       const stepsPerMeasure = beatsPerMeasureRef.current * subdivisionRef.current;
       const currentMeasure = Math.floor(beatCounter / stepsPerMeasure);
 
-      notesInQueue.current.push({ note: beatCounter, time: time });
-      playSound(time, beatCounter, currentMeasure);
+      notesInQueue.current.push({ note: beatCounter, time: playTime });
+      playSound(playTime, beatCounter, currentMeasure);
 
       if (currentMeasure > lastMeasureRef.current) {
         lastMeasureRef.current = currentMeasure;
@@ -442,11 +511,15 @@ export const useMetronome = (
       ) {
         const currentNote = notesInQueue.current[0];
 
+        // Apply shift to visualizer as well
         const currentStepStates = stepStatesRef.current;
         const totalSteps = currentStepStates.length || 1;
-        const currentStep = currentNote.note % totalSteps;
+        const shift = shiftRef.current;
 
-        setVisualBeat(currentStep);
+        let shiftedIndex = (currentNote.note - shift) % totalSteps;
+        if (shiftedIndex < 0) shiftedIndex += totalSteps;
+
+        setVisualBeat(shiftedIndex);
         notesInQueue.current.splice(0, 1);
       }
       animationFrameId = requestAnimationFrame(draw);

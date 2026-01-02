@@ -11,11 +11,16 @@ export const translations = {
     load: { en: "Load", zh: "加载" },
     delete: { en: "Delete", zh: "删除" },
     close: { en: "Close", zh: "关闭" },
+    reset: { en: "Reset", zh: "重置" },
   },
 
   header: {
     help: { en: "Help", zh: "帮助" },
     language: { en: "Language", zh: "语言" },
+  },
+
+  visualizer: {
+    shift: { en: "Shift", zh: "偏移" },
   },
 
   dock: {
@@ -27,9 +32,11 @@ export const translations = {
   trainer: {
     speed: { en: "Speed", zh: "速度" },
     interval: { en: "Interval", zh: "间隔" },
+    swing: { en: "Swing", zh: "摇摆" },
     presets: { en: "Presets", zh: "预设" },
     speedTooltip: { en: "Speed Trainer", zh: "速度渐变训练" },
     intervalTooltip: { en: "Interval Trainer", zh: "间隔训练" },
+    swingTooltip: { en: "Swing Trainer", zh: "摇摆训练" },
     presetsTooltip: { en: "Presets & Setlists", zh: "预设与曲目单" },
   },
 
@@ -41,6 +48,13 @@ export const translations = {
     targetBpm: { en: "Target BPM", zh: "目标 BPM" },
     reachedTarget: { en: "🎉 Reached target", zh: "🎉 已达到目标" },
     measuresUntil: { en: "measures until", zh: "小节后" },
+  },
+
+  swingTrainer: {
+    title: { en: "Swing Trainer", zh: "摇摆训练" },
+    swing: { en: "Swing", zh: "摇摆" },
+    swingDesc: { en: "Delay the off-beat notes", zh: "推迟反拍音符" },
+    reset: { en: "Reset", zh: "重置" },
   },
 
   intervalTrainer: {

@@ -115,6 +115,11 @@ export const translations = {
       en: "3=Accent · 2=Sub-accent · 1=Normal · 0=Mute",
       zh: "3格=重音 · 2格=次重音 · 1格=普通 · 空=静音",
     },
+    swingTrainer: { en: "Swing & Shift", zh: "摇摆与偏移" },
+    swingTrainerDesc: {
+      en: "Swing: Add groove/shuffle feel (works on ♪/16th). Shift: Offset the pattern start time.",
+      zh: "摇摆: 添加摇摆律动（需八分音符及以上）。偏移: 整体偏移节奏型的起始点。",
+    },
     speedTrainer: { en: "Speed Trainer", zh: "速度渐变训练" },
     speedTrainerDesc: {
       en: "Auto-increment BPM every N measures. Set target BPM to auto-stop.",

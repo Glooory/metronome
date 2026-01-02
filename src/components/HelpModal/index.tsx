@@ -6,6 +6,7 @@ import {
   HelpCircle,
   ListMusic,
   MousePointerClick,
+  Music,
   Music2,
   Star,
   VolumeX,
@@ -85,6 +86,17 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
                 <br />
                 <strong>{t.beatBarsLegend[language]}</strong>
               </p>
+            </div>
+          </div>
+
+          {/* Swing & Shift */}
+          <div className={styles["help-modal__row"]}>
+            <div className={styles["help-modal__icon-box"]}>
+              <Music size={20} />
+            </div>
+            <div className="flex-1">
+              <h3 className={styles["section-title"]}>{t.swingTrainer[language]}</h3>
+              <p className={styles["section-text"]}>{t.swingTrainerDesc[language]}</p>
             </div>
           </div>
 

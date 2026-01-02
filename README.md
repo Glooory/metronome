@@ -37,6 +37,7 @@ A professional online metronome with advanced training features, built with Reac
 | -------------------- | ----------------------------------------------------------------- |
 | **Speed Trainer**    | Auto-increment BPM every N measures with target limit             |
 | **Interval Trainer** | Play X bars, mute Y bars - visualizer continues during mute       |
+| **Swing & Shift**    | Add Shuffle/Groove feel and offset the beat start (Displacement)  |
 | **Presets**          | Save/load complete configurations (BPM, time sig, sound, pattern) |
 
 ### 🌐 Internationalization

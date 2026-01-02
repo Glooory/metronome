@@ -123,20 +123,28 @@ export default function MetronomeApp() {
   });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
+    const languages: { value: Language; label: string }[] = [
+    { value: "en", label: "English" },
+    { value: "zh", label: "中文" },
+    { value: "ja", label: "日本語" },
+    { value: "ko", label: "한국어" },
+    { value: "de", label: "Deutsch" },
+    { value: "fr", label: "Français" },
+    { value: "es", label: "Español" },
+    { value: "ru", label: "Русский" },
+    { value: "pt", label: "Português" },
+  ];
+
   const [language, setLanguage] = useState<Language>(() => {
     // SEO: Check URL param first for server-side like behavior
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const urlLang = params.get("lang");
-      if (urlLang === "zh" || urlLang === "en") return urlLang as Language;
+      if (languages.find((l) => l.value === urlLang)) return urlLang as Language;
     }
     const _lang = getStorageItem(STORAGE_KEY_LANGUAGE, "en" as Language) as Language;
-    return _lang === "zh" || _lang === "en" ? _lang : "en";
+    return languages.find((l) => l.value === _lang)?.value || "en";
   });
-
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "zh" : "en"));
-  };
 
   const [theme, setTheme] = useState<Theme>(() => {
     const _theme = getStorageItem(STORAGE_KEY_THEME, DEFAULT_THEME) as Theme;
@@ -444,14 +452,18 @@ export default function MetronomeApp() {
           alignment="right"
           placement="bottom"
         />
-        <button
-          onClick={toggleLanguage}
-          className={clsx(styles["header-btn"], styles["header-btn__lang"])}
-          title={language === "en" ? "切换到中文" : "Switch to English"}
-        >
-          <Globe size={18} />
-          <span className={styles["header-btn__label"]}>{language === "en" ? "EN" : "中"}</span>
-        </button>
+        
+          <CustomGlassSelect
+            icon={Globe}
+            title={translations.header.language[language]}
+            value={language}
+            options={languages}
+            onChange={(val) => setLanguage(val as Language)}
+            displayLabel={language.toUpperCase()}
+            placement="bottom"
+            alignment="right"
+          />
+        
         <button onClick={() => setIsHelpOpen(true)} className={styles["header-btn"]}>
           <HelpCircle size={20} />
         </button>

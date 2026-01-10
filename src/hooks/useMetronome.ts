@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-    BEAT_ACCENT,
-    BEAT_MUTE,
-    BEAT_SUB_ACCENT,
-    LOOKAHEAD,
-    SCHEDULE_AHEAD_TIME,
-    SOUND_DRUM,
-    SOUND_MECH,
-    SOUND_SINE,
-    SOUND_WOOD,
-    type IntervalTrainerConfig,
+  BEAT_ACCENT,
+  BEAT_MUTE,
+  BEAT_SUB_ACCENT,
+  LOOKAHEAD,
+  SCHEDULE_AHEAD_TIME,
+  SOUND_DRUM,
+  SOUND_MECH,
+  SOUND_SINE,
+  SOUND_WOOD,
+  type IntervalTrainerConfig,
 } from "../constants";
 
 interface Note {
@@ -50,7 +50,7 @@ export const useMetronome = (
 
   const buildImpulseResponse = (ctx: AudioContext) => {
     const rate = ctx.sampleRate;
-    const length = rate * 1.5;
+    const length = rate * 0.5; // Short room reverb (0.5s) instead of hall
     const decay = 2.0;
     const impulse = ctx.createBuffer(2, length, rate);
     const left = impulse.getChannelData(0);
@@ -92,7 +92,7 @@ export const useMetronome = (
       const ctx = audioContext.current;
       const conv = ctx.createConvolver();
       const wet = ctx.createGain();
-      wet.gain.value = 0.3;
+      wet.gain.value = 0.2; // Reduced from 0.3 for subtle ambience
 
       conv.buffer = buildImpulseResponse(ctx);
       conv.connect(wet);

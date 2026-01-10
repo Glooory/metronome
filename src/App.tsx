@@ -123,7 +123,7 @@ export default function MetronomeApp() {
   });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
-    const languages: { value: Language; label: string }[] = [
+  const languages: { value: Language; label: string }[] = [
     { value: "en", label: "English" },
     { value: "zh", label: "中文" },
     { value: "ja", label: "日本語" },
@@ -425,34 +425,34 @@ export default function MetronomeApp() {
         </h1>
 
         <div className={styles["header-buttons"]}>
-        <button
-          onClick={cycleTheme}
-          className={styles["header-btn"]}
-          title={translations.dock.theme[language]}
-        >
-          <Palette size={20} />
-        </button>
-        <CustomGlassSelect
-          icon={Palette}
-          value={theme}
-          onChange={setTheme}
-          options={[
-            { label: translations.options.themes.glass[language], value: "glass" },
-            { label: translations.options.themes.swiss[language], value: "swiss" },
-            { label: translations.options.themes.zen[language], value: "zen" },
-            { label: translations.options.themes["e-ink"][language], value: "e-ink" },
-            { label: translations.options.themes.cyberpunk[language], value: "cyberpunk" },
-            { label: translations.options.themes.kids[language], value: "kids" },
-            { label: translations.options.themes.neumorphism[language], value: "neumorphism" },
-            { label: translations.options.themes.amoled[language], value: "amoled" },
-            { label: translations.options.themes.retro[language], value: "retro" },
-          ]}
-          title={translations.dock.theme[language]}
-          displayLabel={translations.options.themes[theme][language]}
-          alignment="right"
-          placement="bottom"
-        />
-        
+          <button
+            onClick={cycleTheme}
+            className={styles["header-btn"]}
+            title={translations.dock.theme[language]}
+          >
+            <Palette size={20} />
+          </button>
+          <CustomGlassSelect
+            icon={Palette}
+            value={theme}
+            onChange={setTheme}
+            options={[
+              { label: translations.options.themes.glass[language], value: "glass" },
+              { label: translations.options.themes.swiss[language], value: "swiss" },
+              { label: translations.options.themes.zen[language], value: "zen" },
+              { label: translations.options.themes["e-ink"][language], value: "e-ink" },
+              { label: translations.options.themes.cyberpunk[language], value: "cyberpunk" },
+              { label: translations.options.themes.kids[language], value: "kids" },
+              { label: translations.options.themes.neumorphism[language], value: "neumorphism" },
+              { label: translations.options.themes.amoled[language], value: "amoled" },
+              { label: translations.options.themes.retro[language], value: "retro" },
+            ]}
+            title={translations.dock.theme[language]}
+            displayLabel={translations.options.themes[theme][language]}
+            alignment="right"
+            placement="bottom"
+          />
+
           <CustomGlassSelect
             icon={Globe}
             title={translations.header.language[language]}
@@ -463,160 +463,164 @@ export default function MetronomeApp() {
             placement="bottom"
             alignment="right"
           />
-        
-        <button onClick={() => setIsHelpOpen(true)} className={styles["header-btn"]}>
-          <HelpCircle size={20} />
-        </button>
-      </div>
-      <AnimatePresence>
-        {isHelpOpen && (
-          <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} language={language} />
-        )}
-      </AnimatePresence>
 
-      <div className={styles["app__bg-gradient"]} />
-
-      <div className={styles["app__content"]}>
-        <div className={styles["bpm-section"]}>
-          <BpmDisplay bpm={bpm} setBpm={setBpm} />
-          <BpmHistoryBar
-            currentBpm={bpm}
-            setBpm={setBpm}
-            savedBpms={savedBpms}
-            setSavedBpms={setSavedBpms}
-            onTap={handleTap}
-            language={language}
-          />
+          <button onClick={() => setIsHelpOpen(true)} className={styles["header-btn"]}>
+            <HelpCircle size={20} />
+          </button>
         </div>
+        <AnimatePresence>
+          {isHelpOpen && (
+            <HelpModal
+              isOpen={isHelpOpen}
+              onClose={() => setIsHelpOpen(false)}
+              language={language}
+            />
+          )}
+        </AnimatePresence>
 
-        <div className={styles["visualizer-section"]}>
-          <Visualizer
-            activeBeat={visualBeat}
-            beatsPerMeasure={beatsPerMeasure}
-            subdivision={subdivision}
-            stepStates={stepStates}
-            toggleStepState={toggleStepState}
-            shift={shift}
-            onShiftChange={setShift}
-            language={language}
-          />
-          <div className={styles["subdivision-row"]}>
-            {subdivOptions.map((opt) => (
-              <button
-                key={opt.value}
+        <div className={styles["app__bg-gradient"]} />
+
+        <div className={styles["app__content"]}>
+          <div className={styles["bpm-section"]}>
+            <BpmDisplay bpm={bpm} setBpm={setBpm} />
+            <BpmHistoryBar
+              currentBpm={bpm}
+              setBpm={setBpm}
+              savedBpms={savedBpms}
+              setSavedBpms={setSavedBpms}
+              onTap={handleTap}
+              language={language}
+            />
+          </div>
+
+          <div className={styles["visualizer-section"]}>
+            <Visualizer
+              activeBeat={visualBeat}
+              beatsPerMeasure={beatsPerMeasure}
+              subdivision={subdivision}
+              stepStates={stepStates}
+              toggleStepState={toggleStepState}
+              shift={shift}
+              onShiftChange={setShift}
+              language={language}
+            />
+            <div className={styles["subdivision-row"]}>
+              {subdivOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  className={clsx(
+                    styles["subdivision-btn"],
+                    subdivision === opt.value && styles["subdivision-btn--active"]
+                  )}
+                  onClick={() => setSubdivision(opt.value)}
+                >
+                  {opt.label.split(" ")[0]}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles["dock-section"]}>
+            <TrainerDock
+              speedTrainer={speedTrainer}
+              intervalTrainer={intervalTrainer}
+              swing={swing}
+              onSpeedClick={() => setShowSpeedModal(true)}
+              onIntervalClick={() => setShowIntervalModal(true)}
+              onSwingClick={() => setShowSwingModal(true)}
+              onPresetsClick={() => setShowPresetsModal(true)}
+              language={language}
+            />
+
+            <LiquidGlassDock>
+              <CustomGlassSelect
+                icon={Music}
+                value={beatsPerMeasure}
+                onChange={(v) => setBeatsPerMeasure(parseInt(v))}
+                options={beatOptions}
+                title={translations.dock.timeSignature[language]}
+                displayLabel={`${beatsPerMeasure}/4`}
+                alignment="left"
+              />
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsPlaying(!isPlaying)}
                 className={clsx(
-                  styles["subdivision-btn"],
-                  subdivision === opt.value && styles["subdivision-btn--active"]
+                  styles["play-btn"],
+                  isPlaying ? styles["play-btn--playing"] : styles["play-btn--stopped"]
                 )}
-                onClick={() => setSubdivision(opt.value)}
               >
-                {opt.label.split(" ")[0]}
-              </button>
-            ))}
+                {isPlaying ? (
+                  <Pause size={24} fill="currentColor" />
+                ) : (
+                  <Play size={24} fill="currentColor" />
+                )}
+              </motion.button>
+
+              <CustomGlassSelect
+                icon={Drum}
+                value={soundPreset}
+                onChange={setSoundPreset}
+                options={soundOptions}
+                title={translations.dock.soundPreset[language]}
+                displayLabel={getSoundDisplay(soundPreset)}
+                alignment="right"
+              />
+            </LiquidGlassDock>
           </div>
         </div>
 
-        <div className={styles["dock-section"]}>
-          <TrainerDock
-            speedTrainer={speedTrainer}
-            intervalTrainer={intervalTrainer}
-            swing={swing}
-            onSpeedClick={() => setShowSpeedModal(true)}
-            onIntervalClick={() => setShowIntervalModal(true)}
-            onSwingClick={() => setShowSwingModal(true)}
-            onPresetsClick={() => setShowPresetsModal(true)}
-            language={language}
-          />
-
-          <LiquidGlassDock>
-            <CustomGlassSelect
-              icon={Music}
-              value={beatsPerMeasure}
-              onChange={(v) => setBeatsPerMeasure(parseInt(v))}
-              options={beatOptions}
-              title={translations.dock.timeSignature[language]}
-              displayLabel={`${beatsPerMeasure}/4`}
-              alignment="left"
+        <AnimatePresence>
+          {showSpeedModal && (
+            <SpeedTrainerModal
+              config={speedTrainer}
+              onConfigChange={setSpeedTrainer}
+              onClose={() => setShowSpeedModal(false)}
+              currentBpm={bpm}
+              measureCount={measureCount}
+              language={language}
             />
+          )}
+        </AnimatePresence>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setIsPlaying(!isPlaying)}
-              className={clsx(
-                styles["play-btn"],
-                isPlaying ? styles["play-btn--playing"] : styles["play-btn--stopped"]
-              )}
-            >
-              {isPlaying ? (
-                <Pause size={24} fill="currentColor" />
-              ) : (
-                <Play size={24} fill="currentColor" />
-              )}
-            </motion.button>
-
-            <CustomGlassSelect
-              icon={Drum}
-              value={soundPreset}
-              onChange={setSoundPreset}
-              options={soundOptions}
-              title={translations.dock.soundPreset[language]}
-              displayLabel={getSoundDisplay(soundPreset)}
-              alignment="right"
+        <AnimatePresence>
+          {showIntervalModal && (
+            <IntervalTrainerModal
+              config={intervalTrainer}
+              onConfigChange={setIntervalTrainer}
+              onClose={() => setShowIntervalModal(false)}
+              measureCount={measureCount}
+              isMuted={isMeasureMuted}
+              language={language}
             />
-          </LiquidGlassDock>
-        </div>
-      </div>
+          )}
+        </AnimatePresence>
 
-      <AnimatePresence>
-        {showSpeedModal && (
-          <SpeedTrainerModal
-            config={speedTrainer}
-            onConfigChange={setSpeedTrainer}
-            onClose={() => setShowSpeedModal(false)}
-            currentBpm={bpm}
-            measureCount={measureCount}
-            language={language}
-          />
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {showSwingModal && (
+            <SwingSettingModal
+              swing={swing}
+              onSwingChange={setSwing}
+              onClose={() => setShowSwingModal(false)}
+              language={language}
+            />
+          )}
+        </AnimatePresence>
 
-      <AnimatePresence>
-        {showIntervalModal && (
-          <IntervalTrainerModal
-            config={intervalTrainer}
-            onConfigChange={setIntervalTrainer}
-            onClose={() => setShowIntervalModal(false)}
-            measureCount={measureCount}
-            isMuted={isMeasureMuted}
-            language={language}
-          />
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showSwingModal && (
-          <SwingSettingModal
-            swing={swing}
-            onSwingChange={setSwing}
-            onClose={() => setShowSwingModal(false)}
-            language={language}
-          />
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showPresetsModal && (
-          <PresetsModal
-            presets={presets}
-            onSave={handleSavePreset}
-            onLoad={handleLoadPreset}
-            onDelete={handleDeletePreset}
-            onClose={() => setShowPresetsModal(false)}
-            language={language}
-          />
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {showPresetsModal && (
+            <PresetsModal
+              presets={presets}
+              onSave={handleSavePreset}
+              onLoad={handleLoadPreset}
+              onDelete={handleDeletePreset}
+              onClose={() => setShowPresetsModal(false)}
+              language={language}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </HelmetProvider>
   );

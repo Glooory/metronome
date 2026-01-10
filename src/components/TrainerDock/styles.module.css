@@ -4,9 +4,11 @@
   justify-content: space-evenly;
   gap: 4px;
   padding: 8px 8px;
-  background: linear-gradient(135deg,
-      var(--theme-glass-border-subtle) 0%,
-      var(--theme-glass-bg-subtle) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--theme-glass-border-subtle) 0%,
+    var(--theme-glass-bg-subtle) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;

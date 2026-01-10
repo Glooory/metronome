@@ -10,7 +10,7 @@ import {
   Music,
   Star,
   VolumeX,
-  X
+  X,
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";

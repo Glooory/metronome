@@ -10,7 +10,7 @@ export const SEO = ({ language }: SEOProps) => {
   // Constants
   const SITE_URL = "https://glooory.github.io/metronome/";
   const BASE_TITLE = "Vibe Metronome";
-  
+
   // Localized Strings
   const titles: Record<Language, string> = {
     en: "Vibe Metronome | Professional Online Metronome with Training Tools",
@@ -57,27 +57,27 @@ export const SEO = ({ language }: SEOProps) => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": language === "zh" ? "随变节拍器" : "Vibe Metronome",
-    "url": currentUrl,
-    "description": description,
-    "inLanguage": [language],
-    "applicationCategory": "MusicApplication",
-    "operatingSystem": "Web Browser",
-    "browserRequirements": "Requires JavaScript. Requires HTML5.",
-    "offers": {
+    name: language === "zh" ? "随变节拍器" : "Vibe Metronome",
+    url: currentUrl,
+    description: description,
+    inLanguage: [language],
+    applicationCategory: "MusicApplication",
+    operatingSystem: "Web Browser",
+    browserRequirements: "Requires JavaScript. Requires HTML5.",
+    offers: {
       "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
+      price: "0",
+      priceCurrency: "USD",
     },
-    "featureList": [
+    featureList: [
       translations.speedTrainer.title[language],
       translations.intervalTrainer.title[language],
       translations.trainer.presets[language],
       translations.dock.soundPreset[language],
     ],
-    "author": {
+    author: {
       "@type": "Organization",
-      "name": "Glooory",
+      name: "Glooory",
     },
   };
 
@@ -115,14 +115,23 @@ export const SEO = ({ language }: SEOProps) => {
 
 function getLocale(lang: Language): string {
   switch (lang) {
-    case "zh": return "zh_CN";
-    case "ja": return "ja_JP";
-    case "ko": return "ko_KR";
-    case "de": return "de_DE";
-    case "fr": return "fr_FR";
-    case "es": return "es_ES";
-    case "ru": return "ru_RU";
-    case "pt": return "pt_BR";
-    default: return "en_US";
+    case "zh":
+      return "zh_CN";
+    case "ja":
+      return "ja_JP";
+    case "ko":
+      return "ko_KR";
+    case "de":
+      return "de_DE";
+    case "fr":
+      return "fr_FR";
+    case "es":
+      return "es_ES";
+    case "ru":
+      return "ru_RU";
+    case "pt":
+      return "pt_BR";
+    default:
+      return "en_US";
   }
 }

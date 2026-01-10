@@ -210,6 +210,15 @@
   --theme-visualizer-accent-dim: rgba(0, 243, 255, 0.35);
 }
 
+.theme-cyberpunk {
+  background-size:
+    100% 4px,
+    40px 40px,
+    40px 40px,
+    100% 100%,
+    100% 100%;
+}
+
 .theme-kids {
   --theme-bg-primary: #f8f1d8;
 
@@ -296,6 +305,10 @@
 
 .theme-kids div[class*="bpm-display__value--blur"] {
   display: none;
+}
+
+.theme-kids [class*="bpm-display__value--main"] {
+  filter: drop-shadow(2px 2px 0px #000000) !important;
 }
 
 .theme-swiss {
@@ -399,10 +412,6 @@
 .theme-swiss button:active {
   transform: translate(2px, 2px);
   box-shadow: none !important;
-}
-
-.theme-kids [class*="bpm-display__value--main"] {
-  filter: drop-shadow(2px 2px 0px #000000) !important;
 }
 
 .theme-zen {
@@ -596,15 +605,6 @@
 
 .theme-e-ink [class*="bpm-display__value--blur"] {
   display: none;
-}
-
-.theme-cyberpunk {
-  background-size:
-    100% 4px,
-    40px 40px,
-    40px 40px,
-    100% 100%,
-    100% 100%;
 }
 
 .theme-neumorphism {
@@ -821,15 +821,10 @@
   --theme-input-bg: rgba(0, 0, 0, 0.3);
 
   --theme-text-primary: #ff71ce;
-  /* Hot Pink */
   --theme-text-secondary: #05ffa1;
-  /* Electric Green */
   --theme-text-muted: #b967ff;
-  /* Purple */
   --theme-text-dim: #01cdfe;
-  /* Cyan */
   --theme-text-bright: #fffb96;
-  /* Lemon */
 
   --theme-accent-amber: #fffb96;
   --theme-accent-amber-bg: rgba(255, 251, 150, 0.1);

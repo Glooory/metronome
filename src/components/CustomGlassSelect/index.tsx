@@ -54,7 +54,7 @@ export const CustomGlassSelect = ({
           isOpen ? styles["glass-select__btn--open"] : styles["glass-select__btn--closed"]
         )}
       >
-        <Icon size={16} />
+        <Icon size={20} />
         <span className={styles["glass-select__label"]}>{displayLabel}</span>
         <div className={styles["glass-select__chevrons"]}>
           <ChevronUp size={12} />

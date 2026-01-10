@@ -48,7 +48,7 @@ export const Visualizer = ({
               cursor: canShiftLeft ? "pointer" : "default",
             }}
           >
-            <Minus size={16} />
+            <Minus size={20} />
           </button>
 
           <span
@@ -70,7 +70,7 @@ export const Visualizer = ({
               cursor: canShiftRight ? "pointer" : "default",
             }}
           >
-            <Plus size={16} />
+            <Plus size={20} />
           </button>
         </div>
 
@@ -80,7 +80,7 @@ export const Visualizer = ({
           title={t.reset[language]}
           style={{ opacity: shift !== 0 ? 1 : 0, pointerEvents: shift !== 0 ? "auto" : "none" }}
         >
-          <RefreshCcw size={16} />
+          <RefreshCcw size={20} />
         </button>
       </div>
 

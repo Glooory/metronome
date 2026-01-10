@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe, HelpCircle, Music2, Palette, Pause, Play, Shirt, Waves } from "lucide-react";
+import { Drum, Globe, HelpCircle, Music, Palette, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import styles from "./App.module.css";
@@ -433,7 +433,7 @@ export default function MetronomeApp() {
           <Palette size={20} />
         </button>
         <CustomGlassSelect
-          icon={Shirt}
+          icon={Palette}
           value={theme}
           onChange={setTheme}
           options={[
@@ -530,7 +530,7 @@ export default function MetronomeApp() {
 
           <LiquidGlassDock>
             <CustomGlassSelect
-              icon={Music2}
+              icon={Music}
               value={beatsPerMeasure}
               onChange={(v) => setBeatsPerMeasure(parseInt(v))}
               options={beatOptions}
@@ -556,7 +556,7 @@ export default function MetronomeApp() {
             </motion.button>
 
             <CustomGlassSelect
-              icon={Waves}
+              icon={Drum}
               value={soundPreset}
               onChange={setSoundPreset}
               options={soundOptions}

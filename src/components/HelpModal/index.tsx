@@ -1,16 +1,16 @@
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import {
+  AudioWaveform,
   Gauge,
   GripVertical,
   HelpCircle,
   ListMusic,
   MousePointerClick,
   Music,
-  Music2,
   Star,
   VolumeX,
-  X,
+  X
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
@@ -89,17 +89,6 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
             </div>
           </div>
 
-          {/* Swing & Shift */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <Music size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.swingTrainer[language]}</h3>
-              <p className={styles["section-text"]}>{t.swingTrainerDesc[language]}</p>
-            </div>
-          </div>
-
           {/* Speed Trainer */}
           <div className={styles["help-modal__row"]}>
             <div className={styles["help-modal__icon-box"]}>
@@ -122,6 +111,17 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
             </div>
           </div>
 
+          {/* Swing & Shift */}
+          <div className={styles["help-modal__row"]}>
+            <div className={styles["help-modal__icon-box"]}>
+              <AudioWaveform size={20} />
+            </div>
+            <div className="flex-1">
+              <h3 className={styles["section-title"]}>{t.swingTrainer[language]}</h3>
+              <p className={styles["section-text"]}>{t.swingTrainerDesc[language]}</p>
+            </div>
+          </div>
+
           {/* Presets */}
           <div className={styles["help-modal__row"]}>
             <div className={styles["help-modal__icon-box"]}>
@@ -136,7 +136,7 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
           {/* Bottom Dock */}
           <div className={styles["help-modal__row"]}>
             <div className={styles["help-modal__icon-box"]}>
-              <Music2 size={20} />
+              <Music size={20} />
             </div>
             <div className="flex-1">
               <h3 className={styles["section-title"]}>{t.bottomDock[language]}</h3>

@@ -79,7 +79,7 @@
 }
 
 .visualizer__label {
-  font-size: 13px;
+  font-size: 0.875rem;
   color: var(--theme-text-muted);
   font-weight: 500;
   text-transform: uppercase;
@@ -118,7 +118,7 @@
 
 .visualizer__value {
   font-family: var(--font-mono, monospace);
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--theme-text-secondary);
   min-width: 24px;

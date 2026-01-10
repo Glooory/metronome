@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { Gauge, ListMusic, VolumeX, Zap } from "lucide-react";
+import { AudioWaveform, Gauge, ListMusic, VolumeX } from "lucide-react";
 import type { IntervalTrainerConfig, SpeedTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
@@ -62,7 +62,7 @@ export const TrainerDock = ({
         onClick={onSwingClick}
         title={t.swingTooltip[language]}
       >
-        <Zap size={16} className={styles["trainer-dock__btn-icon"]} />
+        <AudioWaveform size={16} className={styles["trainer-dock__btn-icon"]} />
         <span>{t.swing[language]}</span>
       </button>
 

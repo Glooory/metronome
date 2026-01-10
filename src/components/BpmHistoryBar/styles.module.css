@@ -117,7 +117,7 @@
 
 .no-history {
   color: var(--theme-text-muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-style: italic;
   margin-left: 0.5rem;
 }

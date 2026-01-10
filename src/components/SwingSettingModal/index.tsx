@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { RefreshCcw, X, Zap } from "lucide-react";
+import { AudioWaveform, RefreshCcw, X } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
 import styles from "./styles.module.css";
@@ -40,7 +40,7 @@ export const SwingSettingModal = ({
       >
         <div className={styles["swing-trainer-modal__header"]}>
           <div className={styles["swing-trainer-modal__title"]}>
-            <Zap size={20} className={styles["swing-trainer-modal__title-icon"]} />
+            <AudioWaveform size={20} className={styles["swing-trainer-modal__title-icon"]} />
             {t.title[language]}
           </div>
           <button className={styles["swing-trainer-modal__close-btn"]} onClick={onClose}>

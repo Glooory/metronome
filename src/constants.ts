@@ -37,7 +37,14 @@ export type Theme =
   | "e-ink"
   | "neumorphism"
   | "amoled"
-  | "retro";
+  | "retro"
+  | "blueprint"
+  | "aurora"
+  | "terminal"
+  | "brutalism"
+  | "clay"
+  | "sketch"
+  | "mechanical";
 
 export const DEFAULT_THEME = "glass";
 
@@ -51,6 +58,13 @@ export const THEMES: { id: Theme; label: string }[] = [
   { id: "neumorphism", label: "Neumorphism" },
   { id: "amoled", label: "Amoled" },
   { id: "retro", label: "Retro" },
+  { id: "blueprint", label: "Blueprint" },
+  { id: "aurora", label: "Aurora" },
+  { id: "terminal", label: "Hacker Terminal" },
+  { id: "brutalism", label: "Neo Brutalism" },
+  { id: "clay", label: "Soft Clay" },
+  { id: "sketch", label: "Paper Sketch" },
+  { id: "mechanical", label: "Industrial" },
 ];
 
 export interface Preset {

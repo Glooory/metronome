@@ -244,6 +244,13 @@ export default function MetronomeApp() {
       kids: `${baseUrl}favicons/favicon-kids.svg`,
       cyberpunk: `${baseUrl}favicons/favicon-cyberpunk.svg`,
       "e-ink": `${baseUrl}favicons/favicon-eink.svg`,
+      blueprint: `${baseUrl}favicons/favicon-blueprint.svg`,
+      aurora: `${baseUrl}favicons/favicon-aurora.svg`,
+      terminal: `${baseUrl}favicons/favicon-terminal.svg`,
+      brutalism: `${baseUrl}favicons/favicon-brutalism.svg`,
+      clay: `${baseUrl}favicons/favicon-clay.svg`,
+      sketch: `${baseUrl}favicons/favicon-sketch.svg`,
+      mechanical: `${baseUrl}favicons/favicon-mechanical.svg`,
     };
 
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
@@ -355,6 +362,13 @@ export default function MetronomeApp() {
     "neumorphism",
     "amoled",
     "retro",
+    "blueprint",
+    "aurora",
+    "terminal",
+    "brutalism",
+    "clay",
+    "sketch",
+    "mechanical",
   ];
 
   const cycleTheme = () => {
@@ -446,6 +460,13 @@ export default function MetronomeApp() {
               { label: translations.options.themes.neumorphism[language], value: "neumorphism" },
               { label: translations.options.themes.amoled[language], value: "amoled" },
               { label: translations.options.themes.retro[language], value: "retro" },
+              { label: translations.options.themes.blueprint[language], value: "blueprint" },
+              { label: translations.options.themes.aurora[language], value: "aurora" },
+              { label: translations.options.themes.terminal[language], value: "terminal" },
+              { label: translations.options.themes.brutalism[language], value: "brutalism" },
+              { label: translations.options.themes.clay[language], value: "clay" },
+              { label: translations.options.themes.sketch[language], value: "sketch" },
+              { label: translations.options.themes.mechanical[language], value: "mechanical" },
             ]}
             title={translations.dock.theme[language]}
             displayLabel={translations.options.themes[theme][language]}

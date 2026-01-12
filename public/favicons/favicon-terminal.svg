@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <defs></defs>
+    
+        <rect x="0" y="0" width="64" height="64" fill="#000000" />
+        <path d="M14,54 L32,12 L50,54 Z" fill="none" stroke="#00ff00" stroke-width="2" shape-rendering="crispEdges" />
+        <line x1="14" y1="54" x2="50" y2="54" stroke="#00ff00" stroke-width="2" shape-rendering="crispEdges" />
+        <g transform="rotate(24, 32, 54)">
+          <line x1="32" y1="54" x2="32" y2="14" stroke="#00ff00" stroke-width="2" shape-rendering="crispEdges" />
+          <rect x="30" y="16" width="4" height="6" fill="#00ff00" shape-rendering="crispEdges" />
+        </g>
+        <line x1="0" y1="16" x2="64" y2="16" stroke="rgba(0,255,0,0.2)" stroke-width="1" />
+        <line x1="0" y1="32" x2="64" y2="32" stroke="rgba(0,255,0,0.2)" stroke-width="1" />
+        <line x1="0" y1="48" x2="64" y2="48" stroke="rgba(0,255,0,0.2)" stroke-width="1" />
+      
+  </svg>

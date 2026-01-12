@@ -77,27 +77,29 @@ export const CustomGlassSelect = ({
           >
             <div className={styles["glass-select__overlay"]} />
             <div className={styles["glass-select__dropdown-title"]}>{title}</div>
-            {options.map((opt) => (
-              <button
-                key={opt.value}
-                onClick={() => {
-                  onChange(opt.value);
-                  setIsOpen(false);
-                }}
-                className={clsx(
-                  styles["glass-select__option"],
-                  opt.value === value && styles["glass-select__option--selected"]
-                )}
-              >
-                {opt.label}
-                {opt.value === value && (
-                  <motion.div
-                    layoutId={`dot-${title}`}
-                    className={styles["glass-select__active-dot"]}
-                  />
-                )}
-              </button>
-            ))}
+            <div className={styles["glass-select__options"]}>
+              {options.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => {
+                    onChange(opt.value);
+                    setIsOpen(false);
+                  }}
+                  className={clsx(
+                    styles["glass-select__option"],
+                    opt.value === value && styles["glass-select__option--selected"]
+                  )}
+                >
+                  {opt.label}
+                  {opt.value === value && (
+                    <motion.div
+                      layoutId={`dot-${title}`}
+                      className={styles["glass-select__active-dot"]}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

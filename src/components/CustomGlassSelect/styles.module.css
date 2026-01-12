@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.glass-select__btn > svg {
+.glass-select__btn>svg {
   flex-shrink: 0;
 }
 
@@ -150,7 +150,7 @@
   flex-shrink: 0;
 }
 
-.glass-select__chevrons > *:not(:first-child) {
+.glass-select__chevrons>*:not(:first-child) {
   margin-top: -0.25rem;
 }
 
@@ -169,4 +169,29 @@
   background: var(--theme-glass-top-light);
   pointer-events: none;
   mix-blend-mode: overlay;
+}
+
+.glass-select__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-y: auto;
+  max-height: 40vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-glass-border) transparent;
+  padding-right: 2px;
+  /* Prevent scrollbar from overlapping content too much if needed */
+}
+
+.glass-select__options::-webkit-scrollbar {
+  width: 4px;
+}
+
+.glass-select__options::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.glass-select__options::-webkit-scrollbar-thumb {
+  background-color: var(--theme-glass-border);
+  border-radius: 4px;
 }

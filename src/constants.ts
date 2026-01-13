@@ -44,7 +44,8 @@ export type Theme =
   | "brutalism"
   | "clay"
   | "sketch"
-  | "mechanical";
+  | "mechanical"
+  | "wood";
 
 export const DEFAULT_THEME = "glass";
 
@@ -65,6 +66,7 @@ export const THEMES: { id: Theme; label: string }[] = [
   { id: "clay", label: "Soft Clay" },
   { id: "sketch", label: "Paper Sketch" },
   { id: "mechanical", label: "Industrial" },
+  { id: "wood", label: "Classic Mahogany" },
 ];
 
 export interface Preset {

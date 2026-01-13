@@ -251,6 +251,7 @@ export default function MetronomeApp() {
       clay: `${baseUrl}favicons/favicon-clay.svg`,
       sketch: `${baseUrl}favicons/favicon-sketch.svg`,
       mechanical: `${baseUrl}favicons/favicon-mechanical.svg`,
+      wood: `${baseUrl}favicons/favicon-wood.svg`, // Classic Mahogany
     };
 
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
@@ -369,6 +370,7 @@ export default function MetronomeApp() {
     "clay",
     "sketch",
     "mechanical",
+    "wood",
   ];
 
   const cycleTheme = () => {
@@ -467,6 +469,7 @@ export default function MetronomeApp() {
               { label: translations.options.themes.clay[language], value: "clay" },
               { label: translations.options.themes.sketch[language], value: "sketch" },
               { label: translations.options.themes.mechanical[language], value: "mechanical" },
+              { label: translations.options.themes.wood[language], value: "wood" },
             ]}
             title={translations.dock.theme[language]}
             displayLabel={translations.options.themes[theme][language]}

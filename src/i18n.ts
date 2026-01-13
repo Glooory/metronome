@@ -1094,6 +1094,17 @@ export const translations = {
         ru: "Механика",
         pt: "Mecânico",
       },
+      wood: {
+        en: "Wood",
+        zh: "原木",
+        ja: "ウッド",
+        ko: "우드",
+        de: "Holz",
+        fr: "Bois",
+        es: "Madera",
+        ru: "Дерево",
+        pt: "Madeira",
+      },
     },
   },
 

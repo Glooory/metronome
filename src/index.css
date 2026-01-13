@@ -1677,7 +1677,14 @@ button {
   --theme-bg-modal: #222222;
   --theme-bg-modal-gradient: #222222;
 
-  --theme-wheel-bg: repeating-conic-gradient(#1a1a1a 0deg 9deg, #222222 9deg 10deg);
+  /* Knurled Metal Texture for Wheel */
+  --theme-wheel-bg:
+    repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.4) 0px,
+      rgba(0, 0, 0, 0.4) 1px,
+      transparent 1px,
+      transparent 4px),
+    linear-gradient(180deg, #222 0%, #444 50%, #222 100%);
   --theme-wheel-line: #e0a040;
   --theme-wheel-line-glow: none;
   --theme-wheel-tick: #444444;
@@ -1715,7 +1722,177 @@ button {
 .theme-mechanical [class*="bpm-display__value--main"] {
   background: none !important;
   -webkit-text-fill-color: transparent !important;
-  background-image: linear-gradient(180deg, #ffd700, #b8860b) !important;
+  background-image: linear-gradient(180deg, #fff7cc 0%, #ffd700 45%, #b8860b 80%, #806030 100%) !important;
+  background-clip: text !important;
   -webkit-background-clip: text !important;
   filter: drop-shadow(0 2px 0px rgba(0, 0, 0, 0.8));
 }
+
+/* =========================================
+   7. WOOD THEME (Natural Oak / Yellow Wood)
+   ========================================= */
+.theme-wood {
+  --theme-bg-primary: #e6bf83;
+
+  /* Lighter, warm wood paneing */
+  --theme-glass-bg: linear-gradient(180deg, rgba(230, 191, 131, 0.95), rgba(210, 170, 110, 0.95));
+  --theme-glass-bg-subtle: rgba(210, 170, 110, 0.5);
+  --theme-glass-bg-hover: rgba(240, 210, 160, 0.9);
+  --theme-glass-bg-active: rgba(190, 150, 90, 0.9);
+
+  --theme-input-bg: rgba(90, 60, 30, 0.1);
+
+  /* Dark brown text for contrast on light wood */
+  --theme-text-primary: #3e2723;
+  --theme-text-secondary: #5d4037;
+  --theme-text-muted: #8d6e63;
+  --theme-text-dim: #a1887f;
+  --theme-text-bright: #291b18;
+
+  --theme-accent-amber: #d84315;
+  --theme-accent-amber-bg: rgba(216, 67, 21, 0.1);
+  --theme-accent-amber-border: #d84315;
+  --theme-accent-amber-glow: none;
+
+  --theme-accent-cyan: #00838f;
+  --theme-accent-purple: #6a1b9a;
+
+  --theme-accent-purple-bg: rgba(106, 27, 154, 0.1);
+  --theme-accent-purple-border: #6a1b9a;
+
+  --theme-accent-blue: #1565c0;
+  --theme-accent-blue-bg: rgba(21, 101, 192, 0.1);
+  --theme-accent-blue-border: #1565c0;
+
+  --theme-accent-red: #c62828;
+  --theme-accent-red-bg: rgba(198, 40, 40, 0.1);
+  --theme-accent-red-border: #c62828;
+
+  --theme-accent-green-border: #2e7d32;
+
+  --theme-glass-border: #8d6e63;
+  --theme-glass-border-subtle: #bcaaa4;
+  --theme-glass-border-bright: #ffffff;
+
+  --theme-glass-blur: 0px;
+  --theme-glass-blur-sm: 0px;
+  --theme-glass-blur-xl: 0px;
+
+  /* Natural Oak Wood Grain Look */
+  --theme-gradient-bg:
+    /* Grain lines */
+    repeating-linear-gradient(90deg,
+      rgba(100, 70, 40, 0.03) 0px,
+      rgba(100, 70, 40, 0.03) 1px,
+      transparent 1px,
+      transparent 12px),
+    repeating-linear-gradient(88deg,
+      rgba(100, 70, 40, 0.05) 0px,
+      rgba(100, 70, 40, 0.05) 2px,
+      transparent 2px,
+      transparent 24px),
+    /* Knots/Variation */
+    radial-gradient(ellipse at 70% 20%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 20% 80%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
+    /* Base Color */
+    linear-gradient(135deg, #e6bf83 0%, #d4a76a 100%);
+
+  /* Burnt/Carved text effect */
+  --theme-bpm-text-gradient: linear-gradient(180deg, #5d4037, #3e2723);
+
+  --theme-shadow-glow: none;
+
+  /* Carved Wood Inset Look */
+  --theme-shadow-panel:
+    inset 2px 2px 5px rgba(60, 40, 20, 0.4),
+    inset -1px -1px 0px rgba(255, 255, 255, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+
+  --theme-shadow-sm:
+    inset 2px 2px 4px rgba(60, 40, 20, 0.3),
+    inset -1px -1px 0px rgba(255, 255, 255, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+
+  --theme-shadow-modal:
+    0 20px 40px rgba(60, 40, 20, 0.5);
+
+  --theme-shadow-inset:
+    inset 3px 3px 6px rgba(60, 40, 20, 0.5),
+    inset -1px -1px 0px rgba(255, 255, 255, 0.3);
+
+  --theme-trainer-active-bg: radial-gradient(circle, #ffb74d, #f57c00);
+  --theme-trainer-active-border: #3e2723;
+  --theme-trainer-active-glow: none;
+
+  --theme-toggle-active-speed: linear-gradient(to right, #ff9800, #e65100);
+  --theme-toggle-active-interval: linear-gradient(to right, #29b6f6, #0277bd);
+  --theme-toggle-border-interval: #01579b;
+
+  --theme-bg-modal: #deb887;
+  --theme-bg-modal-gradient: linear-gradient(135deg, #e6bf83, #d4a76a);
+
+  --theme-wheel-bg:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(90deg, #cfa66c, #e6bf83);
+  --theme-wheel-line: #bf360c;
+  --theme-wheel-line-glow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  --theme-wheel-tick: #8d6e63;
+
+  --theme-text-active-glass: #3e2723;
+  --theme-text-on-accent: #ffffff;
+  --theme-toggle-knob: #5d4037;
+
+  /* Carved Slots for Visualizer */
+  --theme-visualizer-empty: rgba(62, 39, 35, 0.15);
+  /* Darker empty slot */
+  --theme-visualizer-accent: #d84315;
+  /* Deep Ember */
+  --theme-visualizer-accent-dim: #a1887f;
+}
+
+.theme-wood * {
+  border-radius: 6px !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: bold;
+}
+
+.theme-wood button {
+  /* Polished Varnish Look */
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(180deg, #edc988 0%, #dfb775 100%);
+  border: 1px solid #c19a6b;
+  /* Embossed Button Look */
+  box-shadow:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.6),
+    0 4px 6px rgba(60, 40, 20, 0.3),
+    0 1px 0px rgba(60, 40, 20, 0.2);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  color: #3e2723;
+}
+
+.theme-wood button:active {
+  background: #cfa66c;
+  /* Deeply Pressed Carving */
+  box-shadow:
+    inset 3px 3px 6px rgba(60, 40, 20, 0.4),
+    inset -1px -1px 0px rgba(255, 255, 255, 0.3);
+  transform: translateY(2px);
+}
+
+.theme-wood [class*="bpm-display__value--main"] {
+  background: none !important;
+  -webkit-text-fill-color: #3e2723 !important;
+  /* Deep Carved Text Effect: Inner shadow via text-shadow hack not possible, utilizing drop shadow for depth */
+  text-shadow:
+    0px 1px 0px rgba(255, 255, 255, 0.5),
+    0px -1px 0px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.5));
+}
+
+/* Specific carve effect for visualizer blocks if possible, usually managed via variables above. 
+   Adding a class selector if specific elements exist would be better, but variables handle colors. */

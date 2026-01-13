@@ -137,6 +137,12 @@
   transition: all 0.2s;
 }
 
+@media (max-width: 400px) {
+  .subdivision-btn {
+    padding: 0.25rem;
+  }
+}
+
 .subdivision-btn:hover {
   color: var(--theme-text-bright);
   background-color: var(--theme-glass-bg);

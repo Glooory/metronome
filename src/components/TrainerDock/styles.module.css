@@ -1,14 +1,13 @@
 .trainer-dock {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  justify-content: space-evenly;
-  gap: 4px;
+  justify-content: center;
+  gap: 8px;
   padding: 8px 8px;
-  background: linear-gradient(
-    135deg,
-    var(--theme-glass-border-subtle) 0%,
-    var(--theme-glass-bg-subtle) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--theme-glass-border-subtle) 0%,
+      var(--theme-glass-bg-subtle) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
@@ -19,8 +18,10 @@
   margin-bottom: 12px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .trainer-dock {
+    display: flex;
+    justify-content: space-evenly;
     padding: 8px 16px;
     gap: 8px;
   }
@@ -40,7 +41,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  width: 100%;
 }
 
 @media (min-width: 768px) {

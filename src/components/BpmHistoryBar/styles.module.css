@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 0;
-  height: 4rem;
+  height: calc(40px + 8px + 8px);
   gap: 0.5rem;
 }
 

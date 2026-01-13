@@ -16,12 +16,13 @@
 }
 
 .bpm-display__resize-area {
+  --bpm-action-gap: 0.5rem;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 12rem;
+  height: calc(40px * 4 + var(--bpm-action-gap) * 3);
   transition: all 0.2s;
 }
 
@@ -128,7 +129,7 @@
   gap: 0.5rem;
   color: var(--theme-text-secondary);
   width: auto;
-  height: 80%;
+  height: 100%;
 }
 
 .bpm-display__buttons-col {
@@ -197,12 +198,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(
-    to bottom,
-    transparent 45%,
-    var(--theme-wheel-tick, var(--theme-glass-border-bright)) 50%,
-    transparent 55%
-  );
+  background-image: linear-gradient(to bottom,
+      transparent 45%,
+      var(--theme-wheel-tick, var(--theme-glass-border-bright)) 50%,
+      transparent 55%);
   background-size: 100% 1rem;
   background-position-y: var(--wheel-offset, 0);
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);

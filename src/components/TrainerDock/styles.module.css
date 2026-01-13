@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 8px 8px;
+  padding: 8px;
   background: linear-gradient(135deg,
       var(--theme-glass-border-subtle) 0%,
       var(--theme-glass-bg-subtle) 100%);
@@ -22,8 +22,6 @@
   .trainer-dock {
     display: flex;
     justify-content: space-evenly;
-    padding: 8px 16px;
-    gap: 8px;
   }
 }
 
@@ -32,7 +30,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 4px 8px;
+  padding: 8px;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
   border-radius: 10px;
@@ -42,12 +40,6 @@
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
-}
-
-@media (min-width: 768px) {
-  .trainer-dock__btn {
-    padding: 8px 16px;
-  }
 }
 
 @media (hover: hover) {

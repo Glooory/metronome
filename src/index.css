@@ -19,92 +19,97 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --theme-bg-primary: #0a0a0a;
-  --theme-bg-overlay: rgba(0, 0, 0, 0.6);
-  --theme-bg-modal: rgba(10, 10, 10, 0.9);
-  --theme-bg-modal-gradient: linear-gradient(145deg,
-      rgba(30, 30, 45, 0.95) 0%,
-      rgba(20, 20, 35, 0.98) 100%);
+  --theme-bg-primary: #050505;
+  --theme-bg-overlay: rgba(0, 0, 0, 0.4);
+  --theme-bg-modal: rgba(20, 20, 30, 0.6);
+  --theme-bg-modal-gradient: linear-gradient(160deg,
+      rgba(30, 30, 40, 0.7) 0%,
+      rgba(10, 10, 20, 0.8) 100%);
 
   --theme-text-primary: #ffffff;
-  --theme-text-secondary: rgba(255, 255, 255, 0.6);
-  --theme-text-muted: rgba(255, 255, 255, 0.3);
-  --theme-text-dim: rgba(255, 255, 255, 0.4);
-  --theme-text-bright: rgba(255, 255, 255, 0.7);
+  --theme-text-secondary: rgba(255, 255, 255, 0.7);
+  --theme-text-muted: rgba(255, 255, 255, 0.4);
+  --theme-text-dim: rgba(255, 255, 255, 0.5);
+  --theme-text-bright: #ffffff;
 
-  --theme-glass-bg: rgba(255, 255, 255, 0.1);
-  --theme-glass-bg-subtle: rgba(255, 255, 255, 0.05);
-  --theme-glass-bg-hover: rgba(255, 255, 255, 0.15);
-  --theme-glass-bg-active: rgba(255, 255, 255, 0.2);
-  --theme-glass-border: rgba(255, 255, 255, 0.2);
-  --theme-glass-border-subtle: rgba(255, 255, 255, 0.1);
+  --theme-glass-bg: rgba(255, 255, 255, 0.08);
+  --theme-glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --theme-glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --theme-glass-bg-active: rgba(255, 255, 255, 0.18);
+  --theme-glass-border: rgba(255, 255, 255, 0.15);
+  --theme-glass-border-subtle: rgba(255, 255, 255, 0.08);
   --theme-glass-border-bright: rgba(255, 255, 255, 0.3);
-  --theme-glass-blur: 24px;
-  --theme-glass-blur-sm: 12px;
-  --theme-glass-blur-xl: 40px;
+  --theme-glass-blur: 32px;
+  --theme-glass-blur-sm: 16px;
+  --theme-glass-blur-xl: 48px;
 
-  --theme-input-bg: rgba(255, 255, 255, 0.08);
+  --theme-input-bg: rgba(0, 0, 0, 0.2);
 
-  --theme-accent-amber: #fbbf24;
-  --theme-accent-amber-bg: rgba(245, 158, 11, 0.1);
-  --theme-accent-amber-border: rgba(245, 158, 11, 0.4);
-  --theme-accent-amber-glow: rgba(245, 158, 11, 0.15);
-  --theme-accent-cyan: rgb(34, 211, 238);
-  --theme-accent-purple: rgba(139, 92, 246, 0.9);
-  --theme-accent-purple-bg: rgba(139, 92, 246, 0.1);
-  --theme-accent-purple-border: rgba(139, 92, 246, 0.2);
-  --theme-accent-blue: rgba(59, 130, 246, 1);
+  --theme-accent-amber: #f59e0b;
+  --theme-accent-amber-bg: rgba(245, 158, 11, 0.15);
+  --theme-accent-amber-border: rgba(245, 158, 11, 0.5);
+  --theme-accent-amber-glow: 0 0 15px rgba(245, 158, 11, 0.3);
+  --theme-accent-cyan: #22d3ee;
+  --theme-accent-purple: #a78bfa;
+  --theme-accent-purple-bg: rgba(139, 92, 246, 0.15);
+  --theme-accent-purple-border: rgba(139, 92, 246, 0.4);
+  --theme-accent-blue: #3b82f6;
   --theme-accent-blue-bg: rgba(59, 130, 246, 0.2);
-  --theme-accent-blue-border: rgba(59, 130, 246, 0.3);
-  --theme-accent-red: rgba(239, 68, 68, 0.8);
-  --theme-accent-red-bg: rgba(239, 68, 68, 0.2);
-  --theme-accent-red-border: rgba(239, 68, 68, 0.3);
-  --theme-accent-green-border: rgba(34, 197, 94, 0.5);
+  --theme-accent-blue-border: rgba(59, 130, 246, 0.4);
+  --theme-accent-red: #f87171;
+  --theme-accent-red-bg: rgba(248, 113, 113, 0.15);
+  --theme-accent-red-border: rgba(248, 113, 113, 0.4);
+  --theme-accent-green-border: rgba(52, 211, 153, 0.5);
 
   --theme-gradient-bg:
-    radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-  --theme-bpm-text-gradient: linear-gradient(to bottom,
-      #ffffff,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.5));
-  --theme-glass-top-light: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(34, 211, 238, 0.1) 0px, transparent 50%),
+    conic-gradient(from 180deg at 50% 50%,
+      rgba(15, 23, 42, 0) 0deg,
+      rgba(30, 41, 59, 0.3) 180deg,
+      rgba(15, 23, 42, 0) 360deg);
 
-  --theme-wheel-bg: linear-gradient(to right,
-      rgba(0, 0, 0, 0.4),
-      rgba(255, 255, 255, 0.1) 20%,
-      rgba(255, 255, 255, 0.1) 80%,
-      rgba(0, 0, 0, 0.4));
-  --theme-wheel-line: rgba(255, 120, 120, 0.8);
-  --theme-wheel-line-glow: rgba(255, 120, 120, 0.5);
-  --theme-wheel-tick: rgba(255, 255, 255, 0.5);
+  --theme-bpm-text-gradient: linear-gradient(180deg,
+      #ffffff 30%,
+      rgba(255, 255, 255, 0.8) 100%);
 
-  --theme-shadow-glow: 0 0 50px rgba(255, 255, 255, 0.3);
-  --theme-shadow-panel: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --theme-shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.4);
-  --theme-shadow-inset: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  --theme-glass-top-light: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent);
+
+  --theme-wheel-bg: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(255, 255, 255, 0.08) 25%,
+      rgba(255, 255, 255, 0.08) 75%,
+      rgba(0, 0, 0, 0.4) 100%);
+  --theme-wheel-line: #f472b6;
+  --theme-wheel-line-glow: 0 0 10px rgba(244, 114, 182, 0.6);
+  --theme-wheel-tick: rgba(255, 255, 255, 0.6);
+
+  --theme-shadow-glow: 0 0 40px rgba(139, 92, 246, 0.2);
+  --theme-shadow-panel:
+    0 20px 40px -10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --theme-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --theme-shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --theme-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 
   --theme-trainer-active-bg: linear-gradient(135deg,
-      rgba(59, 130, 246, 0.4),
-      rgba(139, 92, 246, 0.3));
-  --theme-trainer-active-border: rgba(139, 92, 246, 0.5);
-  --theme-trainer-active-glow: 0 0 12px rgba(139, 92, 246, 0.3);
+      rgba(59, 130, 246, 0.5),
+      rgba(147, 51, 234, 0.4));
+  --theme-trainer-active-border: rgba(167, 139, 250, 0.6);
+  --theme-trainer-active-glow: 0 0 20px rgba(139, 92, 246, 0.4);
 
-  --theme-toggle-active-speed: linear-gradient(135deg,
-      rgba(59, 130, 246, 0.6),
-      rgba(139, 92, 246, 0.5));
-  --theme-toggle-active-interval: linear-gradient(135deg,
-      rgba(59, 130, 246, 0.6),
-      rgba(34, 197, 94, 0.5));
-  --theme-toggle-border-interval: var(--theme-accent-green-border);
+  --theme-toggle-active-speed: linear-gradient(135deg, #60a5fa, #a78bfa);
+  --theme-toggle-active-interval: linear-gradient(135deg, #2dd4bf, #3b82f6);
+  --theme-toggle-border-interval: rgba(34, 211, 238, 0.5);
   --theme-toggle-knob: #ffffff;
   --theme-text-on-accent: #ffffff;
-  --theme-text-active-glass: var(--theme-text-primary);
-  --theme-visualizer-empty: rgba(255, 255, 255, 0.03);
-  --theme-visualizer-accent: rgb(34, 211, 238);
-  --theme-visualizer-accent-dim: rgba(34, 211, 238, 0.25);
+  --theme-text-active-glass: #ffffff;
+
+  --theme-visualizer-empty: rgba(255, 255, 255, 0.05);
+  --theme-visualizer-accent: #22d3ee;
+  --theme-visualizer-accent-dim: rgba(34, 211, 238, 0.3);
 }
 
 .theme-cyberpunk {

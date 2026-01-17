@@ -1,105 +1,158 @@
 :root {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* =========================================
+     1. Unified Typography Scale
+     ========================================= */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --leading-tight: 1.2;
+  --leading-base: 1.5;
+  --leading-relaxed: 1.75;
 
-  --theme-bg-primary: #050505;
+  /* =========================================
+     2. OKLCH Color Palette (Synthesized)
+     ========================================= */
+  /* Neutrals: L=Lightness, C=Chroma(0 for gray), H=Hue */
+  --gray-0: oklch(99% 0 0);
+  --gray-50: oklch(96% 0.01 240);
+  --gray-100: oklch(90% 0.01 240);
+  --gray-200: oklch(80% 0.01 240);
+  --gray-300: oklch(70% 0.02 240);
+  --gray-400: oklch(60% 0.02 240);
+  --gray-500: oklch(50% 0.02 240);
+  --gray-600: oklch(40% 0.02 240);
+  --gray-700: oklch(30% 0.02 240);
+  --gray-800: oklch(20% 0.02 240);
+  --gray-900: oklch(10% 0.02 240);
+  --gray-950: oklch(5% 0.02 240);
+
+  /* Semantic Colors */
+  --color-amber: oklch(75% 0.18 80);
+  --color-cyan: oklch(75% 0.15 220);
+  --color-purple: oklch(70% 0.18 300);
+  --color-blue: oklch(65% 0.2 260);
+  --color-red: oklch(65% 0.2 25);
+  --color-green: oklch(70% 0.16 150);
+
+  /* =========================================
+     3. Global Defaults
+     ========================================= */
+  --theme-bg-primary: var(--gray-950);
   --theme-bg-overlay: rgba(0, 0, 0, 0.4);
-  --theme-bg-modal: rgba(20, 20, 30, 0.6);
-  --theme-bg-modal-gradient: linear-gradient(160deg,
-      rgba(30, 30, 40, 0.7) 0%,
-      rgba(10, 10, 20, 0.8) 100%);
 
-  --theme-text-primary: #ffffff;
-  --theme-text-secondary: rgba(255, 255, 255, 0.7);
-  --theme-text-muted: rgba(255, 255, 255, 0.4);
-  --theme-text-dim: rgba(255, 255, 255, 0.5);
+  /* Modal & Panels - Increased opacity for better legibility */
+  --theme-bg-modal: rgba(20, 20, 30, 0.75);
+  --theme-bg-modal-gradient: linear-gradient(160deg,
+      rgba(30, 30, 40, 0.85) 0%,
+      rgba(10, 10, 20, 0.9) 100%);
+
+  /* Typography Colors */
+  --theme-text-primary: var(--gray-0);
+  --theme-text-secondary: oklch(85% 0.01 240);
+  --theme-text-dim: oklch(60% 0.02 240);
+  --theme-text-muted: oklch(40% 0.02 240);
   --theme-text-bright: #ffffff;
 
-  --theme-glass-bg: rgba(255, 255, 255, 0.08);
+  /* Glass Effects - Slightly reduced transparency for better contrast */
+  --theme-glass-bg: rgba(255, 255, 255, 0.05);
   --theme-glass-bg-subtle: rgba(255, 255, 255, 0.03);
-  --theme-glass-bg-hover: rgba(255, 255, 255, 0.12);
-  --theme-glass-bg-active: rgba(255, 255, 255, 0.18);
-  --theme-glass-border: rgba(255, 255, 255, 0.15);
-  --theme-glass-border-subtle: rgba(255, 255, 255, 0.08);
-  --theme-glass-border-bright: rgba(255, 255, 255, 0.3);
+  --theme-glass-bg-hover: rgba(255, 255, 255, 0.08);
+  /* Boosted for better interaction */
+  --theme-glass-bg-active: rgba(255, 255, 255, 0.12);
+
+  /* Glass Borders */
+  --theme-glass-border: rgba(255, 255, 255, 0.08);
+  --theme-glass-border-subtle: rgba(255, 255, 255, 0.05);
+  --theme-glass-border-bright: rgba(255, 255, 255, 0.2);
+
+  /* Blurs & Shadows */
   --theme-glass-blur: 32px;
   --theme-glass-blur-sm: 16px;
   --theme-glass-blur-xl: 48px;
 
-  --theme-input-bg: rgba(0, 0, 0, 0.2);
+  --theme-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --theme-shadow-popover: 0 8px 24px -4px rgba(0, 0, 0, 0.4);
+  --theme-shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  --theme-shadow-panel:
+    0 20px 40px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --theme-shadow-glow: 0 0 40px rgba(139, 92, 246, 0.15);
+  --theme-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  --theme-shadow-active-item: 0 0 15px var(--theme-glass-bg-active);
 
-  --theme-accent-amber: #f59e0b;
-  --theme-accent-amber-bg: rgba(245, 158, 11, 0.15);
-  --theme-accent-amber-border: rgba(245, 158, 11, 0.5);
-  --theme-accent-amber-glow: 0 0 15px rgba(245, 158, 11, 0.3);
-  --theme-accent-cyan: #22d3ee;
-  --theme-accent-purple: #a78bfa;
-  --theme-accent-purple-bg: rgba(139, 92, 246, 0.15);
-  --theme-accent-purple-border: rgba(139, 92, 246, 0.4);
-  --theme-accent-blue: #3b82f6;
-  --theme-accent-blue-bg: rgba(59, 130, 246, 0.2);
-  --theme-accent-blue-border: rgba(59, 130, 246, 0.4);
-  --theme-accent-red: #f87171;
-  --theme-accent-red-bg: rgba(248, 113, 113, 0.15);
-  --theme-accent-red-border: rgba(248, 113, 113, 0.4);
-  --theme-accent-green-border: rgba(52, 211, 153, 0.5);
+  /* Interactive Elements */
+  --theme-input-bg: rgba(0, 0, 0, 0.3);
 
+  --theme-accent-amber: var(--color-amber);
+  --theme-accent-amber-bg: oklch(75% 0.18 80 / 0.15);
+  --theme-accent-amber-border: oklch(75% 0.18 80 / 0.5);
+  --theme-accent-amber-glow: 0 0 15px oklch(75% 0.18 80 / 0.3);
+
+  --theme-accent-cyan: var(--color-cyan);
+
+  --theme-accent-purple: var(--color-purple);
+  --theme-accent-purple-bg: oklch(70% 0.18 300 / 0.15);
+  --theme-accent-purple-border: oklch(70% 0.18 300 / 0.4);
+
+  --theme-accent-blue: var(--color-blue);
+  --theme-accent-blue-bg: oklch(65% 0.2 260 / 0.2);
+  --theme-accent-blue-border: oklch(65% 0.2 260 / 0.4);
+
+  --theme-accent-red: var(--color-red);
+  --theme-accent-red-bg: oklch(65% 0.2 25 / 0.15);
+  --theme-accent-red-border: oklch(65% 0.2 25 / 0.4);
+
+  --theme-accent-green-border: oklch(70% 0.16 150 / 0.5);
+
+  /* Gradients */
   --theme-gradient-bg:
-    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(34, 211, 238, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, oklch(80% 0.15 220 / 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, oklch(75% 0.18 300 / 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, oklch(70% 0.2 330 / 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, oklch(75% 0.15 220 / 0.08) 0px, transparent 50%),
     conic-gradient(from 180deg at 50% 50%,
-      rgba(15, 23, 42, 0) 0deg,
-      rgba(30, 41, 59, 0.3) 180deg,
-      rgba(15, 23, 42, 0) 360deg);
+      var(--gray-950) 0deg,
+      oklch(15% 0.03 240) 180deg,
+      var(--gray-950) 360deg);
 
   --theme-bpm-text-gradient: linear-gradient(180deg,
-      #ffffff 30%,
-      rgba(255, 255, 255, 0.8) 100%);
+      var(--gray-0) 30%,
+      oklch(90% 0 0) 100%);
 
-  --theme-glass-top-light: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent);
+  --theme-glass-top-light: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent);
 
+  /* Wheel */
   --theme-wheel-bg: linear-gradient(90deg,
       rgba(0, 0, 0, 0.4) 0%,
       rgba(255, 255, 255, 0.08) 25%,
       rgba(255, 255, 255, 0.08) 75%,
       rgba(0, 0, 0, 0.4) 100%);
   --theme-wheel-line: #f472b6;
+  /* Keep legacy hex for now or update later */
   --theme-wheel-line-glow: 0 0 10px rgba(244, 114, 182, 0.6);
   --theme-wheel-tick: rgba(255, 255, 255, 0.6);
 
-  --theme-shadow-glow: 0 0 40px rgba(139, 92, 246, 0.2);
-  --theme-shadow-panel:
-    0 20px 40px -10px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  --theme-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  --theme-shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  --theme-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-
+  /* Trainer */
   --theme-trainer-active-bg: linear-gradient(135deg,
-      rgba(59, 130, 246, 0.5),
-      rgba(147, 51, 234, 0.4));
+      oklch(65% 0.2 260 / 0.5),
+      oklch(60% 0.2 280 / 0.4));
   --theme-trainer-active-border: rgba(167, 139, 250, 0.6);
-  --theme-trainer-active-glow: 0 0 20px rgba(139, 92, 246, 0.4);
+  --theme-trainer-active-glow: 0 0 20px rgba(139, 92, 246, 0.3);
 
+  /* Radii */
+  --theme-radius-lg: 16px;
+  --theme-radius-md: 10px;
+  --theme-radius-sm: 8px;
+  --theme-radius-xs: 4px;
+  --theme-radius-modal: 20px;
+  --theme-radius-pill: 9999px;
+
+  /* Motion */
+  --theme-motion-hover: translateY(-1px);
+  --theme-transition-base: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --theme-transition-fast: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Toggles & Misc */
   --theme-toggle-active-speed: linear-gradient(135deg, #60a5fa, #a78bfa);
   --theme-toggle-active-interval: linear-gradient(135deg, #2dd4bf, #3b82f6);
   --theme-toggle-border-interval: rgba(34, 211, 238, 0.5);
@@ -110,20 +163,33 @@
   --theme-visualizer-empty: rgba(255, 255, 255, 0.05);
   --theme-visualizer-accent: #22d3ee;
   --theme-visualizer-accent-dim: rgba(34, 211, 238, 0.3);
+
+  font-family: var(--font-sans);
+  line-height: var(--leading-base);
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .theme-cyberpunk {
   --theme-bg-primary: #050508;
 
-  --theme-glass-bg: rgba(6, 11, 15, 0.7);
-  --theme-glass-bg-subtle: rgba(6, 11, 15, 0.5);
-  --theme-glass-bg-hover: rgba(0, 243, 255, 0.05);
-  --theme-glass-bg-active: rgba(0, 243, 255, 0.1);
+  /* Holographic glass with slight noise/texture feel */
+  --theme-glass-bg: rgba(10, 20, 30, 0.85);
+  --theme-glass-bg-subtle: rgba(10, 20, 30, 0.7);
+  --theme-glass-bg-hover: rgba(0, 243, 255, 0.1);
+  --theme-glass-bg-active: rgba(0, 243, 255, 0.2);
+
+  /* Force Monospace for Terminal/console feel */
+  font-family: var(--font-mono) !important;
+  letter-spacing: -0.05em;
 
   --theme-text-primary: #e0f7fa;
   --theme-text-secondary: #00f3ff;
-  --theme-text-muted: #567e8a;
-  --theme-text-dim: #2d454f;
+  --theme-text-muted: #455a64;
+  --theme-text-dim: #263238;
   --theme-text-bright: #ffffff;
 
   --theme-accent-amber: #fcee0a;
@@ -143,73 +209,185 @@
 
   --theme-accent-red: #ff2a6d;
   --theme-accent-red-bg: rgba(255, 42, 109, 0.15);
-  --theme-accent-red-border: rgba(255, 42, 109, 0.7);
+  --theme-accent-red-border: rgba(255, 42, 109, 0.6);
+  --theme-accent-green-border: rgba(0, 243, 255, 0.5);
 
-  --theme-accent-green-border: #05ffa1;
+  --theme-glass-border: rgba(0, 243, 255, 0.3);
+  --theme-glass-border-subtle: rgba(0, 243, 255, 0.15);
+  --theme-glass-border-bright: rgba(0, 243, 255, 0.6);
+  --theme-glass-blur: 10px;
+  --theme-glass-blur-sm: 5px;
+  --theme-glass-blur-xl: 20px;
 
-  --theme-glass-border: rgba(0, 243, 255, 0.25);
-  --theme-glass-border-subtle: rgba(0, 243, 255, 0.1);
-  --theme-glass-border-bright: rgba(0, 243, 255, 0.7);
+  --theme-input-bg: rgba(0, 0, 0, 0.6);
 
-  --theme-glass-blur: 12px;
-  --theme-glass-blur-sm: 8px;
-  --theme-glass-blur-xl: 24px;
-
+  /* Advanced Holographic Grid & Scanlines */
   --theme-gradient-bg:
-    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.3) 4px),
-    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-    radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05), transparent 60%),
-    radial-gradient(circle at 90% 90%, rgba(217, 0, 255, 0.08), transparent 50%);
+    /* CRT Scanline Overlay */
+    repeating-linear-gradient(0deg,
+      transparent 0,
+      transparent 1px,
+      rgba(0, 0, 0, 0.3) 2px,
+      rgba(0, 0, 0, 0.3) 3px),
+    /* Vertical Data Lines */
+    repeating-linear-gradient(90deg,
+      transparent 0,
+      transparent 39px,
+      rgba(0, 243, 255, 0.05) 40px),
+    /* Horizontal Data Lines */
+    repeating-linear-gradient(180deg,
+      transparent 0,
+      transparent 39px,
+      rgba(255, 0, 255, 0.05) 40px),
+    /* Deep Void Gradient */
+    radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050508 100%);
 
-  --theme-bpm-text-gradient: linear-gradient(180deg, #ffffff 40%, #00f3ff 100%);
+  --theme-bpm-text-gradient: linear-gradient(180deg, #ffffff 0%, #00f3ff 100%);
+  --theme-glass-top-light: linear-gradient(180deg, rgba(0, 243, 255, 0.1), transparent);
 
-  --theme-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 30px rgba(0, 243, 255, 0.2);
-  --theme-shadow-panel: 0 0 0 1px rgba(0, 243, 255, 0.1), 0 10px 30px -10px rgba(0, 0, 0, 0.8);
-  --theme-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --theme-shadow-modal:
-    0 0 0 1px rgba(0, 243, 255, 0.4), 0 0 50px rgba(0, 243, 255, 0.1),
-    0 0 0 100vmax rgba(0, 0, 0, 0.8);
-  --theme-shadow-inset: inset 0 0 15px rgba(0, 0, 0, 0.5);
-
-  --theme-trainer-active-bg: linear-gradient(135deg,
-      rgba(217, 0, 255, 0.2),
-      rgba(0, 243, 255, 0.1));
-  --theme-trainer-active-border: #00f3ff;
-  --theme-trainer-active-glow:
-    0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
-
-  --theme-toggle-active-speed: linear-gradient(to right, #d900ff, #00f3ff);
-  --theme-toggle-active-interval: linear-gradient(to right, #00f3ff, #05ffa1);
-  --theme-toggle-border-interval: #05ffa1;
-
-  --theme-bg-modal: rgba(5, 5, 8, 0.95);
-  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(8, 8, 12, 0.98), rgba(4, 4, 6, 0.98));
-
-  --theme-wheel-bg: linear-gradient(to right,
+  --theme-wheel-bg: repeating-linear-gradient(90deg,
       rgba(0, 0, 0, 0.8),
-      rgba(0, 243, 255, 0.05) 20%,
-      rgba(0, 243, 255, 0.05) 80%,
-      rgba(0, 0, 0, 0.8));
-  --theme-wheel-line: #00f3ff;
-  --theme-wheel-line-glow: rgba(0, 243, 255, 0.8);
-  --theme-wheel-tick: rgba(0, 243, 255, 0.3);
-  --theme-visualizer-empty: rgba(0, 243, 255, 0.05);
-  --theme-visualizer-accent: #00f3ff;
-  --theme-visualizer-accent-dim: rgba(0, 243, 255, 0.35);
+      rgba(0, 0, 0, 0.8) 2px,
+      transparent 2px,
+      transparent 4px);
+  --theme-wheel-line: #ff2a6d;
+  --theme-wheel-line-glow: 0 0 10px rgba(255, 42, 109, 0.8);
+  --theme-wheel-tick: #00f3ff;
+
+  /* Tech Shadows & Borders */
+  --theme-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+  --theme-shadow-panel:
+    0 0 0 1px rgba(0, 243, 255, 0.3),
+    /* Primary border */
+    0 0 0 2px rgba(0, 0, 0, 0.5),
+    /* Separation */
+    0 0 10px rgba(0, 243, 255, 0.2),
+    /* Inner glow */
+    inset 0 0 20px rgba(0, 243, 255, 0.05);
+  /* Deep glow */
+
+  --theme-shadow-sm: 0 0 0 1px rgba(0, 243, 255, 0.3);
+
+  --theme-shadow-modal:
+    0 0 0 1px rgba(0, 243, 255, 0.5),
+    0 0 0 4px rgba(0, 0, 0, 0.5),
+    /* Gap */
+    0 0 40px rgba(0, 243, 255, 0.2),
+    /* Outer Glow */
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+
+  --theme-shadow-inset: inset 0 0 10px rgba(0, 0, 0, 0.9);
+
+  --theme-trainer-active-bg: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(217, 0, 255, 0.2));
+  --theme-trainer-active-border: #00f3ff;
+  --theme-trainer-active-glow: 0 0 20px rgba(0, 243, 255, 0.4);
+
+  --theme-toggle-active-speed: linear-gradient(135deg, #00f3ff, #2979ff);
+  --theme-toggle-active-interval: linear-gradient(135deg, #00e676, #00b0ff);
+  --theme-toggle-border-interval: rgba(0, 230, 118, 0.5);
+  --theme-toggle-knob: #ffffff;
+  --theme-text-on-accent: #000000;
+  --theme-text-active-glass: #00f3ff;
+
+  --theme-visualizer-empty: rgba(0, 243, 255, 0.1);
+  --theme-visualizer-accent: #ff2a6d;
+  --theme-visualizer-accent-dim: rgba(255, 42, 109, 0.3);
+
+  --theme-radius-lg: 2px;
+  --theme-radius-md: 0px;
+  --theme-radius-sm: 0px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 2px;
+  --theme-radius-pill: 0px;
+
+  --theme-motion-hover: translate(1px, 1px);
+  --theme-transition-base: all 0.1s steps(4);
+  --theme-transition-fast: all 0.05s steps(2);
+
+  --theme-shadow-popover: 0 0 0 1px #00f3ff, 0 10px 30px rgba(0, 0, 0, 0.9);
+  /* Plasma Pulse Active State */
+  --theme-shadow-active-item: 0 0 10px #00f3ff, inset 0 0 10px #00f3ff;
 }
 
 .theme-cyberpunk {
-  background-size:
-    100% 4px,
-    40px 40px,
-    40px 40px,
-    100% 100%,
-    100% 100%;
+  background-attachment: fixed;
+}
+
+/* Glitch effect on hover for buttons */
+.theme-cyberpunk button:hover {
+  text-shadow: 2px 0 #ff00ff, -2px 0 #00f3ff;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.6) !important;
+}
+
+/* Pulse Animation */
+@keyframes cyberpunk-pulse {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 0 20px rgba(0, 243, 255, 0.4);
+    opacity: 1;
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(0, 243, 255, 1), 0 0 40px rgba(0, 243, 255, 0.6);
+    opacity: 0.9;
+  }
+}
+
+/* Data value sharp glow - Stable (No breathing) */
+.theme-cyberpunk [class*="bpm-display__value--main"] {
+  text-shadow: 0 0 5px rgba(0, 243, 255, 0.8), 0 0 10px rgba(0, 243, 255, 0.5);
+  animation: none;
+}
+
+/* Inverted contrast for active subdivision buttons - Translucent Style */
+.theme-cyberpunk [class*="subdivision-btn--active"] {
+  background-color: rgba(0, 243, 255, 0.15) !important;
+  color: #00f3ff !important;
+  border: 1px solid #00f3ff !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3), inset 0 0 10px rgba(0, 243, 255, 0.1) !important;
+  text-shadow: 0 0 5px rgba(0, 243, 255, 0.8) !important;
+  font-weight: 800;
+}
+
+/* Trainer Dock Active - High Visibility Cyan Text on Dark */
+.theme-cyberpunk [class*="trainer-dock__btn--active"] {
+  background-color: rgba(0, 243, 255, 0.1) !important;
+  border-color: #00f3ff !important;
+  color: #00f3ff !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3) !important;
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.6) !important;
+}
+
+/* Ensure dock button icons inherit color */
+.theme-cyberpunk [class*="trainer-dock__btn--active"] svg {
+  stroke: #00f3ff !important;
+  filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.8));
+}
+
+/* Scanline animation */
+@keyframes scanline-drift {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
 }
 
 .theme-kids {
   --theme-bg-primary: #f8f1d8;
+  --theme-bg-overlay: rgba(255, 255, 255, 0.8);
+  --theme-bg-modal: #ffffff;
+  --theme-bg-modal-gradient: linear-gradient(180deg, #ffffff, #f0f0f0);
+
+  --theme-text-primary: #2d3436;
+  --theme-text-secondary: #6c5ce7;
+  --theme-text-muted: #a29bfe;
+  --theme-text-dim: #b2bec3;
+  --theme-text-bright: #000000;
 
   --theme-glass-bg: rgba(255, 255, 255, 0.9);
   --theme-glass-bg-subtle: rgba(255, 255, 255, 1);
@@ -218,37 +396,25 @@
 
   --theme-input-bg: rgba(0, 0, 0, 0.05);
 
-  --theme-text-primary: #2d3436;
-  --theme-text-secondary: #6c5ce7;
-  --theme-text-muted: #a29bfe;
-  --theme-text-dim: #b2bec3;
-  --theme-text-bright: #000000;
-
   --theme-accent-amber: #ff9ff3;
   --theme-accent-amber-bg: rgba(255, 159, 243, 0.2);
   --theme-accent-amber-border: #ff9ff3;
   --theme-accent-amber-glow: 0 0 0 rgba(0, 0, 0, 0);
-
   --theme-accent-cyan: #00d2d3;
   --theme-accent-purple: #5f27cd;
-
   --theme-accent-purple-bg: rgba(95, 39, 205, 0.1);
   --theme-accent-purple-border: #5f27cd;
-
   --theme-accent-blue: #54a0ff;
   --theme-accent-blue-bg: rgba(84, 160, 255, 0.1);
   --theme-accent-blue-border: #54a0ff;
-
   --theme-accent-red: #ff6b6b;
   --theme-accent-red-bg: rgba(255, 107, 107, 0.1);
   --theme-accent-red-border: #ff6b6b;
-
   --theme-accent-green-border: #1dd1a1;
 
   --theme-glass-border: 4px solid #6c5ce7;
   --theme-glass-border-subtle: 2px solid #b2bec3;
   --theme-glass-border-bright: 3px solid #a29bfe;
-
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
@@ -258,6 +424,12 @@
     radial-gradient(rgba(116, 185, 255, 0.4) 20%, transparent 21%) 10px 10px / 20px 20px;
 
   --theme-bpm-text-gradient: linear-gradient(180deg, #ff9ff3 0%, #feca57 50%, #54a0ff 100%);
+  --theme-glass-top-light: none;
+
+  --theme-wheel-bg: #ffffff;
+  --theme-wheel-line: #ff6b6b;
+  --theme-wheel-line-glow: transparent;
+  --theme-wheel-tick: #b2bec3;
 
   --theme-shadow-glow: 4px 4px 0px rgba(0, 0, 0, 0.1);
   --theme-shadow-panel: 6px 6px 0px rgba(108, 92, 231, 0.1);
@@ -272,25 +444,31 @@
   --theme-toggle-active-speed: linear-gradient(to right, #ff9ff3, #feca57);
   --theme-toggle-active-interval: linear-gradient(to right, #54a0ff, #1dd1a1);
   --theme-toggle-border-interval: #1dd1a1;
-
-  --theme-bg-modal: #ffffff;
-  --theme-bg-modal-gradient: linear-gradient(180deg, #ffffff, #f0f0f0);
-
-  --theme-wheel-bg: #ffffff;
-  --theme-wheel-line: #ff6b6b;
-  --theme-wheel-line-glow: transparent;
-  --theme-wheel-tick: #b2bec3;
-
-  --theme-text-on-accent: #2d3436;
   --theme-toggle-knob: #2d3436;
+  --theme-text-on-accent: #2d3436;
+  --theme-text-active-glass: #2d3436;
+
   --theme-visualizer-empty: rgba(45, 52, 54, 0.06);
   --theme-visualizer-accent: #00d2d3;
   --theme-visualizer-accent-dim: rgba(0, 210, 211, 0.4);
+
+  /* Enforce rounded corners via tokens instead of wildcard */
+  --theme-radius-lg: 16px;
+  --theme-radius-md: 12px;
+  --theme-radius-sm: 10px;
+  --theme-radius-xs: 6px;
+  --theme-radius-modal: 24px;
+  --theme-radius-pill: 9999px;
+
+  --theme-motion-hover: translateY(-1px);
+  --theme-transition-base: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --theme-transition-fast: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --theme-shadow-popover: 0 4px 0px rgba(0, 0, 0, 0.1);
+  --theme-shadow-active-item: 0 0 0 2px var(--theme-text-secondary);
 }
 
-.theme-kids * {
-  border-radius: 12px !important;
-}
+/* Removed wildcard * { border-radius } for performance */
 
 .theme-kids div[class*="bpm-display__value--blur"] {
   display: none;
@@ -301,88 +479,146 @@
 }
 
 .theme-swiss {
-  --theme-bg-primary: #f4f4f0;
+  --theme-bg-primary: #f5f5f7;
 
   --theme-glass-bg: #ffffff;
   --theme-glass-bg-subtle: #ffffff;
-  --theme-glass-bg-hover: #0033ff;
+  --theme-glass-bg-hover: #002fa7;
+  /* International Klein Blue (Darker for hover) */
   --theme-glass-bg-active: #000000;
 
-  --theme-input-bg: #f0f0f0;
+  /* Subtle gray for inputs to stand out against white modal */
+  --theme-input-bg: rgba(0, 0, 0, 0.05);
 
   --theme-text-primary: #000000;
-  --theme-text-secondary: #0033ff;
-  --theme-text-muted: #636e72;
-  --theme-text-dim: #b2bec3;
+  --theme-text-secondary: #002fa7;
+  /* International Klein Blue */
+  --theme-text-muted: #666666;
+  --theme-text-dim: #999999;
   --theme-text-bright: #000000;
 
-  --theme-accent-amber: #ff3300;
-  --theme-accent-amber-bg: rgba(255, 51, 0, 0.1);
-  --theme-accent-amber-border: #ff3300;
+  --theme-accent-amber: #ff3b30;
+  /* Swiss Red (Pantone 485 C approx) */
+  --theme-accent-amber-bg: rgba(255, 59, 48, 0.1);
+  --theme-accent-amber-border: #ff3b30;
   --theme-accent-amber-glow: 0 0 0 transparent;
 
-  --theme-accent-cyan: #0033ff;
+  --theme-accent-cyan: #002fa7;
   --theme-accent-purple: #000000;
 
   --theme-accent-purple-bg: rgba(0, 0, 0, 0.05);
   --theme-accent-purple-border: #000000;
 
-  --theme-accent-blue: #0033ff;
-  --theme-accent-blue-bg: rgba(0, 51, 255, 0.1);
-  --theme-accent-blue-border: #0033ff;
+  --theme-accent-blue: #002fa7;
+  --theme-accent-blue-bg: rgba(0, 47, 167, 0.1);
+  --theme-accent-blue-border: #002fa7;
 
-  --theme-accent-red: #ff3300;
-  --theme-accent-red-bg: rgba(255, 51, 0, 0.1);
-  --theme-accent-red-border: #ff3300;
+  --theme-accent-red: #ff3b30;
+  --theme-accent-red-bg: rgba(255, 59, 48, 0.1);
+  --theme-accent-red-border: #ff3b30;
 
-  --theme-accent-green-border: #00b894;
+  --theme-accent-green-border: #009639;
 
-  --theme-glass-border: 1px solid #000000;
-  --theme-glass-border-subtle: 1px solid #999999;
-  --theme-glass-border-bright: 1px solid #000000;
+  --theme-glass-border: #000000;
+  --theme-glass-border-subtle: #cccccc;
+  --theme-glass-border-bright: transparent;
 
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
+  /* Tighter, more precise grid (20px) - Subtler opacity */
   --theme-gradient-bg:
-    linear-gradient(#e5e5e5 1px, transparent 1px) 0 0 / 20px 20px,
-    linear-gradient(90deg, #e5e5e5 1px, transparent 1px) 0 0 / 20px 20px;
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
 
   --theme-bpm-text-gradient: #000000;
 
   --theme-shadow-glow: none;
-  --theme-shadow-panel: none;
+  --theme-shadow-panel: 4px 4px 0px #000000;
   --theme-shadow-sm: none;
-  --theme-shadow-modal: 10px 10px 0px rgba(0, 0, 0, 0.1);
+  --theme-shadow-modal: 8px 8px 0px #000000;
   --theme-shadow-inset: none;
 
-  --theme-trainer-active-bg: #ff3300;
-  --theme-trainer-active-border: #ff3300;
+  --theme-trainer-active-bg: #ff3b30;
+  --theme-trainer-active-border: #ff3b30;
   --theme-trainer-active-glow: none;
 
-  --theme-toggle-active-speed: #ff3300;
-  --theme-toggle-active-interval: #0033ff;
-  --theme-toggle-border-interval: #0033ff;
+  --theme-toggle-active-speed: #ff3b30;
+  --theme-toggle-active-interval: #002fa7;
+  --theme-toggle-border-interval: #002fa7;
 
   --theme-bg-modal: #ffffff;
   --theme-bg-modal-gradient: #ffffff;
 
+  --theme-glass-top-light: none;
+
   --theme-wheel-bg: #ffffff;
-  --theme-wheel-line: #ff3300;
+  --theme-wheel-line: #ff3b30;
   --theme-wheel-line-glow: transparent;
   --theme-wheel-tick: #000000;
 
   --theme-text-active-glass: #ffffff;
   --theme-visualizer-empty: rgba(0, 0, 0, 0.08);
-  --theme-visualizer-accent: #ff3300;
-  --theme-visualizer-accent-dim: rgba(255, 51, 0, 0.2);
+  --theme-visualizer-accent: #ff3b30;
+  --theme-visualizer-accent-dim: rgba(255, 59, 48, 0.2);
+
+  --theme-radius-lg: 0px;
+  --theme-radius-md: 0px;
+  --theme-radius-sm: 0px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 0px;
+  --theme-radius-pill: 0px;
+
+  --theme-motion-hover: none;
+  --theme-transition-base: none;
+  --theme-transition-fast: none;
+
+  --theme-shadow-popover: 4px 4px 0px #000000;
+  --theme-shadow-active-item: none;
 }
 
 .theme-swiss * {
   border-radius: 0px !important;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   letter-spacing: -0.02em;
+}
+
+.theme-swiss button:hover,
+.theme-swiss [role="button"]:hover,
+.theme-swiss [class*="glass-select__option"]:not([class*="--selected"]):hover,
+.theme-swiss [class*="subdivision-btn"]:hover,
+.theme-swiss [class*="header-btn"]:hover {
+  background-color: var(--theme-glass-bg-hover) !important;
+  border-color: var(--theme-glass-bg-hover) !important;
+  color: #ffffff !important;
+  --theme-text-primary: #ffffff;
+}
+
+.theme-swiss [class*="glass-select__option--selected"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.theme-swiss [class*="play-btn--playing"] {
+  background-color: var(--theme-accent-amber) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.theme-swiss [class*="glass-select__active-dot"] {
+  box-shadow: none !important;
+}
+
+.theme-swiss *::-webkit-scrollbar-thumb {
+  border-radius: 0px !important;
+  background-color: #000000 !important;
+}
+
+.theme-swiss [class*="glass-select__chevrons"],
+.theme-swiss [class*="trainer-dock__btn-icon"] {
+  opacity: 1 !important;
 }
 
 .theme-swiss [class*="bpm-display__value--blur"] {
@@ -404,83 +640,132 @@
 }
 
 .theme-zen {
-  --theme-bg-primary: #e8e8e6;
+  /* Wabi-sabi Palette (Natural, Muted, Organic) */
+  --zen-paper: oklch(97% 0.01 85);
+  /* Warm rice paper */
+  --zen-ink: oklch(35% 0.02 90);
+  /* Soft charcoal ink */
+  --zen-stone: oklch(50% 0.02 90);
+  /* River stone grey - Darkened for readability */
+  --zen-moss: oklch(65% 0.12 140);
+  /* Dried moss green */
+  --zen-clay: oklch(65% 0.14 50);
+  /* Terracotta clay - Slightly richer */
+  --zen-sand: oklch(88% 0.03 85);
+  /* Sand beige */
 
-  --theme-glass-bg: rgba(255, 255, 255, 0.6);
-  --theme-glass-bg-subtle: rgba(255, 255, 255, 0.4);
-  --theme-glass-bg-hover: rgba(141, 163, 153, 0.2);
-  --theme-glass-bg-active: rgba(141, 163, 153, 0.3);
+  --theme-bg-primary: var(--zen-paper);
+  --theme-bg-overlay: oklch(97% 0.01 85 / 0.85);
 
-  --theme-input-bg: rgba(255, 255, 255, 0.5);
-
-  --theme-text-primary: #4a5043;
-  --theme-text-secondary: #7d9d8c;
-  --theme-text-muted: #a3b1a8;
-  --theme-text-dim: #bbc2be;
-  --theme-text-bright: #2d3436;
-
-  --theme-accent-amber: #d6b08c;
-  --theme-accent-amber-bg: rgba(214, 176, 140, 0.2);
-  --theme-accent-amber-border: #d6b08c;
-  --theme-accent-amber-glow: 0 0 20px rgba(214, 176, 140, 0.4);
-
-  --theme-accent-cyan: #8da399;
-  --theme-accent-purple: #9aa899;
-
-  --theme-accent-purple-bg: rgba(154, 168, 153, 0.2);
-  --theme-accent-purple-border: #9aa899;
-
-  --theme-accent-blue: #8da399;
-  --theme-accent-blue-bg: rgba(141, 163, 153, 0.2);
-  --theme-accent-blue-border: #8da399;
-
-  --theme-accent-red: #cfa5a5;
-  --theme-accent-red-bg: rgba(207, 165, 165, 0.2);
-  --theme-accent-red-border: #cfa5a5;
-
-  --theme-accent-green-border: #8da399;
-
-  --theme-glass-border: 1px solid #8fa399;
-  --theme-glass-border-subtle: 1px solid #b7c4be;
-  --theme-glass-border-bright: 1px solid #6b7a72;
-
-  --theme-glass-blur: 40px;
-  --theme-glass-blur-sm: 20px;
-  --theme-glass-blur-xl: 60px;
-
-  --theme-gradient-bg:
-    radial-gradient(circle at 10% 20%, rgba(141, 163, 153, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(214, 176, 140, 0.15) 0%, transparent 50%);
-
-  --theme-bpm-text-gradient: linear-gradient(180deg, #5b655a 0%, #4a5043 100%);
-
-  --theme-shadow-glow: 0 0 30px rgba(141, 163, 153, 0.3);
-  --theme-shadow-panel:
-    0 20px 40px -10px rgba(74, 80, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  --theme-shadow-sm: 0 4px 6px -1px rgba(74, 80, 67, 0.05);
-  --theme-shadow-modal: 0 20px 60px rgba(74, 80, 67, 0.1), 0 0 0 100vmax rgba(232, 232, 230, 0.8);
-  --theme-shadow-inset: inset 0 2px 4px rgba(74, 80, 67, 0.05);
-
-  --theme-trainer-active-bg: #8da399;
-  --theme-trainer-active-border: #8da399;
-  --theme-trainer-active-glow: 0 0 15px rgba(141, 163, 153, 0.4);
-
-  --theme-toggle-active-speed: linear-gradient(to right, #d6b08c, #cfa5a5);
-  --theme-toggle-active-interval: linear-gradient(to right, #8da399, #9aa899);
-  --theme-toggle-border-interval: #9aa899;
-
-  --theme-bg-modal: rgba(255, 255, 255, 0.9);
+  --theme-bg-modal: oklch(99% 0.005 85);
   --theme-bg-modal-gradient: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.95),
-      rgba(246, 246, 244, 0.95));
+      oklch(99% 0 0),
+      oklch(96% 0.01 85));
 
-  --theme-wheel-bg: rgba(255, 255, 255, 0.5);
-  --theme-wheel-line: #cfa5a5;
-  --theme-wheel-line-glow: 0 0 10px rgba(207, 165, 165, 0.4);
-  --theme-wheel-tick: #a3b1a8;
-  --theme-visualizer-empty: rgba(74, 80, 67, 0.08);
-  --theme-visualizer-accent: #8da399;
-  --theme-visualizer-accent-dim: rgba(141, 163, 153, 0.4);
+  --theme-text-primary: var(--zen-ink);
+  --theme-text-secondary: var(--zen-stone);
+  --theme-text-muted: oklch(60% 0.02 90);
+  --theme-text-dim: oklch(75% 0.02 90);
+  --theme-text-bright: oklch(20% 0.02 90);
+
+  /* Solid Washi Paper - Removed blur for crisp material feel */
+  --theme-glass-bg: oklch(98% 0.005 85);
+  --theme-glass-bg-subtle: oklch(98% 0.005 85);
+  --theme-glass-bg-hover: oklch(95% 0.01 85);
+  --theme-glass-bg-active: oklch(92% 0.02 85);
+
+  /* Darkened for visibility against paper bg */
+  --theme-input-bg: oklch(90% 0.02 85 / 0.8);
+
+  /* Organic Accents */
+  --theme-accent-amber: var(--zen-clay);
+  --theme-accent-amber-bg: oklch(70% 0.14 50 / 0.15);
+  --theme-accent-amber-border: oklch(70% 0.14 50 / 0.4);
+  --theme-accent-amber-glow: 0 4px 12px oklch(70% 0.14 50 / 0.15);
+
+  --theme-accent-cyan: var(--zen-moss);
+  --theme-accent-purple: oklch(60% 0.05 300);
+  /* Muted purple */
+  --theme-accent-purple-bg: oklch(60% 0.05 300 / 0.15);
+  --theme-accent-purple-border: oklch(60% 0.05 300 / 0.4);
+
+  --theme-accent-blue: var(--zen-moss);
+  --theme-accent-blue-bg: oklch(65% 0.12 140 / 0.15);
+  --theme-accent-blue-border: var(--zen-moss);
+
+  --theme-accent-red: oklch(60% 0.15 25);
+  /* Dried chili red */
+  --theme-accent-red-bg: oklch(60% 0.15 25 / 0.1);
+  --theme-accent-red-border: oklch(60% 0.15 25 / 0.4);
+
+  --theme-accent-green-border: var(--zen-moss);
+
+  /* Minimalist Borders */
+  --theme-glass-border: oklch(98% 0 0);
+  --theme-glass-border-subtle: oklch(95% 0.01 85);
+  --theme-glass-border-bright: oklch(100% 0 0);
+
+  --theme-glass-blur: 0px;
+  --theme-glass-blur-sm: 0px;
+  --theme-glass-blur-xl: 0px;
+
+  /* Paper Texture Background */
+  --theme-gradient-bg:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--zen-paper) 0%, oklch(95% 0.01 85) 100%);
+
+  --theme-bpm-text-gradient: linear-gradient(180deg, var(--zen-ink) 0%, var(--zen-stone) 100%);
+  --theme-glass-top-light: linear-gradient(180deg, oklch(100% 0 0 / 0.6), transparent);
+
+  /* Wheel - Minimalist Enso style */
+  --theme-wheel-bg: linear-gradient(90deg,
+      transparent 0%,
+      oklch(35% 0.02 90 / 0.05) 50%,
+      transparent 100%);
+  --theme-wheel-line: var(--zen-clay);
+  --theme-wheel-line-glow: 0 0 0 transparent;
+  --theme-wheel-tick: var(--zen-stone);
+
+  /* Soft Shadows */
+  --theme-shadow-glow: 0 8px 32px oklch(35% 0.02 90 / 0.05);
+  /* Diffuse shadow */
+  --theme-shadow-panel:
+    0 12px 24px -8px oklch(35% 0.02 90 / 0.06),
+    0 2px 6px -2px oklch(35% 0.02 90 / 0.03);
+  --theme-shadow-sm: 0 2px 4px oklch(35% 0.02 90 / 0.03);
+  --theme-shadow-modal: 0 24px 48px -12px oklch(35% 0.02 90 / 0.1);
+  --theme-shadow-inset: inset 0 2px 4px oklch(35% 0.02 90 / 0.02);
+
+  --theme-trainer-active-bg: linear-gradient(135deg, var(--zen-clay) 0%, oklch(75% 0.1 50) 100%);
+  --theme-trainer-active-border: var(--zen-clay);
+  --theme-trainer-active-glow: 0 4px 12px oklch(70% 0.14 50 / 0.2);
+
+  --theme-toggle-active-speed: linear-gradient(135deg, oklch(85% 0.1 100), oklch(80% 0.12 90));
+  --theme-toggle-active-interval: linear-gradient(135deg, oklch(80% 0.05 150), var(--zen-moss));
+  --theme-toggle-border-interval: var(--zen-moss);
+  --theme-toggle-knob: oklch(99% 0 0);
+  --theme-text-on-accent: var(--zen-ink);
+  --theme-text-active-glass: var(--zen-ink);
+
+  --theme-visualizer-empty: oklch(35% 0.02 90 / 0.06);
+  --theme-visualizer-accent: var(--zen-clay);
+  --theme-visualizer-accent-dim: oklch(70% 0.14 50 / 0.3);
+
+  /* Very soft, organic curves */
+  --theme-radius-lg: 24px;
+  --theme-radius-md: 16px;
+  --theme-radius-sm: 12px;
+  --theme-radius-xs: 6px;
+  --theme-radius-modal: 32px;
+  --theme-radius-pill: 9999px;
+
+  /* Slow, breathing motion */
+  --theme-motion-hover: translateY(-2px);
+  --theme-transition-base: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --theme-transition-fast: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+  --theme-shadow-popover: 0 12px 32px oklch(35% 0.02 90 / 0.08);
+  --theme-shadow-active-item: 0 2px 8px oklch(70% 0.14 50 / 0.15);
 }
 
 .theme-zen * {
@@ -498,45 +783,43 @@
   --theme-input-bg: rgba(0, 0, 0, 0.05);
 
   --theme-text-primary: #000000;
-  --theme-text-secondary: #000000;
-  --theme-text-muted: #666666;
-  --theme-text-dim: #999999;
+  --theme-text-secondary: #444444;
+  --theme-text-muted: #888888;
+  --theme-text-dim: #bbbbbb;
   --theme-text-bright: #000000;
 
   --theme-accent-amber: #000000;
-  --theme-accent-amber-bg: transparent;
+  --theme-accent-amber-bg: rgba(0, 0, 0, 0.1);
   --theme-accent-amber-border: #000000;
-  --theme-accent-amber-glow: 0 0 0 transparent;
+  --theme-accent-amber-glow: none;
 
   --theme-accent-cyan: #000000;
   --theme-accent-purple: #000000;
 
-  --theme-accent-purple-bg: transparent;
+  --theme-accent-purple-bg: rgba(0, 0, 0, 0.05);
   --theme-accent-purple-border: #000000;
 
   --theme-accent-blue: #000000;
-  --theme-accent-blue-bg: transparent;
+  --theme-accent-blue-bg: rgba(0, 0, 0, 0.1);
   --theme-accent-blue-border: #000000;
 
   --theme-accent-red: #000000;
-  --theme-accent-red-bg: transparent;
+  --theme-accent-red-bg: rgba(0, 0, 0, 0.1);
   --theme-accent-red-border: #000000;
-
   --theme-accent-green-border: #000000;
 
-  --theme-glass-border: 2px solid #000000;
-  --theme-glass-border-subtle: 1px solid #000000;
-  --theme-glass-border-bright: 2px solid #000000;
+  --theme-glass-border: #000000;
+  --theme-glass-border-subtle: #000000;
+  --theme-glass-border-bright: #000000;
 
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  --theme-gradient-bg: radial-gradient(#000000 15%, transparent 16%) 0 0 / 4px 4px;
-
-  opacity: 1;
+  --theme-gradient-bg: #f0f0f0;
 
   --theme-bpm-text-gradient: #000000;
+  --theme-glass-top-light: none;
 
   --theme-shadow-glow: none;
   --theme-shadow-panel: 4px 4px 0px #000000;
@@ -548,8 +831,8 @@
   --theme-trainer-active-border: #000000;
   --theme-trainer-active-glow: none;
 
-  --theme-toggle-active-speed: linear-gradient(to right, #000000, #333333);
-  --theme-toggle-active-interval: linear-gradient(to right, #000000, #333333);
+  --theme-toggle-active-speed: linear-gradient(to right, #666666, #000000);
+  --theme-toggle-active-interval: linear-gradient(to right, #000000, #444444);
   --theme-toggle-border-interval: #000000;
 
   --theme-bg-modal: #ffffff;
@@ -557,13 +840,27 @@
 
   --theme-wheel-bg: #ffffff;
   --theme-wheel-line: #000000;
-  --theme-wheel-line-glow: transparent;
+  --theme-wheel-line-glow: none;
   --theme-wheel-tick: #000000;
-
+  --theme-text-on-accent: #ffffff;
   --theme-text-active-glass: #ffffff;
-  --theme-visualizer-empty: rgba(0, 0, 0, 0.08);
+  --theme-visualizer-empty: rgba(0, 0, 0, 0.1);
   --theme-visualizer-accent: #000000;
   --theme-visualizer-accent-dim: rgba(0, 0, 0, 0.3);
+
+  --theme-radius-lg: 2px;
+  --theme-radius-md: 2px;
+  --theme-radius-sm: 1px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 2px;
+  --theme-radius-pill: 9999px;
+
+  --theme-motion-hover: translate(2px, 2px);
+  --theme-transition-base: none;
+  --theme-transition-fast: none;
+
+  --theme-shadow-popover: 4px 4px 0px #000000;
+  --theme-shadow-active-item: 2px 2px 0px #000000;
 }
 
 .theme-e-ink * {
@@ -596,44 +893,46 @@
 
 .theme-neumorphism {
   --theme-bg-primary: #e0e5ec;
+  --theme-bg-overlay: rgba(224, 229, 236, 0.8);
 
   --theme-glass-bg: #e0e5ec;
   --theme-glass-bg-subtle: #e0e5ec;
-  --theme-glass-bg-hover: #e0e5ec;
-  --theme-glass-bg-active: #e0e5ec;
+  --theme-glass-bg-hover: #eef2f7;
+  --theme-glass-bg-active: #eef2f7;
 
-  --theme-input-bg: #e0e5ec;
+  /* Darkened for visibility against same-color modal */
+  /* Seamless Material */
+  --theme-input-bg: transparent;
 
-  --theme-text-primary: #4a5568;
-  --theme-text-secondary: #718096;
-  --theme-text-muted: #a0aec0;
-  --theme-text-dim: #a0aec0;
-  --theme-text-bright: #2d3748;
+  --theme-text-primary: #4a4a4a;
+  --theme-text-secondary: #7a7a7a;
+  --theme-text-muted: #a0a0a0;
+  --theme-text-dim: #b8b8b8;
+  --theme-text-bright: #2d2d2d;
 
-  --theme-accent-amber: #d69e2e;
-  --theme-accent-amber-bg: transparent;
-  --theme-accent-amber-border: #d69e2e;
-  --theme-accent-amber-glow: none;
+  --theme-accent-amber: #ef9326;
+  --theme-accent-amber-bg: #e0e5ec;
+  --theme-accent-amber-border: rgba(239, 147, 38, 0.3);
+  --theme-accent-amber-glow: 2px 2px 5px rgba(163, 177, 198, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.5);
 
-  --theme-accent-cyan: #4a5568;
-  --theme-accent-purple: #805ad5;
+  --theme-accent-cyan: #26c6da;
+  --theme-accent-purple: #9c27b0;
+  --theme-accent-purple-bg: #e0e5ec;
+  --theme-accent-purple-border: rgba(156, 39, 176, 0.3);
 
-  --theme-accent-purple-bg: transparent;
-  --theme-accent-purple-border: #805ad5;
+  --theme-accent-blue: #42a5f5;
+  --theme-accent-blue-bg: #e0e5ec;
+  --theme-accent-blue-border: rgba(66, 165, 245, 0.3);
 
-  --theme-accent-blue: #3182ce;
-  --theme-accent-blue-bg: transparent;
-  --theme-accent-blue-border: #3182ce;
+  --theme-accent-red: #ef5350;
+  --theme-accent-red-bg: #e0e5ec;
+  --theme-accent-red-border: rgba(239, 83, 80, 0.3);
+  --theme-accent-green-border: rgba(66, 165, 245, 0.3);
 
-  --theme-accent-red: #e53e3e;
-  --theme-accent-red-bg: transparent;
-  --theme-accent-red-border: #e53e3e;
-
-  --theme-accent-green-border: #38a169;
-
-  --theme-glass-border: rgba(255, 255, 255, 0.4);
-  --theme-glass-border-subtle: rgba(255, 255, 255, 0.2);
-  --theme-glass-border-bright: rgba(255, 255, 255, 0.6);
+  /* No borders in true Soft UI */
+  --theme-glass-border: transparent;
+  --theme-glass-border-subtle: transparent;
+  --theme-glass-border-bright: transparent;
 
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
@@ -641,40 +940,51 @@
 
   --theme-gradient-bg: #e0e5ec;
 
-  --theme-bpm-text-gradient: #4a5568;
+  --theme-bpm-text-gradient: linear-gradient(135deg, #4a4a4a 0%, #7a7a7a 100%);
+  --theme-glass-top-light: none;
 
-  --theme-shadow-glow: none;
-  --theme-shadow-panel:
-    9px 9px 16px rgb(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
-  --theme-shadow-sm: 5px 5px 10px rgb(163, 177, 198, 0.6), -5px -5px 10px rgba(255, 255, 255, 0.5);
-  --theme-shadow-modal:
-    20px 20px 60px rgb(163, 177, 198, 0.6), -20px -20px 60px rgba(255, 255, 255, 0.5);
-  --theme-shadow-inset:
-    inset 6px 6px 10px 0 rgb(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+  --theme-shadow-glow: 5px 5px 10px rgba(163, 177, 198, 0.4), -5px -5px 10px rgba(255, 255, 255, 0.4);
+  --theme-shadow-panel: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+  --theme-shadow-sm: 5px 5px 10px rgba(163, 177, 198, 0.5), -5px -5px 10px rgba(255, 255, 255, 0.6);
+  --theme-shadow-modal: 12px 12px 20px rgba(163, 177, 198, 0.6), -12px -12px 20px rgba(255, 255, 255, 0.6);
+  --theme-shadow-inset: inset 6px 6px 10px rgba(163, 177, 198, 0.7), inset -6px -6px 10px rgba(255, 255, 255, 0.8);
 
+  /* True Neumorphism active: Deep pressed feel */
   --theme-trainer-active-bg: #e0e5ec;
-  --theme-trainer-active-border: #e0e5ec;
-  --theme-trainer-active-glow:
-    inset 6px 6px 10px 0 rgb(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+  --theme-trainer-active-border: transparent;
+  --theme-trainer-active-glow: inset 6px 6px 12px rgba(163, 177, 198, 0.6), inset -6px -6px 12px rgba(255, 255, 255, 0.9);
 
-  --theme-toggle-active-speed: #e0e5ec;
-  --theme-toggle-active-interval: #e0e5ec;
-  --theme-toggle-border-interval: transparent;
+  --theme-toggle-active-speed: linear-gradient(145deg, #e6e6e6, #ffffff);
+  --theme-toggle-active-interval: linear-gradient(145deg, #e6e6e6, #ffffff);
+  --theme-toggle-border-interval: rgba(66, 165, 245, 0.3);
+  --theme-toggle-knob: #7a7a7a;
 
-  --theme-bg-modal: #c1c9d6;
-  --theme-bg-modal-gradient: #c1c9d6;
+  --theme-bg-modal: #e0e5ec;
+  --theme-bg-modal-gradient: #e0e5ec;
 
   --theme-wheel-bg: #e0e5ec;
-  --theme-wheel-line: #e53e3e;
-  --theme-wheel-line-glow: none;
-  --theme-wheel-tick: #a0aec0;
+  --theme-wheel-line: #ef5350;
+  --theme-wheel-line-glow: 0 0 5px rgba(239, 83, 80, 0.3);
+  --theme-wheel-tick: #a0a0a0;
+  --theme-text-on-accent: #4a4a4a;
+  --theme-text-active-glass: #26c6da;
+  --theme-visualizer-empty: rgba(163, 177, 198, 0.2);
+  --theme-visualizer-accent: #26c6da;
+  --theme-visualizer-accent-dim: rgba(38, 198, 218, 0.3);
 
-  --theme-text-active-glass: #3182ce;
-  --theme-text-on-accent: #3182ce;
-  --theme-toggle-knob: #4a5568;
-  --theme-visualizer-empty: rgba(163, 177, 198, 0.3);
-  --theme-visualizer-accent: #3182ce;
-  --theme-visualizer-accent-dim: rgba(49, 130, 206, 0.3);
+  --theme-radius-lg: 30px;
+  --theme-radius-md: 20px;
+  --theme-radius-sm: 12px;
+  --theme-radius-xs: 8px;
+  --theme-radius-modal: 40px;
+  --theme-radius-pill: 50px;
+
+  --theme-motion-hover: translateY(-1px);
+  --theme-transition-base: all 0.3s ease-out;
+  --theme-transition-fast: all 0.15s ease-out;
+
+  --theme-shadow-popover: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+  --theme-shadow-active-item: inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
 }
 
 .theme-neumorphism * {
@@ -686,10 +996,140 @@
 }
 
 .theme-neumorphism [class*="bpm-display__value--main"] {
-  filter: drop-shadow(2px 2px 4px rgba(163, 177, 198, 0.6)) drop-shadow(-2px -2px 4px rgba(255, 255, 255, 0.5)) !important;
+  text-shadow: 2px 2px 4px rgba(163, 177, 198, 0.4), -2px -2px 4px rgba(255, 255, 255, 0.8) !important;
   color: #4a5568 !important;
   -webkit-text-fill-color: #4a5568 !important;
   background: none !important;
+  filter: none !important;
+}
+
+/* 2. Visualizer States: Fix monotone issue by defining clear colors */
+.theme-neumorphism {
+  /* Strong accent for downbeat (red/strong color) */
+  --theme-visualizer-accent: #EF5350;
+  /* Material Red 400 */
+  /* Softer color for weak beat (blue/cyan) */
+  --theme-visualizer-accent-dim: #42A5F5;
+  /* Material Blue 400 */
+  /* Muted grey for empty/off state */
+  --theme-visualizer-empty: #e0e5ec;
+  /* Match bg for "invisible" look or slightly darker for "well" */
+}
+
+/* Ensure visualizer blocks have the "Well" effect (Concave) */
+.theme-neumorphism [class*="visualizer__block"] {
+  background-color: var(--theme-visualizer-empty) !important;
+  box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.8) !important;
+  border-radius: 4px !important;
+  border: none !important;
+  /* Disable CSS transition to prevent ghosting/conflict with Framer Motion */
+  transition: none !important;
+}
+
+/* Specific fix for Range Inputs (like Swing Trainer) to ensure visibility */
+.theme-neumorphism input[type="range"] {
+  background: #e0e5ec !important;
+  /* Tighter shadow for thin tracks */
+  box-shadow: inset 2px 2px 5px rgba(163, 177, 198, 0.6), inset -2px -2px 5px rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  height: 12px !important;
+  /* Force sufficient height for shadow to be visible */
+  margin-top: -3px;
+  /* Vertical align correction if needed */
+}
+
+/* FIX: Target inline style override conflict */
+
+
+/* Ensure ACTIVE blocks get the color, overriding the generic block rule above if specificity was an issue */
+.theme-neumorphism [class*="visualizer__block"][style*="var(--theme-visualizer-accent)"],
+.theme-neumorphism [class*="visualizer__block"][style*="rgb"] {
+  /* If framer motion sets a color, we must allow it. 
+      The previous !important on background-color: empty was killing it.
+      So we REMOVE the !important only for active states, or use a stronger selector.
+   */
+  background-color: var(--theme-visualizer-accent) !important;
+  box-shadow: 0 0 8px var(--theme-visualizer-accent), inset 1px 1px 2px rgba(255, 255, 255, 0.4) !important;
+}
+
+.theme-neumorphism [class*="visualizer__block"][style*="var(--theme-visualizer-accent-dim)"] {
+  background-color: var(--theme-visualizer-accent-dim) !important;
+  box-shadow: 0 0 8px var(--theme-visualizer-accent-dim), inset 1px 1px 2px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Active Blocks: Fill the well with light (Convex/Flat or Glowing) */
+.theme-neumorphism [class*="visualizer__block--active"] {
+  box-shadow: 0 0 10px var(--theme-visualizer-accent), inset 2px 2px 4px rgba(0, 0, 0, 0.1) !important;
+  background-color: var(--theme-visualizer-accent) !important;
+  border: none !important;
+}
+
+/* 3. Button/Select Depth (Convex) - "The Floating Plate" */
+.theme-neumorphism button,
+.theme-neumorphism [class*="glass-select__btn"],
+.theme-neumorphism [class*="header-btn"] {
+  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.3) !important;
+  background: linear-gradient(145deg, #f0f5fc, #d9dee4) !important;
+  border: none !important;
+  color: #555 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* 3.1 Trainer Toggle Checkboxes (Specific Fix) */
+.theme-neumorphism [class*="toggle"] {
+  /* Unchecked: Deep Concave Well */
+  background: #d1d9e6 !important;
+  box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+}
+
+.theme-neumorphism [class*="toggle--active"] {
+  /* Checked: Glowing Cyan/Blue Convex */
+  background: var(--theme-toggle-active-speed) !important;
+  box-shadow: 0 0 10px rgba(66, 165, 245, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 3.2 BPM History Tags */
+/* 3.2 BPM History Tags */
+/* EXCLUDE the text span which accidentally matches "history-bar__item" via substring */
+.theme-neumorphism [class*="history-bar__item"]:not([class*="-text"]) {
+  /* Unselected: Convex Button */
+  box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8) !important;
+  background: linear-gradient(145deg, #f0f5fc, #d9dee4) !important;
+  border: none !important;
+  color: #7a7a7a !important;
+  margin: 4px !important;
+}
+
+.theme-neumorphism [class*="history-bar__item--active"] {
+  /* Selected: Concave Pressed with Brand Color */
+  box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.9) !important;
+  background: #e0e5ec !important;
+  color: #EF5350 !important;
+  /* Red Accent */
+  font-weight: 800;
+  border: 1px solid rgba(239, 83, 80, 0.1) !important;
+  /* Subtle tint */
+}
+
+/* Active/Pressed Button State (Becomes Concave) */
+.theme-neumorphism button:active,
+.theme-neumorphism [class*="glass-select__btn"]:active,
+.theme-neumorphism [class*="header-btn"]:active,
+.theme-neumorphism [class*="--active"] {
+  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(1px);
+}
+
+/* 4. Inputs: The "Concave Trench" */
+.theme-neumorphism input[type="text"],
+.theme-neumorphism input[type="number"],
+.theme-neumorphism [class*="input"],
+.theme-neumorphism [class*="toggle-btn"] {
+  background: #e0e5ec !important;
+  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.5), inset -4px -4px 8px rgba(255, 255, 255, 0.8) !important;
+  border: none !important;
 }
 
 .theme-neumorphism button:active {
@@ -707,44 +1147,51 @@
 
 .theme-amoled {
   --theme-bg-primary: #000000;
+  --theme-bg-overlay: rgba(0, 0, 0, 0.9);
 
-  --theme-glass-bg: rgba(0, 0, 0, 0.8);
-  --theme-glass-bg-subtle: rgba(10, 10, 10, 0.8);
-  --theme-glass-bg-hover: rgba(20, 20, 20, 1);
-  --theme-glass-bg-active: rgba(30, 30, 30, 1);
+  /* True Black Philosophy: No Grey Backgrounds */
+  --theme-glass-bg: #000000;
+  --theme-glass-bg-subtle: #000000;
+  --theme-glass-bg-hover: #111111;
+  /* Very subtle lift */
+  --theme-glass-bg-active: #000000;
 
-  --theme-input-bg: rgba(20, 20, 20, 1);
+  /* Inputs: Outline Only */
+  --theme-input-bg: #000000;
 
   --theme-text-primary: #ffffff;
-  --theme-text-secondary: #aaaaaa;
-  --theme-text-muted: #555555;
+  --theme-text-secondary: #888888;
+  --theme-text-muted: #444444;
   --theme-text-dim: #333333;
   --theme-text-bright: #ffffff;
 
-  --theme-accent-amber: #ffd700;
-  --theme-accent-amber-bg: rgba(255, 215, 0, 0.1);
-  --theme-accent-amber-border: #ffd700;
-  --theme-accent-amber-glow: 0 0 10px #ffd700;
+  /* Electric Amber Accent */
+  --theme-accent-amber: #FFCA28;
+  /* Brighter Gold */
+  --theme-accent-amber-bg: #000000;
+  --theme-accent-amber-border: #FFCA28;
+  --theme-accent-amber-glow: 0 0 15px rgba(255, 202, 40, 0.4);
+  /* Neon Glow */
 
-  --theme-accent-cyan: #00ffff;
-  --theme-accent-purple: #bf00ff;
+  /* Other Accents: High Saturation */
+  --theme-accent-cyan: #00E5FF;
+  --theme-accent-purple: #D500F9;
+  --theme-accent-purple-bg: #000000;
+  --theme-accent-purple-border: #D500F9;
 
-  --theme-accent-purple-bg: rgba(191, 0, 255, 0.1);
-  --theme-accent-purple-border: #bf00ff;
+  --theme-accent-blue: #2979FF;
+  --theme-accent-blue-bg: #000000;
+  --theme-accent-blue-border: #2979FF;
 
-  --theme-accent-blue: #0088ff;
-  --theme-accent-blue-bg: rgba(0, 136, 255, 0.1);
-  --theme-accent-blue-border: #0088ff;
+  --theme-accent-red: #FF1744;
+  --theme-accent-red-bg: #000000;
+  --theme-accent-red-border: #FF1744;
+  --theme-accent-green-border: #00E676;
 
-  --theme-accent-red: #ff0000;
-  --theme-accent-red-bg: rgba(255, 0, 0, 0.1);
-  --theme-accent-red-border: #ff0000;
-
-  --theme-accent-green-border: #00ff00;
-
+  /* Borders define structure in the void */
   --theme-glass-border: #333333;
-  --theme-glass-border-subtle: #1a1a1a;
-  --theme-glass-border-bright: #555555;
+  --theme-glass-border-subtle: #222222;
+  --theme-glass-border-bright: #444444;
 
   --theme-glass-blur: 0px;
   --theme-glass-blur-sm: 0px;
@@ -753,33 +1200,53 @@
   --theme-gradient-bg: #000000;
 
   --theme-bpm-text-gradient: #ffffff;
+  --theme-glass-top-light: none;
 
-  --theme-shadow-glow: 0 0 20px rgba(255, 255, 255, 0.1);
-  --theme-shadow-panel: 0 0 0 1px #1a1a1a;
-  --theme-shadow-sm: none;
-  --theme-shadow-modal: 0 0 0 1px #333333, 0 0 100px rgba(255, 255, 255, 0.05);
-  --theme-shadow-inset: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  --theme-shadow-glow: none;
+  --theme-shadow-panel: 0 0 0 1px #333333;
+  --theme-shadow-sm: 0 0 0 1px #1f1f1f;
+  /* Visualizer: Monochromatic "Recording Equipment" Style */
+  --theme-visualizer-empty: #222222;
+  --theme-visualizer-accent: #FFFFFF;
+  /* Pure White Peak */
+  --theme-visualizer-accent-dim: #666666;
+  /* Grey Sub-beat */
 
+  /* Trainer Active: Strict Monochrome, No Blur */
   --theme-trainer-active-bg: #000000;
   --theme-trainer-active-border: #ffffff;
-  --theme-trainer-active-glow: 0 0 15px rgba(255, 255, 255, 0.5);
+  --theme-trainer-active-glow: none;
+  /* No Neon Glow */
 
-  --theme-toggle-active-speed: linear-gradient(to right, #bf00ff, #0088ff);
-  --theme-toggle-active-interval: linear-gradient(to right, #0088ff, #00ff00);
-  --theme-toggle-border-interval: #00ff00;
+  --theme-toggle-active-speed: #ffffff;
+  /* White Toggle */
+  --theme-toggle-active-interval: #ffffff;
+  --theme-toggle-border-interval: #ffffff;
+  --theme-toggle-knob: #000000;
 
   --theme-bg-modal: #000000;
   --theme-bg-modal-gradient: #000000;
 
   --theme-wheel-bg: #000000;
-  --theme-wheel-line: #ff0000;
-  --theme-wheel-line-glow: 0 0 10px #ff0000;
-  --theme-wheel-tick: #555555;
-
+  --theme-wheel-line: #ffffff;
+  --theme-wheel-line-glow: none;
+  --theme-wheel-tick: #444444;
+  --theme-text-on-accent: #000000;
   --theme-text-active-glass: #ffffff;
-  --theme-visualizer-empty: #111111;
-  --theme-visualizer-accent: #00ffff;
-  --theme-visualizer-accent-dim: rgba(0, 255, 255, 0.2);
+
+  --theme-radius-lg: 16px;
+  --theme-radius-md: 10px;
+  --theme-radius-sm: 6px;
+  --theme-radius-xs: 4px;
+  --theme-radius-modal: 20px;
+  --theme-radius-pill: 9999px;
+
+  --theme-motion-hover: translateY(-1px);
+  --theme-transition-base: all 0.2s ease;
+  --theme-transition-fast: all 0.1s ease;
+
+  --theme-shadow-popover: 0 0 0 1px #333333;
+  --theme-shadow-active-item: 0 0 0 1px #ffffff;
 }
 
 .theme-amoled [class*="bpm-display__value--blur"] {
@@ -797,85 +1264,138 @@
 }
 
 .theme-retro {
-  --theme-bg-primary: #2b213a;
+  /* CRT Monitor Palette */
+  --theme-bg-primary: #1a0b2e;
+  /* Deep purple-black base */
+  --theme-bg-overlay: rgba(26, 11, 46, 0.9);
 
-  --theme-glass-bg: rgba(43, 33, 58, 0.8);
-  --theme-glass-bg-subtle: rgba(43, 33, 58, 0.6);
-  --theme-glass-bg-hover: rgba(255, 0, 255, 0.1);
-  --theme-glass-bg-active: rgba(0, 255, 255, 0.1);
+  --theme-glass-bg: rgba(43, 21, 64, 0.85);
+  /* Darker, less transparent */
+  --theme-glass-bg-subtle: #10051d;
+  /* Deep Opaque Purple (Not Pure Black) - Fits Synthwave/VCR aesthetic */
+  --theme-glass-bg-hover: rgba(255, 0, 255, 0.15);
+  --theme-glass-bg-active: rgba(0, 255, 255, 0.15);
 
-  --theme-input-bg: rgba(0, 0, 0, 0.3);
+  --theme-input-bg: rgba(0, 0, 0, 0.6);
 
+  /* Neon Phosphors */
   --theme-text-primary: #ff71ce;
-  --theme-text-secondary: #05ffa1;
+  /* Hot Pink */
+  --theme-text-secondary: #01cdfe;
+  /* Cyan */
   --theme-text-muted: #b967ff;
+  /* Purple */
   --theme-text-dim: #01cdfe;
+  /* Cyan (was Dark Purple, now visible) */
   --theme-text-bright: #fffb96;
+  /* Pale Yellow (Phosphor White) */
 
+  /* Accents - High Saturation */
   --theme-accent-amber: #fffb96;
-  --theme-accent-amber-bg: rgba(255, 251, 150, 0.1);
+  --theme-accent-amber-bg: rgba(255, 251, 150, 0.2);
   --theme-accent-amber-border: #fffb96;
-  --theme-accent-amber-glow: 0 0 10px #fffb96;
+  --theme-accent-amber-glow: 0 0 8px rgba(255, 251, 150, 0.6);
 
   --theme-accent-cyan: #01cdfe;
   --theme-accent-purple: #b967ff;
-
-  --theme-accent-purple-bg: rgba(185, 103, 255, 0.1);
+  --theme-accent-purple-bg: rgba(185, 103, 255, 0.2);
   --theme-accent-purple-border: #b967ff;
 
-  --theme-accent-blue: #01cdfe;
-  --theme-accent-blue-bg: rgba(1, 205, 254, 0.1);
-  --theme-accent-blue-border: #01cdfe;
+  --theme-accent-blue: #05ffa1;
+  /* Alien Green/Blue */
+  --theme-accent-blue-bg: rgba(5, 255, 161, 0.2);
+  --theme-accent-blue-border: #05ffa1;
 
   --theme-accent-red: #ff71ce;
-  --theme-accent-red-bg: rgba(255, 113, 206, 0.1);
+  --theme-accent-red-bg: rgba(255, 113, 206, 0.2);
   --theme-accent-red-border: #ff71ce;
-
   --theme-accent-green-border: #05ffa1;
 
-  --theme-glass-border: #b967ff;
-  --theme-glass-border-subtle: #05ffa1;
+  --theme-glass-border: #ff71ce;
+  --theme-glass-border-subtle: #b967ff;
   --theme-glass-border-bright: #01cdfe;
-
   --theme-glass-blur: 0px;
+  /* No blur for crisp retro feel, or minimal */
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
+  /* CRT Scanlines & Vignette & Wireframe Grid */
   --theme-gradient-bg:
-    linear-gradient(180deg, #2b213a 0%, #241734 50%, #2b213a 100%),
-    repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0, 255, 255, 0.1) 3px),
-    repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255, 0, 255, 0.05) 41px);
+    radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.8) 100%),
+    /* Heavy Vignette */
+    repeating-linear-gradient(0deg,
+      transparent 0,
+      transparent 2px,
+      rgba(0, 0, 0, 0.3) 3px),
+    /* Scanlines */
+    linear-gradient(rgba(18, 11, 34, 0.9) 0%, rgba(18, 11, 34, 0.9) 100%),
+    /* Tint */
+    /* Synthwave Grid Bottom */
+    linear-gradient(0deg, rgba(185, 103, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 103, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(135deg, #2b1055 0%, #1a0b2e 100%);
 
-  --theme-bpm-text-gradient: linear-gradient(180deg, #fffb96 0%, #ff71ce 50%, #01cdfe 100%);
+  /* Retro Text Styles */
+  --theme-bpm-text-gradient: #fffb96;
+  /* No gradient, solid glowing color */
+  --theme-glass-top-light: none;
 
-  --theme-shadow-glow: 4px 4px 0px rgba(0, 255, 255, 0.5);
-  --theme-shadow-panel: 5px 5px 0px rgba(185, 103, 255, 0.3);
-  --theme-shadow-sm: 3px 3px 0px rgba(5, 255, 161, 0.3);
-  --theme-shadow-modal: 10px 10px 0px rgba(0, 205, 254, 0.3), 0 0 0 100vmax rgba(0, 0, 0, 0.7);
+  /* RGB Split Glow */
+  --theme-shadow-glow:
+    -2px 0 0 rgba(255, 0, 0, 0.5),
+    2px 0 0 rgba(0, 255, 255, 0.5),
+    0 0 10px rgba(255, 113, 206, 0.6);
+  /* Text Bloom */
+
+  --theme-shadow-panel:
+    0 0 0 2px #b967ff,
+    /* Hard Border */
+    4px 4px 0px rgba(0, 0, 0, 0.5);
+  /* Drop Shadow */
+
+  --theme-shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  --theme-shadow-modal: 0 0 0 2px #01cdfe, 0 0 0 100vmax rgba(0, 0, 0, 0.8);
   --theme-shadow-inset: inset 2px 2px 0px rgba(0, 0, 0, 0.5);
 
-  --theme-trainer-active-bg: linear-gradient(45deg, #ff71ce, #01cdfe);
+  /* Active States - Inverted or Glitched */
+  --theme-trainer-active-bg: #ff71ce;
   --theme-trainer-active-border: #fffb96;
   --theme-trainer-active-glow: 0 0 15px #ff71ce;
 
-  --theme-toggle-active-speed: linear-gradient(to right, #ff71ce, #fffb96);
-  --theme-toggle-active-interval: linear-gradient(to right, #01cdfe, #05ffa1);
-  --theme-toggle-border-interval: #05ffa1;
+  --theme-toggle-active-speed: #ff71ce;
+  --theme-toggle-active-interval: #01cdfe;
+  --theme-toggle-border-interval: #fffb96;
+  --theme-toggle-knob: #1a0b2e;
 
-  --theme-bg-modal: #2b213a;
-  --theme-bg-modal-gradient: linear-gradient(135deg, #2b213a, #1a1025);
+  --theme-bg-modal: #1a0b2e;
+  --theme-bg-modal-gradient: #1a0b2e;
 
-  --theme-wheel-bg: rgba(0, 0, 0, 0.3);
-  --theme-wheel-line: #fffb96;
-  --theme-wheel-line-glow: 0 0 15px #fffb96;
-  --theme-wheel-tick: #05ffa1;
+  --theme-wheel-bg: #1a0b2e;
+  --theme-wheel-line: #05ffa1;
+  --theme-wheel-line-glow: 0 0 5px #05ffa1;
+  --theme-wheel-tick: #b967ff;
+  --theme-text-on-accent: #1a0b2e;
+  --theme-text-active-glass: #1a0b2e;
 
-  --theme-text-active-glass: #fffb96;
-  --theme-text-on-accent: #fffb96;
-  --theme-toggle-knob: #2b213a;
-  --theme-visualizer-empty: rgba(255, 113, 206, 0.1);
-  --theme-visualizer-accent: #01cdfe;
-  --theme-visualizer-accent-dim: rgba(1, 205, 254, 0.3);
+  --theme-visualizer-empty: rgba(43, 21, 64, 0.5);
+  --theme-visualizer-accent: #ff71ce;
+  --theme-visualizer-accent-dim: #b967ff;
+
+  /* Chunky UI Enforced */
+  --theme-radius-lg: 0px;
+  --theme-radius-md: 0px;
+  --theme-radius-sm: 0px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 0px;
+  --theme-radius-pill: 0px;
+
+  --theme-motion-hover: translate(2px, -2px);
+  --theme-transition-base: 0.1s steps(2);
+  /* Crunchy animation */
+  --theme-transition-fast: 0s;
+
+  --theme-shadow-popover: 4px 4px 0px #b967ff;
+  --theme-shadow-active-item: 2px 2px 0px #01cdfe;
 }
 
 .theme-retro * {
@@ -883,11 +1403,94 @@
   font-family: "Courier New", Courier, monospace !important;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* Phosphor Glow for all text */
+  text-shadow: 0 0 2px rgba(255, 113, 206, 0.3);
+}
+
+/* Specific RGB Split for Large Text */
+.theme-retro h1,
+.theme-retro .bpm-display-value {
+  text-shadow:
+    -1.5px 0 0 rgba(255, 0, 0, 0.5),
+    1.5px 0 0 rgba(0, 255, 255, 0.5),
+    0 0 6px rgba(255, 113, 206, 0.6) !important;
+}
+
+/* Subdivision & Dock Buttons: Enhance Visibility & Aesthetics */
+/* Subdivision & Dock Buttons: Enhance Visibility & Aesthetics */
+.theme-retro .subdivision-btn,
+.theme-retro .dock__btn,
+.theme-retro .trainer-dock__btn,
+.theme-retro .history-bar__item {
+  color: #01cdfe !important;
+  background-color: #10051d !important;
+  /* Deep Opaque Purple */
+  border-color: #2d1b4e !important;
+  /* Slightly lighter purple border, not cyan yet */
+
+  /* UX: Subtle inner glow to mimic screen depth, not just flat color */
+  box-shadow:
+    inset 0 0 4px rgba(1, 205, 254, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.5) !important;
+
+  text-shadow: 0 0 2px rgba(1, 205, 254, 0.5) !important;
+  /* Return subtle blur for cohesiveness */
+  font-weight: 700 !important;
+  transition: all 0.1s steps(2) !important;
+  /* Digital snap */
+}
+
+/* Hover State: "Pre-warm" the phosphor */
+.theme-retro .subdivision-btn:hover,
+.theme-retro [class*="dock__btn"]:hover,
+.theme-retro [class*="trainer-dock__btn"]:hover {
+  border-color: #01cdfe !important;
+  box-shadow: 0 0 8px rgba(1, 205, 254, 0.4) !important;
+  text-shadow: 0 0 4px #01cdfe !important;
+}
+
+/* Active State: Full Phosphor Ignition */
+.theme-retro .subdivision-btn--active,
+.theme-retro .dock__btn--active,
+.theme-retro .trainer-dock__btn--active,
+.theme-retro .history-bar__item--active {
+  background-color: #01cdfe !important;
+  color: #000000 !important;
+  border-color: #01cdfe !important;
+
+  /* VFX: Intense bloom + inset shadow for pressed feel */
+  box-shadow:
+    0 0 15px rgba(1, 205, 254, 0.6),
+    inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+
+  background-image: none !important;
+  /* Critical for legibility: No blur on black text */
+  text-shadow: none !important;
+  font-weight: 800 !important;
+  /* Extra bold for black text */
+}
+
+/* Visualizer Fix */
+.theme-retro {
+  /* Reduce empty state opacity to make active state pop */
+  --theme-visualizer-empty: rgba(185, 103, 255, 0.05) !important;
+}
+
+/* Fix Icon Artifacts: Ensure transparency */
+.theme-retro [class*="trainer-dock__btn--active"] svg,
+.theme-retro [class*="dock__btn--active"] svg {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  fill: none !important;
+  /* Prevent "Black Fill" artifacts */
 }
 
 .theme-retro button:active {
   transform: translate(2px, 2px);
-  box-shadow: none !important;
+  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+  border-color: #fffb96 !important;
+  background-color: #b967ff !important;
+  color: #fffb96 !important;
 }
 
 *,
@@ -925,6 +1528,30 @@ p {
   margin: 0;
 }
 
+/* Amoled Specific Overrides for Maximum Legibility - NO GLOW */
+.theme-amoled .subdivision-btn--active,
+.theme-amoled [class*="dock__btn--active"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  font-weight: 800 !important;
+  /* Removed box-shadow glow to differentiate from Cyberpunk */
+  box-shadow: none !important;
+}
+
+/* Range Input: Pure Utility */
+.theme-amoled input[type="range"] {
+  background: #333333 !important;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.theme-amoled input[type="range"]::-webkit-slider-thumb {
+  background: #ffffff !important;
+  /* Crisp hard shadow instead of glow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1) !important;
+}
+
 h1,
 h2,
 h3,
@@ -943,7 +1570,7 @@ button {
   color: inherit;
 }
 
-/* Blueprint Theme - Technical, Precise, Engineering */
+
 .theme-blueprint {
   --theme-bg-primary: #002b5e;
 
@@ -952,7 +1579,8 @@ button {
   --theme-glass-bg-hover: rgba(255, 255, 255, 0.1);
   --theme-glass-bg-active: rgba(255, 255, 255, 0.2);
 
-  --theme-input-bg: rgba(0, 0, 0, 0.2);
+  /* Increased opacity for visibility on dark blue */
+  --theme-input-bg: rgba(0, 0, 0, 0.4);
 
   --theme-text-primary: #ffffff;
   --theme-text-secondary: #00d2ff;
@@ -989,7 +1617,6 @@ button {
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  /* Engineering grid pattern */
   --theme-gradient-bg:
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
@@ -1030,6 +1657,20 @@ button {
   --theme-visualizer-empty: rgba(255, 255, 255, 0.05);
   --theme-visualizer-accent: #00d2ff;
   --theme-visualizer-accent-dim: rgba(0, 210, 255, 0.3);
+
+  --theme-radius-lg: 2px;
+  --theme-radius-md: 2px;
+  --theme-radius-sm: 0px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 2px;
+  --theme-radius-pill: 9999px;
+
+  --theme-motion-hover: translate(1px, 1px);
+  --theme-transition-base: none;
+  --theme-transition-fast: none;
+
+  --theme-shadow-popover: 0 0 0 1px #84a9e1;
+  --theme-shadow-active-item: 0 0 0 1px #ffffff;
 }
 
 .theme-blueprint {
@@ -1047,12 +1688,13 @@ button {
   letter-spacing: 1px;
 }
 
-/* Aurora Theme - Ethereal, Northern Lights */
+
 .theme-aurora {
   --theme-bg-primary: #0b1026;
+  --theme-bg-overlay: rgba(11, 16, 38, 0.6);
 
-  --theme-glass-bg: rgba(20, 30, 60, 0.4);
-  --theme-glass-bg-subtle: rgba(20, 30, 60, 0.3);
+  --theme-glass-bg: rgba(20, 30, 60, 0.6);
+  --theme-glass-bg-subtle: rgba(20, 30, 60, 0.5);
   --theme-glass-bg-hover: rgba(52, 211, 153, 0.15);
   --theme-glass-bg-active: rgba(167, 139, 250, 0.2);
 
@@ -1093,7 +1735,6 @@ button {
   --theme-glass-blur-sm: 15px;
   --theme-glass-blur-xl: 50px;
 
-  /* The Northern Lights Effect */
   --theme-gradient-bg:
     radial-gradient(circle at 10% 20%, rgba(52, 211, 153, 0.3) 0%, transparent 40%),
     radial-gradient(ellipse at 80% 0%, rgba(139, 92, 246, 0.3) 0%, transparent 40%),
@@ -1116,8 +1757,8 @@ button {
   --theme-toggle-active-interval: linear-gradient(to right, #34d399, #06b6d4);
   --theme-toggle-border-interval: #34d399;
 
-  --theme-bg-modal: rgba(11, 16, 38, 0.8);
-  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(20, 30, 60, 0.9), rgba(10, 15, 30, 0.9));
+  --theme-bg-modal: rgba(11, 16, 38, 0.85);
+  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(20, 30, 60, 0.95), rgba(10, 15, 30, 0.95));
 
   --theme-wheel-bg: rgba(255, 255, 255, 0.1);
   --theme-wheel-line: #a78bfa;
@@ -1130,6 +1771,20 @@ button {
   --theme-visualizer-empty: rgba(255, 255, 255, 0.08);
   --theme-visualizer-accent: #00ff9d;
   --theme-visualizer-accent-dim: rgba(52, 211, 153, 0.3);
+
+  --theme-radius-lg: 20px;
+  --theme-radius-md: 16px;
+  --theme-radius-sm: 12px;
+  --theme-radius-xs: 8px;
+  --theme-radius-modal: 24px;
+  --theme-radius-pill: 9999px;
+
+  --theme-motion-hover: translateY(-2px);
+  --theme-transition-base: all 0.3s ease-out;
+  --theme-transition-fast: all 0.15s ease-out;
+
+  --theme-shadow-popover: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --theme-shadow-active-item: 0 0 15px rgba(52, 211, 153, 0.3);
 }
 
 .theme-aurora * {
@@ -1140,9 +1795,7 @@ button {
   filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.4));
 }
 
-/* =========================================
-   2. TERMINAL THEME (Hacker CRT)
-   ========================================= */
+
 .theme-terminal {
   --theme-bg-primary: #0c0c0c;
 
@@ -1226,6 +1879,20 @@ button {
   --theme-visualizer-empty: rgba(0, 50, 0, 0.2);
   --theme-visualizer-accent: #00ff00;
   --theme-visualizer-accent-dim: rgba(0, 255, 0, 0.3);
+
+  --theme-radius-lg: 0px;
+  --theme-radius-md: 0px;
+  --theme-radius-sm: 0px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 0px;
+  --theme-radius-pill: 0px;
+
+  --theme-motion-hover: translate(1px, 0);
+  --theme-transition-base: none;
+  --theme-transition-fast: none;
+
+  --theme-shadow-popover: 0 0 0 1px #00ff00;
+  --theme-shadow-active-item: 0 0 0 1px #ccffcc;
 }
 
 .theme-terminal * {
@@ -1234,7 +1901,7 @@ button {
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
 }
 
-/* CRT Scanline effect */
+
 .theme-terminal::after {
   content: "";
   position: fixed;
@@ -1248,9 +1915,7 @@ button {
   z-index: 9999;
 }
 
-/* =========================================
-   3. BRUTALISM THEME (Neo Brutalist)
-   ========================================= */
+
 .theme-brutalism {
   --theme-bg-primary: #fffdf0;
 
@@ -1326,10 +1991,23 @@ button {
   --theme-text-on-accent: #000000;
   --theme-toggle-knob: #000000;
 
-  /* Solid visualizer blocks for reduced noise */
   --theme-visualizer-empty: #e2e8f0;
   --theme-visualizer-accent: #000000;
   --theme-visualizer-accent-dim: #94a3b8;
+
+  --theme-radius-lg: 0px;
+  --theme-radius-md: 0px;
+  --theme-radius-sm: 0px;
+  --theme-radius-xs: 0px;
+  --theme-radius-modal: 0px;
+  --theme-radius-pill: 0px;
+
+  --theme-motion-hover: translate(2px, 2px);
+  --theme-transition-base: none;
+  --theme-transition-fast: none;
+
+  --theme-shadow-popover: 6px 6px 0px #000000;
+  --theme-shadow-active-item: none;
 }
 
 .theme-brutalism * {
@@ -1338,16 +2016,14 @@ button {
   font-weight: 900 !important;
 }
 
-/* Remove default heavy borders from everything, apply selectively */
+
 .theme-brutalism .glass-select,
 .theme-brutalism button,
 .theme-brutalism .glass-panel {
   border: 3px solid #000000 !important;
 }
 
-/* =========================================
-   4. CLAY THEME (Soft Claymorphism)
-   ========================================= */
+
 .theme-clay {
   --theme-bg-primary: #e0e5ec;
 
@@ -1356,7 +2032,8 @@ button {
   --theme-glass-bg-hover: #d1d9e6;
   --theme-glass-bg-active: #e0e5ec;
 
-  --theme-input-bg: #e0e5ec;
+  /* Darkened for visibility against same-color modal */
+  --theme-input-bg: rgba(0, 0, 0, 0.05);
 
   --theme-text-primary: #5c5c5c;
   --theme-text-secondary: #8e9aaf;
@@ -1437,12 +2114,26 @@ button {
   --theme-visualizer-empty: #e0e5ec;
   --theme-visualizer-accent: #26c6da;
   --theme-visualizer-accent-dim: #b2ebf2;
+
+  --theme-radius-lg: 30px;
+  --theme-radius-md: 20px;
+  --theme-radius-sm: 12px;
+  --theme-radius-xs: 8px;
+  --theme-radius-modal: 40px;
+  --theme-radius-pill: 50px;
+
+  --theme-motion-hover: scale(1.02);
+  --theme-transition-base: all 0.3s ease;
+  --theme-transition-fast: all 0.15s ease;
+
+  --theme-shadow-popover: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  --theme-shadow-active-item: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+
+  /* Font inheritance works better purely on the class */
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 }
 
-.theme-clay * {
-  border-radius: 30px !important;
-  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif !important;
-}
+/* Removed wildcard * { border-radius } for performance */
 
 .theme-clay button {
   box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff !important;
@@ -1460,9 +2151,7 @@ button {
   text-shadow: 2px 2px 4px #bebebe, -2px -2px 4px #ffffff;
 }
 
-/* =========================================
-   5. SKETCH THEME (Paper & Ink)
-   ========================================= */
+
 .theme-sketch {
   --theme-bg-primary: #f5f5f5;
 
@@ -1471,7 +2160,8 @@ button {
   --theme-glass-bg-hover: #f0f0f0;
   --theme-glass-bg-active: #e8e8e8;
 
-  --theme-input-bg: transparent;
+  /* Added border via transparent bg but needs definition */
+  --theme-input-bg: rgba(0, 0, 0, 0.05);
 
   --theme-text-primary: #2c3e50;
   --theme-text-secondary: #2980b9;
@@ -1508,7 +2198,6 @@ button {
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  /* Graph Paper Pattern */
   --theme-gradient-bg:
     linear-gradient(#bdc3c7 1px, transparent 1px),
     linear-gradient(90deg, #bdc3c7 1px, transparent 1px);
@@ -1540,16 +2229,29 @@ button {
   --theme-text-active-glass: #2c3e50;
   --theme-text-on-accent: #2c3e50;
   --theme-toggle-knob: #2c3e50;
-  /* Visualizer: Use underlines/dots instead of boxes */
   --theme-visualizer-empty: #e2e8f0;
   --theme-visualizer-accent: #2c3e50;
   --theme-visualizer-accent-dim: rgba(44, 62, 80, 0.4);
+
+  --theme-radius-lg: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --theme-radius-md: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --theme-radius-sm: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --theme-radius-xs: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --theme-radius-modal: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --theme-radius-pill: 255px 15px 225px 15px / 15px 225px 15px 255px;
+
+  --theme-motion-hover: rotate(-1deg) scale(1.02);
+  --theme-transition-base: all 0.2s ease-in-out;
+  --theme-transition-fast: all 0.1s ease-in-out;
+
+  --theme-shadow-popover: 5px 5px 10px rgba(0, 0, 0, 0.05);
+  --theme-shadow-active-item: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .theme-sketch {
   background-size: 20px 20px;
   background-color: #fdfbf7;
-  /* Slight warm paper tint */
+
 }
 
 .theme-sketch * {
@@ -1558,7 +2260,7 @@ button {
   font-weight: bold;
 }
 
-/* Reduce global border noise */
+
 .theme-sketch .glass-panel,
 .theme-sketch .glass-select,
 .theme-sketch button {
@@ -1569,7 +2271,7 @@ button {
   background: none !important;
   -webkit-text-fill-color: #2c3e50 !important;
   filter: url('#roughpaper');
-  /* Conceptual placeholder */
+
 }
 
 .theme-sketch button {
@@ -1580,9 +2282,7 @@ button {
   transform: rotate(-1deg) scale(1.02);
 }
 
-/* =========================================
-   6. MECHANICAL THEME (Industrial Heavy Metal)
-   ========================================= */
+
 .theme-mechanical {
   --theme-bg-primary: #1a1a1a;
 
@@ -1591,12 +2291,11 @@ button {
   --theme-glass-bg-hover: #333333;
   --theme-glass-bg-active: #151515;
 
-  --theme-input-bg: #000000;
+  /* Darker track for better contrast against #222 modal */
+  --theme-input-bg: #111111;
 
   --theme-text-primary: #f0f0f0;
-  /* Silver/White (Brighter) */
   --theme-text-secondary: #cccccc;
-  /* Light Steel (Brighter) */
   --theme-text-muted: #999999;
   --theme-text-dim: #666666;
   --theme-text-bright: #ffffff;
@@ -1631,27 +2330,22 @@ button {
   --theme-glass-blur-xl: 0px;
 
   /* Brushed Metal Texture */
-  /* Brushed Metal Texture - High Frequency Noise + Cool Steel Tint */
   --theme-gradient-bg:
     repeating-linear-gradient(90deg,
-      rgba(255, 255, 255, 0.04) 0px,
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
       transparent 1px,
       transparent 3px),
     repeating-linear-gradient(0deg,
       rgba(255, 255, 255, 0.02) 0px,
       rgba(255, 255, 255, 0.02) 1px,
       transparent 1px,
-      transparent 2px),
-    linear-gradient(135deg, #1c1e21 0%, #0d0e0f 100%);
+      transparent 4px),
+    linear-gradient(135deg, #2b2e33 0%, #151618 100%);
 
   --theme-bpm-text-gradient: linear-gradient(180deg, #fff7cc, #ffd700, #b8860b);
-  /* Gold/Brass Gradient */
-
   --theme-shadow-glow: none;
 
-  /* Heavy Industrial Bevel */
-  /* Machined Bevels (Specular Highlight + Deep Shadow) */
   --theme-shadow-panel:
     inset 1px 1px 0px rgba(255, 255, 255, 0.2),
     inset -1px -1px 0px rgba(0, 0, 0, 0.8),
@@ -1682,7 +2376,6 @@ button {
   --theme-bg-modal: #222222;
   --theme-bg-modal-gradient: #222222;
 
-  /* Knurled Metal Texture for Wheel */
   --theme-wheel-bg:
     repeating-linear-gradient(90deg,
       rgba(0, 0, 0, 0.4) 0px,
@@ -1696,16 +2389,32 @@ button {
 
   --theme-text-active-glass: #ffffff;
   --theme-text-on-accent: #ffffff;
-  /* White text on brass buttons for max contrast */
   --theme-toggle-knob: #d4af37;
   --theme-visualizer-empty: #1a1a1a;
   --theme-visualizer-accent: #e0a040;
   --theme-visualizer-accent-dim: #5c4d32;
+
+  --theme-radius-lg: 4px;
+  --theme-radius-md: 4px;
+  --theme-radius-sm: 2px;
+  --theme-radius-xs: 2px;
+  --theme-radius-modal: 6px;
+  --theme-radius-pill: 4px;
+
+  --theme-motion-hover: translateY(1px);
+  --theme-transition-base: all 0.1s ease-out;
+  --theme-transition-fast: all 0.05s ease-out;
+
+  --theme-shadow-popover:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.2),
+    inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+    0 10px 20px rgba(0, 0, 0, 0.6);
+  --theme-shadow-active-item: inset 2px 2px 5px rgba(0, 0, 0, 0.9);
 }
 
 .theme-mechanical * {
   border-radius: 4px !important;
-  /* Slight industrial chamfer */
+
   font-family: "Courier New", Courier, monospace !important;
   font-weight: bold;
   text-transform: uppercase;
@@ -1715,7 +2424,7 @@ button {
 .theme-mechanical button {
   background: linear-gradient(180deg, #333 0%, #222 100%);
   border: 1px solid #111;
-  /* Removed text-shadow to improve legibility on small buttons */
+
 }
 
 .theme-mechanical button:active {
@@ -1733,21 +2442,18 @@ button {
   filter: drop-shadow(0 2px 0px rgba(0, 0, 0, 0.8));
 }
 
-/* =========================================
-   7. WOOD THEME (Natural Oak / Yellow Wood)
-   ========================================= */
+
 .theme-wood {
   --theme-bg-primary: #e6bf83;
 
-  /* Lighter, warm wood paneing */
-  --theme-glass-bg: linear-gradient(180deg, rgba(230, 191, 131, 0.95), rgba(210, 170, 110, 0.95));
-  --theme-glass-bg-subtle: rgba(210, 170, 110, 0.5);
-  --theme-glass-bg-hover: rgba(240, 210, 160, 0.9);
-  --theme-glass-bg-active: rgba(190, 150, 90, 0.9);
+  --theme-glass-bg: linear-gradient(180deg, #e6bf83, #d2aa6d);
+  --theme-glass-bg-subtle: #d2aa6d;
+  --theme-glass-bg-hover: #f0d2a0;
+  --theme-glass-bg-active: #be965a;
 
-  --theme-input-bg: rgba(90, 60, 30, 0.1);
+  /* Darker wood tone for track visibility */
+  --theme-input-bg: rgba(60, 40, 20, 0.3);
 
-  /* Dark brown text for contrast on light wood */
   --theme-text-primary: #3e2723;
   --theme-text-secondary: #5d4037;
   --theme-text-muted: #8d6e63;
@@ -1783,31 +2489,25 @@ button {
   --theme-glass-blur-sm: 0px;
   --theme-glass-blur-xl: 0px;
 
-  /* Natural Oak Wood Grain Look */
+  /* Wood Grain Texture */
   --theme-gradient-bg:
-    /* Grain lines */
-    repeating-linear-gradient(90deg,
-      rgba(100, 70, 40, 0.03) 0px,
-      rgba(100, 70, 40, 0.03) 1px,
-      transparent 1px,
+    repeating-linear-gradient(85deg,
+      rgba(80, 50, 20, 0.08) 0px,
+      rgba(80, 50, 20, 0.08) 2px,
+      transparent 2px,
       transparent 12px),
     repeating-linear-gradient(88deg,
-      rgba(100, 70, 40, 0.05) 0px,
-      rgba(100, 70, 40, 0.05) 2px,
+      rgba(80, 50, 20, 0.05) 0px,
+      rgba(80, 50, 20, 0.05) 2px,
       transparent 2px,
       transparent 24px),
-    /* Knots/Variation */
-    radial-gradient(ellipse at 70% 20%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
-    radial-gradient(ellipse at 20% 80%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
-    /* Base Color */
-    linear-gradient(135deg, #e6bf83 0%, #d4a76a 100%);
+    radial-gradient(ellipse at 70% 30%, rgba(100, 60, 30, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #e6bf83 0%, #a1887f 100%);
 
-  /* Burnt/Carved text effect */
   --theme-bpm-text-gradient: linear-gradient(180deg, #5d4037, #3e2723);
 
   --theme-shadow-glow: none;
 
-  /* Carved Wood Inset Look */
   --theme-shadow-panel:
     inset 2px 2px 5px rgba(60, 40, 20, 0.4),
     inset -1px -1px 0px rgba(255, 255, 255, 0.2),
@@ -1833,8 +2533,8 @@ button {
   --theme-toggle-active-interval: linear-gradient(to right, #29b6f6, #0277bd);
   --theme-toggle-border-interval: #01579b;
 
-  --theme-bg-modal: #deb887;
-  --theme-bg-modal-gradient: linear-gradient(135deg, #e6bf83, #d4a76a);
+  --theme-bg-modal: #e6bf83;
+  --theme-bg-modal-gradient: linear-gradient(135deg, #e6bf83, #d2aa6d);
 
   --theme-wheel-bg:
     linear-gradient(180deg,
@@ -1851,27 +2551,42 @@ button {
   --theme-text-on-accent: #ffffff;
   --theme-toggle-knob: #5d4037;
 
-  /* Carved Slots for Visualizer */
   --theme-visualizer-empty: rgba(62, 39, 35, 0.15);
-  /* Darker empty slot */
   --theme-visualizer-accent: #d84315;
-  /* Deep Ember */
   --theme-visualizer-accent-dim: #a1887f;
+
+  --theme-radius-lg: 6px;
+  --theme-radius-md: 4px;
+  --theme-radius-sm: 4px;
+  --theme-radius-xs: 2px;
+  --theme-radius-modal: 8px;
+  --theme-radius-pill: 9999px;
+
+  --theme-motion-hover: translateY(1px);
+  --theme-transition-base: all 0.2s ease-out;
+  --theme-transition-fast: all 0.1s ease-out;
+
+  --theme-shadow-popover:
+    inset 2px 2px 5px rgba(60, 40, 20, 0.4),
+    inset -1px -1px 0px rgba(255, 255, 255, 0.2);
+  --theme-shadow-active-item: inset 2px 2px 4px rgba(60, 40, 20, 0.3);
 }
 
 .theme-wood * {
-  border-radius: 6px !important;
+  /* Removed !important by relying on proper cascading if possible, but keeping for safety if styles leak. 
+     Actually, let's try to remove it if we can trust the component overrides. */
+  border-radius: 6px;
   font-family: Georgia, "Times New Roman", serif !important;
   font-weight: bold;
 }
 
 .theme-wood button {
-  /* Polished Varnish Look */
+
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%),
     linear-gradient(180deg, #edc988 0%, #dfb775 100%);
   border: 1px solid #c19a6b;
-  /* Embossed Button Look */
+
   box-shadow:
     inset 1px 1px 0px rgba(255, 255, 255, 0.6),
     0 4px 6px rgba(60, 40, 20, 0.3),
@@ -1882,7 +2597,7 @@ button {
 
 .theme-wood button:active {
   background: #cfa66c;
-  /* Deeply Pressed Carving */
+
   box-shadow:
     inset 3px 3px 6px rgba(60, 40, 20, 0.4),
     inset -1px -1px 0px rgba(255, 255, 255, 0.3);
@@ -1892,12 +2607,9 @@ button {
 .theme-wood [class*="bpm-display__value--main"] {
   background: none !important;
   -webkit-text-fill-color: #3e2723 !important;
-  /* Deep Carved Text Effect: Inner shadow via text-shadow hack not possible, utilizing drop shadow for depth */
+
   text-shadow:
     0px 1px 0px rgba(255, 255, 255, 0.5),
     0px -1px 0px rgba(0, 0, 0, 0.1);
   filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.5));
 }
-
-/* Specific carve effect for visualizer blocks if possible, usually managed via variables above. 
-   Adding a class selector if specific elements exist would be better, but variables handle colors. */

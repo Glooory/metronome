@@ -20,35 +20,35 @@ import { TrainerDock } from "./components/TrainerDock";
 import { Visualizer } from "./components/Visualizer";
 
 import {
-  BEAT_ACCENT,
-  BEAT_MUTE,
-  BEAT_NORMAL,
-  BEAT_SUB_ACCENT,
-  DEFAULT_THEME,
-  MAX_BPM,
-  MIN_BPM,
-  SOUND_DRUM,
-  SOUND_MECH,
-  SOUND_SINE,
-  SOUND_WOOD,
-  STORAGE_KEY_BEATS,
-  STORAGE_KEY_BPM,
-  STORAGE_KEY_INTERVAL_TRAINER,
-  STORAGE_KEY_PRESETS,
-  STORAGE_KEY_SAVED_BPMS,
-  STORAGE_KEY_SHIFT,
-  STORAGE_KEY_SOUND,
-  STORAGE_KEY_SPEED_TRAINER,
-  STORAGE_KEY_STEP_STATES,
-  STORAGE_KEY_SUBDIV_VAL,
-  STORAGE_KEY_SWING,
-  STORAGE_KEY_THEME,
-  TAP_TIMEOUT,
-  THEMES,
-  type IntervalTrainerConfig,
-  type Preset,
-  type SpeedTrainerConfig,
-  type Theme,
+    BEAT_ACCENT,
+    BEAT_MUTE,
+    BEAT_NORMAL,
+    BEAT_SUB_ACCENT,
+    DEFAULT_THEME,
+    MAX_BPM,
+    MIN_BPM,
+    SOUND_DRUM,
+    SOUND_MECH,
+    SOUND_SINE,
+    SOUND_WOOD,
+    STORAGE_KEY_BEATS,
+    STORAGE_KEY_BPM,
+    STORAGE_KEY_INTERVAL_TRAINER,
+    STORAGE_KEY_PRESETS,
+    STORAGE_KEY_SAVED_BPMS,
+    STORAGE_KEY_SHIFT,
+    STORAGE_KEY_SOUND,
+    STORAGE_KEY_SPEED_TRAINER,
+    STORAGE_KEY_STEP_STATES,
+    STORAGE_KEY_SUBDIV_VAL,
+    STORAGE_KEY_SWING,
+    STORAGE_KEY_THEME,
+    TAP_TIMEOUT,
+    THEMES,
+    type IntervalTrainerConfig,
+    type Preset,
+    type SpeedTrainerConfig,
+    type Theme,
 } from "./constants";
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
@@ -238,7 +238,6 @@ export default function MetronomeApp() {
   useEffect(() => {
     const baseUrl = import.meta.env.BASE_URL;
     const faviconMap: Record<string, string> = {
-      glass: `${baseUrl}favicons/favicon-glass.svg`,
       zen: `${baseUrl}favicons/favicon-zen.svg`,
       swiss: `${baseUrl}favicons/favicon-swiss.svg`,
       kids: `${baseUrl}favicons/favicon-kids.svg`,
@@ -256,12 +255,12 @@ export default function MetronomeApp() {
 
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
     if (link) {
-      link.href = faviconMap[theme] || faviconMap.glass;
+      link.href = faviconMap[theme] || faviconMap.amoled;
     } else {
       // Fallback if no favicon link exists
       const newLink = document.createElement("link");
       newLink.rel = "icon";
-      newLink.href = faviconMap[theme] || faviconMap.glass;
+      newLink.href = faviconMap[theme] || faviconMap.amoled;
       document.head.appendChild(newLink);
     }
   }, [theme]);
@@ -354,7 +353,6 @@ export default function MetronomeApp() {
   ];
 
   const themeOrder: Theme[] = [
-    "glass",
     "swiss",
     "zen",
     "e-ink",
@@ -443,7 +441,7 @@ export default function MetronomeApp() {
         <div className={styles["header-buttons"]}>
           <button
             onClick={cycleTheme}
-            className={styles["header-btn"]}
+            className={clsx(styles["header-btn"], "header-btn")}
             title={translations.dock.theme[language]}
           >
             <Palette size={20} />
@@ -453,7 +451,6 @@ export default function MetronomeApp() {
             value={theme}
             onChange={setTheme}
             options={[
-              { label: translations.options.themes.glass[language], value: "glass" },
               { label: translations.options.themes.swiss[language], value: "swiss" },
               { label: translations.options.themes.zen[language], value: "zen" },
               { label: translations.options.themes["e-ink"][language], value: "e-ink" },
@@ -534,7 +531,8 @@ export default function MetronomeApp() {
                   key={opt.value}
                   className={clsx(
                     styles["subdivision-btn"],
-                    subdivision === opt.value && styles["subdivision-btn--active"]
+                    "subdivision-btn",
+                    subdivision === opt.value && [styles["subdivision-btn--active"], "subdivision-btn--active"]
                   )}
                   onClick={() => setSubdivision(opt.value)}
                 >

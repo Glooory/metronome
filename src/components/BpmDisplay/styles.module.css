@@ -23,7 +23,7 @@
   justify-content: space-between;
   width: 100%;
   height: calc(40px * 4 + var(--bpm-action-gap) * 3);
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 .bpm-display__label {
@@ -143,13 +143,13 @@
 
 .bpm-display__btn {
   padding: 0.25rem;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--theme-radius-sm);
   background-color: var(--theme-glass-bg-subtle);
 }
 
@@ -174,7 +174,7 @@
   width: 2.5rem;
   flex-shrink: 0;
   background: var(--theme-wheel-bg);
-  border-radius: 0.75rem;
+  border-radius: var(--theme-radius-md);
   cursor: ns-resize;
   position: relative;
   border: 1px solid var(--theme-glass-border-subtle);

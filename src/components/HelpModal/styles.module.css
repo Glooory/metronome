@@ -7,11 +7,11 @@
 
 .help-modal__trigger-btn {
   padding: 0.75rem;
-  border-radius: 9999px;
+  border-radius: var(--theme-radius-pill);
   background-color: var(--theme-glass-bg-subtle);
   border: 1px solid var(--theme-glass-border-subtle);
   color: var(--theme-text-secondary);
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 @media (hover: hover) {
@@ -47,7 +47,7 @@
   border: 1px solid var(--theme-glass-border-subtle);
   box-shadow: var(--theme-shadow-panel);
   background-color: var(--theme-bg-modal);
-  border-radius: 1.5rem;
+  border-radius: var(--theme-radius-modal);
   backdrop-filter: blur(var(--theme-glass-blur));
   -webkit-backdrop-filter: blur(var(--theme-glass-blur));
   color: var(--theme-text-primary);
@@ -78,7 +78,7 @@
   transition:
     color 0.2s,
     background-color 0.2s;
-  border-radius: 9999px;
+  border-radius: var(--theme-radius-pill);
   background-color: transparent;
   color: var(--theme-text-secondary);
 }
@@ -112,7 +112,7 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 0.75rem;
+  border-radius: var(--theme-radius-md);
   background-color: var(--theme-glass-bg-subtle);
   border: 1px solid var(--theme-glass-bg-subtle);
   color: var(--theme-text-bright);
@@ -129,7 +129,7 @@
   background-color: var(--theme-glass-bg);
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: var(--theme-radius-xs);
   font-family: monospace;
 }
 

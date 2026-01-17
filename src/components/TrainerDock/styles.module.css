@@ -5,16 +5,14 @@
   justify-content: center;
   gap: 8px;
   padding: 8px;
-  background: linear-gradient(135deg,
-      var(--theme-glass-border-subtle) 0%,
-      var(--theme-glass-bg-subtle) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
-  border: 1px solid var(--theme-glass-bg-hover);
-  box-shadow:
-    var(--theme-shadow-panel),
-    inset 0 1px 0 var(--theme-glass-bg);
+  background: var(--theme-glass-bg);
+  backdrop-filter: blur(var(--theme-glass-blur));
+  -webkit-backdrop-filter: blur(var(--theme-glass-blur));
+  border-radius: var(--theme-radius-lg);
+  /* Strict Grid */
+  border: 1px solid var(--theme-glass-border);
+  box-shadow: var(--theme-shadow-panel);
+  /* No Inset Highlight */
   margin-bottom: 12px;
 }
 
@@ -32,8 +30,9 @@
   gap: 6px;
   padding: 8px;
   background: var(--theme-input-bg);
-  border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 10px;
+  border: 1px solid var(--theme-glass-border);
+  border-radius: var(--theme-radius-md);
+  /* Strict Grid */
   color: var(--theme-text-bright);
   font-size: 0.875rem;
   font-weight: 500;
@@ -46,7 +45,7 @@
   .trainer-dock__btn:hover {
     background: var(--theme-glass-bg-hover);
     color: var(--theme-text-primary);
-    transform: translateY(-1px);
+    transform: var(--theme-motion-hover);
   }
 }
 

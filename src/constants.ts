@@ -29,7 +29,6 @@ export const STORAGE_KEY_SHIFT = "vibe-metronome-shift";
 export const STORAGE_KEY_THEME = "vibe-metronome-theme";
 
 export type Theme =
-  | "glass"
   | "cyberpunk"
   | "kids"
   | "swiss"
@@ -47,10 +46,9 @@ export type Theme =
   | "mechanical"
   | "wood";
 
-export const DEFAULT_THEME = "glass";
+export const DEFAULT_THEME = "amoled";
 
 export const THEMES: { id: Theme; label: string }[] = [
-  { id: "glass", label: "Glass" },
   { id: "cyberpunk", label: "Cyberpunk" },
   { id: "kids", label: "Kids Pop" },
   { id: "swiss", label: "Swiss Style" },

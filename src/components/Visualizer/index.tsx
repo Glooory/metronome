@@ -109,7 +109,7 @@ export const Visualizer = ({
                           ? "var(--theme-visualizer-accent-dim)"
                           : "var(--theme-visualizer-empty)",
                   }}
-                  transition={{ duration: isActive ? 0 : 0.1 }}
+                  transition={{ duration: 0 }}
                   className={styles["visualizer__block"]}
                 />
                 <motion.div
@@ -122,7 +122,7 @@ export const Visualizer = ({
                           ? "var(--theme-visualizer-accent-dim)"
                           : "var(--theme-visualizer-empty)",
                   }}
-                  transition={{ duration: isActive ? 0 : 0.1 }}
+                  transition={{ duration: 0 }}
                   className={styles["visualizer__block"]}
                 />
                 <motion.div
@@ -135,7 +135,7 @@ export const Visualizer = ({
                           ? "var(--theme-visualizer-accent-dim)"
                           : "var(--theme-visualizer-empty)",
                   }}
-                  transition={{ duration: isActive ? 0 : 0.1 }}
+                  transition={{ duration: 0 }}
                   className={styles["visualizer__block"]}
                 />
               </div>

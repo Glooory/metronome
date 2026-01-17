@@ -12,7 +12,7 @@
 .swing-trainer-modal {
   background: var(--theme-bg-modal-gradient);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 20px;
+  border-radius: var(--theme-radius-modal);
   padding: 24px;
   min-width: 320px;
   max-width: 400px;
@@ -48,11 +48,11 @@
   align-items: center;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 8px;
+  border-radius: var(--theme-radius-sm);
   padding: 6px;
   color: var(--theme-text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 @media (hover: hover) {
@@ -127,7 +127,7 @@
   background: var(--theme-accent-amber);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--theme-shadow-popover);
   border: 2px solid rgba(255, 255, 255, 0.8);
   transition: transform 0.1s;
 }
@@ -150,10 +150,10 @@
   justify-content: center;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 8px;
+  border-radius: var(--theme-radius-sm);
   color: var(--theme-text-primary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 .swing-trainer-modal__stepper-btn:hover {
@@ -182,11 +182,11 @@
   padding: 10px;
   background: transparent;
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 10px;
+  border-radius: var(--theme-radius-md);
   color: var(--theme-text-secondary);
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 .swing-trainer-modal__reset-btn:hover {

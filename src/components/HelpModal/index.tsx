@@ -1,16 +1,16 @@
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import {
-  AudioWaveform,
-  Gauge,
-  GripVertical,
-  HelpCircle,
-  ListMusic,
-  MousePointerClick,
-  Music,
-  Star,
-  VolumeX,
-  X,
+    AudioWaveform,
+    Gauge,
+    GripVertical,
+    HelpCircle,
+    ListMusic,
+    MousePointerClick,
+    Music,
+    Star,
+    VolumeX,
+    X,
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
@@ -28,12 +28,24 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
   const t = translations.help;
 
   return (
-    <div className={styles["help-modal"]} onClick={onClose}>
+    <motion.div
+      className={styles["help-modal"]}
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.15 }}
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 10 }}
-        transition={{ duration: 0.2, type: "spring", stiffness: 300, damping: 25 }}
+        transition={{
+          type: "spring",
+          stiffness: 450,
+          damping: 30,
+          mass: 0.8
+        }}
         onClick={(e) => e.stopPropagation()}
         className={styles["help-modal__content"]}
       >
@@ -149,6 +161,6 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
           <p className={styles["help-modal__footer-text"]}>{t.footer[language]}</p>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };

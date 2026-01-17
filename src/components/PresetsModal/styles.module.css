@@ -12,7 +12,7 @@
 .presets-modal {
   background: var(--theme-bg-modal-gradient);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 20px;
+  border-radius: var(--theme-radius-modal);
   padding: 24px;
   min-width: 340px;
   max-width: 420px;
@@ -20,9 +20,7 @@
   max-height: 80vh;
   display: flex;
   flex-direction: column;
-  box-shadow:
-    var(--theme-shadow-modal),
-    inset 0 1px 0 var(--theme-glass-border-subtle);
+  box-shadow: var(--theme-shadow-popover);
   position: relative;
 }
 
@@ -52,11 +50,11 @@
   align-items: center;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 8px;
+  border-radius: var(--theme-radius-sm);
   padding: 6px;
   color: var(--theme-text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 @media (hover: hover) {
@@ -84,11 +82,11 @@
   padding: 10px 14px;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 10px;
+  border-radius: var(--theme-radius-md);
   color: var(--theme-text-primary);
   font-size: 14px;
   outline: none;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
 }
 
 .presets-modal__name-input::placeholder {
@@ -104,12 +102,12 @@
   padding: 10px 16px;
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(245, 158, 11, 0.3));
   border: 1px solid var(--theme-accent-amber-border);
-  border-radius: 10px;
+  border-radius: var(--theme-radius-md);
   color: var(--theme-text-primary);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
   white-space: nowrap;
 }
 
@@ -162,8 +160,8 @@
   padding: 12px;
   background: var(--theme-glass-bg-subtle);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 12px;
-  transition: all 0.2s;
+  border-radius: var(--theme-radius-md);
+  transition: var(--theme-transition-base);
 }
 
 @media (hover: hover) {
@@ -205,11 +203,11 @@
   padding: 8px;
   background: var(--theme-input-bg);
   border: 1px solid var(--theme-glass-border-subtle);
-  border-radius: 8px;
+  border-radius: var(--theme-radius-sm);
   color: var(--theme-text-bright);
   font-size: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--theme-transition-base);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,13 +265,13 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  border-radius: 20px;
+  border-radius: var(--theme-radius-modal);
 }
 
 .presets-modal__confirm-dialog {
   background: var(--theme-bg-modal);
   border: 1px solid var(--theme-glass-border);
-  border-radius: 16px;
+  border-radius: var(--theme-radius-lg);
   padding: 20px;
   width: 90%;
   max-width: 320px;

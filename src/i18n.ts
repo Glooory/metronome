@@ -918,17 +918,7 @@ export const translations = {
       },
     },
     themes: {
-      glass: {
-        en: "Glass",
-        zh: "玻璃",
-        ja: "ガラス",
-        ko: "글래스",
-        de: "Glas",
-        fr: "Verre",
-        es: "Cristal",
-        ru: "Стекло",
-        pt: "Vidro",
-      },
+
       swiss: {
         en: "Swiss",
         zh: "瑞士",

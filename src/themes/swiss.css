@@ -68,7 +68,7 @@
   --theme-trainer-active-border: #ff3b30;
   --theme-trainer-active-glow: none;
   --theme-toggle-active-speed: #ff3b30;
-  --theme-toggle-active-interval: #000000;
+  --theme-toggle-active-interval: var(--theme-accent-blue);
   --theme-toggle-border-interval: #000000;
   --theme-toggle-knob: #000000;
   --theme-visualizer-empty: rgba(0, 0, 0, 0.08);

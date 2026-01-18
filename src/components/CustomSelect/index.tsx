@@ -9,7 +9,7 @@ interface Option {
   value: any;
 }
 
-interface CustomGlassSelectProps {
+interface CustomSelectProps {
   icon: LucideIcon;
   value: any;
   onChange: (value: any) => void;
@@ -20,7 +20,7 @@ interface CustomGlassSelectProps {
   placement?: "top" | "bottom";
 }
 
-export const CustomGlassSelect = ({
+export const CustomSelect = ({
   icon: Icon,
   value,
   onChange,
@@ -29,7 +29,7 @@ export const CustomGlassSelect = ({
   displayLabel,
   alignment = "center",
   placement = "top",
-}: CustomGlassSelectProps) => {
+}: CustomSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -46,17 +46,17 @@ export const CustomGlassSelect = ({
   const initialY = placement === "top" ? 10 : -10;
 
   return (
-    <div className={styles["glass-select"]} ref={containerRef}>
+    <div className={styles["custom-select"]} ref={containerRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
-          styles["glass-select__btn"],
-          isOpen ? styles["glass-select__btn--open"] : styles["glass-select__btn--closed"]
+          styles["custom-select__btn"],
+          isOpen ? styles["custom-select__btn--open"] : styles["custom-select__btn--closed"]
         )}
       >
         <Icon size={20} />
-        <span className={styles["glass-select__label"]}>{displayLabel}</span>
-        <div className={styles["glass-select__chevrons"]}>
+        <span className={styles["custom-select__label"]}>{displayLabel}</span>
+        <div className={styles["custom-select__chevrons"]}>
           <ChevronUp size={12} />
           <ChevronDown size={12} />
         </div>
@@ -70,14 +70,14 @@ export const CustomGlassSelect = ({
             exit={{ opacity: 0, scale: 0.95, y: initialY }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={clsx(
-              styles["glass-select__dropdown"],
-              styles[`glass-select__dropdown--${alignment}`],
-              styles[`glass-select__dropdown--${placement}`]
+              styles["custom-select__dropdown"],
+              styles[`custom-select__dropdown--${alignment}`],
+              styles[`custom-select__dropdown--${placement}`]
             )}
           >
-            <div className={styles["glass-select__overlay"]} />
-            <div className={styles["glass-select__dropdown-title"]}>{title}</div>
-            <div className={styles["glass-select__options"]}>
+            <div className={styles["custom-select__overlay"]} />
+            <div className={styles["custom-select__dropdown-title"]}>{title}</div>
+            <div className={styles["custom-select__options"]}>
               {options.map((opt) => (
                 <button
                   key={opt.value}
@@ -86,15 +86,15 @@ export const CustomGlassSelect = ({
                     setIsOpen(false);
                   }}
                   className={clsx(
-                    styles["glass-select__option"],
-                    opt.value === value && styles["glass-select__option--selected"]
+                    styles["custom-select__option"],
+                    opt.value === value && styles["custom-select__option--selected"]
                   )}
                 >
                   {opt.label}
                   {opt.value === value && (
                     <motion.div
                       layoutId={`dot-${title}`}
-                      className={styles["glass-select__active-dot"]}
+                      className={styles["custom-select__active-dot"]}
                     />
                   )}
                 </button>

@@ -110,7 +110,12 @@ export const Visualizer = ({
                           : "var(--theme-visualizer-empty)",
                   }}
                   transition={{ duration: 0 }}
-                  className={styles["visualizer__block"]}
+                  className={clsx(
+                    styles["visualizer__block"],
+                    (isActive && isAccent) || isAccent
+                      ? styles["visualizer__block--filled"]
+                      : undefined
+                  )}
                 />
                 <motion.div
                   initial={false}
@@ -123,7 +128,12 @@ export const Visualizer = ({
                           : "var(--theme-visualizer-empty)",
                   }}
                   transition={{ duration: 0 }}
-                  className={styles["visualizer__block"]}
+                  className={clsx(
+                    styles["visualizer__block"],
+                    (isActive && (isAccent || isSubAccent)) || (isAccent || isSubAccent)
+                      ? styles["visualizer__block--filled"]
+                      : undefined
+                  )}
                 />
                 <motion.div
                   initial={false}
@@ -136,7 +146,12 @@ export const Visualizer = ({
                           : "var(--theme-visualizer-empty)",
                   }}
                   transition={{ duration: 0 }}
-                  className={styles["visualizer__block"]}
+                  className={clsx(
+                    styles["visualizer__block"],
+                    (isActive && !isMute) || !isMute
+                      ? styles["visualizer__block--filled"]
+                      : undefined
+                  )}
                 />
               </div>
             </div>

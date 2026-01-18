@@ -1,9 +1,10 @@
-.glass-panel {
-  background: var(--theme-glass-bg);
-  backdrop-filter: blur(var(--theme-glass-blur));
-  -webkit-backdrop-filter: blur(var(--theme-glass-blur));
-  border: 1px solid var(--theme-glass-border);
+.control-panel {
+  background: var(--control-bg);
+  backdrop-filter: blur(var(--effect-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--effect-backdrop-blur));
+  border: 1px solid var(--control-border);
   box-shadow: var(--theme-shadow-panel);
+  border-radius: var(--theme-radius-panel, var(--theme-radius-lg));
 }
 
 .app {
@@ -83,10 +84,10 @@
 }
 
 .play-btn--stopped {
-  background-color: var(--theme-glass-bg);
-  backdrop-filter: blur(var(--theme-glass-blur-sm));
-  -webkit-backdrop-filter: blur(var(--theme-glass-blur-sm));
-  border: 1px solid var(--theme-glass-border);
+  background-color: var(--control-bg);
+  backdrop-filter: blur(var(--effect-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--effect-backdrop-blur));
+  border: 1px solid var(--control-border);
   color: var(--theme-text-primary);
 }
 
@@ -132,8 +133,10 @@
   font-weight: bold;
   letter-spacing: 0.05em;
   color: var(--theme-text-dim);
-  background-color: var(--theme-glass-bg-subtle);
-  border: 1px solid var(--theme-glass-border-subtle);
+  background: var(--theme-btn-bg, var(--control-bg-subtle));
+  border: var(--theme-btn-border, 1px solid var(--control-border-subtle));
+  text-shadow: var(--theme-btn-text-shadow, none);
+  box-shadow: var(--theme-btn-box-shadow, none);
   transition: all 0.2s;
 }
 
@@ -145,15 +148,20 @@
 
 .subdivision-btn:hover {
   color: var(--theme-text-bright);
-  background-color: var(--theme-glass-bg);
-  border-color: var(--theme-glass-border);
+  background: var(--theme-btn-hover-bg, var(--control-bg-hover));
+  border: var(--theme-btn-hover-border, 1px solid var(--control-border));
+  text-shadow: var(--theme-btn-hover-text-shadow, none);
+  box-shadow: var(--theme-btn-hover-box-shadow, none);
+  transform: var(--theme-btn-hover-transform, none);
 }
 
 .subdivision-btn--active {
-  color: var(--theme-text-on-accent);
-  background-color: var(--theme-glass-bg-hover);
-  border-color: var(--theme-glass-border-bright);
-  box-shadow: 0 0 10px var(--theme-glass-bg);
+  color: var(--text-on-control-active, var(--theme-text-on-accent));
+  background: var(--theme-btn-active-bg, var(--control-bg-active));
+  border: var(--theme-btn-active-border, 1px solid var(--control-border-active));
+  box-shadow: var(--theme-btn-active-shadow, var(--theme-shadow-active-item));
+  text-shadow: var(--theme-btn-active-text-shadow, none);
+  transform: var(--theme-btn-active-transform);
 }
 
 .header-buttons {
@@ -173,21 +181,21 @@
   gap: 0.375rem;
   padding: 0.625rem 0.75rem;
   border-radius: var(--theme-radius-pill, 9999px);
-  background-color: var(--theme-glass-bg-subtle);
-  border: 1px solid var(--theme-glass-border-subtle);
+  background-color: var(--control-bg);
+  border: 1px solid var(--control-border-subtle);
   color: var(--theme-text-secondary);
   font-size: 0.75rem;
   font-weight: 600;
   transition: all 0.2s;
-  backdrop-filter: blur(var(--theme-glass-blur-sm));
-  -webkit-backdrop-filter: blur(var(--theme-glass-blur-sm));
+  backdrop-filter: blur(var(--effect-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--effect-backdrop-blur));
 }
 
 @media (hover: hover) {
   .header-btn:hover {
     color: var(--theme-text-primary);
-    background-color: var(--theme-glass-bg);
-    border-color: var(--theme-glass-border);
+    background-color: var(--control-bg-hover);
+    border-color: var(--control-border);
   }
 }
 
@@ -199,7 +207,9 @@
 }
 
 .header-btn:active {
-  transform: scale(0.95);
+  transform: var(--theme-btn-active-transform);
+  background-color: var(--control-bg-active);
+  box-shadow: var(--theme-btn-active-shadow);
 }
 
 .header-btn__label {

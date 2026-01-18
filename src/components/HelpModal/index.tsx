@@ -1,16 +1,16 @@
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import {
-    AudioWaveform,
-    Gauge,
-    GripVertical,
-    HelpCircle,
-    ListMusic,
-    MousePointerClick,
-    Music,
-    Star,
-    VolumeX,
-    X,
+  AudioWaveform,
+  Gauge,
+  GripVertical,
+  HelpCircle,
+  ListMusic,
+  MousePointerClick,
+  Music,
+  Star,
+  VolumeX,
+  X,
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
@@ -44,7 +44,7 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
           type: "spring",
           stiffness: 450,
           damping: 30,
-          mass: 0.8
+          mass: 0.8,
         }}
         onClick={(e) => e.stopPropagation()}
         className={styles["help-modal__content"]}

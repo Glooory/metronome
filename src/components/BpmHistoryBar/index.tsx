@@ -58,11 +58,12 @@ export const BpmHistoryBar = ({
                 onClick={() => setBpm(b)}
                 className={clsx(
                   styles["history-bar__item"],
-                  "history-bar__item",
-                  b === currentBpm && [styles["history-bar__item--active"], "history-bar__item--active"]
+                  b === currentBpm && styles["history-bar__item--active"]
                 )}
               >
-                <span className={styles["history-bar__item-text"]}>{b}</span>
+                <span className={styles["history-bar__item-text"]}>
+                  {b}
+                </span>
                 <button
                   onClick={(e) => removeBpm(e, b)}
                   className={styles["history-bar__remove-btn"]}

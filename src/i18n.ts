@@ -918,7 +918,6 @@ export const translations = {
       },
     },
     themes: {
-
       swiss: {
         en: "Swiss",
         zh: "瑞士",

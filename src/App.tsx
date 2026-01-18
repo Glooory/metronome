@@ -6,12 +6,11 @@ import { HelmetProvider } from "react-helmet-async";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
 
-import { BpmDisplay } from "./components/BpmDisplay";
 import { BpmHistoryBar } from "./components/BpmHistoryBar";
-import { CustomGlassSelect } from "./components/CustomGlassSelect";
+import { ControlDock } from "./components/ControlDock";
+import { CustomSelect } from "./components/CustomSelect";
 import { HelpModal } from "./components/HelpModal";
 import { IntervalTrainerModal } from "./components/IntervalTrainerModal";
-import { LiquidGlassDock } from "./components/LiquidGlassDock";
 import { PresetsModal } from "./components/PresetsModal";
 import { SEO } from "./components/SEO";
 import { SpeedTrainerModal } from "./components/SpeedTrainerModal";
@@ -19,36 +18,37 @@ import { SwingSettingModal } from "./components/SwingSettingModal";
 import { TrainerDock } from "./components/TrainerDock";
 import { Visualizer } from "./components/Visualizer";
 
+import { BpmDisplay } from "./components/BpmDisplay";
 import {
-    BEAT_ACCENT,
-    BEAT_MUTE,
-    BEAT_NORMAL,
-    BEAT_SUB_ACCENT,
-    DEFAULT_THEME,
-    MAX_BPM,
-    MIN_BPM,
-    SOUND_DRUM,
-    SOUND_MECH,
-    SOUND_SINE,
-    SOUND_WOOD,
-    STORAGE_KEY_BEATS,
-    STORAGE_KEY_BPM,
-    STORAGE_KEY_INTERVAL_TRAINER,
-    STORAGE_KEY_PRESETS,
-    STORAGE_KEY_SAVED_BPMS,
-    STORAGE_KEY_SHIFT,
-    STORAGE_KEY_SOUND,
-    STORAGE_KEY_SPEED_TRAINER,
-    STORAGE_KEY_STEP_STATES,
-    STORAGE_KEY_SUBDIV_VAL,
-    STORAGE_KEY_SWING,
-    STORAGE_KEY_THEME,
-    TAP_TIMEOUT,
-    THEMES,
-    type IntervalTrainerConfig,
-    type Preset,
-    type SpeedTrainerConfig,
-    type Theme,
+  BEAT_ACCENT,
+  BEAT_MUTE,
+  BEAT_NORMAL,
+  BEAT_SUB_ACCENT,
+  DEFAULT_THEME,
+  MAX_BPM,
+  MIN_BPM,
+  SOUND_DRUM,
+  SOUND_MECH,
+  SOUND_SINE,
+  SOUND_WOOD,
+  STORAGE_KEY_BEATS,
+  STORAGE_KEY_BPM,
+  STORAGE_KEY_INTERVAL_TRAINER,
+  STORAGE_KEY_PRESETS,
+  STORAGE_KEY_SAVED_BPMS,
+  STORAGE_KEY_SHIFT,
+  STORAGE_KEY_SOUND,
+  STORAGE_KEY_SPEED_TRAINER,
+  STORAGE_KEY_STEP_STATES,
+  STORAGE_KEY_SUBDIV_VAL,
+  STORAGE_KEY_SWING,
+  STORAGE_KEY_THEME,
+  TAP_TIMEOUT,
+  THEMES,
+  type IntervalTrainerConfig,
+  type Preset,
+  type SpeedTrainerConfig,
+  type Theme,
 } from "./constants";
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
@@ -148,7 +148,7 @@ export default function MetronomeApp() {
 
   const [theme, setTheme] = useState<Theme>(() => {
     const _theme = getStorageItem(STORAGE_KEY_THEME, DEFAULT_THEME) as Theme;
-    return THEMES.find((t) => t.id === _theme)?.id || DEFAULT_THEME;
+    return THEMES.some((t) => t.id === _theme) ? _theme : DEFAULT_THEME;
   });
 
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
@@ -441,12 +441,12 @@ export default function MetronomeApp() {
         <div className={styles["header-buttons"]}>
           <button
             onClick={cycleTheme}
-            className={clsx(styles["header-btn"], "header-btn")}
+            className={styles["header-btn"]}
             title={translations.dock.theme[language]}
           >
             <Palette size={20} />
           </button>
-          <CustomGlassSelect
+          <CustomSelect
             icon={Palette}
             value={theme}
             onChange={setTheme}
@@ -474,7 +474,7 @@ export default function MetronomeApp() {
             placement="bottom"
           />
 
-          <CustomGlassSelect
+          <CustomSelect
             icon={Globe}
             title={translations.header.language[language]}
             value={language}
@@ -531,8 +531,7 @@ export default function MetronomeApp() {
                   key={opt.value}
                   className={clsx(
                     styles["subdivision-btn"],
-                    "subdivision-btn",
-                    subdivision === opt.value && [styles["subdivision-btn--active"], "subdivision-btn--active"]
+                    subdivision === opt.value && styles["subdivision-btn--active"]
                   )}
                   onClick={() => setSubdivision(opt.value)}
                 >
@@ -554,8 +553,8 @@ export default function MetronomeApp() {
               language={language}
             />
 
-            <LiquidGlassDock>
-              <CustomGlassSelect
+            <ControlDock>
+              <CustomSelect
                 icon={Music}
                 value={beatsPerMeasure}
                 onChange={(v) => setBeatsPerMeasure(parseInt(v))}
@@ -581,7 +580,7 @@ export default function MetronomeApp() {
                 )}
               </motion.button>
 
-              <CustomGlassSelect
+              <CustomSelect
                 icon={Drum}
                 value={soundPreset}
                 onChange={setSoundPreset}
@@ -590,7 +589,7 @@ export default function MetronomeApp() {
                 displayLabel={getSoundDisplay(soundPreset)}
                 alignment="right"
               />
-            </LiquidGlassDock>
+            </ControlDock>
           </div>
         </div>
 

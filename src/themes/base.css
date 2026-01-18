@@ -1,0 +1,270 @@
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --leading-tight: 1.2;
+  --leading-base: 1.5;
+  --leading-relaxed: 1.75;
+  --gray-0: oklch(99% 0 0);
+  --gray-50: oklch(96% 0.01 240);
+  --gray-100: oklch(90% 0.01 240);
+  --gray-200: oklch(80% 0.01 240);
+  --gray-300: oklch(70% 0.02 240);
+  --gray-400: oklch(60% 0.02 240);
+  --gray-500: oklch(50% 0.02 240);
+  --gray-600: oklch(40% 0.02 240);
+  --gray-700: oklch(30% 0.02 240);
+  --gray-800: oklch(20% 0.02 240);
+  --gray-900: oklch(10% 0.02 240);
+  --gray-950: oklch(5% 0.02 240);
+  --color-amber: oklch(75% 0.18 80);
+  --color-cyan: oklch(75% 0.15 220);
+  --color-purple: oklch(70% 0.18 300);
+  --color-blue: oklch(65% 0.2 260);
+  --color-red: oklch(65% 0.2 25);
+  --color-green: oklch(70% 0.16 150);
+}
+
+:root {
+  --theme-bg-primary: none;
+  --theme-bg-overlay: none;
+  --theme-bg-modal: none;
+  --theme-bg-modal-gradient: none;
+  --theme-gradient-bg: var(--surface-base);
+  --effect-backdrop-blur: 0px;
+  --surface-base: #000000;
+  --surface-panel: #000000;
+  --surface-overlay: rgba(0, 0, 0, 0.8);
+  --control-bg: #111111;
+  --control-bg-subtle: #0a0a0a;
+  --control-bg-hover: #222222;
+  --control-bg-active: #ffffff;
+  --control-border: #333333;
+  --control-border-subtle: #222222;
+  --control-border-active: #ffffff;
+  --text-on-control: #888888;
+  --text-on-control-active: #000000;
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #aaaaaa;
+  --theme-text-muted: #444444;
+  --theme-text-dim: #666666;
+  --theme-text-bright: #ffffff;
+  --theme-text-on-accent: var(--text-on-control-active);
+  --theme-input-bg: var(--control-bg-subtle);
+  --theme-input-border: none;
+  --theme-input-shadow: none;
+  --theme-accent-amber: #fbbf24;
+  --theme-accent-amber-bg: rgba(251, 191, 36, 0.15);
+  --theme-accent-amber-border: #fbbf24;
+  --theme-accent-amber-glow: none;
+  --theme-accent-cyan: #22d3ee;
+  --theme-accent-purple: #c084fc;
+  --theme-accent-purple-bg: rgba(192, 132, 252, 0.15);
+  --theme-accent-purple-border: #c084fc;
+  --theme-accent-blue: #60a5fa;
+  --theme-accent-blue-bg: rgba(96, 165, 250, 0.15);
+  --theme-accent-blue-border: #60a5fa;
+  --theme-accent-red: #f87171;
+  --theme-accent-red-bg: rgba(248, 113, 113, 0.15);
+  --theme-accent-red-border: #f87171;
+  --theme-accent-green-border: #4ade80;
+  --theme-bpm-value-color: transparent;
+  --theme-bpm-bg-clip: text;
+  --theme-bpm-webkit-bg-clip: text;
+  --theme-bpm-text-gradient: linear-gradient(0deg, #ffffff, #ffffff);
+  --theme-bpm-text-shadow: none;
+  --theme-bpm-filter: none;
+  --theme-bpm-visibility: none;
+  --theme-wheel-bg: var(--surface-base);
+  --theme-wheel-line: #ffffff;
+  --theme-wheel-line-glow: none;
+  --theme-wheel-tick: #444444;
+  --theme-shadow-sm: none;
+  --theme-shadow-glow: none;
+  --theme-shadow-panel: 0 0 0 1px #333333;
+  --theme-shadow-modal: 0 0 0 1px #333333, 0 20px 50px rgba(0, 0, 0, 0.8);
+  --theme-shadow-inset: none;
+  --theme-shadow-popover: 0 0 0 1px #333333;
+  --theme-shadow-active-item: none;
+  --theme-trainer-active-bg: #ffffff;
+  --theme-trainer-active-border: #ffffff;
+  --theme-trainer-active-glow: none;
+  --theme-toggle-active-speed: #ffffff;
+  --theme-toggle-active-interval: #ffffff;
+  --theme-toggle-border-interval: #ffffff;
+  --theme-toggle-knob: #000000;
+  --theme-visualizer-empty: #222222;
+  --theme-visualizer-accent: #ffffff;
+  --theme-visualizer-accent-dim: #666666;
+  --theme-visualizer-block-radius: var(--theme-radius-xs);
+  --theme-visualizer-block-border: 1px solid var(--control-border-subtle);
+  --theme-visualizer-block-shadow: var(--theme-visualizer-item-shadow, none);
+  --theme-visualizer-block-shadow-filled: none;
+  --theme-visualizer-item-shadow: none;
+  --theme-range-track-bg: var(--control-bg-subtle);
+  --theme-range-track-height: 4px;
+  --theme-range-thumb-bg: var(--control-border-active);
+  --theme-range-thumb-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --theme-radius-lg: 12px;
+  --theme-radius-md: 8px;
+  --theme-radius-sm: 6px;
+  --theme-radius-xs: 4px;
+  --theme-radius-modal: 16px;
+  --theme-radius-pill: 9999px;
+  --theme-motion-hover: translateY(0px);
+  --theme-transition-base: all 0.2s ease;
+  --theme-transition-fast: all 0.1s ease;
+  --theme-btn-bg: transparent;
+  --theme-btn-border: none;
+  --theme-btn-box-shadow: none;
+  --theme-btn-text-shadow: none;
+  --theme-btn-hover-bg: var(--control-bg-hover);
+  --theme-btn-hover-border: var(--control-border);
+  --theme-btn-hover-box-shadow: none;
+  --theme-btn-hover-text-shadow: none;
+  --theme-btn-hover-transform: var(--theme-motion-hover);
+  --theme-btn-active-bg: var(--control-bg-active);
+  --theme-btn-active-border: var(--control-border-active);
+  --theme-btn-active-shadow: none;
+  --theme-btn-active-text-shadow: none;
+  --theme-btn-active-transform: translateY(1px);
+  --theme-control-box-shadow: none;
+  --theme-control-active-box-shadow: none;
+  --theme-list-item-shadow: none;
+  --theme-list-item-active-shadow: none;
+  --theme-custom-select-option-selected-bg: none;
+  --theme-custom-select-option-selected-color: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes cyberpunk-pulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 10px rgba(0, 243, 255, 0.8),
+      0 0 20px rgba(0, 243, 255, 0.4);
+    opacity: 1;
+  }
+
+  50% {
+    text-shadow:
+      0 0 20px rgba(0, 243, 255, 1),
+      0 0 40px rgba(0, 243, 255, 0.6);
+    opacity: 0.9;
+  }
+}
+
+@keyframes scanline-drift {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  height: 100dvh;
+  background-color: var(--theme-bg-primary);
+  color: var(--theme-text-primary);
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--theme-range-track-height);
+  background: var(--theme-range-track-bg);
+  border-radius: var(--theme-radius-pill);
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--theme-range-thumb-bg);
+  margin-top: calc((var(--theme-range-track-height) - 16px) / 2);
+  box-shadow: var(--theme-range-thumb-shadow);
+  transition: transform 0.1s;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+input[type="range"]:focus {
+  outline: none;
+}

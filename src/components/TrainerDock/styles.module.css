@@ -5,14 +5,12 @@
   justify-content: center;
   gap: 8px;
   padding: 8px;
-  background: var(--theme-glass-bg);
-  backdrop-filter: blur(var(--theme-glass-blur));
-  -webkit-backdrop-filter: blur(var(--theme-glass-blur));
+  background: var(--control-bg);
+  backdrop-filter: blur(var(--effect-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--effect-backdrop-blur));
   border-radius: var(--theme-radius-lg);
-  /* Strict Grid */
-  border: 1px solid var(--theme-glass-border);
+  border: 1px solid var(--control-border);
   box-shadow: var(--theme-shadow-panel);
-  /* No Inset Highlight */
   margin-bottom: 12px;
 }
 
@@ -29,31 +27,32 @@
   justify-content: center;
   gap: 6px;
   padding: 8px;
-  background: var(--theme-input-bg);
-  border: 1px solid var(--theme-glass-border);
+  background: var(--control-bg, var(--theme-input-bg));
+  border: 1px solid var(--control-border);
   border-radius: var(--theme-radius-md);
-  /* Strict Grid */
   color: var(--theme-text-bright);
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+  box-shadow: var(--theme-control-box-shadow, none);
 }
 
 @media (hover: hover) {
   .trainer-dock__btn:hover {
-    background: var(--theme-glass-bg-hover);
+    background: var(--control-bg-hover);
     color: var(--theme-text-primary);
     transform: var(--theme-motion-hover);
   }
 }
 
 .trainer-dock__btn--active {
-  background: var(--theme-trainer-active-bg);
-  border-color: var(--theme-trainer-active-border);
-  color: var(--theme-text-on-accent);
+  background: var(--control-bg-active, var(--theme-trainer-active-bg));
+  border-color: var(--control-border-active, var(--theme-trainer-active-border));
+  color: var(--text-on-control-active, var(--theme-text-on-accent));
   box-shadow: var(--theme-trainer-active-glow);
+  transform: var(--theme-btn-active-transform);
 }
 
 .trainer-dock__btn-icon {

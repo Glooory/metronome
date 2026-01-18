@@ -11,7 +11,7 @@
 
 .presets-modal {
   background: var(--theme-bg-modal-gradient);
-  border: 1px solid var(--theme-glass-border-subtle);
+  border: 1px solid var(--control-border-subtle);
   border-radius: var(--theme-radius-modal);
   padding: 24px;
   min-width: 340px;
@@ -48,8 +48,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--theme-input-bg);
-  border: 1px solid var(--theme-glass-border-subtle);
+  background: var(--control-bg, var(--theme-input-bg));
+  border: 1px solid var(--control-border-subtle);
   border-radius: var(--theme-radius-sm);
   padding: 6px;
   color: var(--theme-text-secondary);
@@ -59,7 +59,7 @@
 
 @media (hover: hover) {
   .presets-modal__close-btn:hover {
-    background: var(--theme-glass-bg-hover);
+    background: var(--control-bg-hover);
     color: var(--theme-text-primary);
   }
 }
@@ -81,7 +81,7 @@
   min-width: 0;
   padding: 10px 14px;
   background: var(--theme-input-bg);
-  border: 1px solid var(--theme-glass-border-subtle);
+  border: 1px solid var(--control-border-subtle);
   border-radius: var(--theme-radius-md);
   color: var(--theme-text-primary);
   font-size: 14px;
@@ -95,7 +95,7 @@
 
 .presets-modal__name-input:focus {
   border-color: rgba(251, 191, 36, 0.5);
-  background: var(--theme-glass-bg);
+  background: var(--control-bg);
 }
 
 .presets-modal__save-btn {
@@ -126,7 +126,7 @@
 
 .presets-modal__divider {
   height: 1px;
-  background: var(--theme-glass-border-subtle);
+  background: var(--control-border-subtle);
 }
 
 .presets-modal__list {
@@ -144,12 +144,12 @@
 }
 
 .presets-modal__list::-webkit-scrollbar-track {
-  background: var(--theme-glass-bg-subtle);
+  background: var(--control-bg-subtle);
   border-radius: 2px;
 }
 
 .presets-modal__list::-webkit-scrollbar-thumb {
-  background: var(--theme-glass-bg-active);
+  background: var(--control-bg-active);
   border-radius: 2px;
 }
 
@@ -158,8 +158,8 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: var(--theme-glass-bg-subtle);
-  border: 1px solid var(--theme-glass-border-subtle);
+  background: var(--control-bg-subtle);
+  border: 1px solid var(--control-border-subtle);
   border-radius: var(--theme-radius-md);
   transition: var(--theme-transition-base);
 }
@@ -167,7 +167,7 @@
 @media (hover: hover) {
   .presets-modal__item:hover {
     background: var(--theme-input-bg);
-    border-color: var(--theme-glass-border-subtle);
+    border-color: var(--control-border-subtle);
   }
 }
 
@@ -202,7 +202,7 @@
 .presets-modal__action-btn {
   padding: 8px;
   background: var(--theme-input-bg);
-  border: 1px solid var(--theme-glass-border-subtle);
+  border: 1px solid var(--control-border-subtle);
   border-radius: var(--theme-radius-sm);
   color: var(--theme-text-bright);
   font-size: 12px;
@@ -215,7 +215,7 @@
 
 @media (hover: hover) {
   .presets-modal__action-btn:hover {
-    background: var(--theme-glass-bg-hover);
+    background: var(--control-bg-hover);
     color: var(--theme-text-primary);
   }
 }
@@ -270,7 +270,7 @@
 
 .presets-modal__confirm-dialog {
   background: var(--theme-bg-modal);
-  border: 1px solid var(--theme-glass-border);
+  border: 1px solid var(--control-border);
   border-radius: var(--theme-radius-lg);
   padding: 20px;
   width: 90%;
@@ -311,14 +311,14 @@
 }
 
 .presets-modal__confirm-btn-cancel {
-  background: var(--theme-glass-bg-subtle);
-  border: 1px solid var(--theme-glass-border-subtle);
+  background: var(--control-bg-subtle);
+  border: 1px solid var(--control-border-subtle);
   color: var(--theme-text-primary);
 }
 
 @media (hover: hover) {
   .presets-modal__confirm-btn-cancel:hover {
-    background: var(--theme-glass-bg);
+    background: var(--control-bg);
   }
 }
 

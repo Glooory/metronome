@@ -59,11 +59,12 @@
   width: 100%;
   text-align: center;
   transition: opacity 0.2s;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  background-clip: var(--theme-bpm-bg-clip);
+  -webkit-background-clip: var(--theme-bpm-webkit-bg-clip);
+  color: var(--theme-bpm-value-color);
   background-image: var(--theme-bpm-text-gradient);
-  filter: drop-shadow(0 4px 30px rgba(255, 255, 255, 0.25));
+  filter: var(--theme-bpm-filter, drop-shadow(0 4px 30px rgba(255, 255, 255, 0.25)));
+  text-shadow: var(--theme-bpm-text-shadow, none);
 }
 
 .bpm-display__value--blur {
@@ -72,10 +73,11 @@
   pointer-events: none;
   width: 100%;
   text-align: center;
-  color: var(--theme-glass-bg-active);
+  color: var(--control-bg-active);
   filter: blur(1px);
   transform: translateY(4px);
   mix-blend-mode: overlay;
+  visibility: var(--theme-bpm-visibility, visible);
 }
 
 .bpm-display__input {
@@ -105,7 +107,7 @@
 }
 
 .bpm-display__input::selection {
-  background-color: var(--theme-glass-border-bright);
+  background-color: var(--control-border-active);
 }
 
 .visible {
@@ -150,17 +152,17 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--theme-radius-sm);
-  background-color: var(--theme-glass-bg-subtle);
+  background-color: var(--control-bg-subtle);
 }
 
 .bpm-display__btn:hover {
   color: var(--theme-text-primary);
-  background-color: var(--theme-glass-bg);
+  background-color: var(--control-bg);
   transform: none;
 }
 
 .bpm-display__btn:active {
-  background-color: var(--theme-glass-bg-active);
+  background-color: var(--control-bg-active);
   transform: scale(0.98);
 }
 
@@ -177,18 +179,18 @@
   border-radius: var(--theme-radius-md);
   cursor: ns-resize;
   position: relative;
-  border: 1px solid var(--theme-glass-border-subtle);
+  border: 1px solid var(--control-border-subtle);
   box-shadow: var(--theme-shadow-inset);
   overflow: hidden;
   touch-action: none;
 }
 
 .bpm-display__wheel:hover {
-  border-color: var(--theme-glass-border);
+  border-color: var(--control-border);
 }
 
 .bpm-display__wheel:active {
-  border-color: var(--theme-glass-border-bright);
+  border-color: var(--control-border-active);
 }
 
 .bpm-display__wheel::before {
@@ -200,7 +202,7 @@
   bottom: 0;
   background-image: linear-gradient(to bottom,
       transparent 45%,
-      var(--theme-wheel-tick, var(--theme-glass-border-bright)) 50%,
+      var(--theme-wheel-tick, var(--control-border-active)) 50%,
       transparent 55%);
   background-size: 100% 1rem;
   background-position-y: var(--wheel-offset, 0);

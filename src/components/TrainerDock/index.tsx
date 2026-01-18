@@ -33,8 +33,7 @@ export const TrainerDock = ({
       <button
         className={clsx(
           styles["trainer-dock__btn"],
-          "trainer-dock__btn",
-          speedTrainer.enabled && [styles["trainer-dock__btn--active"], "trainer-dock__btn--active"]
+          speedTrainer.enabled && styles["trainer-dock__btn--active"]
         )}
         onClick={onSpeedClick}
         title={t.speedTooltip[language]}
@@ -46,8 +45,7 @@ export const TrainerDock = ({
       <button
         className={clsx(
           styles["trainer-dock__btn"],
-          "trainer-dock__btn",
-          intervalTrainer.enabled && [styles["trainer-dock__btn--active"], "trainer-dock__btn--active"]
+          intervalTrainer.enabled && styles["trainer-dock__btn--active"]
         )}
         onClick={onIntervalClick}
         title={t.intervalTooltip[language]}
@@ -59,8 +57,7 @@ export const TrainerDock = ({
       <button
         className={clsx(
           styles["trainer-dock__btn"],
-          "trainer-dock__btn",
-          swing > 0 && [styles["trainer-dock__btn--active"], "trainer-dock__btn--active"]
+          swing > 0 && styles["trainer-dock__btn--active"]
         )}
         onClick={onSwingClick}
         title={t.swingTooltip[language]}
@@ -70,7 +67,7 @@ export const TrainerDock = ({
       </button>
 
       <button
-        className={clsx(styles["trainer-dock__btn"], "trainer-dock__btn")}
+        className={styles["trainer-dock__btn"]}
         onClick={onPresetsClick}
         title={t.presetsTooltip[language]}
       >

@@ -37,14 +37,15 @@
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   border-radius: var(--theme-radius-pill);
-  border: 1px solid var(--theme-glass-border-subtle);
-  background-color: var(--theme-glass-bg-subtle);
+  border: 1px solid var(--control-border-subtle);
+  background-color: var(--control-bg-subtle);
   color: var(--theme-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--theme-transition-base);
+  box-shadow: var(--theme-list-item-shadow, none);
 }
 
 .history-bar__item:last-of-type {
@@ -52,15 +53,15 @@
 }
 
 .history-bar__item--active {
-  background-color: var(--theme-glass-bg-active);
-  border-color: var(--theme-glass-border-bright);
-  color: var(--theme-text-active-glass);
+  background-color: var(--control-bg-active);
+  border-color: var(--control-border-active);
+  color: var(--text-on-control-active);
   font-weight: bold;
-  box-shadow: var(--theme-shadow-active-item);
+  box-shadow: var(--theme-list-item-active-shadow, var(--theme-shadow-active-item));
 }
 
 .history-bar__item:hover:not(.history-bar__item--active) {
-  background-color: var(--theme-glass-bg);
+  background-color: var(--control-bg);
   color: var(--theme-text-primary);
 }
 
@@ -127,8 +128,8 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--theme-radius-pill);
-  background-color: var(--theme-glass-bg-subtle);
-  border: 1px solid var(--theme-glass-border-subtle);
+  background-color: var(--control-bg-subtle);
+  border: 1px solid var(--control-border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,13 +137,13 @@
 }
 
 .history-bar__tap-btn:hover {
-  background-color: var(--theme-glass-bg);
-  border-color: var(--theme-glass-border);
+  background-color: var(--control-bg);
+  border-color: var(--control-border);
 }
 
 .history-bar__tap-btn:active {
   transform: scale(0.95);
-  background-color: var(--theme-glass-bg-hover);
+  background-color: var(--control-bg-hover);
 }
 
 .history-bar__tap-label {

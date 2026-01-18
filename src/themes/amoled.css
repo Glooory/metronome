@@ -48,6 +48,8 @@
   --theme-bpm-text-shadow: none;
   --theme-bpm-filter: blur(8px);
   --theme-bpm-visibility: block;
+  --theme-bpm-font-weight: 900;
+  --theme-bpm-letter-spacing: -0.02em;
   --theme-wheel-bg: #000000;
   --theme-wheel-line: #ffffff;
   --theme-wheel-line-glow: none;

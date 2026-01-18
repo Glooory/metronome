@@ -74,6 +74,8 @@
   --theme-bpm-text-shadow: none;
   --theme-bpm-filter: none;
   --theme-bpm-visibility: none;
+  --theme-bpm-font-weight: 900;
+  --theme-bpm-letter-spacing: -0.02em;
   --theme-wheel-bg: var(--surface-base);
   --theme-wheel-line: #ffffff;
   --theme-wheel-line-glow: none;

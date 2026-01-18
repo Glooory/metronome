@@ -53,6 +53,8 @@
   --theme-bpm-text-shadow: none;
   --theme-bpm-filter: url("#roughpaper");
   --theme-bpm-visibility: none;
+  --theme-bpm-font-weight: 900;
+  --theme-bpm-letter-spacing: -0.02em;
   --theme-wheel-bg: #001100;
   --theme-wheel-line: #00ff00;
   --theme-wheel-line-glow: 0 0 10px #00ff00;

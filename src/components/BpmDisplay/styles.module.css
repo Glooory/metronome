@@ -46,8 +46,8 @@
   place-items: center;
   flex: 1;
   font-size: var(--bpm-lable-fz);
-  font-weight: bold;
-  letter-spacing: -0.05em;
+  font-weight: var(--theme-bpm-font-weight, bold);
+  letter-spacing: var(--theme-bpm-letter-spacing, -0.05em);
   line-height: 1;
   font-variant-numeric: tabular-nums;
   min-width: 3ch;

@@ -56,6 +56,8 @@
   --theme-bpm-text-shadow: -1.5px 0 0 rgba(255, 0, 0, 0.5), 1.5px 0 0 rgba(0, 255, 255, 0.5), 0 0 6px rgba(255, 113, 206, 0.6);
   --theme-bpm-filter: none;
   --theme-bpm-visibility: none;
+  --theme-bpm-font-weight: 900;
+  --theme-bpm-letter-spacing: -0.02em;
   --theme-wheel-bg: #1a0b2e;
   --theme-wheel-line: #05ffa1;
   --theme-wheel-line-glow: 0 0 5px #05ffa1;

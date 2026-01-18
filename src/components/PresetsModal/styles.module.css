@@ -60,7 +60,7 @@
 @media (hover: hover) {
   .presets-modal__close-btn:hover {
     background: var(--control-bg-hover);
-    color: var(--theme-text-primary);
+    color: var(--theme-btn-hover-color, var(--theme-text-primary));
   }
 }
 
@@ -216,7 +216,7 @@
 @media (hover: hover) {
   .presets-modal__action-btn:hover {
     background: var(--control-bg-hover);
-    color: var(--theme-text-primary);
+    color: var(--theme-btn-hover-color, var(--theme-text-primary));
   }
 }
 

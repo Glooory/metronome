@@ -121,6 +121,13 @@
   color: var(--theme-text-primary);
 }
 
+.visualizer__control-btn:active,
+.visualizer__control-btn:active:hover {
+  background: var(--control-bg-active);
+  color: var(--theme-btn-active-color);
+  transform: var(--theme-btn-active-transform);
+}
+
 .visualizer__value {
   font-family: var(--font-mono, monospace);
   font-size: 0.875rem;
@@ -152,4 +159,11 @@
 .visualizer__reset-btn:hover {
   background: var(--control-bg-hover);
   color: var(--theme-text-primary);
+}
+
+.visualizer__reset-btn:active,
+.visualizer__reset-btn:active:hover {
+  background: var(--control-bg-active);
+  color: var(--theme-btn-active-color);
+  transform: var(--theme-btn-active-transform);
 }

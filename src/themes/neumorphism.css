@@ -109,11 +109,13 @@
     6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.3);
   --theme-btn-text-shadow: none;
   --theme-btn-hover-bg: var(--control-bg-hover);
+  --theme-btn-hover-color: var(--theme-text-primary);
   --theme-btn-hover-border: var(--control-border);
   --theme-btn-hover-box-shadow: none;
   --theme-btn-hover-text-shadow: none;
   --theme-btn-hover-transform: var(--theme-motion-hover);
   --theme-btn-active-bg: var(--control-bg-active);
+  --theme-btn-active-color: var(--text-on-control-active);
   --theme-btn-active-border: var(--control-border-active);
   --theme-btn-active-shadow:
     inset 4px 4px 8px rgb(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.5);

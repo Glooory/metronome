@@ -97,11 +97,13 @@
   --theme-btn-box-shadow: none;
   --theme-btn-text-shadow: none;
   --theme-btn-hover-bg: #ffffff;
+  --theme-btn-hover-color: var(--theme-text-primary);
   --theme-btn-hover-border: 1px solid #000000;
   --theme-btn-hover-box-shadow: 4px 4px 0px #000000;
   --theme-btn-hover-text-shadow: none;
   --theme-btn-hover-transform: var(--theme-motion-hover);
   --theme-btn-active-bg: #000000;
+  --theme-btn-active-color: var(--text-on-control-active);
   --theme-btn-active-border: 1px solid #000000;
   --theme-btn-active-shadow: none;
   --theme-btn-active-text-shadow: none;

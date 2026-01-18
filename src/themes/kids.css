@@ -102,11 +102,13 @@
   --theme-btn-box-shadow: none;
   --theme-btn-text-shadow: none;
   --theme-btn-hover-bg: var(--control-bg-hover);
+  --theme-btn-hover-color: var(--theme-text-primary);
   --theme-btn-hover-border: var(--control-border);
   --theme-btn-hover-box-shadow: none;
   --theme-btn-hover-text-shadow: none;
   --theme-btn-hover-transform: var(--theme-motion-hover);
   --theme-btn-active-bg: var(--control-bg-active);
+  --theme-btn-active-color: var(--text-on-control-active);
   --theme-btn-active-border: var(--control-border-active);
   --theme-btn-active-shadow: none;
   --theme-btn-active-text-shadow: none;

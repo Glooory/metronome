@@ -42,17 +42,23 @@
 @media (hover: hover) {
   .trainer-dock__btn:hover {
     background: var(--control-bg-hover);
-    color: var(--theme-text-primary);
+    color: var(--theme-btn-hover-color, var(--theme-text-primary));
     transform: var(--theme-motion-hover);
   }
 }
 
-.trainer-dock__btn--active {
+.trainer-dock__btn--active,
+.trainer-dock__btn--active:hover {
   background: var(--control-bg-active, var(--theme-trainer-active-bg));
   border-color: var(--control-border-active, var(--theme-trainer-active-border));
-  color: var(--text-on-control-active, var(--theme-text-on-accent));
+  color: var(--theme-btn-active-color, var(--text-on-control-active));
   box-shadow: var(--theme-trainer-active-glow);
   transform: var(--theme-btn-active-transform);
+}
+
+.trainer-dock__btn:active {
+  background: var(--control-bg-active);
+  color: var(--theme-btn-active-color);
 }
 
 .trainer-dock__btn-icon {

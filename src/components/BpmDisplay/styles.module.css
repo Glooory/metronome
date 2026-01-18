@@ -156,13 +156,14 @@
 }
 
 .bpm-display__btn:hover {
-  color: var(--theme-text-primary);
+  color: var(--theme-btn-hover-color, var(--theme-text-primary));
   background-color: var(--control-bg);
   transform: none;
 }
 
 .bpm-display__btn:active {
   background-color: var(--control-bg-active);
+  color: var(--theme-btn-active-color);
   transform: scale(0.98);
 }
 
@@ -200,10 +201,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(to bottom,
-      transparent 45%,
-      var(--theme-wheel-tick, var(--control-border-active)) 50%,
-      transparent 55%);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 45%,
+    var(--theme-wheel-tick, var(--control-border-active)) 50%,
+    transparent 55%
+  );
   background-size: 100% 1rem;
   background-position-y: var(--wheel-offset, 0);
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);

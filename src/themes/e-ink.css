@@ -1,8 +1,9 @@
 .theme-e-ink {
   --theme-bg-primary: #f0f0f0;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(240, 240, 240, 0.9);
+  --theme-play-btn-active-bg: var(--theme-text-primary);
+  --theme-play-btn-active-color: var(--theme-bg-primary);
   --theme-bg-modal: #ffffff;
-  --theme-bg-modal-gradient: #ffffff;
   --theme-gradient-bg: #f0f0f0;
   --effect-backdrop-blur: 0px;
   --surface-base: var(--theme-bg-primary);

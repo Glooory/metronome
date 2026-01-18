@@ -1,18 +1,29 @@
 .theme-mechanical {
   --theme-bg-primary: #1a1a1a;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(0, 0, 0, 0.85);
+  --theme-dropdown-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --theme-play-btn-active-bg: var(--theme-trainer-active-bg);
+  --theme-play-btn-active-color: #ffffff;
   --theme-bg-modal: #222222;
-  --theme-bg-modal-gradient: #222222;
-  --theme-gradient-bg: repeating-linear-gradient(90deg,
+  --theme-gradient-bg:
+    repeating-linear-gradient(
+      90deg,
       rgba(255, 255, 255, 0.03) 0px,
       rgba(255, 255, 255, 0.03) 1px,
       transparent 1px,
-      transparent 3px),
-    repeating-linear-gradient(0deg,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      0deg,
       rgba(255, 255, 255, 0.02) 0px,
       rgba(255, 255, 255, 0.02) 1px,
       transparent 1px,
-      transparent 4px),
+      transparent 4px
+    ),
     linear-gradient(135deg, #2b2e33 0%, #151618 100%);
   --effect-backdrop-blur: 0px;
   --surface-base: var(--theme-bg-primary);
@@ -60,29 +71,32 @@
   --theme-bpm-visibility: none;
   --theme-bpm-font-weight: 900;
   --theme-bpm-letter-spacing: -0.02em;
-  --theme-wheel-bg: repeating-linear-gradient(90deg,
+  --theme-wheel-bg:
+    repeating-linear-gradient(
+      90deg,
       rgba(0, 0, 0, 0.4) 0px,
       rgba(0, 0, 0, 0.4) 1px,
       transparent 1px,
-      transparent 4px),
+      transparent 4px
+    ),
     linear-gradient(180deg, #222 0%, #444 50%, #222 100%);
   --theme-wheel-line: #e0a040;
   --theme-wheel-line-glow: none;
   --theme-wheel-tick: #444444;
-  --theme-shadow-sm: inset 1px 1px 0px rgba(255, 255, 255, 0.3),
-    inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+  --theme-shadow-sm:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.3), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
     0 2px 4px rgba(0, 0, 0, 0.5);
   --theme-shadow-glow: none;
-  --theme-shadow-panel: inset 1px 1px 0px rgba(255, 255, 255, 0.2),
-    inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+  --theme-shadow-panel:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.2), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
     0 10px 20px rgba(0, 0, 0, 0.6);
-  --theme-shadow-modal: inset 1px 1px 0px rgba(255, 255, 255, 0.15),
-    inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+  --theme-shadow-modal:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.15), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
     0 30px 60px rgba(0, 0, 0, 1);
-  --theme-shadow-inset: inset 2px 2px 5px rgba(0, 0, 0, 0.9),
-    inset -1px -1px 0px rgba(255, 255, 255, 0.1);
-  --theme-shadow-popover: inset 1px 1px 0px rgba(255, 255, 255, 0.2),
-    inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+  --theme-shadow-inset:
+    inset 2px 2px 5px rgba(0, 0, 0, 0.9), inset -1px -1px 0px rgba(255, 255, 255, 0.1);
+  --theme-shadow-popover:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.2), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
     0 10px 20px rgba(0, 0, 0, 0.6);
   --theme-shadow-active-item: inset 2px 2px 5px rgba(0, 0, 0, 0.9);
   --theme-trainer-active-bg: radial-gradient(circle, #b8860b, #806030);

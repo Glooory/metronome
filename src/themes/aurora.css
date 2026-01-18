@@ -1,9 +1,16 @@
 .theme-aurora {
   --theme-bg-primary: #0b1026;
-  --theme-bg-overlay: rgba(11, 16, 38, 0.6);
-  --theme-bg-modal: rgba(11, 16, 38, 0.85);
-  --theme-bg-modal-gradient: linear-gradient(180deg, rgba(20, 30, 60, 0.95), rgba(10, 15, 30, 0.95));
-  --theme-gradient-bg: radial-gradient(circle at 10% 20%, rgba(52, 211, 153, 0.3) 0%, transparent 40%),
+  --theme-bg-overlay: rgba(11, 16, 38, 0.85);
+  --theme-dropdown-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --theme-play-btn-active-bg: var(--theme-trainer-active-bg);
+  --theme-play-btn-active-color: #ffffff;
+  --theme-bg-modal: linear-gradient(180deg, rgba(20, 30, 60, 0.95), rgba(10, 15, 30, 0.95));
+  --theme-gradient-bg:
+    radial-gradient(circle at 10% 20%, rgba(52, 211, 153, 0.3) 0%, transparent 40%),
     radial-gradient(ellipse at 80% 0%, rgba(139, 92, 246, 0.3) 0%, transparent 40%),
     radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
     linear-gradient(180deg, #0b1026 0%, #171e3b 100%);

@@ -1,21 +1,29 @@
 .theme-cyberpunk {
   --theme-bg-primary: #050508;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(0, 0, 0, 0.8);
+  --theme-dropdown-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --theme-play-btn-active-bg: var(--theme-text-secondary);
+  --theme-play-btn-active-color: #000000;
   --theme-bg-modal: none;
-  --theme-bg-modal-gradient: none;
-  --theme-gradient-bg: repeating-linear-gradient(0deg,
+  --theme-gradient-bg:
+    repeating-linear-gradient(
+      0deg,
       transparent 0,
       transparent 1px,
       rgba(0, 0, 0, 0.3) 2px,
-      rgba(0, 0, 0, 0.3) 3px),
-    repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.3) 3px
+    ),
+    repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(0, 243, 255, 0.05) 40px),
+    repeating-linear-gradient(
+      180deg,
       transparent 0,
       transparent 39px,
-      rgba(0, 243, 255, 0.05) 40px),
-    repeating-linear-gradient(180deg,
-      transparent 0,
-      transparent 39px,
-      rgba(255, 0, 255, 0.05) 40px),
+      rgba(255, 0, 255, 0.05) 40px
+    ),
     radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050508 100%);
   --effect-backdrop-blur: 0px;
   --surface-base: var(--theme-bg-primary);
@@ -63,28 +71,32 @@
   --theme-bpm-visibility: none;
   --theme-bpm-font-weight: 900;
   --theme-bpm-letter-spacing: -0.02em;
-  --theme-wheel-bg: repeating-linear-gradient(90deg,
-      rgba(0, 0, 0, 0.8),
-      rgba(0, 0, 0, 0.8) 2px,
-      transparent 2px,
-      transparent 4px);
+  --theme-wheel-bg: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8) 2px,
+    transparent 2px,
+    transparent 4px
+  );
   --theme-wheel-line: #ff2a6d;
   --theme-wheel-line-glow: 0 0 10px rgba(255, 42, 109, 0.8);
   --theme-wheel-tick: #00f3ff;
   --theme-shadow-sm: 0 0 0 1px rgba(0, 243, 255, 0.3);
   --theme-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
-  --theme-shadow-panel: 0 0 0 1px rgba(0, 243, 255, 0.3),
-    0 0 0 2px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(0, 243, 255, 0.2),
+  --theme-shadow-panel:
+    0 0 0 1px rgba(0, 243, 255, 0.3), 0 0 0 2px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 243, 255, 0.2),
     inset 0 0 20px rgba(0, 243, 255, 0.05);
-  --theme-shadow-modal: 0 0 0 1px rgba(0, 243, 255, 0.5),
-    0 0 0 4px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(0, 243, 255, 0.2),
+  --theme-shadow-modal:
+    0 0 0 1px rgba(0, 243, 255, 0.5), 0 0 0 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 243, 255, 0.2),
     inset 0 0 30px rgba(0, 0, 0, 0.8);
   --theme-shadow-inset: inset 0 0 10px rgba(0, 0, 0, 0.9);
   --theme-shadow-popover: 0 0 0 1px #00f3ff, 0 10px 30px rgba(0, 0, 0, 0.9);
   --theme-shadow-active-item: 0 0 10px #00f3ff, inset 0 0 10px #00f3ff;
-  --theme-trainer-active-bg: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(217, 0, 255, 0.2));
+  --theme-trainer-active-bg: linear-gradient(
+    135deg,
+    rgba(0, 243, 255, 0.2),
+    rgba(217, 0, 255, 0.2)
+  );
   --theme-trainer-active-border: #00f3ff;
   --theme-trainer-active-glow: 0 0 20px rgba(0, 243, 255, 0.4);
   --theme-toggle-active-speed: linear-gradient(135deg, #00f3ff, #2979ff);

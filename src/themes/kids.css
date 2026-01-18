@@ -1,9 +1,16 @@
 .theme-kids {
   --theme-bg-primary: #f8f1d8;
-  --theme-bg-overlay: rgba(255, 255, 255, 0.8);
+  --theme-bg-overlay: rgba(255, 255, 255, 0.9);
+  --theme-dropdown-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --theme-play-btn-active-bg: var(--theme-trainer-active-bg);
+  --theme-play-btn-active-color: #2d3436;
   --theme-bg-modal: #ffffff;
-  --theme-bg-modal-gradient: linear-gradient(180deg, #ffffff, #f0f0f0);
-  --theme-gradient-bg: radial-gradient(rgba(250, 177, 160, 0.4) 20%, transparent 21%) 0 0 / 20px 20px,
+  --theme-gradient-bg:
+    radial-gradient(rgba(250, 177, 160, 0.4) 20%, transparent 21%) 0 0 / 20px 20px,
     radial-gradient(rgba(116, 185, 255, 0.4) 20%, transparent 21%) 10px 10px / 20px 20px;
   --effect-backdrop-blur: 0px;
   --surface-base: var(--theme-bg-primary);

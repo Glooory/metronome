@@ -1,8 +1,9 @@
 .theme-brutalism {
   --theme-bg-primary: #fffdf0;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(255, 255, 255, 0.9);
+  --theme-play-btn-active-bg: var(--theme-text-primary);
+  --theme-play-btn-active-color: var(--theme-bg-primary);
   --theme-bg-modal: #ffffff;
-  --theme-bg-modal-gradient: #ffffff;
   --theme-gradient-bg: #e2e8f0;
   --effect-backdrop-blur: 0px;
   --surface-base: var(--theme-bg-primary);

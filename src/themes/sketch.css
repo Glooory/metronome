@@ -1,9 +1,11 @@
 .theme-sketch {
   --theme-bg-primary: #f5f5f5;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(255, 255, 255, 0.9);
+  --theme-play-btn-active-bg: var(--theme-text-primary);
+  --theme-play-btn-active-color: #ffffff;
   --theme-bg-modal: #ffffff;
-  --theme-bg-modal-gradient: #ffffff;
-  --theme-gradient-bg: linear-gradient(#bdc3c7 1px, transparent 1px),
+  --theme-gradient-bg:
+    linear-gradient(#bdc3c7 1px, transparent 1px),
     linear-gradient(90deg, #bdc3c7 1px, transparent 1px);
   --effect-backdrop-blur: 0px;
   --surface-base: #000000;

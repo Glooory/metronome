@@ -10,7 +10,7 @@
 }
 
 .swing-trainer-modal {
-  background: var(--theme-bg-modal-gradient);
+  background: var(--theme-bg-modal);
   border: 1px solid var(--control-border-subtle);
   border-radius: var(--theme-radius-modal);
   padding: 24px;

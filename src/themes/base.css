@@ -1,5 +1,6 @@
 :root {
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
   --leading-tight: 1.2;
   --leading-base: 1.5;
@@ -27,8 +28,10 @@
 :root {
   --theme-bg-primary: none;
   --theme-bg-overlay: none;
+  --theme-dropdown-sheen: none;
+  --theme-play-btn-active-bg: var(--theme-text-primary);
+  --theme-play-btn-active-color: var(--theme-bg-primary);
   --theme-bg-modal: none;
-  --theme-bg-modal-gradient: none;
   --theme-gradient-bg: var(--surface-base);
   --effect-backdrop-blur: 0px;
   --surface-base: #000000;
@@ -137,23 +140,6 @@
   --theme-custom-select-option-selected-color: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @keyframes cyberpunk-pulse {
   0%,
   100% {
@@ -180,7 +166,6 @@
     background-position: 0 100%;
   }
 }
-
 
 *,
 ::before,
@@ -216,7 +201,6 @@ h6,
 p {
   margin: 0;
 }
-
 
 h1,
 h2,

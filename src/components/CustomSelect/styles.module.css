@@ -169,7 +169,7 @@
   left: 0;
   right: 0;
   height: 50%;
-  background: var(--theme-bg-overlay);
+  background: var(--theme-dropdown-sheen, none);
   pointer-events: none;
   mix-blend-mode: overlay;
 }

@@ -46,7 +46,7 @@
   overflow: hidden;
   border: 1px solid var(--control-border-subtle);
   box-shadow: var(--theme-shadow-panel);
-  background-color: var(--theme-bg-modal);
+  background: var(--theme-bg-modal);
   border-radius: var(--theme-radius-modal);
   backdrop-filter: blur(var(--effect-backdrop-blur));
   -webkit-backdrop-filter: blur(var(--effect-backdrop-blur));

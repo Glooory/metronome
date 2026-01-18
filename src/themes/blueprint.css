@@ -1,9 +1,11 @@
 .theme-blueprint {
   --theme-bg-primary: #002b5e;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(0, 43, 94, 0.85);
+  --theme-play-btn-active-bg: var(--theme-visualizer-accent);
+  --theme-play-btn-active-color: var(--theme-bg-primary);
   --theme-bg-modal: #002b5e;
-  --theme-bg-modal-gradient: #002b5e;
-  --theme-gradient-bg: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+  --theme-gradient-bg:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
@@ -64,11 +66,13 @@
   --theme-shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
   --theme-shadow-popover: 0 0 0 1px #84a9e1;
   --theme-shadow-active-item: 0 0 0 1px #ffffff;
-  --theme-trainer-active-bg: repeating-linear-gradient(45deg,
-      #002b5e,
-      #002b5e 10px,
-      #003b7e 10px,
-      #003b7e 20px);
+  --theme-trainer-active-bg: repeating-linear-gradient(
+    45deg,
+    #002b5e,
+    #002b5e 10px,
+    #003b7e 10px,
+    #003b7e 20px
+  );
   --theme-trainer-active-border: #ffffff;
   --theme-trainer-active-glow: none;
   --theme-toggle-active-speed: linear-gradient(to right, #ffffff, #00d2ff);

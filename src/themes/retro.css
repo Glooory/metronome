@@ -1,13 +1,17 @@
 .theme-retro {
   --theme-bg-primary: #1a0b2e;
   --theme-bg-overlay: rgba(26, 11, 46, 0.9);
+  --theme-dropdown-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --theme-play-btn-active-bg: var(--theme-accent-red);
+  --theme-play-btn-active-color: #1a0b2e;
   --theme-bg-modal: #1a0b2e;
-  --theme-bg-modal-gradient: #1a0b2e;
-  --theme-gradient-bg: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.8) 100%),
-    repeating-linear-gradient(0deg,
-      transparent 0,
-      transparent 2px,
-      rgba(0, 0, 0, 0.3) 3px),
+  --theme-gradient-bg:
+    radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.8) 100%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0, 0, 0, 0.3) 3px),
     linear-gradient(rgba(18, 11, 34, 0.9) 0%, rgba(18, 11, 34, 0.9) 100%),
     linear-gradient(0deg, rgba(185, 103, 255, 0.2) 1px, transparent 1px),
     linear-gradient(90deg, rgba(185, 103, 255, 0.2) 1px, transparent 1px),
@@ -53,7 +57,9 @@
   --theme-bpm-bg-clip: text;
   --theme-bpm-webkit-bg-clip: text;
   --theme-bpm-text-gradient: #fffb96;
-  --theme-bpm-text-shadow: -1.5px 0 0 rgba(255, 0, 0, 0.5), 1.5px 0 0 rgba(0, 255, 255, 0.5), 0 0 6px rgba(255, 113, 206, 0.6);
+  --theme-bpm-text-shadow:
+    -1.5px 0 0 rgba(255, 0, 0, 0.5), 1.5px 0 0 rgba(0, 255, 255, 0.5),
+    0 0 6px rgba(255, 113, 206, 0.6);
   --theme-bpm-filter: none;
   --theme-bpm-visibility: none;
   --theme-bpm-font-weight: 900;
@@ -63,11 +69,9 @@
   --theme-wheel-line-glow: 0 0 5px #05ffa1;
   --theme-wheel-tick: #b967ff;
   --theme-shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.5);
-  --theme-shadow-glow: -2px 0 0 rgba(255, 0, 0, 0.5),
-    2px 0 0 rgba(0, 255, 255, 0.5),
-    0 0 10px rgba(255, 113, 206, 0.6);
-  --theme-shadow-panel: 0 0 0 2px #b967ff,
-    4px 4px 0px rgba(0, 0, 0, 0.5);
+  --theme-shadow-glow:
+    -2px 0 0 rgba(255, 0, 0, 0.5), 2px 0 0 rgba(0, 255, 255, 0.5), 0 0 10px rgba(255, 113, 206, 0.6);
+  --theme-shadow-panel: 0 0 0 2px #b967ff, 4px 4px 0px rgba(0, 0, 0, 0.5);
   --theme-shadow-modal: 0 0 0 2px #01cdfe, 0 0 0 100vmax rgba(0, 0, 0, 0.8);
   --theme-shadow-inset: inset 2px 2px 0px rgba(0, 0, 0, 0.5);
   --theme-shadow-popover: 4px 4px 0px #b967ff;

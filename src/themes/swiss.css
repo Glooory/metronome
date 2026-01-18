@@ -1,9 +1,11 @@
 .theme-swiss {
   --theme-bg-primary: #f5f5f7;
-  --theme-bg-overlay: none;
+  --theme-bg-overlay: rgba(255, 255, 255, 0.9);
+  --theme-play-btn-active-bg: var(--theme-accent-red);
+  --theme-play-btn-active-color: #ffffff;
   --theme-bg-modal: #ffffff;
-  --theme-bg-modal-gradient: #ffffff;
-  --theme-gradient-bg: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+  --theme-gradient-bg:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px;
   --effect-backdrop-blur: 0px;
   --surface-base: var(--theme-bg-primary);

@@ -78,8 +78,8 @@
 }
 
 .play-btn--playing {
-  background-color: var(--theme-text-primary);
-  color: var(--theme-bg-primary);
+  background-color: var(--theme-play-btn-active-bg, var(--theme-text-primary));
+  color: var(--theme-play-btn-active-color, var(--theme-bg-primary));
   box-shadow: var(--theme-shadow-glow);
 }
 

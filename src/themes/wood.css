@@ -1,18 +1,29 @@
 .theme-wood {
   --theme-bg-primary: #e6bf83;
-  --theme-bg-overlay: none;
-  --theme-bg-modal: #e6bf83;
-  --theme-bg-modal-gradient: linear-gradient(135deg, #e6bf83, #d2aa6d);
-  --theme-gradient-bg: repeating-linear-gradient(85deg,
+  --theme-bg-overlay: rgba(0, 0, 0, 0.7);
+  --theme-dropdown-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --theme-play-btn-active-bg: var(--theme-trainer-active-bg);
+  --theme-play-btn-active-color: #3e2723;
+  --theme-bg-modal: linear-gradient(135deg, #e6bf83, #d2aa6d);
+  --theme-gradient-bg:
+    repeating-linear-gradient(
+      85deg,
       rgba(80, 50, 20, 0.08) 0px,
       rgba(80, 50, 20, 0.08) 2px,
       transparent 2px,
-      transparent 12px),
-    repeating-linear-gradient(88deg,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      88deg,
       rgba(80, 50, 20, 0.05) 0px,
       rgba(80, 50, 20, 0.05) 2px,
       transparent 2px,
-      transparent 24px),
+      transparent 24px
+    ),
     radial-gradient(ellipse at 70% 30%, rgba(100, 60, 30, 0.1) 0%, transparent 50%),
     linear-gradient(135deg, #e6bf83 0%, #a1887f 100%);
   --effect-backdrop-blur: 0px;
@@ -61,27 +72,30 @@
   --theme-bpm-visibility: none;
   --theme-bpm-font-weight: 900;
   --theme-bpm-letter-spacing: -0.02em;
-  --theme-wheel-bg: linear-gradient(180deg,
+  --theme-wheel-bg:
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.1) 0%,
       transparent 40%,
       transparent 60%,
-      rgba(0, 0, 0, 0.2) 100%),
+      rgba(0, 0, 0, 0.2) 100%
+    ),
     linear-gradient(90deg, #cfa66c, #e6bf83);
   --theme-wheel-line: #bf360c;
   --theme-wheel-line-glow: 0 1px 0 rgba(255, 255, 255, 0.4);
   --theme-wheel-tick: #8d6e63;
-  --theme-shadow-sm: inset 2px 2px 4px rgba(60, 40, 20, 0.3),
-    inset -1px -1px 0px rgba(255, 255, 255, 0.2),
+  --theme-shadow-sm:
+    inset 2px 2px 4px rgba(60, 40, 20, 0.3), inset -1px -1px 0px rgba(255, 255, 255, 0.2),
     0 2px 4px rgba(0, 0, 0, 0.1);
   --theme-shadow-glow: none;
-  --theme-shadow-panel: inset 2px 2px 5px rgba(60, 40, 20, 0.4),
-    inset -1px -1px 0px rgba(255, 255, 255, 0.2),
+  --theme-shadow-panel:
+    inset 2px 2px 5px rgba(60, 40, 20, 0.4), inset -1px -1px 0px rgba(255, 255, 255, 0.2),
     0 10px 20px rgba(0, 0, 0, 0.2);
   --theme-shadow-modal: 0 20px 40px rgba(60, 40, 20, 0.5);
-  --theme-shadow-inset: inset 3px 3px 6px rgba(60, 40, 20, 0.5),
-    inset -1px -1px 0px rgba(255, 255, 255, 0.3);
-  --theme-shadow-popover: inset 2px 2px 5px rgba(60, 40, 20, 0.4),
-    inset -1px -1px 0px rgba(255, 255, 255, 0.2);
+  --theme-shadow-inset:
+    inset 3px 3px 6px rgba(60, 40, 20, 0.5), inset -1px -1px 0px rgba(255, 255, 255, 0.3);
+  --theme-shadow-popover:
+    inset 2px 2px 5px rgba(60, 40, 20, 0.4), inset -1px -1px 0px rgba(255, 255, 255, 0.2);
   --theme-shadow-active-item: inset 2px 2px 4px rgba(60, 40, 20, 0.3);
   --theme-trainer-active-bg: radial-gradient(circle, #ffb74d, #f57c00);
   --theme-trainer-active-border: #3e2723;
@@ -111,11 +125,12 @@
   --theme-motion-hover: translateY(1px);
   --theme-transition-base: all 0.2s ease-out;
   --theme-transition-fast: all 0.1s ease-out;
-  --theme-btn-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%),
+  --theme-btn-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%),
     linear-gradient(180deg, #edc988 0%, #dfb775 100%);
   --theme-btn-border: 1px solid #c19a6b;
-  --theme-btn-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.6),
-    0 4px 6px rgba(60, 40, 20, 0.3),
+  --theme-btn-box-shadow:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.6), 0 4px 6px rgba(60, 40, 20, 0.3),
     0 1px 0px rgba(60, 40, 20, 0.2);
   --theme-btn-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   --theme-btn-hover-bg: var(--control-bg-hover);
@@ -125,8 +140,8 @@
   --theme-btn-hover-transform: var(--theme-motion-hover);
   --theme-btn-active-bg: #cfa66c;
   --theme-btn-active-border: var(--control-border-active);
-  --theme-btn-active-shadow: inset 3px 3px 6px rgba(60, 40, 20, 0.4),
-    inset -1px -1px 0px rgba(255, 255, 255, 0.3);
+  --theme-btn-active-shadow:
+    inset 3px 3px 6px rgba(60, 40, 20, 0.4), inset -1px -1px 0px rgba(255, 255, 255, 0.3);
   --theme-btn-active-text-shadow: none;
   --theme-btn-active-transform: translateY(2px);
   --theme-control-box-shadow: none;

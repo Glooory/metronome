@@ -8,8 +8,5 @@ interface ControlDockProps {
 }
 
 export const ControlDock = ({ children, className }: ControlDockProps) => (
-  <div className={clsx(styles.dock, className)}>
-    <div className={styles["dock__top-light"]} />
-    {children}
-  </div>
+  <div className={clsx(styles.dock, className)}>{children}</div>
 );

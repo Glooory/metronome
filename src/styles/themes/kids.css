@@ -1,0 +1,144 @@
+.theme-kids {
+  --bg-primary: oklch(97% 0.02 85);
+  --bg-surface: oklch(99% 0.01 85);
+  --bg-elevated: oklch(99% 0.01 85);
+  --bg-overlay: oklch(35% 0.03 260 / 50%);
+
+  --fill-subtle: oklch(95% 0.025 85);
+  --fill-muted: oklch(91% 0.035 85);
+  --fill-active: oklch(65% 0.22 280);
+
+  --border-subtle: oklch(85% 0.04 85);
+  --border-base: oklch(35% 0.03 260);
+  --border-active: oklch(65% 0.22 280);
+
+  --radius-panel: 24px;
+  --radius-modal: 32px;
+  --radius-control: 16px;
+  --radius-pill: 9999px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: oklch(35% 0.03 260);
+  --text-secondary: oklch(62% 0.18 280);
+  --text-muted: oklch(78% 0.05 300);
+  --text-inverse: oklch(100% 0 0);
+
+  --font-app-sans: "Nunito", "Comic Sans MS", "Quicksand", var(--font-sans);
+  --font-app-mono: "Nunito", "Comic Sans MS", "Quicksand", var(--font-mono);
+  --font-display: "Nunito", "Comic Sans MS", "Quicksand", var(--font-sans);
+
+  --accent-primary: oklch(65% 0.22 280);
+  --accent-primary-muted: oklch(65% 0.22 280 / 20%);
+  --accent-warning: oklch(82% 0.18 74);
+  --accent-danger: oklch(72% 0.18 18);
+  --accent-success: oklch(79% 0.14 188);
+
+  --shadow-color: oklch(35% 0.03 260 / 15%);
+  --shadow-sm: 2px 2px 0 0 var(--shadow-color);
+  --shadow-panel: 4px 4px 0 0 var(--shadow-color);
+  --shadow-modal: 8px 8px 0 0 var(--shadow-color);
+  --shadow-active-item: 0 0 0 4px oklch(65% 0.22 280 / 30%);
+  --shadow-glow-primary: 0 0 0 4px oklch(65% 0.22 280 / 30%);
+  --shadow-glow-warning: 0 0 0 4px oklch(80% 0.18 70 / 30%);
+  --shadow-glow-danger: 0 0 0 4px oklch(70% 0.2 20 / 30%);
+  --shadow-glow-elevated: 8px 8px 0 0 var(--shadow-color);
+  --shadow-glow: var(--shadow-glow-primary);
+
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  --opacity-btn-hover: 0.9;
+  --opacity-btn-active: 1;
+  --opacity-disabled: 0.5;
+  --transition-base:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast:
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.02em;
+  --ui-chrome-title-letter-spacing: 0.05em;
+
+  --btn-filled-bg: var(--bg-surface);
+  --btn-filled-color: var(--text-primary);
+  --btn-filled-border-width: 2px;
+  --btn-filled-border-color: var(--border-base);
+  --btn-filled-shadow: 2px 2px 0 0 var(--border-base);
+  --btn-filled-active-shadow: 0 0 0 0 var(--border-base);
+  --btn-filled-checked-bg: var(--fill-active);
+  --btn-filled-checked-color: var(--text-inverse);
+  --btn-filled-checked-border-width: 2px;
+  --btn-filled-checked-border-color: var(--border-base);
+  --btn-filled-checked-shadow: 0 0 0 0 var(--border-base);
+  --btn-active-transform: translate(2px, 2px);
+
+  --btn-outline-border-width: 2px;
+  --btn-outline-border-color: var(--border-base);
+  --btn-outline-shadow: 2px 2px 0 0 var(--border-base);
+  --btn-outline-active-shadow: 0 0 0 0 var(--border-base);
+
+  --trainer-dock-bg: oklch(93% 0.03 82);
+  --dock-bg: oklch(92% 0.032 82);
+  --app-modal-bg: oklch(96% 0.02 84);
+  --bpm-value-fz-mobile: 6.5rem;
+  --bpm-value-fz-desktop: 11rem;
+  --bpm-value-fw: 900;
+  --bpm-value-ls: -0.04em;
+  --bpm-value-color: var(--accent-primary);
+  --bpm-value-shadow: 3px 3px 0 var(--border-base), 6px 6px 0 oklch(80% 0.18 70);
+  --bpm-wheel-bg:
+    linear-gradient(180deg, oklch(99% 0.01 85) 0%, oklch(94% 0.03 82) 100%);
+  --bpm-wheel-border: 2px solid var(--border-base);
+  --bpm-wheel-shadow: 1px 1px 0 0 var(--border-base);
+  --bpm-wheel-active-shadow:
+    0 0 0 4px oklch(65% 0.22 280 / 0.18), 1px 1px 0 0 var(--border-base);
+  --bpm-wheel-line: var(--accent-primary);
+  --bpm-wheel-tick: oklch(80% 0.06 300);
+
+  --app-panel-border: 2px solid var(--border-base);
+  --trainer-dock-border: 2px solid var(--border-base);
+  --dock-border: 2px solid var(--border-base);
+  --app-modal-border: 2px solid var(--border-base);
+  --app-input-border-width: 2px;
+  --help-footer-bg: var(--fill-muted);
+
+  --select-dropdown-border-width: 2px;
+  --select-dropdown-border-color: var(--border-base);
+  --select-dropdown-bg: var(--bg-primary);
+  --select-dropdown-shadow: 4px 4px 0 0 var(--border-base);
+  --select-option-selected-bg: var(--accent-warning);
+  --select-option-selected-color: var(--text-primary);
+  --select-option-selected-border-color: var(--border-base);
+
+  --checkbox-border-width: 2px;
+  --checkbox-border: var(--border-base);
+  --checkbox-shadow: 2px 2px 0 0 var(--border-base);
+  --checkbox-knob-shadow: 2px 2px 0 0 var(--border-base);
+
+  --visualizer-block-bg: oklch(92% 0.03 82);
+  --visualizer-block-empty: oklch(92% 0.03 82);
+  --visualizer-block-empty-active: oklch(86% 0.1 72);
+  --visualizer-block-border: 2px solid var(--border-base);
+  --visualizer-block-shadow: 2px 2px 0 0 var(--border-base);
+  --visualizer-block-accent-dim: oklch(78% 0.16 300);
+  --history-item-border: 2px solid var(--border-base);
+  --history-item-shadow: 2px 2px 0 0 var(--border-base);
+  --history-item-bg: var(--bg-surface);
+  --history-item-active-bg: var(--accent-success);
+  --history-item-active-border: 2px solid var(--border-base);
+  --history-item-active-color: var(--text-primary);
+  --history-item-active-shadow: 0 0 0 0 var(--border-base);
+  --history-item-active-transform: translate(2px, 2px);
+}

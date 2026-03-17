@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Drum, Globe, HelpCircle, Music, Palette, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
@@ -8,10 +8,10 @@ import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
 
 import { BpmHistoryBar } from "./components/BpmHistoryBar";
 import { ControlDock } from "./components/ControlDock";
-import { CustomSelect } from "./components/CustomSelect";
 import { HelpModal } from "./components/HelpModal";
 import { IntervalTrainerModal } from "./components/IntervalTrainerModal";
 import { PresetsModal } from "./components/PresetsModal";
+import { Select } from "./components/Select";
 import { SEO } from "./components/SEO";
 import { SpeedTrainerModal } from "./components/SpeedTrainerModal";
 import { SwingSettingModal } from "./components/SwingSettingModal";
@@ -19,6 +19,7 @@ import { TrainerDock } from "./components/TrainerDock";
 import { Visualizer } from "./components/Visualizer";
 
 import { BpmDisplay } from "./components/BpmDisplay";
+import { Button } from "./components/Button";
 import {
   BEAT_ACCENT,
   BEAT_MUTE,
@@ -237,20 +238,23 @@ export default function MetronomeApp() {
 
   useEffect(() => {
     const baseUrl = import.meta.env.BASE_URL;
-    const faviconMap: Record<string, string> = {
-      zen: `${baseUrl}favicons/favicon-zen.svg`,
-      swiss: `${baseUrl}favicons/favicon-swiss.svg`,
-      kids: `${baseUrl}favicons/favicon-kids.svg`,
-      cyberpunk: `${baseUrl}favicons/favicon-cyberpunk.svg`,
-      "e-ink": `${baseUrl}favicons/favicon-eink.svg`,
-      blueprint: `${baseUrl}favicons/favicon-blueprint.svg`,
+    const faviconMap: Record<Theme, string> = {
+      amoled: `${baseUrl}favicons/favicon-amoled.svg`,
       aurora: `${baseUrl}favicons/favicon-aurora.svg`,
-      terminal: `${baseUrl}favicons/favicon-terminal.svg`,
+      blueprint: `${baseUrl}favicons/favicon-blueprint.svg`,
       brutalism: `${baseUrl}favicons/favicon-brutalism.svg`,
       clay: `${baseUrl}favicons/favicon-clay.svg`,
-      sketch: `${baseUrl}favicons/favicon-sketch.svg`,
+      cyberpunk: `${baseUrl}favicons/favicon-cyberpunk.svg`,
+      "e-ink": `${baseUrl}favicons/favicon-eink.svg`,
+      kids: `${baseUrl}favicons/favicon-kids.svg`,
       mechanical: `${baseUrl}favicons/favicon-mechanical.svg`,
-      wood: `${baseUrl}favicons/favicon-wood.svg`, // Classic Mahogany
+      neumorphism: `${baseUrl}favicons/favicon-neumorphism.svg`,
+      retro: `${baseUrl}favicons/favicon-retro.svg`,
+      sketch: `${baseUrl}favicons/favicon-sketch.svg`,
+      swiss: `${baseUrl}favicons/favicon-swiss.svg`,
+      terminal: `${baseUrl}favicons/favicon-terminal.svg`,
+      wood: `${baseUrl}favicons/favicon-wood.svg`,
+      zen: `${baseUrl}favicons/favicon-zen.svg`,
     };
 
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
@@ -439,17 +443,17 @@ export default function MetronomeApp() {
         </h1>
 
         <div className={styles["header-buttons"]}>
-          <button
+          <Button
             onClick={cycleTheme}
             className={styles["header-btn"]}
             title={translations.dock.theme[language]}
           >
             <Palette size={20} />
-          </button>
-          <CustomSelect
+          </Button>
+          <Select
             icon={Palette}
             value={theme}
-            onChange={setTheme}
+            onChange={(v) => setTheme(v as Theme)}
             options={[
               { label: translations.options.themes.swiss[language], value: "swiss" },
               { label: translations.options.themes.zen[language], value: "zen" },
@@ -474,7 +478,7 @@ export default function MetronomeApp() {
             placement="bottom"
           />
 
-          <CustomSelect
+          <Select
             icon={Globe}
             title={translations.header.language[language]}
             value={language}
@@ -485,9 +489,9 @@ export default function MetronomeApp() {
             alignment="right"
           />
 
-          <button onClick={() => setIsHelpOpen(true)} className={styles["header-btn"]}>
+          <Button className={styles["header-btn"]} onClick={() => setIsHelpOpen(true)}>
             <HelpCircle size={20} />
-          </button>
+          </Button>
         </div>
         <AnimatePresence>
           {isHelpOpen && (
@@ -527,16 +531,14 @@ export default function MetronomeApp() {
             />
             <div className={styles["subdivision-row"]}>
               {subdivOptions.map((opt) => (
-                <button
+                <Button
                   key={opt.value}
-                  className={clsx(
-                    styles["subdivision-btn"],
-                    subdivision === opt.value && styles["subdivision-btn--active"]
-                  )}
+                  isChecked={subdivision === opt.value}
+                  className={styles["subdivision-btn"]}
                   onClick={() => setSubdivision(opt.value)}
                 >
                   {opt.label.split(" ")[0]}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -554,36 +556,33 @@ export default function MetronomeApp() {
             />
 
             <ControlDock>
-              <CustomSelect
+              <Select
                 icon={Music}
                 value={beatsPerMeasure}
-                onChange={(v) => setBeatsPerMeasure(parseInt(v))}
+                onChange={(v) => setBeatsPerMeasure(parseInt(v as string))}
                 options={beatOptions}
                 title={translations.dock.timeSignature[language]}
                 displayLabel={`${beatsPerMeasure}/4`}
                 alignment="left"
               />
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <Button
+                variant="filled"
+                isChecked={isPlaying}
                 onClick={() => setIsPlaying(!isPlaying)}
-                className={clsx(
-                  styles["play-btn"],
-                  isPlaying ? styles["play-btn--playing"] : styles["play-btn--stopped"]
-                )}
+                className={styles["play-btn"]}
               >
                 {isPlaying ? (
                   <Pause size={24} fill="currentColor" />
                 ) : (
                   <Play size={24} fill="currentColor" />
                 )}
-              </motion.button>
+              </Button>
 
-              <CustomSelect
+              <Select
                 icon={Drum}
                 value={soundPreset}
-                onChange={setSoundPreset}
+                onChange={(v) => setSoundPreset(v as string)}
                 options={soundOptions}
                 title={translations.dock.soundPreset[language]}
                 displayLabel={getSoundDisplay(soundPreset)}

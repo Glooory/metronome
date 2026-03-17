@@ -1,0 +1,161 @@
+.theme-e-ink {
+  --ink-paper: oklch(0.96 0.005 90);
+
+  --ink-panel: oklch(1 0 0);
+
+  --ink-muted: oklch(0.92 0 0);
+
+  --ink-black: oklch(0.15 0 0);
+
+  --ink-faded: oklch(0.45 0 0);
+  --ink-dim: oklch(0.75 0 0);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg-primary: var(--ink-paper);
+  --bg-surface: var(--ink-panel);
+  --bg-elevated: var(--ink-panel);
+  --bg-overlay: oklch(0.96 0.005 90 / 0.82);
+
+  --fill-subtle: var(--ink-panel);
+  --fill-muted: oklch(0.945 0 0);
+  --fill-active: var(--ink-black);
+
+  --border-subtle: var(--ink-black);
+  --border-base: var(--ink-black);
+  --border-active: var(--ink-black);
+
+  --radius-panel: 0px;
+  --radius-modal: 0px;
+  --radius-control: 0px;
+  --radius-pill: 0px;
+  --radius-full: 0px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: var(--ink-black);
+  --text-secondary: var(--ink-black);
+  --text-muted: oklch(0.36 0 0);
+  --text-inverse: var(--ink-panel);
+
+  --accent-primary: var(--ink-black);
+  --accent-primary-muted: var(--ink-dim);
+  --accent-warning: var(--ink-black);
+  --accent-danger: var(--ink-black);
+  --accent-success: var(--ink-black);
+
+  --shadow-sm: 1px 1px 0 var(--border-base);
+  --shadow-panel: 2px 2px 0 var(--border-base);
+  --shadow-modal: 4px 4px 0 var(--border-base);
+  --shadow-active-item: 1px 1px 0 var(--border-active);
+  --shadow-glow-primary: none;
+  --shadow-glow-warning: none;
+  --shadow-glow-danger: none;
+  --shadow-glow-elevated: none;
+  --shadow-glow: none;
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 0.6;
+  --opacity-disabled: 0.3;
+  --transition-base: none;
+  --transition-fast: none;
+  --ui-chrome-letter-spacing: 0.08em;
+  --ui-chrome-title-letter-spacing: 0.12em;
+
+  --app-panel-border: 2px solid var(--border-base);
+  --app-modal-border: 2px solid var(--border-base);
+  --app-modal-inner-shadow: none;
+  --help-content-border: 2px solid var(--border-base);
+  --help-footer-bg: var(--ink-muted);
+  --trainer-dock-border: 2px solid var(--border-base);
+  --speed-status-border: var(--border-base);
+  --speed-status-border-width: 2px;
+  --interval-status-border: var(--border-base);
+  --interval-status-border-width: 2px;
+
+  --select-dropdown-bg: var(--ink-panel);
+  --select-dropdown-border-width: 2px;
+  --select-option-selected-bg: var(--ink-black);
+  --select-option-selected-color: var(--ink-panel);
+
+  --app-input-border: 2px solid var(--border-base);
+  --app-input-border-width: 2px;
+
+  --btn-active-transform: none;
+  --btn-outline-bg: var(--ink-panel);
+  --btn-outline-border-width: 2px;
+  --btn-outline-shadow: var(--shadow-sm);
+  --btn-outline-active-shadow: none;
+  --btn-outline-active-bg: var(--ink-panel);
+  --btn-outline-checked-bg: var(--ink-black);
+  --btn-outline-checked-color: var(--ink-panel);
+  --btn-outline-checked-shadow: var(--shadow-sm);
+  --btn-outline-checked-border-color: var(--ink-black);
+
+  --btn-filled-bg: var(--ink-panel);
+  --btn-filled-color: var(--ink-black);
+  --btn-filled-border-width: 2px;
+  --btn-filled-border-color: var(--ink-black);
+  --btn-filled-shadow: var(--shadow-sm);
+  --btn-filled-active-shadow: none;
+  --btn-filled-active-bg: var(--ink-panel);
+  --btn-filled-checked-border-color: var(--ink-black);
+  --btn-filled-checked-bg: var(--ink-black);
+  --btn-filled-checked-color: var(--ink-panel);
+  --btn-filled-checked-shadow: var(--shadow-sm);
+
+  --btn-transparent-border-width: 2px;
+  --btn-transparent-border-color: transparent;
+  --btn-transparent-shadow: none;
+  --btn-transparent-active-shadow: none;
+  --btn-transparent-active-bg: transparent;
+  --btn-transparent-checked-bg: var(--ink-black);
+  --btn-transparent-checked-color: var(--ink-panel);
+  --btn-transparent-checked-shadow: var(--shadow-sm);
+  --bpm-wheel-bg: var(--ink-panel);
+  --bpm-wheel-border: 2px solid var(--ink-black);
+  --bpm-wheel-shadow: none;
+  --bpm-wheel-active-shadow: inset 0 0 0 2px var(--ink-black);
+  --bpm-wheel-line: var(--ink-black);
+  --bpm-wheel-tick: var(--ink-black);
+
+  --bpm-blur-visibility: hidden;
+  --bpm-input-selection: var(--ink-muted);
+  --bpm-input-border: none;
+
+  --history-item-border: 2px solid var(--border-base);
+  --history-item-shadow: var(--shadow-sm);
+  --history-item-active-shadow: none;
+  --history-item-active-border: 2px solid var(--border-base);
+  --history-item-active-color: var(--ink-panel);
+  --history-item-active-bg: var(--ink-black);
+
+  --visualizer-block-bg: var(--ink-panel);
+  --visualizer-block-border: 1px solid var(--border-base);
+  --visualizer-block-empty: var(--ink-panel);
+  --visualizer-block-empty-active: var(--ink-dim);
+  --visualizer-block-accent-dim: var(--ink-dim);
+
+  --checkbox-border-width: 2px;
+  --checkbox-border: var(--border-base);
+  --checkbox-shadow: var(--shadow-sm);
+  --checkbox-checked-bg: var(--ink-black);
+  --checkbox-checked-shadow: none;
+  --checkbox-knob-bg: var(--ink-panel);
+  --checkbox-knob-checked-bg: var(--ink-panel);
+  --checkbox-knob-border-width: 2px;
+  --checkbox-knob-border: var(--border-base);
+  --checkbox-knob-shadow: var(--shadow-sm);
+
+  --swing-slider-track-bg: var(--ink-muted);
+  --swing-slider-track-border-width: 2px;
+  --swing-slider-track-border: var(--border-base);
+  --swing-slider-progress-bg: var(--ink-black);
+  --swing-slider-thumb-bg: var(--ink-panel);
+  --swing-slider-thumb-shadow: 2px 2px 0 var(--border-base);
+  --swing-slider-thumb-border-width: 2px;
+  --swing-slider-thumb-border: var(--border-base);
+}

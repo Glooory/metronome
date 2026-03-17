@@ -5,12 +5,12 @@
   justify-content: center;
   gap: 8px;
   padding: 8px;
-  background: var(--control-bg);
-  backdrop-filter: blur(var(--effect-backdrop-blur));
-  -webkit-backdrop-filter: blur(var(--effect-backdrop-blur));
-  border-radius: var(--theme-radius-lg);
-  border: 1px solid var(--control-border);
-  box-shadow: var(--theme-shadow-panel);
+  background: var(--trainer-dock-bg, var(--bg-surface));
+  backdrop-filter: blur(var(--trainer-dock-blur, var(--overlay-blur, 0px)));
+  -webkit-backdrop-filter: blur(var(--trainer-dock-blur, var(--overlay-blur, 0px)));
+  border-radius: var(--trainer-dock-radius, var(--radius-panel));
+  border: var(--trainer-dock-border, 1px solid var(--border-subtle));
+  box-shadow: var(--trainer-dock-shadow, var(--shadow-panel));
   margin-bottom: 12px;
 }
 
@@ -22,49 +22,5 @@
 }
 
 .trainer-dock__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px;
-  background: var(--control-bg, var(--theme-input-bg));
-  border: 1px solid var(--control-border);
-  border-radius: var(--theme-radius-md);
-  color: var(--theme-text-bright);
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
   width: 100%;
-  box-shadow: var(--theme-control-box-shadow, none);
-}
-
-@media (hover: hover) {
-  .trainer-dock__btn:hover {
-    background: var(--control-bg-hover);
-    color: var(--theme-btn-hover-color, var(--theme-text-primary));
-    transform: var(--theme-motion-hover);
-  }
-}
-
-.trainer-dock__btn--active,
-.trainer-dock__btn--active:hover {
-  background: var(--control-bg-active, var(--theme-trainer-active-bg));
-  border-color: var(--control-border-active, var(--theme-trainer-active-border));
-  color: var(--theme-btn-active-color, var(--text-on-control-active));
-  box-shadow: var(--theme-trainer-active-glow);
-  transform: var(--theme-btn-active-transform);
-}
-
-.trainer-dock__btn:active {
-  background: var(--control-bg-active);
-  color: var(--theme-btn-active-color);
-}
-
-.trainer-dock__btn-icon {
-  opacity: 0.8;
-}
-
-.trainer-dock__btn--active .trainer-dock__btn-icon {
-  opacity: 1;
 }

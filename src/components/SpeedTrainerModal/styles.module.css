@@ -1,7 +1,7 @@
 .speed-trainer-modal__overlay {
   position: fixed;
   inset: 0;
-  background: var(--theme-bg-overlay);
+  background: var(--app-modal-overlay-bg, var(--bg-overlay));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,16 +10,16 @@
 }
 
 .speed-trainer-modal {
-  background: var(--theme-bg-modal);
-  border: 1px solid var(--control-border-subtle);
-  border-radius: var(--theme-radius-modal);
+  background: var(--app-modal-bg, var(--bg-surface));
+  border: var(--app-modal-border, 1px solid var(--border-subtle));
+  border-radius: var(--app-modal-radius, var(--radius-modal));
   padding: 24px;
   min-width: 320px;
   max-width: 400px;
   width: 100%;
   box-shadow:
-    var(--theme-shadow-modal),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    var(--app-modal-shadow, var(--shadow-modal)),
+    var(--app-modal-inner-shadow, inset 0 1px 0 oklch(100% 0 0 / 0.08));
 }
 
 .speed-trainer-modal__header {
@@ -32,34 +32,14 @@
 .speed-trainer-modal__title {
   font-size: 18px;
   font-weight: 600;
-  color: var(--theme-text-primary);
+  color: var(--app-title-color, var(--text-primary));
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .speed-trainer-modal__title-icon {
-  color: var(--theme-accent-purple);
-}
-
-.speed-trainer-modal__close-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--theme-input-bg);
-  border: 1px solid var(--control-border-subtle);
-  border-radius: var(--theme-radius-sm);
-  padding: 6px;
-  color: var(--theme-text-secondary);
-  cursor: pointer;
-  transition: var(--theme-transition-base);
-}
-
-@media (hover: hover) {
-  .speed-trainer-modal__close-btn:hover {
-    background: var(--control-bg-hover);
-    color: var(--theme-text-primary);
-  }
+  color: var(--app-title-icon-color, var(--accent-primary));
 }
 
 .speed-trainer-modal__content {
@@ -78,80 +58,50 @@
 
 .speed-trainer-modal__label {
   font-size: 14px;
-  color: var(--theme-text-bright);
+  color: var(--speed-label-color, var(--text-primary));
 }
 
 .speed-trainer-modal__input {
   width: 80px;
   padding: 8px 12px;
-  background: var(--theme-input-bg);
-  border: 1px solid var(--control-border-subtle);
-  border-radius: var(--theme-radius-sm);
-  color: var(--theme-text-primary);
+  background: var(--app-input-bg, var(--fill-subtle));
+  border: var(--app-input-border, var(--app-input-border-width, 1px) solid var(--border-subtle));
+  box-shadow: var(--app-input-shadow, none);
+  border-radius: var(--app-input-radius, var(--radius-control));
+  color: var(--app-input-color, var(--text-primary));
   font-size: 14px;
   text-align: center;
   outline: none;
-  transition: var(--theme-transition-base);
+  transition: var(--transition-fast);
 }
 
 .speed-trainer-modal__input:focus {
-  border-color: rgba(139, 92, 246, 0.5);
-  background: var(--control-bg);
-}
-
-.speed-trainer-modal__toggle {
-  position: relative;
-  width: 52px;
-  height: 28px;
-  background: var(--theme-input-bg);
-  border-radius: var(--theme-radius-pill);
-  cursor: pointer;
-  transition: var(--theme-transition-base);
-  border: 1px solid var(--control-border-subtle);
-}
-
-.speed-trainer-modal__toggle--active {
-  background: var(--theme-toggle-active-speed);
-  border-color: var(--theme-trainer-active-border);
-}
-
-.speed-trainer-modal__toggle-knob {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
-  background: var(--theme-toggle-knob);
-  border-radius: var(--theme-radius-pill, 50%);
-  transition: transform 0.2s;
-  box-shadow: var(--theme-shadow-popover);
-}
-
-.speed-trainer-modal__toggle--active .speed-trainer-modal__toggle-knob {
-  transform: translateX(24px);
+  border-color: var(--app-input-focus-border, var(--accent-primary));
+  background: var(--app-input-focus-bg, var(--bg-surface));
 }
 
 .speed-trainer-modal__divider {
   height: 1px;
-  background: var(--control-border-subtle);
+  background: var(--speed-divider-bg, var(--border-subtle));
   margin: 4px 0;
 }
 
 .speed-trainer-modal__status {
   padding: 12px;
-  background: var(--theme-accent-purple-bg);
-  border: 1px solid var(--theme-accent-purple-border);
-  border-radius: var(--theme-radius-md);
+  background: var(--speed-status-bg, var(--app-modal-bg, var(--bg-surface)));
+  border: var(--speed-status-border-width, 1px) solid
+    var(--speed-status-border, var(--border-base));
+  border-radius: var(--speed-status-radius, var(--radius-control));
   text-align: center;
 }
 
 .speed-trainer-modal__status-text {
   font-size: 13px;
-  color: var(--theme-text-primary);
+  color: var(--speed-status-color, var(--text-primary));
   line-height: 1.5;
 }
 
 .speed-trainer-modal__status-highlight {
-  color: var(--theme-accent-purple);
+  color: inherit;
   font-weight: 600;
 }

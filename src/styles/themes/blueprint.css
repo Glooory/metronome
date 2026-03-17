@@ -1,0 +1,133 @@
+.theme-blueprint {
+  --bg-primary: oklch(24% 0.08 255);
+  --bg-surface: oklch(28% 0.08 255);
+  --bg-elevated: oklch(34% 0.08 255);
+  --bg-overlay: oklch(24% 0.08 255 / 0.85);
+
+  --fill-subtle: oklch(32% 0.08 255);
+  --fill-muted: oklch(38% 0.08 255);
+  --fill-active: oklch(80% 0.14 235);
+
+  --border-subtle: oklch(80% 0.14 235 / 0.2);
+  --border-base: oklch(80% 0.14 235 / 0.4);
+  --border-active: oklch(80% 0.14 235);
+
+  --radius-panel: 2px;
+  --radius-modal: 4px;
+  --radius-control: 2px;
+  --radius-pill: 2px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: oklch(98% 0.01 255);
+  --text-secondary: oklch(80% 0.14 235);
+  --text-muted: oklch(65% 0.06 255);
+  --text-inverse: oklch(20% 0.08 255);
+  --font-app-sans: var(--font-mono);
+  --font-display: var(--font-mono);
+
+  --accent-primary: oklch(80% 0.14 235);
+  --accent-primary-muted: oklch(80% 0.14 235 / 0.25);
+  --accent-warning: oklch(85% 0.15 80);
+  --accent-danger: oklch(70% 0.18 20);
+  --accent-success: oklch(85% 0.16 145);
+
+  --shadow-sm: none;
+  --shadow-panel: 0 0 0 1px var(--border-base);
+  --shadow-modal: 10px 10px 0 oklch(20% 0.08 255 / 0.78), 0 0 0 1px var(--border-active);
+  --shadow-active-item: 0 0 0 1px var(--border-active);
+  --shadow-glow-primary: 0 0 15px var(--accent-primary-muted);
+  --shadow-glow-warning: 0 0 15px oklch(85% 0.15 80 / 0.2);
+  --shadow-glow-danger: 0 0 15px oklch(70% 0.18 20 / 0.2);
+  --shadow-glow-elevated: 6px 6px 0 oklch(20% 0.08 255 / 0.78), 0 0 0 1px var(--border-subtle);
+  --shadow-glow: var(--shadow-glow-primary);
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 0.8;
+  --transition-base:
+    transform 0.1s linear,
+    opacity 0.1s linear,
+    filter 0.1s linear,
+    box-shadow 0.1s linear,
+    background-color 0.1s linear,
+    border-color 0.1s linear,
+    color 0.1s linear;
+  --transition-fast:
+    transform 0.05s linear,
+    opacity 0.05s linear,
+    filter 0.05s linear,
+    box-shadow 0.05s linear,
+    background-color 0.05s linear,
+    border-color 0.05s linear,
+    color 0.05s linear;
+  --ui-chrome-letter-spacing: 0.14em;
+  --ui-chrome-title-letter-spacing: 0.18em;
+
+  --app-bg-gradient:
+    radial-gradient(circle at center, transparent 0%, oklch(24% 0.08 255 / 0.6) 100%),
+    repeating-linear-gradient(
+      to bottom,
+      oklch(80% 0.14 235 / 0.08) 0,
+      oklch(80% 0.14 235 / 0.08) 1px,
+      transparent 1px,
+      transparent 100px
+    ),
+    repeating-linear-gradient(
+      to right,
+      oklch(80% 0.14 235 / 0.08) 0,
+      oklch(80% 0.14 235 / 0.08) 1px,
+      transparent 1px,
+      transparent 100px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      oklch(80% 0.14 235 / 0.03) 0,
+      oklch(80% 0.14 235 / 0.03) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      to right,
+      oklch(80% 0.14 235 / 0.03) 0,
+      oklch(80% 0.14 235 / 0.03) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+
+  --btn-filled-bg: transparent;
+  --btn-filled-border-width: 1px;
+  --btn-filled-border-color: var(--border-base);
+  --btn-filled-color: var(--accent-primary);
+  --btn-filled-checked-bg: var(--accent-primary);
+  --btn-filled-checked-color: var(--text-inverse);
+
+  --bpm-value-gradient: none;
+  --bpm-value-color: var(--text-primary);
+  --bpm-value-filter: drop-shadow(0 0 2px var(--accent-primary));
+  --bpm-wheel-bg:
+    linear-gradient(
+      to bottom,
+      oklch(80% 0.14 235 / 0.08) 0%,
+      transparent 18%,
+      transparent 82%,
+      oklch(80% 0.14 235 / 0.08) 100%
+    ),
+    oklch(28% 0.08 255 / 0.38);
+  --bpm-wheel-border: 1px solid var(--border-base);
+  --bpm-wheel-shadow: inset 0 0 0 1px oklch(80% 0.14 235 / 0.08);
+  --bpm-wheel-active-shadow:
+    inset 0 0 0 1px var(--border-active), 0 0 0 1px oklch(80% 0.14 235 / 0.15);
+  --bpm-wheel-line: var(--accent-primary);
+  --bpm-wheel-line-glow: none;
+  --bpm-wheel-tick: var(--border-subtle);
+
+  --visualizer-block-bg: oklch(80% 0.14 235 / 0.06);
+  --visualizer-block-empty: oklch(80% 0.14 235 / 0.06);
+  --visualizer-block-empty-active: oklch(80% 0.14 235 / 0.16);
+  --visualizer-block-border: 1px solid oklch(80% 0.14 235 / 0.22);
+  --visualizer-block-accent: var(--accent-primary);
+  --visualizer-block-accent-dim: oklch(80% 0.14 235 / 0.34);
+  --visualizer-block-shadow-filled: none;
+}

@@ -1,0 +1,76 @@
+@import "./core.css";
+
+:root {
+  /* ----- Backgrounds (Surface) ----- */
+  --bg-primary: var(--black);
+  --bg-surface: var(--gray-950);
+  --bg-elevated: var(--gray-900);
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* ----- Elements & Interactions (Fill) ----- */
+  --fill-subtle: var(--gray-950);
+  --fill-muted: var(--gray-900);
+  --fill-active: var(--white);
+
+  /* ----- Borders ----- */
+  --border-subtle: var(--gray-900);
+  --border-base: var(--gray-800);
+  --border-active: var(--white);
+
+  /* ----- Semantic Radii ----- */
+  --radius-panel: var(--radius-lg);
+  --radius-modal: var(--radius-xl);
+  --radius-control: var(--radius-md);
+  --radius-pill: var(--radius-full);
+
+  /* ----- Typography (Text) ----- */
+  --text-primary: var(--white);
+  --text-secondary: var(--gray-300);
+  --text-muted: var(--gray-500);
+  --text-inverse: var(--black);
+
+  --font-app-sans: var(--font-sans);
+  --font-app-mono: var(--font-mono);
+  --font-display: var(--font-app-sans);
+
+  /* ----- Accents & Status ----- */
+  --accent-primary: var(--blue-500);
+  --accent-primary-muted: oklch(50% 0.1 260);
+  --accent-warning: var(--amber-500);
+  --accent-danger: var(--red-500);
+  --accent-success: var(--green-500);
+
+  /* ----- Shadows & Effects ----- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-panel: 0 0 0 1px var(--border-base);
+  --shadow-modal: 0 0 0 1px var(--border-base), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-active-item: 0 0 0 1px var(--border-active);
+  --shadow-glow-primary: 0 0 5px var(--accent-primary);
+  --shadow-glow-warning: 0 0 5px var(--accent-warning);
+  --shadow-glow-danger: 0 0 5px var(--accent-danger);
+  --shadow-glow-elevated: 0 0 10px var(--bg-elevated);
+  --shadow-glow: var(--shadow-glow-primary);
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  /* ----- Interaction Physics (Opacity-Based) ----- */
+  --opacity-btn-hover: 0.8;
+  --opacity-btn-active: 0.7;
+  --opacity-disabled: 0.5;
+  --transition-base:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  --transition-fast:
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}

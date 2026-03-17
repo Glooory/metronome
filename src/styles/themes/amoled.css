@@ -1,0 +1,131 @@
+.theme-amoled {
+  --bg-primary: #000000;
+  --bg-surface: #000000;
+  --bg-elevated: #000000;
+  --bg-overlay: rgba(0, 0, 0, 0.9);
+
+  --fill-subtle: transparent;
+  --fill-muted: #111111;
+  --fill-active: #ffffff;
+
+  --border-subtle: #1c1c1e;
+  --border-base: #2c2c2e;
+  --border-active: var(--accent-primary);
+
+  --radius-panel: 12px;
+  --radius-modal: 16px;
+  --radius-control: 8px;
+  --radius-pill: 9999px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: #ffffff;
+  --text-secondary: #9fb2bd;
+  --text-muted: #33424a;
+  --text-inverse: #000000;
+
+  --accent-primary: #00e5ff;
+  --accent-primary-muted: rgba(0, 229, 255, 0.15);
+  --accent-warning: #ffd24a;
+  --accent-danger: #ff453a;
+  --accent-success: #32d74b;
+
+  --shadow-sm: none;
+  --shadow-panel: 0 0 0 1px var(--border-base);
+  --shadow-modal: 0 0 0 1px var(--border-subtle), 0 20px 60px rgba(0, 0, 0, 1);
+  --shadow-active-item: 0 0 0 1px var(--border-active), 0 0 10px rgba(0, 229, 255, 0.22);
+  --shadow-glow: 0 0 16px rgba(0, 229, 255, 0.42);
+  --overlay-blur: 6px;
+  --overlay-sheen: none;
+
+  --app-bg-gradient:
+    radial-gradient(circle at 50% 65%, rgba(0, 229, 255, 0.05) 0%, transparent 35%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.025) 0%, transparent 30%);
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 0.6;
+  --transition-base:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast:
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  --ui-chrome-letter-spacing: 0.08em;
+  --ui-chrome-title-letter-spacing: 0.12em;
+
+  --btn-filled-bg: transparent;
+  --btn-filled-color: var(--text-primary);
+  --btn-filled-border-color: var(--border-base);
+  --btn-filled-checked-bg: var(--accent-primary-muted);
+  --btn-filled-checked-color: var(--accent-primary);
+  --btn-filled-checked-border-color: var(--border-active);
+  --btn-filled-checked-shadow: none;
+  --btn-outline-border-color: var(--border-base);
+  --btn-outline-bg: transparent;
+  --btn-outline-checked-bg: var(--accent-primary-muted);
+  --btn-outline-checked-color: var(--accent-primary);
+  --btn-outline-checked-border-color: var(--border-active);
+
+  --app-panel-bg: transparent;
+  --app-panel-border: 1px solid var(--border-subtle);
+
+  --visualizer-block-radius: 4px;
+  --visualizer-block-bg: oklch(12% 0.012 230);
+  --visualizer-block-empty: oklch(12% 0.012 230);
+  --visualizer-block-empty-active: rgba(0, 229, 255, 0.16);
+  --visualizer-block-border: 1px solid rgba(0, 229, 255, 0.08);
+  --visualizer-block-accent-dim: rgba(0, 229, 255, 0.34);
+  --visualizer-block-shadow-filled: none;
+  --visualizer-controls-bg: transparent;
+
+  --trainer-dock-bg: transparent;
+  --trainer-dock-border: 1px solid var(--border-subtle);
+  --trainer-dock-shadow: none;
+
+  --bpm-value-ff: var(--font-display);
+  --bpm-value-fw: 700;
+  --bpm-value-ls: -0.05em;
+  --bpm-value-color: #ffffff;
+  --bpm-value-shadow: none;
+  --bpm-value-gradient: none;
+  --bpm-value-filter: none;
+  --bpm-blur-visibility: hidden;
+  --bpm-wheel-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0) 100%), #000000;
+  --bpm-wheel-border: 1px solid var(--border-base);
+  --bpm-wheel-shadow: inset 0 0 0 1px #111111;
+  --bpm-wheel-active-shadow: inset 0 0 0 1px var(--border-active), 0 0 12px rgba(0, 229, 255, 0.18);
+  --bpm-wheel-line: #ffffff;
+  --bpm-wheel-line-glow: 0 0 8px rgba(255, 255, 255, 0.4);
+
+  --dock-bg: transparent;
+  --dock-border: 1px solid var(--border-subtle);
+  --dock-shadow: none;
+  --dock-radius: var(--radius-panel);
+  --dock-shadow-outline: transparent;
+
+  --app-modal-bg: #000000;
+  --app-modal-inner-shadow: none;
+  --select-dropdown-bg: #000000;
+  --checkbox-bg: transparent;
+  --checkbox-checked-bg: var(--accent-primary-muted);
+  --checkbox-checked-border-color: var(--border-active);
+  --checkbox-checked-shadow: 0 0 0 1px var(--border-active), 0 0 12px rgba(0, 229, 255, 0.14);
+  --checkbox-knob-bg: var(--text-primary);
+  --checkbox-knob-checked-bg: var(--text-inverse);
+  --checkbox-knob-border: var(--border-base);
+  --checkbox-knob-checked-border: var(--accent-primary);
+
+  --swing-slider-track-bg: #111111;
+  --swing-slider-track-border: var(--border-base);
+  --swing-slider-progress-bg: var(--accent-primary);
+  --swing-slider-thumb-bg: #000000;
+  --swing-slider-thumb-border: var(--accent-primary);
+  --swing-slider-thumb-shadow: 0 0 0 1px rgba(0, 229, 255, 0.24), 0 0 14px rgba(0, 229, 255, 0.18);
+
+  --presets-input-bg: transparent;
+}

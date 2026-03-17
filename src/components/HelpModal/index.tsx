@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
+import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface HelpModalProps {
@@ -54,9 +55,9 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
             <HelpCircle className={styles.icon} size={20} />
             <h2 className={styles["help-modal__title"]}>{t.title[language]}</h2>
           </div>
-          <button onClick={onClose} className={styles["help-modal__close-btn"]}>
+          <Button size="icon-sm" onClick={onClose} aria-label="Close">
             <X size={20} />
-          </button>
+          </Button>
         </div>
 
         <div className={clsx(styles["help-modal__body"], "custom-scrollbar")}>

@@ -1,0 +1,139 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  border-radius: var(--btn-radius, var(--radius-control));
+  transition: var(--transition-fast, var(--transition-base));
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--btn-focus-ring, var(--accent-primary, #3b82f6));
+  outline-offset: 2px;
+}
+
+.button:active {
+  opacity: var(--btn-active-opacity, var(--opacity-btn-active, 0.7));
+  transform: var(--btn-active-transform, scale(0.98));
+}
+
+.button:disabled {
+  opacity: var(--opacity-disabled, 0.5);
+  pointer-events: none;
+}
+
+.size-sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.size-md {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}
+
+.size-lg {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+}
+
+.size-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--btn-radius, var(--radius-control));
+}
+
+.size-icon-sm {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: var(--btn-radius, var(--radius-control));
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.variant-filled {
+  background: var(--btn-filled-bg, var(--fill-subtle));
+  color: var(--btn-filled-color, var(--text-primary));
+  border: var(--btn-filled-border-width, 1px) solid var(--btn-filled-border-color, transparent);
+  box-shadow: var(--btn-filled-shadow, none);
+}
+
+.variant-filled:active {
+  background: var(--btn-filled-active-bg, var(--btn-filled-bg, var(--fill-subtle)));
+  box-shadow: var(--btn-filled-active-shadow, none);
+}
+
+.variant-filled[aria-checked="true"] {
+  background: var(--btn-filled-checked-bg, var(--accent-primary));
+  color: var(--btn-filled-checked-color, var(--text-inverse));
+  border: var(--btn-filled-checked-border-width, var(--btn-filled-border-width, 1px)) solid
+    var(--btn-filled-checked-border-color, var(--btn-filled-border-color, transparent));
+  box-shadow: var(--btn-filled-checked-shadow, none);
+}
+
+.variant-outline {
+  background: var(--btn-outline-bg, transparent);
+  color: var(--btn-outline-color, var(--text-secondary));
+  border: var(--btn-outline-border-width, 1px) solid
+    var(--btn-outline-border-color, var(--border-subtle));
+  box-shadow: var(--btn-outline-shadow, none);
+}
+
+.variant-outline:active {
+  background: var(--btn-outline-active-bg, var(--btn-outline-bg, transparent));
+  box-shadow: var(--btn-outline-active-shadow, none);
+}
+
+.variant-outline[aria-checked="true"] {
+  background: var(--btn-outline-checked-bg, var(--fill-subtle));
+  color: var(--btn-outline-checked-color, var(--accent-primary));
+  border: var(--btn-outline-checked-border-width, var(--btn-outline-border-width, 1px)) solid
+    var(--btn-outline-checked-border-color, var(--accent-primary));
+  box-shadow: var(--btn-outline-checked-shadow, none);
+}
+
+.variant-transparent {
+  background: var(--btn-transparent-bg, transparent);
+  color: var(--btn-transparent-color, var(--text-secondary));
+  border: var(--btn-transparent-border-width, 1px) solid
+    var(--btn-transparent-border-color, transparent);
+  box-shadow: var(--btn-transparent-shadow, none);
+}
+
+.variant-transparent:active {
+  background: var(--btn-transparent-active-bg, var(--btn-transparent-bg, transparent));
+  box-shadow: var(--btn-transparent-active-shadow, none);
+}
+
+.variant-transparent[aria-checked="true"] {
+  background: var(--btn-transparent-checked-bg, transparent);
+  color: var(--btn-transparent-checked-color, var(--accent-primary));
+  border: var(--btn-transparent-checked-border-width, var(--btn-transparent-border-width, 1px))
+    solid
+    var(--btn-transparent-checked-border-color, var(--btn-transparent-border-color, transparent));
+  box-shadow: var(--btn-transparent-checked-shadow, none);
+}
+
+.no-padding {
+  padding: 0;
+}

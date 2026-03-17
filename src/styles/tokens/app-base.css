@@ -1,0 +1,82 @@
+@import "./semantic.css";
+
+/* 
+  Token Application Layer
+  This file applies the abstract semantic tokens to the actual DOM elements.
+*/
+
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-width: 320px;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-app-sans);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--font-app-mono);
+}

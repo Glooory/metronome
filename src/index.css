@@ -1,18 +1,18 @@
-@import "./themes/base.css";
-
-@import "./themes/amoled.css";
-@import "./themes/cyberpunk.css";
-@import "./themes/neumorphism.css";
-@import "./themes/retro.css";
-@import "./themes/wood.css";
-@import "./themes/mechanical.css";
-@import "./themes/swiss.css";
-@import "./themes/zen.css";
-@import "./themes/e-ink.css";
-@import "./themes/clay.css";
-@import "./themes/sketch.css";
-@import "./themes/blueprint.css";
-@import "./themes/aurora.css";
-@import "./themes/terminal.css";
-@import "./themes/kids.css";
-@import "./themes/brutalism.css";
+/* Global Token System */
+@import "./styles/tokens/index.css";
+@import "./styles/themes/amoled.css";
+@import "./styles/themes/aurora.css";
+@import "./styles/themes/blueprint.css";
+@import "./styles/themes/brutalism.css";
+@import "./styles/themes/clay.css";
+@import "./styles/themes/cyberpunk.css";
+@import "./styles/themes/e-ink.css";
+@import "./styles/themes/kids.css";
+@import "./styles/themes/mechanical.css";
+@import "./styles/themes/neumorphism.css";
+@import "./styles/themes/retro.css";
+@import "./styles/themes/sketch.css";
+@import "./styles/themes/swiss.css";
+@import "./styles/themes/terminal.css";
+@import "./styles/themes/wood.css";
+@import "./styles/themes/zen.css";

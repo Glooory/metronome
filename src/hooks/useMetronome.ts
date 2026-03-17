@@ -34,11 +34,8 @@ export const useMetronome = (
 ) => {
   const intervalTrainerRef = useRef(options.intervalTrainer);
   const onMeasureCompleteRef = useRef(options.onMeasureComplete);
-
-  useEffect(() => {
-    intervalTrainerRef.current = options.intervalTrainer;
-    onMeasureCompleteRef.current = options.onMeasureComplete;
-  }, [options.intervalTrainer, options.onMeasureComplete]);
+  const bpmRef = useRef(bpm);
+  const soundPresetRef = useRef(soundPreset);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [measureCount, setMeasureCount] = useState(0);
@@ -73,7 +70,9 @@ export const useMetronome = (
     onMeasureCompleteRef.current = options.onMeasureComplete;
     swingRef.current = options.swing ?? 0;
     shiftRef.current = options.shift ?? 0;
-  }, [options.intervalTrainer, options.onMeasureComplete, options.swing, options.shift]);
+    bpmRef.current = bpm;
+    soundPresetRef.current = soundPreset;
+  }, [bpm, soundPreset, options.intervalTrainer, options.onMeasureComplete, options.swing, options.shift]);
 
   const schedulerRef = useRef<{ beatCounter: number }>({ beatCounter: 0 });
 
@@ -357,7 +356,7 @@ export const useMetronome = (
 
       if (isMeasureMuted(currentMeasure)) return;
 
-      switch (soundPreset) {
+      switch (soundPresetRef.current) {
         case SOUND_WOOD:
           playWoodblock(audioContext.current, time, beatType);
           break;
@@ -373,15 +372,15 @@ export const useMetronome = (
           break;
       }
     },
-    [soundPreset, isMeasureMuted]
+    [isMeasureMuted]
   );
 
   const nextNote = useCallback(() => {
-    const safeSubdivision = Math.max(1, subdivision || 1);
-    const safeBpm = Math.max(1, bpm || 120);
+    const safeSubdivision = Math.max(1, subdivisionRef.current || 1);
+    const safeBpm = Math.max(1, bpmRef.current || 120);
     const secondsPerSubdivision = 60.0 / safeBpm / safeSubdivision;
     nextNoteTime.current += secondsPerSubdivision;
-  }, [bpm, subdivision]);
+  }, []);
 
   const beatsPerMeasureRef = useRef(beatsPerMeasure);
   const subdivisionRef = useRef(subdivision);
@@ -413,7 +412,7 @@ export const useMetronome = (
         // swing 0 -> 0 offset.
         // swing 100 -> offbeat pushed by 33% of the subdivision duration (triplet feel approx).
 
-        const safeBpm = Math.max(1, bpm || 120);
+        const safeBpm = Math.max(1, bpmRef.current || 120);
         // Duration of one subdivision step
         const stepDuration = 60.0 / safeBpm / (subdivisionRef.current || 1);
 

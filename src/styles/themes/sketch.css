@@ -1,0 +1,191 @@
+.theme-sketch {
+  --sketch-paper: oklch(96% 0.015 85);
+  --sketch-paper-light: oklch(98% 0.01 85);
+  --sketch-paper-mid: oklch(93% 0.012 85);
+  --sketch-ink: oklch(22% 0.008 72);
+  --sketch-pencil: oklch(50% 0.01 72);
+  --sketch-pencil-light: oklch(74% 0.008 76);
+  --sketch-erased: oklch(88% 0.008 85);
+  --sketch-marker-orange: oklch(72% 0.17 55);
+  --sketch-marker-red: oklch(60% 0.2 25);
+  --sketch-marker-green: oklch(62% 0.15 150);
+  --sketch-marker-blue: oklch(58% 0.14 255);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg-primary: var(--sketch-paper);
+  --bg-surface: var(--sketch-paper-light);
+  --bg-elevated: var(--sketch-paper-light);
+  --bg-overlay: oklch(96% 0.015 85 / 0.9);
+
+  --fill-subtle: var(--sketch-paper-light);
+  --fill-muted: var(--sketch-erased);
+  --fill-active: var(--sketch-ink);
+
+  --border-subtle: var(--sketch-ink);
+  --border-base: var(--sketch-ink);
+  --border-active: var(--sketch-ink);
+
+  --radius-panel: 5px;
+  --radius-modal: 6px;
+  --radius-control: 4px;
+  --radius-pill: 4px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: var(--sketch-ink);
+  --text-secondary: var(--sketch-pencil);
+  --text-muted: var(--sketch-pencil-light);
+  --text-inverse: var(--sketch-paper-light);
+
+  --accent-primary: var(--sketch-marker-orange);
+  --accent-primary-muted: oklch(72% 0.17 55 / 0.25);
+  --accent-warning: var(--sketch-marker-orange);
+  --accent-danger: var(--sketch-marker-red);
+  --accent-success: var(--sketch-marker-green);
+
+  --shadow-sm: 1px 2px 0 oklch(22% 0.008 72 / 0.75);
+  --shadow-panel: 2px 3px 0 oklch(22% 0.008 72 / 0.78);
+  --shadow-modal: 4px 5px 0 oklch(22% 0.008 72 / 0.78);
+  --shadow-active-item: 1px 2px 0 oklch(22% 0.008 72 / 0.82);
+  --shadow-glow-primary: none;
+  --shadow-glow-warning: none;
+  --shadow-glow-danger: none;
+  --shadow-glow-elevated: none;
+  --shadow-glow: none;
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 1;
+  --transition-base: none;
+  --transition-fast: none;
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.06em;
+  --ui-chrome-title-letter-spacing: 0.1em;
+
+  --app-bg-gradient: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    oklch(72% 0.008 85 / 0.35) 31px,
+    oklch(72% 0.008 85 / 0.35) 32px
+  );
+
+  --app-panel-border: 2px solid var(--sketch-ink);
+  --app-panel-shadow: var(--shadow-panel);
+  --app-modal-border: 2px solid var(--sketch-ink);
+  --app-modal-inner-shadow: none;
+  --help-footer-bg: var(--sketch-erased);
+
+  --btn-active-transform: translate(2px, 2px);
+
+  --btn-filled-bg: var(--sketch-paper-light);
+  --btn-filled-border-width: 2px;
+  --btn-filled-border-color: var(--sketch-ink);
+  --btn-filled-shadow: var(--shadow-sm);
+  --btn-filled-active-bg: var(--sketch-paper-light);
+  --btn-filled-active-shadow: none;
+  --btn-filled-checked-bg: var(--sketch-ink);
+  --btn-filled-checked-color: var(--sketch-paper-light);
+  --btn-filled-checked-shadow: var(--shadow-sm);
+
+  --btn-outline-bg: var(--sketch-paper-light);
+  --btn-outline-border-width: 2px;
+  --btn-outline-border-color: var(--sketch-ink);
+  --btn-outline-shadow: var(--shadow-sm);
+  --btn-outline-active-bg: var(--sketch-paper-light);
+  --btn-outline-active-shadow: none;
+  --btn-outline-checked-bg: var(--sketch-ink);
+  --btn-outline-checked-color: var(--sketch-paper-light);
+  --btn-outline-checked-border-color: var(--sketch-ink);
+  --btn-outline-checked-shadow: var(--shadow-sm);
+
+  --btn-transparent-border-width: 2px;
+  --btn-transparent-border-color: transparent;
+  --btn-transparent-shadow: none;
+  --btn-transparent-active-shadow: none;
+  --btn-transparent-active-bg: transparent;
+  --btn-transparent-checked-bg: var(--sketch-ink);
+  --btn-transparent-checked-color: var(--sketch-paper-light);
+
+  --app-input-border: var(--sketch-ink);
+  --app-input-border-width: 2px;
+
+  --bpm-value-gradient: none;
+  --bpm-value-color: var(--sketch-ink);
+  --bpm-value-fw: 900;
+  --bpm-value-ls: -0.03em;
+  --bpm-value-filter: none;
+  --bpm-value-shadow: none;
+  --bpm-blur-visibility: hidden;
+  --bpm-input-selection: var(--sketch-erased);
+  --bpm-input-border: none;
+  --bpm-wheel-bg: var(--sketch-erased);
+  --bpm-wheel-border: 2px solid var(--sketch-ink);
+  --bpm-wheel-shadow: 1px 2px 0 oklch(22% 0.008 72 / 0.55);
+  --bpm-wheel-active-shadow:
+    1px 2px 0 oklch(22% 0.008 72 / 0.55), inset 0 0 0 2px var(--sketch-marker-orange);
+  --bpm-wheel-line: var(--sketch-marker-orange);
+  --bpm-wheel-line-glow: transparent;
+  --bpm-wheel-tick: var(--sketch-pencil);
+  --select-dropdown-bg: var(--sketch-paper-light);
+  --select-dropdown-border-width: 2px;
+  --select-dropdown-border-color: var(--sketch-ink);
+  --select-dropdown-shadow: var(--shadow-panel);
+  --select-option-selected-bg: var(--sketch-ink);
+  --select-option-selected-color: var(--sketch-paper-light);
+  --select-option-selected-shadow: none;
+
+  --dock-bg: var(--sketch-paper-light);
+  --dock-border: 2px solid var(--sketch-ink);
+  --dock-shadow: var(--shadow-panel);
+
+  --trainer-dock-border: 2px solid var(--sketch-ink);
+  --trainer-dock-shadow: var(--shadow-panel);
+
+  --visualizer-block-bg: var(--sketch-erased);
+  --visualizer-block-empty: var(--sketch-erased);
+  --visualizer-block-empty-active: oklch(80% 0.03 70);
+  --visualizer-block-border: 1px solid var(--sketch-pencil-light);
+  --visualizer-block-accent: var(--sketch-ink);
+  --visualizer-block-accent-dim: var(--sketch-pencil);
+  --visualizer-block-shadow: none;
+  --visualizer-block-shadow-filled: none;
+
+  --history-item-border: 2px solid var(--sketch-ink);
+  --history-item-shadow: var(--shadow-sm);
+  --history-item-active-shadow: none;
+  --history-item-active-border: 2px solid var(--sketch-ink);
+  --history-item-active-bg: var(--sketch-ink);
+  --history-item-active-color: var(--sketch-paper-light);
+
+  --checkbox-border: var(--sketch-ink);
+  --checkbox-border-width: 2px;
+  --checkbox-shadow: none;
+  --checkbox-checked-bg: var(--sketch-ink);
+  --checkbox-checked-border-color: var(--sketch-ink);
+  --checkbox-knob-bg: var(--sketch-paper-light);
+  --checkbox-knob-checked-bg: var(--sketch-paper-light);
+  --checkbox-knob-border-width: 2px;
+  --checkbox-knob-border: var(--sketch-ink);
+  --checkbox-knob-checked-border: var(--sketch-ink);
+  --checkbox-knob-shadow: none;
+
+  --swing-slider-track-bg: var(--sketch-erased);
+  --swing-slider-track-shadow: inset 0 0 0 1px var(--sketch-ink);
+  --swing-slider-thumb-bg: var(--sketch-paper-light);
+  --swing-slider-thumb-shadow: var(--shadow-sm);
+  --swing-slider-thumb-border-width: 2px;
+  --swing-slider-thumb-border: var(--sketch-ink);
+  --swing-value-border: 2px solid var(--sketch-ink);
+
+  --speed-status-border: var(--sketch-ink);
+  --speed-status-border-width: 2px;
+
+  --interval-status-border: var(--sketch-ink);
+  --interval-status-border-width: 2px;
+
+  --help-content-border: 2px solid var(--sketch-ink);
+}

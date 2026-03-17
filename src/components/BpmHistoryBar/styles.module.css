@@ -36,16 +36,16 @@
   min-width: 60px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  border-radius: var(--theme-radius-pill);
-  border: 1px solid var(--control-border-subtle);
-  background-color: var(--control-bg-subtle);
-  color: var(--theme-text-secondary);
+  border-radius: var(--history-item-radius, var(--radius-pill));
+  border: var(--history-item-border, 1px solid var(--border-subtle));
+  background-color: var(--history-item-bg, var(--fill-subtle));
+  color: var(--history-item-color, var(--text-secondary));
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--theme-transition-base);
-  box-shadow: var(--theme-list-item-shadow, none);
+  transition: var(--transition-fast, opacity 0.18s ease);
+  box-shadow: var(--history-item-shadow, none);
 }
 
 .history-bar__item:last-of-type {
@@ -53,102 +53,60 @@
 }
 
 .history-bar__item--active {
-  background-color: var(--control-bg-active);
-  border-color: var(--control-border-active);
-  color: var(--text-on-control-active);
+  background-color: var(--history-item-active-bg, transparent);
+  border: var(--history-item-active-border, 1px solid var(--accent-primary));
+  color: var(--history-item-active-color, var(--accent-primary));
   font-weight: bold;
-  box-shadow: var(--theme-list-item-active-shadow, var(--theme-shadow-active-item));
+  box-shadow: var(--history-item-active-shadow, none);
 }
 
-.history-bar__item:hover:not(.history-bar__item--active) {
-  background-color: var(--control-bg);
-  color: var(--theme-text-primary);
+.history-bar__item:active {
+  opacity: var(--history-item-active-opacity, var(--opacity-btn-active, 0.7));
 }
 
 .history-bar__item-text {
-  font-family: monospace;
+  font-family: var(--history-item-text-ff, var(--font-app-sans));
   font-size: 0.875rem;
-  letter-spacing: 0.025em;
+  font-weight: var(--history-item-text-fw, 600);
+  letter-spacing: var(--history-item-text-letter-spacing, 0.025em);
+  font-variant-numeric: tabular-nums;
 }
 
 .history-bar__remove-btn {
   position: absolute;
   top: -0.5rem;
   right: -0.25rem;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--theme-accent-red);
-  border-radius: var(--theme-radius-pill);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--theme-bg-primary);
-  opacity: 0;
-  transition: opacity 0.2s;
-  box-shadow: var(--theme-shadow-sm);
-}
-
-.history-bar__item:hover .history-bar__remove-btn {
-  opacity: 1;
-}
-
-.history-bar__save-btn {
-  flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--theme-radius-pill);
-  background-color: var(--theme-accent-amber-bg);
-  border: 1px solid var(--theme-accent-amber-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--theme-accent-amber);
-  transition: var(--theme-transition-base);
-  box-shadow: var(--theme-accent-amber-glow);
-  z-index: 10;
-}
-
-.history-bar__save-btn:hover {
-  background-color: rgba(245, 158, 11, 0.3);
-}
-
-.history-bar__save-btn:active {
-  transform: scale(0.95);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--accent-danger);
+  border-color: var(--accent-danger);
+  background-color: var(--bg-surface);
+  border-radius: var(--history-remove-btn-radius, var(--radius-pill));
 }
 
 .no-history {
-  color: var(--theme-text-muted);
+  color: var(--history-no-text-color, var(--text-muted));
   font-size: 0.875rem;
   font-style: italic;
   margin-left: 0.5rem;
 }
 
+.history-bar__save-btn {
+  flex-shrink: 0;
+  z-index: 10;
+}
+
 .history-bar__tap-btn {
   flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--theme-radius-pill);
-  background-color: var(--control-bg-subtle);
-  border: 1px solid var(--control-border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--theme-transition-base);
-}
-
-.history-bar__tap-btn:hover {
-  background-color: var(--control-bg);
-  border-color: var(--control-border);
-}
-
-.history-bar__tap-btn:active {
-  transform: scale(0.95);
-  background-color: var(--control-bg-hover);
 }
 
 .history-bar__tap-label {
-  font-family: monospace;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  color: var(--theme-text-secondary);
+  font-family: var(--history-tap-label-ff, var(--ui-chrome-ff, var(--font-app-sans)));
+  font-weight: var(--history-tap-label-fw, var(--ui-chrome-fw, 700));
+  letter-spacing: var(
+    --history-tap-label-letter-spacing,
+    var(--ui-chrome-title-letter-spacing, 0.08em)
+  );
+  text-transform: var(--history-tap-label-transform, var(--ui-chrome-transform, uppercase));
+  color: var(--history-tap-label-color, var(--text-secondary));
 }

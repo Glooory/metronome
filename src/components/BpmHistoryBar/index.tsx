@@ -3,6 +3,7 @@ import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { Star, X } from "lucide-react";
 import { useRef } from "react";
 import { translations, type Language } from "../../i18n";
+import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface BpmHistoryBarProps {
@@ -61,15 +62,17 @@ export const BpmHistoryBar = ({
                   b === currentBpm && styles["history-bar__item--active"]
                 )}
               >
-                <span className={styles["history-bar__item-text"]}>
-                  {b}
-                </span>
-                <button
+                <span className={styles["history-bar__item-text"]}>{b}</span>
+                <Button
+                  noPadding
+                  size="icon-sm"
+                  classNames={{
+                    button: styles["history-bar__remove-btn"],
+                  }}
                   onClick={(e) => removeBpm(e, b)}
-                  className={styles["history-bar__remove-btn"]}
                 >
                   <X size={10} strokeWidth={3} />
-                </button>
+                </Button>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -82,15 +85,15 @@ export const BpmHistoryBar = ({
         )}
       </div>
 
-      <motion.button layout onClick={saveCurrentBpm} className={styles["history-bar__save-btn"]}>
+      <Button size="icon" onClick={saveCurrentBpm} className={styles["history-bar__save-btn"]}>
         <Star size={18} fill="currentColor" />
-      </motion.button>
+      </Button>
 
-      <button onClick={onTap} className={styles["history-bar__tap-btn"]}>
+      <Button size="icon" onClick={onTap} className={styles["history-bar__tap-btn"]}>
         <span className={styles["history-bar__tap-label"]}>
           {translations.bpmHistory.tap[language]}
         </span>
-      </button>
+      </Button>
     </div>
   );
 };

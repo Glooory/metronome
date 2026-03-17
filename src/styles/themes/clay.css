@@ -1,0 +1,196 @@
+.theme-clay {
+  --clay-base: oklch(91% 0.025 68);
+  --clay-surface: oklch(91.6% 0.022 68);
+  --clay-elevated: oklch(92% 0.02 70);
+  --clay-glow: oklch(97% 0.006 88);
+  --clay-shade: oklch(84.5% 0.03 64);
+  --clay-shade-deep: oklch(78% 0.04 60);
+
+  --bg-primary: var(--clay-base);
+  --bg-surface: var(--clay-surface);
+  --bg-elevated: var(--clay-elevated);
+  --bg-overlay: oklch(32% 0.04 54 / 0.18);
+
+  --fill-subtle: var(--clay-base);
+  --fill-muted: oklch(89.6% 0.022 66);
+  --fill-active: var(--clay-base);
+
+  --border-subtle: transparent;
+  --border-base: transparent;
+  --border-active: transparent;
+
+  --radius-panel: 30px;
+  --radius-modal: 38px;
+  --radius-control: 18px;
+  --radius-pill: 9999px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: oklch(40% 0.045 54);
+  --text-secondary: oklch(54% 0.03 58);
+  --text-muted: oklch(70% 0.014 60);
+  --text-inverse: oklch(97% 0.01 86);
+
+  --accent-primary: oklch(62% 0.13 42);
+  --accent-primary-muted: oklch(82% 0.04 42);
+  --accent-warning: oklch(76% 0.13 72);
+  --accent-danger: oklch(60% 0.16 24);
+  --accent-success: oklch(67% 0.09 156);
+
+  --shadow-sm: 4px 4px 8px oklch(84.5% 0.03 64 / 0.62), -3px -3px 7px oklch(97% 0.006 88 / 0.56);
+
+  --shadow-panel:
+    10px 10px 22px oklch(84.5% 0.03 64 / 0.72), -8px -8px 18px oklch(97% 0.006 88 / 0.52);
+
+  --shadow-modal:
+    14px 14px 30px oklch(78% 0.04 60 / 0.54), -10px -10px 22px oklch(97% 0.006 88 / 0.46);
+
+  --shadow-active-item:
+    inset 3px 3px 6px oklch(84.5% 0.03 64 / 0.66), inset -2px -2px 5px oklch(97% 0.006 88 / 0.44);
+
+  --shadow-glow-primary: var(--shadow-active-item);
+  --shadow-glow-warning: var(--shadow-active-item);
+  --shadow-glow-danger: var(--shadow-active-item);
+  --shadow-glow-elevated: var(--shadow-panel);
+  --shadow-glow: var(--shadow-active-item);
+
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 1;
+  --opacity-disabled: 0.4;
+  --transition-base:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition-fast:
+    transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.025em;
+  --ui-chrome-title-letter-spacing: 0.05em;
+
+  --app-input-bg: var(--clay-base);
+  --app-input-border: 1px solid oklch(0% 0 0 / 0.05);
+  --app-input-shadow: var(--shadow-active-item);
+  --app-input-focus-border: var(--accent-primary);
+
+  --app-modal-bg: var(--clay-base);
+  --app-modal-shadow: var(--shadow-modal);
+  --app-modal-inner-shadow: none;
+
+  --bpm-value-color: var(--text-primary);
+  --bpm-value-shadow: 2px 2px 4px var(--clay-shade-deep);
+  --bpm-wheel-bg: linear-gradient(180deg, oklch(95% 0.016 72) 0%, var(--clay-base) 100%);
+  --bpm-wheel-border: 1px solid oklch(0% 0 0 / 0.05);
+  --bpm-wheel-shadow: inset 4px 4px 8px var(--clay-shade), inset -4px -4px 8px var(--clay-glow);
+  --bpm-wheel-active-shadow:
+    inset 5px 5px 10px var(--clay-shade), inset -5px -5px 10px var(--clay-glow),
+    0 0 0 1px oklch(62% 0.13 42 / 0.2);
+  --bpm-wheel-tick: var(--text-muted);
+  --bpm-wheel-line: var(--accent-primary);
+
+  --visualizer-block-bg: var(--clay-base);
+  --visualizer-block-border: 0;
+  --visualizer-controls-border: 0;
+  --visualizer-controls-shadow: var(--shadow-sm);
+  --visualizer-block-shadow:
+    inset 3px 3px 6px var(--clay-shade), inset -3px -3px 6px var(--clay-glow);
+  --visualizer-block-shadow-filled: 3px 3px 6px var(--clay-shade), -3px -3px 6px var(--clay-glow);
+  --visualizer-block-empty: oklch(90% 0.016 72);
+  --visualizer-block-empty-active: oklch(86% 0.03 54);
+  --visualizer-block-accent: var(--accent-primary);
+  --visualizer-block-accent-dim: oklch(76% 0.055 42);
+
+  --btn-filled-bg: var(--clay-base);
+  --btn-filled-border-width: 0px;
+  --btn-filled-shadow: var(--shadow-sm);
+  --btn-filled-active-shadow: var(--shadow-active-item);
+  --btn-filled-checked-bg: var(--clay-base);
+  --btn-filled-checked-color: var(--accent-primary);
+  --btn-filled-checked-shadow: var(--shadow-active-item);
+
+  --btn-outline-bg: var(--clay-base);
+  --btn-outline-border-width: 0px;
+  --btn-outline-shadow: var(--shadow-sm);
+  --btn-outline-active-shadow: var(--shadow-active-item);
+  --btn-outline-checked-bg: var(--clay-base);
+  --btn-outline-checked-color: var(--accent-primary);
+  --btn-outline-checked-shadow: var(--shadow-active-item);
+  --btn-outline-border-color: transparent;
+  --btn-outline-checked-border-color: transparent;
+
+  --btn-active-opacity: 1;
+  --btn-active-transform: scale(0.98);
+
+  --checkbox-bg: var(--clay-base);
+  --checkbox-border-width: 1px;
+  --checkbox-border: oklch(0% 0 0 / 0.05);
+  --checkbox-shadow: var(--shadow-active-item);
+  --checkbox-knob-bg: var(--clay-base);
+  --checkbox-knob-checked-bg: var(--clay-base);
+  --checkbox-knob-shadow: 2px 2px 5px var(--clay-shade), -2px -2px 5px var(--clay-glow);
+  --checkbox-checked-bg: var(--clay-base);
+  --checkbox-checked-border-color: transparent;
+  --checkbox-active-opacity: 1;
+  --select-dropdown-bg: var(--clay-base);
+  --select-dropdown-border-width: 0px;
+  --select-dropdown-shadow: var(--shadow-panel);
+  --select-dropdown-blur: 0px;
+  --select-option-selected-bg: oklch(89.8% 0.022 66);
+  --select-option-selected-shadow: var(--shadow-active-item);
+
+  --app-panel-border: 0;
+  --app-modal-border: 0;
+  --dock-border: 0;
+  --dock-shadow-outline: transparent;
+
+  --speed-status-border: 0;
+  --interval-status-border: 0;
+  --interval-status-muted-border: 0;
+
+  --swing-value-border: 1px solid oklch(0% 0 0 / 0.05);
+  --swing-value-shadow: var(--shadow-active-item);
+  --swing-slider-track-bg: var(--clay-base);
+  --swing-slider-track-shadow: var(--shadow-active-item);
+  --swing-slider-thumb-bg: var(--clay-base);
+  --swing-slider-thumb-shadow: 2px 2px 5px var(--clay-shade), -2px -2px 5px var(--clay-glow);
+  --swing-slider-thumb-border: transparent;
+  --swing-reset-border: 0;
+  --swing-reset-shadow: var(--shadow-sm);
+  --swing-reset-active-opacity: 1;
+
+  --help-trigger-btn-border: 0;
+  --help-trigger-btn-shadow: var(--shadow-sm);
+  --help-content-border: 0;
+  --help-content-bg: var(--clay-base);
+  --help-header-border: 0;
+  --help-header-shadow: var(--shadow-active-item);
+  --help-footer-border: 0;
+  --help-footer-bg: var(--clay-base);
+  --help-icon-box-border: 0;
+  --help-icon-box-shadow: var(--shadow-active-item);
+
+  --presets-item-border: 0;
+  --presets-item-shadow: var(--shadow-sm);
+  --presets-btn-cancel-border: 0;
+  --presets-btn-cancel-shadow: var(--shadow-sm);
+  --presets-btn-cancel-active-opacity: 1;
+  --presets-btn-confirm-del-border: 0;
+  --presets-btn-confirm-del-shadow: var(--shadow-sm);
+  --presets-btn-confirm-del-active-opacity: 1;
+  --presets-scroll-track: transparent;
+  --presets-scroll-thumb: var(--clay-shade);
+
+  --history-item-border: 0;
+  --history-item-bg: var(--clay-base);
+  --history-item-shadow: var(--shadow-sm);
+  --history-item-active-bg: var(--clay-base);
+  --history-item-active-border: 0;
+  --history-item-active-shadow: var(--shadow-active-item);
+  --history-item-active-opacity: 1;
+}

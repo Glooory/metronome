@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Preset } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
+import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface PresetsModalProps {
@@ -67,9 +68,9 @@ export const PresetsModal = ({
             <ListMusic size={20} className={styles["presets-modal__title-icon"]} />
             {t.title[language]}
           </div>
-          <button className={styles["presets-modal__close-btn"]} onClick={onClose}>
-            <X size={18} />
-          </button>
+          <Button size="icon-sm" onClick={onClose} aria-label="Close">
+            <X size={20} />
+          </Button>
         </div>
 
         <div className={styles["presets-modal__content"]}>
@@ -84,13 +85,14 @@ export const PresetsModal = ({
               onKeyDown={handleKeyDown}
               maxLength={30}
             />
-            <button
+            <Button
               className={styles["presets-modal__save-btn"]}
+              size="sm"
               onClick={handleSave}
               disabled={!name.trim()}
             >
               {t.saveCurrent[language]}
-            </button>
+            </Button>
           </div>
 
           <div className={styles["presets-modal__divider"]} />
@@ -118,20 +120,17 @@ export const PresetsModal = ({
                     </div>
                   </div>
                   <div className={styles["presets-modal__item-actions"]}>
-                    <button
-                      className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--load"]}`}
-                      onClick={() => onLoad(preset)}
-                      title={tc.load[language]}
-                    >
+                    <Button size="icon-sm" onClick={() => onLoad(preset)} title={tc.load[language]}>
                       <Play size={16} fill="currentColor" />
-                    </button>
-                    <button
-                      className={`${styles["presets-modal__action-btn"]} ${styles["presets-modal__action-btn--delete"]}`}
+                    </Button>
+                    <Button
+                      size="icon-sm"
+                      className={styles["presets-modal__item-delete-btn"]}
                       onClick={() => setDeletingPresetId(preset.id)}
                       title={tc.delete[language]}
                     >
                       <Trash2 size={16} />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               ))
@@ -158,13 +157,13 @@ export const PresetsModal = ({
               {t.confirmDeleteMessage[language]}
             </div>
             <div className={styles["presets-modal__confirm-actions"]}>
-              <button
+              <Button
                 className={styles["presets-modal__confirm-btn-cancel"]}
                 onClick={() => setDeletingPresetId(null)}
               >
                 {t.cancel[language]}
-              </button>
-              <button
+              </Button>
+              <Button
                 className={styles["presets-modal__confirm-btn-delete"]}
                 onClick={() => {
                   if (deletingPresetId) {
@@ -174,7 +173,7 @@ export const PresetsModal = ({
                 }}
               >
                 {t.confirm[language]}
-              </button>
+              </Button>
             </div>
           </motion.div>
         </div>

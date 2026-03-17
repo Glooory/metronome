@@ -1,0 +1,276 @@
+.theme-wood {
+  --wood-cream: oklch(92% 0.058 80);
+  --wood-flax: oklch(87% 0.072 76);
+  --wood-grain-light: oklch(82% 0.084 73);
+  --wood-grain-mid: oklch(74% 0.094 70);
+  --wood-honey: oklch(68% 0.108 68);
+  --wood-caramel: oklch(57% 0.108 64);
+  --wood-umber: oklch(36% 0.072 58);
+  --wood-espresso: oklch(22% 0.05 54);
+  --wood-light-top: oklch(99% 0.004 88 / 0.95);
+  --wood-light-side: oklch(99% 0.004 88 / 0.52);
+  --wood-shadow-base: oklch(32% 0.056 56 / 0.22);
+  --wood-shadow-deep: oklch(24% 0.048 54 / 0.36);
+  --wood-shadow-inset: oklch(26% 0.052 56 / 0.28);
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+
+  --bg-primary: oklch(86% 0.068 76);
+  --bg-surface: oklch(89.5% 0.062 78);
+  --bg-elevated: oklch(93% 0.05 80);
+  --bg-overlay: oklch(20% 0.036 58 / 0.54);
+
+  --fill-subtle: oklch(83% 0.074 74 / 0.65);
+  --fill-muted: oklch(78% 0.082 72 / 0.82);
+  --fill-active: var(--wood-caramel);
+
+  --border-subtle: oklch(55% 0.082 66 / 0.2);
+  --border-base: oklch(46% 0.076 64 / 0.34);
+  --border-active: var(--wood-caramel);
+
+  --radius-panel: 6px;
+  --radius-modal: 10px;
+  --radius-control: 4px;
+  --radius-pill: 9999px;
+
+  --text-primary: var(--wood-espresso);
+  --text-secondary: oklch(34% 0.064 60);
+  --text-muted: oklch(50% 0.056 64);
+  --text-inverse: oklch(96% 0.012 82);
+  --font-display: "Avenir Next", "Segoe UI", var(--font-sans);
+
+  --accent-primary: var(--wood-caramel);
+  --accent-primary-muted: oklch(70% 0.088 70 / 0.44);
+  --accent-warning: oklch(56% 0.17 50);
+  --accent-danger: oklch(44% 0.17 18);
+  --accent-success: oklch(48% 0.14 146);
+
+  --shadow-sm:
+    inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
+    inset 1px 0 0 var(--wood-light-side), 0 2px 5px var(--wood-shadow-base);
+  --shadow-panel:
+    inset 0 2px 0 var(--wood-light-top), inset 0 -1.5px 0 oklch(32% 0.056 56 / 0.2),
+    inset 1.5px 0 0 var(--wood-light-side), inset -1px 0 0 oklch(32% 0.056 56 / 0.1),
+    0 3px 10px -1px var(--wood-shadow-base), 0 6px 20px -4px var(--wood-shadow-deep);
+  --shadow-modal:
+    inset 0 2px 0 var(--wood-light-top), inset 0 -1.5px 0 oklch(32% 0.056 56 / 0.22),
+    0 28px 60px -10px var(--wood-shadow-deep), 0 10px 28px -4px var(--wood-shadow-base),
+    0 0 0 1px var(--border-subtle);
+  --shadow-active-item: 0 0 0 2px var(--wood-caramel), 0 0 12px oklch(57% 0.108 64 / 0.36);
+  --shadow-glow-primary: 0 0 10px oklch(57% 0.108 64 / 0.4);
+  --shadow-glow: var(--shadow-glow-primary);
+
+  --overlay-blur: 0px;
+  --overlay-sheen: linear-gradient(
+    160deg,
+    oklch(100% 0 / 0.68) 0%,
+    oklch(100% 0 / 0.2) 40%,
+    oklch(100% 0 / 0) 70%
+  );
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.04em;
+  --ui-chrome-title-letter-spacing: 0.08em;
+
+  --app-bg-gradient:
+    repeating-linear-gradient(
+      89deg,
+      oklch(58% 0.068 68 / 0.08) 0px,
+      oklch(58% 0.068 68 / 0.08) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      89deg,
+      oklch(66% 0.062 71 / 0.05) 0px,
+      oklch(66% 0.062 71 / 0.05) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    radial-gradient(ellipse 70% 45% at 20% 10%, oklch(97% 0.018 84 / 0.56) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 85% 90%, oklch(68% 0.072 68 / 0.24) 0%, transparent 60%),
+    linear-gradient(
+      155deg,
+      oklch(89% 0.062 80) 0%,
+      oklch(83% 0.076 74) 55%,
+      oklch(79% 0.084 71) 100%
+    );
+
+  --app-panel-border: 1px solid var(--border-subtle);
+  --app-panel-shadow: var(--shadow-panel);
+
+  --bpm-value-color: var(--text-primary);
+  --bpm-value-gradient: linear-gradient(
+    to bottom,
+    oklch(24% 0.058 58) 0%,
+    oklch(16% 0.042 54) 55%,
+    oklch(26% 0.062 60) 100%
+  );
+  --bpm-value-shadow:
+    0 3px 0 oklch(99% 0.004 88 / 0.75), 0 -1px 0 var(--wood-shadow-base),
+    3px 5px 12px var(--wood-shadow-base);
+  --bpm-value-fw: 900;
+  --bpm-value-ls: -0.04em;
+  --bpm-wheel-bg: linear-gradient(to bottom, oklch(90% 0.056 79) 0%, oklch(84% 0.072 74) 100%);
+  --bpm-wheel-border: 1px solid var(--border-base);
+  --bpm-wheel-shadow:
+    inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
+    inset 1px 0 0 var(--wood-light-side), inset 0 6px 10px oklch(26% 0.052 56 / 0.14),
+    0 2px 5px var(--wood-shadow-base);
+  --bpm-wheel-active-shadow:
+    inset 0 1.5px 0 oklch(100% 0 / 0.58), inset 0 -1px 0 var(--wood-shadow-base),
+    inset 0 6px 12px oklch(26% 0.052 56 / 0.18), 0 0 0 1px oklch(57% 0.108 64 / 0.28);
+  --bpm-wheel-line: var(--wood-caramel);
+  --bpm-wheel-line-glow: oklch(57% 0.108 64 / 0.44);
+  --bpm-wheel-tick: var(--wood-grain-mid);
+
+  --btn-active-transform: scale(0.96);
+  --btn-filled-bg: linear-gradient(to bottom, oklch(94% 0.044 82) 0%, oklch(88% 0.06 77) 100%);
+  --btn-filled-shadow: var(--shadow-sm);
+  --btn-filled-border-width: 1px;
+  --btn-filled-border-color: var(--border-subtle);
+  --btn-filled-active-shadow:
+    inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.42);
+  --btn-filled-active-bg: linear-gradient(
+    to bottom,
+    oklch(83% 0.072 73) 0%,
+    oklch(87% 0.062 77) 100%
+  );
+  --btn-filled-checked-bg: linear-gradient(
+    to bottom,
+    oklch(54% 0.112 66) 0%,
+    oklch(48% 0.108 62) 100%
+  );
+  --btn-filled-checked-color: var(--text-inverse);
+  --btn-filled-checked-shadow:
+    inset 0 1.5px 0 oklch(100% 0 / 0.26), inset 0 -1.5px 0 oklch(22% 0.048 52 / 0.28),
+    0 3px 8px oklch(34% 0.088 60 / 0.32);
+
+  --btn-outline-bg: oklch(91% 0.052 80 / 0.52);
+  --btn-outline-border-color: var(--border-base);
+  --btn-outline-shadow: var(--shadow-sm);
+  --btn-outline-checked-bg: linear-gradient(
+    to bottom,
+    oklch(54% 0.112 66) 0%,
+    oklch(48% 0.108 62) 100%
+  );
+  --btn-outline-checked-color: var(--text-inverse);
+  --btn-outline-checked-border-color: oklch(40% 0.082 60 / 0.62);
+
+  --select-dropdown-bg: oklch(93% 0.052 80);
+  --select-dropdown-border-width: 1px;
+  --select-dropdown-border-color: var(--border-base);
+  --select-dropdown-shadow:
+    inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
+    inset 1.5px 0 0 var(--wood-light-side), inset -1px 0 0 oklch(32% 0.056 56 / 0.1),
+    0 20px 48px -8px var(--wood-shadow-deep), 0 8px 20px -4px var(--wood-shadow-base),
+    0 0 0 1px var(--border-subtle);
+  --select-dropdown-sheen: linear-gradient(
+    to bottom,
+    oklch(100% 0 / 0.62) 0%,
+    oklch(100% 0 / 0.12) 30%,
+    oklch(100% 0 / 0) 55%
+  );
+  --select-option-selected-bg: oklch(83% 0.078 73 / 0.78);
+  --select-option-selected-color: var(--wood-espresso);
+  --select-option-selected-border-color: oklch(55% 0.082 66 / 0.28);
+  --select-option-selected-shadow:
+    inset 0 1.5px 0 var(--wood-light-top), inset 0 -1px 0 var(--wood-shadow-base);
+  --select-dot-color: var(--wood-caramel);
+  --select-dot-shadow: 0 0 6px oklch(57% 0.108 64 / 0.42);
+
+  --visualizer-block-bg: oklch(80% 0.08 72 / 0.58);
+  --visualizer-block-empty: oklch(80% 0.08 72 / 0.58);
+  --visualizer-block-empty-active: oklch(74% 0.09 72 / 0.82);
+  --visualizer-block-border: 1px solid oklch(55% 0.07 68 / 0.12);
+  --visualizer-block-shadow:
+    inset 0 1.5px 3px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.45);
+  --visualizer-block-accent: linear-gradient(
+    to bottom,
+    oklch(54% 0.112 66) 0%,
+    oklch(48% 0.108 62) 100%
+  );
+  --visualizer-block-accent-dim: oklch(65% 0.102 68 / 0.82);
+
+  --dock-bg: linear-gradient(to bottom, oklch(91% 0.056 79) 0%, oklch(86% 0.068 76) 100%);
+  --dock-border: 1px solid var(--border-base);
+  --dock-shadow: var(--shadow-panel);
+
+  --swing-slider-track-bg: oklch(77% 0.082 72 / 0.72);
+  --swing-slider-track-border: oklch(55% 0.082 66 / 0.2);
+  --swing-slider-track-shadow:
+    inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.38);
+  --swing-slider-progress-bg: linear-gradient(
+    to right,
+    oklch(60% 0.112 68) 0%,
+    oklch(54% 0.108 64) 100%
+  );
+  --swing-slider-thumb-bg: linear-gradient(
+    to bottom,
+    oklch(60% 0.112 68) 0%,
+    oklch(54% 0.108 64) 100%
+  );
+  --swing-slider-thumb-shadow:
+    inset 0 1.5px 0 oklch(100% 0 / 0.32), inset 0 -1.5px 0 oklch(22% 0.048 52 / 0.26),
+    0 3px 8px var(--wood-shadow-deep);
+  --swing-slider-thumb-border: oklch(99% 0.004 88 / 0.55);
+
+  --speed-status-border: var(--border-base);
+  --speed-status-border-width: 1px;
+
+  --interval-status-border: var(--border-base);
+  --interval-status-border-width: 1px;
+
+  --checkbox-shadow:
+    inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.38);
+  --checkbox-checked-bg: var(--wood-caramel);
+  --checkbox-checked-border-color: oklch(40% 0.082 60 / 0.55);
+  --checkbox-knob-bg: linear-gradient(to bottom, oklch(98% 0.006 84) 0%, oklch(87% 0.052 78) 100%);
+  --checkbox-knob-checked-bg: linear-gradient(
+    to bottom,
+    oklch(98% 0.006 84) 0%,
+    oklch(87% 0.052 78) 100%
+  );
+  --checkbox-knob-border: oklch(99% 0.004 88 / 0.55);
+  --checkbox-knob-shadow:
+    inset 0 1.5px 0 oklch(100% 0 / 0.68), inset 0 -1px 0 oklch(40% 0.082 60 / 0.18),
+    0 3px 7px var(--wood-shadow-deep);
+
+  --history-item-bg: oklch(87% 0.064 76 / 0.62);
+  --history-item-border: 1px solid var(--border-subtle);
+  --history-item-shadow:
+    inset 0 1.5px 0 oklch(99% 0.004 88 / 0.6), inset 0 -1.5px 0 var(--wood-shadow-base);
+  --history-item-active-bg: oklch(91% 0.054 79 / 0.92);
+  --history-item-active-border: 1px solid var(--border-active);
+  --history-item-active-color: var(--wood-caramel);
+  --history-item-active-shadow:
+    inset 0 1.5px 0 oklch(99% 0.004 88 / 0.6), 0 0 0 1.5px var(--wood-caramel),
+    0 0 10px oklch(57% 0.108 64 / 0.3);
+
+  --app-input-bg: oklch(80% 0.08 72 / 0.62);
+  --app-input-border: 1px solid var(--border-subtle);
+  --app-input-shadow:
+    inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.38);
+
+  --app-modal-border: 1px solid var(--border-subtle);
+  --app-modal-shadow: var(--shadow-modal);
+
+  --help-footer-bg: oklch(82% 0.072 73 / 0.52);
+
+  --dock-radius: var(--radius-panel);
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+  --checkbox-radius: var(--radius-control);
+
+  --opacity-btn-active: 0.8;
+  --transition-base:
+    transform 0.2s cubic-bezier(0.26, 0, 0.12, 1), opacity 0.2s cubic-bezier(0.26, 0, 0.12, 1),
+    filter 0.2s cubic-bezier(0.26, 0, 0.12, 1), box-shadow 0.2s cubic-bezier(0.26, 0, 0.12, 1),
+    background-color 0.2s cubic-bezier(0.26, 0, 0.12, 1),
+    border-color 0.2s cubic-bezier(0.26, 0, 0.12, 1), color 0.2s cubic-bezier(0.26, 0, 0.12, 1);
+  --transition-fast:
+    transform 0.11s cubic-bezier(0.26, 0, 0.12, 1), opacity 0.11s cubic-bezier(0.26, 0, 0.12, 1),
+    filter 0.11s cubic-bezier(0.26, 0, 0.12, 1), box-shadow 0.11s cubic-bezier(0.26, 0, 0.12, 1),
+    background-color 0.11s cubic-bezier(0.26, 0, 0.12, 1),
+    border-color 0.11s cubic-bezier(0.26, 0, 0.12, 1), color 0.11s cubic-bezier(0.26, 0, 0.12, 1);
+}

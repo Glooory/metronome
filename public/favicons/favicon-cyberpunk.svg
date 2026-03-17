@@ -1,12 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#050508"/>
-  
-  <!-- Neon Ghosting Body -->
-  <path d="M128 448 L384 448 L256 80 Z" fill="none" stroke="#00f3ff" stroke-width="4" stroke-opacity="0.5"/>
-  <path d="M138 448 L394 448 L266 80 Z" fill="none" stroke="#d900ff" stroke-width="4" stroke-opacity="0.5" transform="translate(10, 0)"/>
-
-  <!-- Motion Blur Pointer (Swinging Right) -->
-  <line x1="256" y1="380" x2="320" y2="120" stroke="#00f3ff" stroke-width="8" opacity="0.4"/>
-  <line x1="256" y1="380" x2="330" y2="130" stroke="#00f3ff" stroke-width="8" opacity="0.7"/>
-  <line x1="256" y1="380" x2="340" y2="140" stroke="#d900ff" stroke-width="6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <path fill="none" stroke="#ff2bd6" stroke-opacity=".7" stroke-width="2" d="M25.5 8H41.5L50.5 56H16.5Z"/>
+  <path fill="#0a0d18" stroke="#52f7ff" stroke-width="2" d="M24 8H40L49 56H15Z"/>
+  <path fill="#52f7ff" fill-opacity=".15" d="M28 18h8v2h-8zm-1 8h10v2H27zm1 8h8v2h-8z"/>
+  <path stroke="#ff2bd6" stroke-linecap="round" stroke-width="5" d="M31 45 54 13"/>
+  <path stroke="#52f7ff" stroke-linecap="round" stroke-width="5" d="M29 45 52 13"/>
+  <circle cx="29" cy="45" r="3.2" fill="#52f7ff"/>
+  <circle cx="47" cy="20" r="5.1" fill="#ff2bd6"/>
 </svg>

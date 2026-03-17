@@ -4,6 +4,8 @@ import { VolumeX, X } from "lucide-react";
 import type { IntervalTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
+import { Button } from "../Button";
+import { Checkbox } from "../Checkbox";
 import styles from "./styles.module.css";
 
 interface IntervalTrainerModalProps {
@@ -59,9 +61,9 @@ export const IntervalTrainerModal = ({
             <VolumeX size={20} className={styles["interval-trainer-modal__title-icon"]} />
             {t.title[language]}
           </div>
-          <button className={styles["interval-trainer-modal__close-btn"]} onClick={onClose}>
-            <X size={18} />
-          </button>
+          <Button size="icon-sm" onClick={onClose} aria-label="Close">
+            <X size={20} />
+          </Button>
         </div>
 
         <div className={styles["interval-trainer-modal__content"]}>
@@ -69,15 +71,7 @@ export const IntervalTrainerModal = ({
             <span className={styles["interval-trainer-modal__label"]}>
               {t.enableTraining[language]}
             </span>
-            <div
-              className={clsx(
-                styles["interval-trainer-modal__toggle"],
-                config.enabled && styles["interval-trainer-modal__toggle--active"]
-              )}
-              onClick={handleToggle}
-            >
-              <div className={styles["interval-trainer-modal__toggle-knob"]} />
-            </div>
+            <Checkbox checked={config.enabled} onChange={handleToggle} aria-label={t.enableTraining[language]} />
           </div>
 
           <div className={styles["interval-trainer-modal__divider"]} />
@@ -88,9 +82,9 @@ export const IntervalTrainerModal = ({
               type="number"
               className={styles["interval-trainer-modal__input"]}
               value={config.playBars}
-              onChange={(e) => handleChange("playBars", Math.max(1, parseInt(e.target.value) || 1))}
               min={1}
               max={16}
+              onChange={(e) => handleChange("playBars", Math.max(1, parseInt(e.target.value) || 1))}
             />
           </div>
 
@@ -100,9 +94,9 @@ export const IntervalTrainerModal = ({
               type="number"
               className={styles["interval-trainer-modal__input"]}
               value={config.muteBars}
-              onChange={(e) => handleChange("muteBars", Math.max(1, parseInt(e.target.value) || 1))}
               min={1}
               max={16}
+              onChange={(e) => handleChange("muteBars", Math.max(1, parseInt(e.target.value) || 1))}
             />
           </div>
 
@@ -118,12 +112,7 @@ export const IntervalTrainerModal = ({
                 <div className={styles["interval-trainer-modal__status-text"]}>
                   {isMuted ? (
                     <>
-                      <span
-                        className={clsx(
-                          styles["interval-trainer-modal__status-highlight"],
-                          styles["interval-trainer-modal__status-highlight--muted"]
-                        )}
-                      >
+                      <span className={styles["interval-trainer-modal__status-highlight"]}>
                         {t.muted[language]}
                       </span>
                       <br />

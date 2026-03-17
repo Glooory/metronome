@@ -44,12 +44,12 @@
 }
 
 .visualizer__mute-icon-svg {
-  transition: color 0.1s;
-  color: var(--theme-text-dim);
+  transition: var(--visualizer-mute-transition, var(--transition-fast, opacity 0.1s));
+  color: var(--visualizer-mute-color, var(--text-muted));
 }
 
 .visualizer__mute-icon-svg--active {
-  color: var(--theme-bg-overlay);
+  color: var(--visualizer-mute-active-color, var(--bg-overlay));
 }
 
 .visualizer__stack {
@@ -64,14 +64,14 @@
 .visualizer__block {
   width: 100%;
   flex: 1;
-  border-radius: var(--theme-visualizer-block-radius);
-  border: var(--theme-visualizer-block-border);
-  background-color: var(--control-bg-subtle);
-  box-shadow: var(--theme-visualizer-block-shadow);
+  border-radius: var(--visualizer-block-radius, var(--radius-control));
+  border: var(--visualizer-block-border, none);
+  background-color: var(--visualizer-block-bg, var(--fill-subtle));
+  box-shadow: var(--visualizer-block-shadow, none);
 }
 
 .visualizer__block--filled {
-  box-shadow: var(--theme-visualizer-block-shadow-filled);
+  box-shadow: var(--visualizer-block-shadow-filled, none);
 }
 
 .visualizer__header {
@@ -84,11 +84,15 @@
 }
 
 .visualizer__label {
+  font-family: var(--visualizer-label-ff, var(--ui-chrome-ff, var(--font-app-sans)));
   font-size: 0.875rem;
-  color: var(--theme-text-muted);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--visualizer-label-color, var(--text-muted));
+  font-weight: var(--visualizer-label-fw, 600);
+  text-transform: var(--visualizer-label-transform, var(--ui-chrome-transform, uppercase));
+  letter-spacing: var(
+    --visualizer-label-letter-spacing,
+    var(--ui-chrome-letter-spacing, 0.05em)
+  );
 }
 
 .visualizer__controls {
@@ -96,74 +100,29 @@
   align-items: center;
   gap: 8px;
   height: 100%;
-  background: var(--theme-input-bg);
+  background: var(--visualizer-controls-bg, var(--fill-subtle));
   padding: 2px;
-  border-radius: var(--theme-radius-sm);
-  border: 1px solid var(--control-border-subtle);
+  border-radius: var(--visualizer-controls-radius, var(--radius-control));
+  border: var(--visualizer-controls-border, 1px solid var(--border-subtle));
+  box-shadow: var(--visualizer-controls-shadow, none);
 }
 
 .visualizer__control-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: var(--shift-row-height);
   height: var(--shift-row-height);
-  background: transparent;
-  color: var(--theme-text-secondary);
-  border: none;
-  border-radius: var(--theme-radius-xs);
-  cursor: pointer;
-  transition: var(--theme-transition-base);
-}
-
-.visualizer__control-btn:hover {
-  background: var(--control-bg-hover);
-  color: var(--theme-text-primary);
-}
-
-.visualizer__control-btn:active,
-.visualizer__control-btn:active:hover {
-  background: var(--control-bg-active);
-  color: var(--theme-btn-active-color);
-  transform: var(--theme-btn-active-transform);
 }
 
 .visualizer__value {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--theme-text-secondary);
+  font-family: var(--visualizer-value-ff, var(--font-app-sans));
+  font-size: 1rem;
+  font-weight: var(--visualizer-value-fw, 600);
+  color: var(--visualizer-value-color, var(--text-secondary));
   min-width: 24px;
   text-align: center;
-  transition: color 0.2s;
-}
-
-.visualizer__value--active {
-  color: var(--theme-accent-amber);
+  transition: var(--visualizer-value-transition, color 0.2s);
 }
 
 .visualizer__reset-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: var(--shift-row-height);
   height: var(--shift-row-height);
-  background: transparent;
-  color: var(--theme-text-secondary);
-  border: 1px solid transparent;
-  border-radius: var(--theme-radius-sm);
-  cursor: pointer;
-  transition: var(--theme-transition-base);
-}
-
-.visualizer__reset-btn:hover {
-  background: var(--control-bg-hover);
-  color: var(--theme-text-primary);
-}
-
-.visualizer__reset-btn:active,
-.visualizer__reset-btn:active:hover {
-  background: var(--control-bg-active);
-  color: var(--theme-btn-active-color);
-  transform: var(--theme-btn-active-transform);
 }

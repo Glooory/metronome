@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { AudioWaveform, RefreshCcw, X } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
+import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface SwingSettingModalProps {
@@ -43,9 +44,9 @@ export const SwingSettingModal = ({
             <AudioWaveform size={20} className={styles["swing-trainer-modal__title-icon"]} />
             {t.title[language]}
           </div>
-          <button className={styles["swing-trainer-modal__close-btn"]} onClick={onClose}>
-            <X size={18} />
-          </button>
+          <Button size="icon-sm" onClick={onClose} aria-label="Close">
+            <X size={20} />
+          </Button>
         </div>
 
         <div className={styles["swing-trainer-modal__content"]}>
@@ -63,10 +64,11 @@ export const SwingSettingModal = ({
                 value={swing}
                 onChange={(e) => onSwingChange(Number(e.target.value))}
                 className={styles["swing-trainer-modal__slider"]}
+                style={{ ["--swing-slider-progress" as string]: `${swing}%` }}
               />
             </div>
           </div>
-          <button className={styles["swing-trainer-modal__reset-btn"]} onClick={handleReset}>
+          <Button className={styles["swing-trainer-modal__reset-btn"]} onClick={handleReset}>
             <RefreshCcw
               size={14}
               style={{
@@ -76,7 +78,7 @@ export const SwingSettingModal = ({
               }}
             />
             {t.reset[language]}
-          </button>
+          </Button>
         </div>
       </motion.div>
     </motion.div>

@@ -1,0 +1,134 @@
+.theme-cyberpunk {
+  --white: oklch(100% 0 0);
+  --black: oklch(10% 0.04 270);
+
+  --bg-primary: oklch(12% 0.04 270);
+  --bg-surface: oklch(18% 0.05 270 / 0.85);
+  --bg-elevated: oklch(22% 0.06 270 / 0.95);
+  --bg-overlay: oklch(10% 0.04 270 / 0.9);
+
+  --accent-primary: oklch(85% 0.18 195);
+  --accent-primary-muted: oklch(45% 0.12 195 / 0.45);
+  --accent-warning: oklch(90% 0.25 90);
+  --accent-danger: oklch(65% 0.35 345);
+  --accent-success: oklch(80% 0.28 145);
+
+  --text-primary: oklch(98% 0.01 195);
+  --text-secondary: oklch(78% 0.15 195);
+  --text-muted: oklch(62% 0.08 282);
+  --text-inverse: oklch(10% 0.04 270);
+
+  --border-subtle: oklch(35% 0.1 270 / 0.4);
+  --border-base: oklch(45% 0.12 195 / 0.6);
+  --border-active: var(--accent-primary);
+
+  --radius-panel: 0px;
+  --radius-modal: 0px;
+  --radius-control: 0px;
+  --radius-pill: 0px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --shadow-sm: 0 0 4px var(--accent-primary-muted);
+  --shadow-panel: 0 0 0 1px var(--border-subtle), 0 0 24px oklch(12% 0.04 270 / 0.5);
+  --shadow-modal: 0 0 0 1px var(--accent-primary), 0 0 40px oklch(85% 0.18 195 / 0.15);
+  --shadow-active-item: 0 0 14px var(--accent-primary);
+  --shadow-glow: 0 0 18px var(--accent-primary);
+
+  --overlay-blur: 12px;
+  --overlay-sheen: linear-gradient(to bottom, oklch(100% 0 0 / 0.05), transparent);
+
+  --transition-base:
+    transform 0.12s steps(4), opacity 0.12s steps(4), filter 0.12s steps(4),
+    box-shadow 0.12s steps(4), background-color 0.12s steps(4), border-color 0.12s steps(4),
+    color 0.12s steps(4);
+  --transition-fast:
+    transform 0.06s steps(2), opacity 0.06s steps(2), filter 0.06s steps(2),
+    box-shadow 0.06s steps(2), background-color 0.06s steps(2), border-color 0.06s steps(2),
+    color 0.06s steps(2);
+  --opacity-btn-active: 0.6;
+  --ui-chrome-letter-spacing: 0.14em;
+  --ui-chrome-title-letter-spacing: 0.18em;
+
+  --app-bg-gradient:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    radial-gradient(circle at 50% 40%, oklch(22% 0.08 270) 0%, oklch(12% 0.04 270) 100%);
+
+  --app-panel-bg: oklch(18% 0.06 270 / 0.8);
+  --app-panel-border: 1px solid var(--border-base);
+  --app-panel-shadow: 0 0 18px oklch(85% 0.18 195 / 0.12);
+
+  --bpm-value-color: transparent;
+  --bpm-value-webkit-bg-clip: text;
+  --bpm-value-gradient: linear-gradient(to bottom, var(--white) 0%, var(--accent-primary) 100%);
+  --bpm-value-filter: drop-shadow(0 0 12px var(--accent-primary));
+  --bpm-value-ls: 0.02em;
+  --bpm-wheel-bg: linear-gradient(
+    180deg,
+    oklch(26% 0.08 270 / 0.7) 0%,
+    oklch(16% 0.05 270 / 0.9) 100%
+  );
+  --bpm-wheel-border: 1px solid var(--accent-primary);
+  --bpm-wheel-shadow:
+    0 0 0 1px oklch(85% 0.18 195 / 0.18), inset 0 0 12px oklch(85% 0.18 195 / 0.08);
+  --bpm-wheel-active-shadow:
+    0 0 0 1px var(--accent-danger), 0 0 14px oklch(65% 0.35 345 / 0.35),
+    inset 0 0 12px oklch(65% 0.35 345 / 0.14);
+  --bpm-wheel-line: var(--accent-danger);
+  --bpm-wheel-line-glow: 0 0 10px var(--accent-danger);
+  --bpm-wheel-tick: var(--accent-primary);
+
+  --visualizer-block-bg: oklch(28% 0.08 270 / 0.62);
+  --visualizer-block-empty: oklch(28% 0.08 270 / 0.62);
+  --visualizer-block-empty-active: oklch(85% 0.18 195 / 0.2);
+  --visualizer-block-border: 1px solid oklch(85% 0.18 195 / 0.16);
+  --visualizer-block-accent: var(--accent-primary);
+  --visualizer-block-accent-dim: oklch(85% 0.18 195 / 0.34);
+  --visualizer-block-shadow: 0 0 8px oklch(85% 0.18 195 / 0.18);
+
+  --btn-filled-bg: oklch(25% 0.08 270 / 0.6);
+  --btn-filled-color: var(--accent-primary);
+  --btn-filled-border-width: 1px;
+  --btn-filled-border-color: var(--border-base);
+  --btn-filled-shadow: 0 0 10px oklch(12% 0.04 270 / 0.35);
+  --btn-filled-checked-bg: oklch(85% 0.18 195 / 0.15);
+  --btn-filled-checked-color: var(--accent-primary);
+  --btn-filled-checked-border-color: var(--accent-primary);
+  --btn-filled-checked-shadow: 0 0 12px var(--accent-primary);
+  --btn-outline-border-color: var(--border-base);
+  --btn-outline-checked-bg: oklch(85% 0.18 195 / 0.15);
+  --btn-outline-checked-color: var(--accent-primary);
+  --btn-outline-checked-border-color: var(--accent-primary);
+  --btn-outline-checked-shadow: 0 0 12px var(--accent-primary);
+
+  --speed-status-border: var(--border-base);
+
+  --interval-status-border: var(--border-base);
+
+  --trainer-dock-bg: oklch(20% 0.06 270 / 0.9);
+  --trainer-dock-border: 1px solid var(--border-base);
+  --select-dropdown-bg: oklch(15% 0.05 270 / 0.98);
+  --select-dropdown-border-color: var(--accent-primary);
+  --select-dropdown-shadow: 0 0 30px oklch(0% 0 0 / 0.8), 0 0 10px oklch(85% 0.18 195 / 0.2);
+
+  --checkbox-checked-bg: oklch(85% 0.18 195 / 0.15);
+  --checkbox-checked-border-color: var(--accent-primary);
+  --checkbox-checked-shadow: 0 0 12px var(--accent-primary);
+  --checkbox-knob-bg: var(--white);
+  --checkbox-knob-checked-bg: var(--accent-primary);
+  --checkbox-knob-border: var(--accent-primary);
+  --checkbox-knob-checked-border: var(--white);
+
+  --swing-slider-track-bg: oklch(25% 0.1 270 / 0.5);
+  --swing-slider-track-border: var(--border-base);
+  --swing-slider-progress-bg: var(--accent-primary);
+  --swing-slider-thumb-bg: var(--accent-primary);
+  --swing-slider-thumb-border: var(--white);
+  --swing-slider-thumb-shadow: 0 0 10px var(--accent-primary);
+}

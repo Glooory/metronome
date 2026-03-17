@@ -1,0 +1,130 @@
+.theme-terminal {
+  --terminal-green: oklch(75% 0.18 150);
+  --terminal-green-bright: oklch(85% 0.22 150);
+  --terminal-green-dim: oklch(40% 0.1 150);
+  --terminal-amber: oklch(75% 0.18 80);
+  --terminal-red: oklch(65% 0.2 25);
+
+  --bg-primary: oklch(2% 0.01 150);
+  --bg-surface: oklch(5% 0.02 150);
+  --bg-elevated: oklch(8% 0.03 150);
+  --bg-overlay: rgba(0, 8, 0, 0.9);
+
+  --fill-subtle: oklch(7% 0.03 150);
+  --fill-muted: oklch(12% 0.05 150);
+  --fill-active: var(--terminal-green);
+
+  --border-subtle: oklch(15% 0.06 150);
+  --border-base: var(--terminal-green-dim);
+  --border-active: var(--terminal-green);
+
+  --radius-panel: 0px;
+  --radius-modal: 0px;
+  --radius-control: 0px;
+  --radius-pill: 0px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: var(--terminal-green);
+  --text-secondary: var(--terminal-green-dim);
+  --text-muted: oklch(20% 0.05 150);
+  --text-inverse: oklch(2% 0.01 150);
+
+  --font-display: var(--font-mono);
+  --font-app-sans: var(--font-mono);
+  --font-app-mono: var(--font-mono);
+
+  --accent-primary: var(--terminal-green);
+  --accent-primary-muted: var(--terminal-green-dim);
+  --accent-warning: var(--terminal-amber);
+  --accent-danger: var(--terminal-red);
+  --accent-success: var(--terminal-green);
+
+  --shadow-sm: none;
+  --shadow-panel: 0 0 0 1px var(--terminal-green-dim);
+  --shadow-modal: 0 0 0 1px var(--terminal-green), 0 0 20px rgba(0, 255, 0, 0.1);
+  --shadow-active-item: 0 0 8px var(--terminal-green);
+  --shadow-glow: 0 0 8px var(--terminal-green);
+
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+  --app-modal-inner-shadow: none;
+  --help-footer-bg: var(--fill-subtle);
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 1;
+  --transition-base:
+    transform 0.05s steps(2), opacity 0.05s steps(2), filter 0.05s steps(2),
+    box-shadow 0.05s steps(2), background-color 0.05s steps(2), border-color 0.05s steps(2),
+    color 0.05s steps(2);
+  --transition-fast:
+    transform 0.02s steps(1), opacity 0.02s steps(1), filter 0.02s steps(1),
+    box-shadow 0.02s steps(1), background-color 0.02s steps(1), border-color 0.02s steps(1),
+    color 0.02s steps(1);
+  --ui-chrome-letter-spacing: 0.14em;
+  --ui-chrome-title-letter-spacing: 0.2em;
+
+  --app-bg-color: var(--bg-primary);
+  --app-bg-gradient: radial-gradient(
+    circle at center,
+    oklch(8% 0.04 150) 0%,
+    oklch(2% 0.01 150) 100%
+  );
+
+  --bpm-value-color: var(--terminal-green);
+  --bpm-value-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  --bpm-label-color: var(--terminal-green-dim);
+  --bpm-wheel-bg: linear-gradient(180deg, oklch(6% 0.03 150) 0%, oklch(4% 0.02 150) 100%);
+  --bpm-wheel-border: 1px solid var(--terminal-green-dim);
+  --bpm-wheel-shadow: inset 0 0 0 1px oklch(6% 0.03 150), 0 0 6px oklch(75% 0.18 150 / 0.08);
+  --bpm-wheel-active-shadow:
+    inset 0 0 0 1px var(--terminal-green), 0 0 12px oklch(75% 0.18 150 / 0.18);
+  --bpm-wheel-line: var(--terminal-green);
+  --bpm-wheel-tick: var(--terminal-green-dim);
+  --btn-active-transform: translate(1px, 1px);
+  --btn-filled-bg: var(--fill-subtle);
+  --btn-filled-color: var(--terminal-green);
+  --btn-filled-border-width: 1px;
+  --btn-filled-border-color: var(--terminal-green-dim);
+  --btn-filled-shadow: none;
+  --btn-filled-active-bg: var(--fill-muted);
+  --btn-filled-checked-bg: var(--terminal-green);
+  --btn-filled-checked-color: var(--bg-primary);
+  --btn-filled-checked-border-color: var(--terminal-green);
+  --btn-filled-checked-shadow: 0 0 10px var(--terminal-green);
+
+  --checkbox-checked-bg: var(--terminal-green);
+  --checkbox-checked-border-color: var(--terminal-green);
+  --checkbox-checked-shadow: 0 0 10px var(--terminal-green);
+  --checkbox-knob-bg: var(--terminal-green);
+  --checkbox-knob-checked-bg: var(--bg-primary);
+  --checkbox-knob-border-width: 1px;
+  --checkbox-knob-border: var(--terminal-green-dim);
+  --checkbox-knob-checked-border: var(--terminal-green);
+  --checkbox-knob-shadow: 0 0 0 1px oklch(6% 0.03 150);
+
+  --visualizer-block-bg: oklch(8% 0.04 150);
+  --visualizer-block-empty: oklch(8% 0.04 150);
+  --visualizer-block-empty-active: oklch(22% 0.08 150);
+  --visualizer-block-border: 1px solid var(--terminal-green-dim);
+  --visualizer-block-accent-dim: oklch(56% 0.14 150);
+
+  --speed-status-border: var(--terminal-green-dim);
+
+  --interval-status-border: var(--terminal-green-dim);
+  --interval-status-muted-border: var(--terminal-green-dim);
+}
+
+.theme-terminal::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size:
+    100% 2px,
+    3px 100%;
+  z-index: 10000;
+}

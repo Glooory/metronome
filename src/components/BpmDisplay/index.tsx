@@ -2,6 +2,7 @@ import { clsx } from "clsx";
 import { ChevronDown, ChevronsDown, ChevronsUp, ChevronUp } from "lucide-react";
 import { KeyboardEvent, PointerEvent, useEffect, useRef, useState } from "react";
 import { MAX_BPM, MIN_BPM } from "../../constants";
+import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface BpmDisplayProps {
@@ -11,6 +12,7 @@ interface BpmDisplayProps {
 
 export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isWheelDragging, setIsWheelDragging] = useState(false);
   const [inputValue, setInputValue] = useState(String(bpm));
   const [wheelOffset, setWheelOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -45,17 +47,21 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
   const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest(".bpm-control-btn") || isEditing) return;
     e.preventDefault();
+    setIsWheelDragging(false);
     startY.current = e.clientY;
     startBpm.current = bpm;
     hasMoved.current = false;
-    document.body.style.cursor = "ns-resize";
+    document.body.style.cursor = "grabbing";
     window.addEventListener("pointermove", handlePointerMove as any);
     window.addEventListener("pointerup", handlePointerUp);
   };
   const handlePointerMove = (e: globalThis.PointerEvent) => {
     if (startY.current === null) return;
     const deltaY = startY.current - e.clientY;
-    if (Math.abs(deltaY) > 5) hasMoved.current = true;
+    if (Math.abs(deltaY) > 5) {
+      hasMoved.current = true;
+      setIsWheelDragging(true);
+    }
     if (hasMoved.current && startBpm.current !== null) {
       const d = Math.round(deltaY * 0.5);
       setBpm(Math.min(Math.max(startBpm.current + d, MIN_BPM), MAX_BPM));
@@ -63,9 +69,10 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
     }
   };
   const handlePointerUp = () => {
-    document.body.style.cursor = "default";
+    document.body.style.cursor = "";
     window.removeEventListener("pointermove", handlePointerMove as any);
     window.removeEventListener("pointerup", handlePointerUp);
+    setIsWheelDragging(false);
     if (!hasMoved.current) setIsEditing(true);
     startY.current = null;
     setWheelOffset(0);
@@ -118,37 +125,40 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
         </div>
         <div className={styles["bpm-display__controls"]}>
           <div className={styles["bpm-display__buttons-col"]}>
-            <button
+            <Button
               className={clsx("bpm-control-btn", styles["bpm-display__btn"])}
               onClick={(e) => handleBtnClick(e, 5)}
               disabled={bpm >= MAX_BPM}
             >
               <ChevronsUp size={20} />
-            </button>
-            <button
+            </Button>
+            <Button
               className={clsx("bpm-control-btn", styles["bpm-display__btn"])}
               onClick={(e) => handleBtnClick(e, 1)}
               disabled={bpm >= MAX_BPM}
             >
               <ChevronUp size={20} />
-            </button>
-            <button
+            </Button>
+            <Button
               className={clsx("bpm-control-btn", styles["bpm-display__btn"])}
               onClick={(e) => handleBtnClick(e, -1)}
               disabled={bpm <= MIN_BPM}
             >
               <ChevronDown size={20} />
-            </button>
-            <button
+            </Button>
+            <Button
               className={clsx("bpm-control-btn", styles["bpm-display__btn"])}
               onClick={(e) => handleBtnClick(e, -5)}
               disabled={bpm <= MIN_BPM}
             >
               <ChevronsDown size={20} />
-            </button>
+            </Button>
           </div>
           <div
-            className={styles["bpm-display__wheel"]}
+            className={clsx(
+              styles["bpm-display__wheel"],
+              isWheelDragging && styles["bpm-display__wheel--dragging"]
+            )}
             onPointerDown={handlePointerDown}
             title="Drag to adjust BPM"
             style={{ "--wheel-offset": `${wheelOffset}px` } as React.CSSProperties}

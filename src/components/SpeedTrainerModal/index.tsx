@@ -1,9 +1,10 @@
-import { clsx } from "clsx";
 import { motion } from "framer-motion";
 import { Gauge, X } from "lucide-react";
 import type { SpeedTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
+import { Button } from "../Button";
+import { Checkbox } from "../Checkbox";
 import styles from "./styles.module.css";
 
 interface SpeedTrainerModalProps {
@@ -56,9 +57,9 @@ export const SpeedTrainerModal = ({
             <Gauge size={20} className={styles["speed-trainer-modal__title-icon"]} />
             {t.title[language]}
           </div>
-          <button className={styles["speed-trainer-modal__close-btn"]} onClick={onClose}>
-            <X size={18} />
-          </button>
+          <Button size="icon-sm" onClick={onClose} aria-label="Close">
+            <X size={20} />
+          </Button>
         </div>
 
         <div className={styles["speed-trainer-modal__content"]}>
@@ -66,15 +67,7 @@ export const SpeedTrainerModal = ({
             <span className={styles["speed-trainer-modal__label"]}>
               {t.enableTraining[language]}
             </span>
-            <div
-              className={clsx(
-                styles["speed-trainer-modal__toggle"],
-                config.enabled && styles["speed-trainer-modal__toggle--active"]
-              )}
-              onClick={handleToggle}
-            >
-              <div className={styles["speed-trainer-modal__toggle-knob"]} />
-            </div>
+            <Checkbox checked={config.enabled} onChange={handleToggle} aria-label={t.enableTraining[language]} />
           </div>
 
           <div className={styles["speed-trainer-modal__divider"]} />

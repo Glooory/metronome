@@ -1,0 +1,112 @@
+.theme-brutalism {
+  --bg-primary: #fffdf0;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-overlay: rgba(0, 0, 0, 0.85);
+
+  --fill-subtle: #def3ff;
+  --fill-muted: #ffe6f4;
+  --fill-active: #facc15;
+
+  --border-subtle: #000000;
+  --border-base: #000000;
+  --border-active: #000000;
+
+  --radius-panel: 0px;
+  --radius-modal: 0px;
+  --radius-control: 0px;
+  --radius-pill: 0px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --text-muted: #000000;
+  --text-inverse: #000000;
+
+  --accent-primary: #ffcf3c;
+  --accent-primary-muted: #fde68a;
+  --accent-warning: #f87171;
+  --accent-danger: #ef4444;
+  --accent-success: #22d3ee;
+
+  --shadow-sm: 2px 2px 0px 0px #000000;
+  --shadow-panel: 7px 7px 0px 0px #000000;
+  --shadow-modal: 12px 12px 0px 0px #000000;
+  --shadow-active-item: 3px 3px 0px 0px #000000;
+  --shadow-glow-primary: none;
+  --shadow-glow-warning: none;
+  --shadow-glow-danger: none;
+  --shadow-glow-elevated: none;
+  --shadow-glow: none;
+  --overlay-blur: 0px;
+  --overlay-sheen: none;
+
+  --opacity-disabled: 0.5;
+  --transition-base:
+    transform 0.1s linear, opacity 0.1s linear, filter 0.1s linear, box-shadow 0.1s linear,
+    background-color 0.1s linear, border-color 0.1s linear, color 0.1s linear;
+  --transition-fast:
+    transform 0.05s linear, opacity 0.05s linear, filter 0.05s linear, box-shadow 0.05s linear,
+    background-color 0.05s linear, border-color 0.05s linear, color 0.05s linear;
+  --ui-chrome-letter-spacing: 0.08em;
+  --ui-chrome-title-letter-spacing: 0.12em;
+
+  --bpm-value-color: #000000;
+  --bpm-value-shadow: 4px 4px 0px #ffcf3c;
+  --bpm-wheel-bg: #ffffff;
+  --bpm-wheel-border: 2px solid #000000;
+  --bpm-wheel-shadow: 1px 1px 0px #000000;
+  --bpm-wheel-active-shadow: 1px 1px 0px #000000, inset 0 0 0 2px #ffcf3c;
+  --bpm-wheel-line: #ffcf3c;
+  --bpm-wheel-tick: #000000;
+
+  --btn-filled-bg: transparent;
+  --btn-filled-border-width: 2px;
+  --btn-filled-border-color: #000000;
+  --btn-filled-shadow: 2px 2px 0px #000000;
+  --btn-filled-active-shadow: 0 0 0 0 #000000;
+  --btn-filled-checked-bg: #facc15;
+  --btn-filled-checked-border-width: 2px;
+  --btn-filled-checked-border-color: #000000;
+  --btn-filled-checked-shadow: 4px 4px 0px #000000;
+  --btn-outline-checked-color: var(--text-primary);
+  --btn-filled-checked-color: var(--text-primary);
+
+  --visualizer-block-bg: #ffffff;
+  --visualizer-block-border: 1px solid #000000;
+  --visualizer-block-empty: #ffffff;
+  --visualizer-block-empty-active: #def3ff;
+  --visualizer-block-accent: #000000;
+  --visualizer-block-accent-dim: #facc15;
+  --visualizer-block-shadow-filled: 2px 2px 0px #000000;
+  --visualizer-controls-bg: transparent;
+  --visualizer-value-active-color: #000000;
+
+  --history-item-bg: transparent;
+  --history-item-active-border: 2px solid #000000;
+  --history-item-active-color: #000000;
+  --history-item-active-shadow: 2px 2px 0px #000000;
+  --select-dropdown-bg: #ffffff;
+  --select-option-selected-bg: #facc15;
+  --select-option-selected-color: #000000;
+
+  --checkbox-border-width: 2px;
+  --checkbox-border: #000000;
+  --checkbox-shadow: 2px 2px 0px #000000;
+  --checkbox-checked-shadow: 4px 4px 0px #000000;
+  --checkbox-knob-bg: #ffffff;
+  --checkbox-knob-checked-bg: #ffffff;
+  --checkbox-knob-border-width: 2px;
+  --checkbox-knob-border: #000000;
+  --checkbox-knob-shadow: 2px 2px 0px #000000;
+
+  --swing-slider-track-bg: #e2e8f0;
+  --swing-slider-track-border-width: 2px;
+  --swing-slider-track-border: #000000;
+  --swing-slider-thumb-bg: #facc15;
+  --swing-slider-progress-bg: #facc15;
+  --swing-slider-thumb-border-width: 2px;
+  --swing-slider-thumb-border: #000000;
+  --swing-slider-thumb-shadow: 2px 2px 0px #000000;
+}

@@ -1,0 +1,80 @@
+.checkbox {
+  position: relative;
+  width: var(--checkbox-width, 52px);
+  height: var(--checkbox-height, 28px);
+  background: var(--checkbox-bg, var(--fill-subtle));
+  box-shadow: var(--checkbox-shadow, none);
+  border-radius: var(--checkbox-radius, var(--radius-control));
+  cursor: pointer;
+  border: var(--checkbox-border-width, 1px) solid var(--checkbox-border, var(--border-subtle));
+  display: inline-block;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: manipulation;
+  appearance: none;
+  transition: var(--transition-fast, var(--transition-base));
+}
+
+.checkbox:focus-visible {
+  outline: 2px solid var(--checkbox-focus-ring, var(--accent-primary, #3b82f6));
+  outline-offset: 2px;
+}
+
+.checkbox:active:not(.checkbox--disabled) {
+  opacity: var(--checkbox-active-opacity, var(--opacity-btn-active, 0.7));
+}
+
+.checkbox--checked {
+  background: var(--checkbox-checked-bg, var(--accent-primary));
+  border-color: var(--checkbox-checked-border-color, var(--accent-primary));
+  box-shadow: var(--checkbox-checked-shadow, var(--checkbox-shadow, none));
+}
+
+.checkbox--disabled {
+  opacity: var(--opacity-disabled, 0.5);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.checkbox__knob {
+  position: absolute;
+  top: var(--checkbox-padding, 3px);
+  left: var(--checkbox-padding, 3px);
+  width: var(
+    --checkbox-knob-size,
+    calc(var(--checkbox-height, 28px) - (var(--checkbox-padding, 3px) * 2))
+  );
+  height: var(
+    --checkbox-knob-size,
+    calc(var(--checkbox-height, 28px) - (var(--checkbox-padding, 3px) * 2))
+  );
+  background: var(--checkbox-knob-bg, var(--text-primary));
+  border-radius: var(--checkbox-knob-radius, var(--checkbox-radius, var(--radius-control)));
+  border: var(--checkbox-knob-border-width, 1px) solid var(--checkbox-knob-border, transparent);
+  box-sizing: border-box;
+  transition:
+    transform 0.2s cubic-bezier(0.2, 0, 0, 1),
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  box-shadow: var(--checkbox-knob-shadow, var(--shadow-sm));
+}
+
+.checkbox--checked .checkbox__knob {
+  background: var(--checkbox-knob-checked-bg, var(--checkbox-knob-bg, var(--text-primary)));
+  border-color: var(--checkbox-knob-checked-border, var(--checkbox-knob-border, transparent));
+  box-shadow: var(--checkbox-knob-checked-shadow, var(--checkbox-knob-shadow, var(--shadow-sm)));
+}
+
+.checkbox--checked .checkbox__knob {
+  transform: translateX(
+    calc(
+      var(--checkbox-width, 52px) -
+        var(
+          --checkbox-knob-size,
+          calc(var(--checkbox-height, 28px) - (var(--checkbox-padding, 3px) * 2))
+        ) -
+        (var(--checkbox-padding, 3px) * 2) - (var(--checkbox-border-width, 1px) * 2)
+    )
+  );
+}

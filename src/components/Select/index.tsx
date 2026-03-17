@@ -1,18 +1,19 @@
 import { clsx } from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronUp, LucideIcon } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface Option {
   label: string;
-  value: any;
+  value: string | number;
 }
 
-interface CustomSelectProps {
+interface SelectProps {
   icon: LucideIcon;
-  value: any;
-  onChange: (value: any) => void;
+  value: string | number;
+  onChange: (value: string | number) => void;
   options: Option[];
   title: string;
   displayLabel: string;
@@ -20,7 +21,7 @@ interface CustomSelectProps {
   placement?: "top" | "bottom";
 }
 
-export const CustomSelect = ({
+export const Select = ({
   icon: Icon,
   value,
   onChange,
@@ -29,9 +30,10 @@ export const CustomSelect = ({
   displayLabel,
   alignment = "center",
   placement = "top",
-}: CustomSelectProps) => {
+}: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const activeDotId = useId();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,21 +48,20 @@ export const CustomSelect = ({
   const initialY = placement === "top" ? 10 : -10;
 
   return (
-    <div className={styles["custom-select"]} ref={containerRef}>
-      <button
+    <div className={styles["select"]} ref={containerRef}>
+      <Button
+        variant="filled"
+        isChecked={isOpen}
+        className={styles["select__btn"]}
         onClick={() => setIsOpen(!isOpen)}
-        className={clsx(
-          styles["custom-select__btn"],
-          isOpen ? styles["custom-select__btn--open"] : styles["custom-select__btn--closed"]
-        )}
       >
         <Icon size={20} />
-        <span className={styles["custom-select__label"]}>{displayLabel}</span>
-        <div className={styles["custom-select__chevrons"]}>
+        <span className={styles["select__label"]}>{displayLabel}</span>
+        <div className={styles["select__chevrons"]}>
           <ChevronUp size={12} />
           <ChevronDown size={12} />
         </div>
-      </button>
+      </Button>
 
       <AnimatePresence>
         {isOpen && (
@@ -70,34 +71,35 @@ export const CustomSelect = ({
             exit={{ opacity: 0, scale: 0.95, y: initialY }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={clsx(
-              styles["custom-select__dropdown"],
-              styles[`custom-select__dropdown--${alignment}`],
-              styles[`custom-select__dropdown--${placement}`]
+              styles["select__dropdown"],
+              styles[`select__dropdown--${alignment}`],
+              styles[`select__dropdown--${placement}`]
             )}
           >
-            <div className={styles["custom-select__overlay"]} />
-            <div className={styles["custom-select__dropdown-title"]}>{title}</div>
-            <div className={styles["custom-select__options"]}>
+            <div className={styles["select__overlay"]} />
+            <div className={styles["select__dropdown-title"]}>{title}</div>
+            <div className={styles["select__options"]}>
               {options.map((opt) => (
-                <button
+                <Button
+                  variant="transparent"
                   key={opt.value}
                   onClick={() => {
                     onChange(opt.value);
                     setIsOpen(false);
                   }}
                   className={clsx(
-                    styles["custom-select__option"],
-                    opt.value === value && styles["custom-select__option--selected"]
+                    styles["select__option"],
+                    opt.value === value && styles["select__option--selected"]
                   )}
                 >
                   {opt.label}
                   {opt.value === value && (
                     <motion.div
-                      layoutId={`dot-${title}`}
-                      className={styles["custom-select__active-dot"]}
+                      layoutId={`dot-${activeDotId}`}
+                      className={styles["select__active-dot"]}
                     />
                   )}
-                </button>
+                </Button>
               ))}
             </div>
           </motion.div>

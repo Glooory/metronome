@@ -1,0 +1,113 @@
+.theme-aurora {
+  --bg-primary: #0b1026;
+  --bg-surface: rgba(20, 30, 60, 0.6);
+  --bg-elevated: rgba(20, 30, 60, 0.95);
+  --bg-overlay: rgba(11, 16, 38, 0.85);
+
+  --fill-subtle: rgba(20, 30, 60, 0.5);
+  --fill-muted: rgba(255, 255, 255, 0.1);
+  --fill-active: rgba(167, 139, 250, 0.16);
+
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-base: rgba(255, 255, 255, 0.2);
+  --border-active: rgba(255, 255, 255, 0.4);
+
+  --radius-panel: 20px;
+  --radius-modal: 24px;
+  --radius-control: 16px;
+  --radius-pill: 9999px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+
+  --text-primary: #e0f2fe;
+  --text-secondary: #b5e7ff;
+  --text-muted: #9ba7ea;
+  --text-inverse: #ffffff;
+
+  --accent-primary: #56dfb1;
+  --accent-primary-muted: rgba(86, 223, 177, 0.22);
+  --accent-warning: #fbbf24;
+  --accent-danger: #f472b6;
+  --accent-success: #34d399;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-panel: 0 10px 36px rgba(6, 10, 30, 0.34);
+  --shadow-modal: 0 24px 72px rgba(6, 10, 30, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  --shadow-active-item: 0 0 18px rgba(86, 223, 177, 0.24);
+  --shadow-glow: 0 0 44px rgba(86, 223, 177, 0.18);
+  --shadow-glow-primary: 0 0 24px rgba(86, 223, 177, 0.3);
+  --shadow-glow-warning: 0 0 20px rgba(251, 191, 36, 0.5);
+  --shadow-glow-danger: 0 0 20px rgba(244, 114, 182, 0.4);
+  --shadow-glow-elevated: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --overlay-blur: 26px;
+  --overlay-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 0.7;
+  --transition-base:
+    transform 0.3s ease-out, opacity 0.3s ease-out, filter 0.3s ease-out, box-shadow 0.3s ease-out,
+    background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
+  --transition-fast:
+    transform 0.15s ease-out, opacity 0.15s ease-out, filter 0.15s ease-out,
+    box-shadow 0.15s ease-out, background-color 0.15s ease-out, border-color 0.15s ease-out,
+    color 0.15s ease-out;
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.03em;
+  --ui-chrome-title-letter-spacing: 0.06em;
+
+  --app-bg-gradient:
+    radial-gradient(circle at 12% 18%, rgba(86, 223, 177, 0.28) 0%, transparent 38%),
+    radial-gradient(ellipse at 82% 0%, rgba(139, 92, 246, 0.28) 0%, transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.22) 0%, transparent 48%),
+    linear-gradient(180deg, #0b1026 0%, #171e3b 100%);
+  --app-text-color: var(--text-primary);
+
+  --bpm-value-gradient: linear-gradient(135deg, #7ce7c2, #60d5f5, #b69cff);
+  --bpm-value-filter: drop-shadow(0 0 18px rgba(86, 223, 177, 0.28));
+  --bpm-value-color: transparent;
+  --bpm-wheel-bg:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.03) 45%,
+      rgba(86, 223, 177, 0.08) 100%
+    ),
+    rgba(20, 30, 60, 0.72);
+  --bpm-wheel-border: 1px solid rgba(255, 255, 255, 0.12);
+  --bpm-wheel-shadow: 0 10px 24px rgba(6, 10, 30, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --bpm-wheel-active-shadow:
+    0 0 0 1px rgba(86, 223, 177, 0.24), 0 0 20px rgba(86, 223, 177, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  --bpm-wheel-line: #a78bfa;
+  --bpm-wheel-line-glow: 0 0 15px rgba(167, 139, 250, 0.6);
+  --bpm-wheel-tick: rgba(224, 242, 254, 0.4);
+
+  --visualizer-block-radius: 12px;
+  --visualizer-block-bg: rgba(224, 242, 254, 0.1);
+  --visualizer-block-empty: rgba(224, 242, 254, 0.1);
+  --visualizer-block-empty-active: rgba(96, 213, 245, 0.18);
+  --visualizer-block-border: 1px solid rgba(224, 242, 254, 0.12);
+  --visualizer-block-accent: #7ce7c2;
+  --visualizer-block-accent-dim: rgba(86, 223, 177, 0.34);
+  --visualizer-block-shadow-filled: none;
+
+  --btn-filled-checked-bg: linear-gradient(45deg, #56dfb1, #5ad0f2);
+  --btn-filled-checked-color: #ffffff;
+  --btn-filled-checked-shadow: 0 0 20px rgba(86, 223, 177, 0.32);
+
+  --checkbox-checked-bg: var(--btn-filled-checked-bg);
+  --checkbox-checked-border-color: rgba(255, 255, 255, 0.18);
+  --checkbox-checked-shadow: var(--btn-filled-checked-shadow);
+  --checkbox-knob-bg: rgba(255, 255, 255, 0.92);
+  --checkbox-knob-checked-bg: #ffffff;
+
+  --swing-slider-track-border: rgba(255, 255, 255, 0.14);
+  --swing-slider-progress-bg: linear-gradient(90deg, #56dfb1, #5ad0f2);
+  --swing-slider-thumb-bg: linear-gradient(135deg, #7ce7c2, #60d5f5);
+  --swing-slider-thumb-border: rgba(255, 255, 255, 0.92);
+  --swing-slider-thumb-shadow: 0 8px 18px rgba(6, 10, 30, 0.24);
+}

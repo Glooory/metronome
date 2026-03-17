@@ -1,14 +1,8 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-    <defs></defs>
-    
-        <rect x="0" y="0" width="64" height="64" fill="#002b5e" />
-        <path d="M12,54 L32,10 L52,54 Z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="2,2" />
-        <line x1="12" y1="54" x2="52" y2="54" stroke="#ffffff" stroke-width="1.5" />
-        <g transform="rotate(24, 32, 54)">
-          <line x1="32" y1="54" x2="32" y2="12" stroke="#ffffff" stroke-width="2" />
-          <circle cx="32" cy="18" r="4" fill="none" stroke="#ffffff" stroke-width="1.5" />
-          <circle cx="32" cy="54" r="2" fill="#ffffff" />
-        </g>
-        <path d="M4,32 L10,32 M4,32 L6,30 M4,32 L6,34" stroke="#ffffff" stroke-width="1" opacity="0.5" />
-      
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <path fill="#184a86" stroke="#eefaff" stroke-width="2.1" d="M24 8H40L49 56H15Z"/>
+  <path fill="none" stroke="#eefaff" stroke-dasharray="2 2" stroke-width="1.5" d="M24 8H40L49 56H15Z"/>
+  <path fill="#eefaff" fill-opacity=".22" d="M28 17h8v2h-8zm-1 8h10v2H27zm1 8h8v2h-8z"/>
+  <path stroke="#eefaff" stroke-linecap="round" stroke-width="4.6" d="M29 45 52 13"/>
+  <circle cx="29" cy="45" r="3" fill="#eefaff"/>
+  <circle cx="47" cy="20" r="5" fill="none" stroke="#eefaff" stroke-width="2"/>
+</svg>

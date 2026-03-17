@@ -1,0 +1,162 @@
+.theme-mechanical {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --bg-primary: oklch(20% 0.01 60);
+  --bg-surface: oklch(24% 0.01 60);
+  --bg-elevated: oklch(28% 0.01 60);
+  --bg-overlay: rgba(0, 0, 0, 0.85);
+  --fill-subtle: oklch(18% 0.01 60);
+  --fill-muted: oklch(26% 0.01 60);
+  --fill-active: oklch(72% 0.16 70);
+  --border-subtle: oklch(32% 0.01 60);
+  --border-base: oklch(42% 0.01 60);
+  --border-active: oklch(85% 0.16 70);
+  --radius-panel: 2px;
+  --radius-modal: 4px;
+  --radius-control: 2px;
+  --radius-pill: 2px;
+  --history-item-radius: var(--radius-control);
+  --history-remove-btn-radius: var(--radius-panel);
+  --text-primary: oklch(90% 0.01 70);
+  --text-secondary: oklch(70% 0.01 70);
+  --text-muted: oklch(50% 0.01 70);
+  --text-inverse: oklch(20% 0.01 60);
+  --font-app-sans: var(--font-mono);
+  --accent-primary: oklch(72% 0.16 70);
+  --accent-primary-muted: oklch(45% 0.1 70);
+  --accent-warning: oklch(65% 0.18 40);
+  --accent-danger: oklch(55% 0.18 20);
+  --accent-success: oklch(65% 0.15 140);
+  --shadow-sm:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.08), inset -1px -1px 0px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-panel:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+    0 8px 16px rgba(0, 0, 0, 0.6);
+  --shadow-modal:
+    inset 1px 1px 0px rgba(255, 255, 255, 0.15), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
+    0 20px 40px rgba(0, 0, 0, 0.9);
+  --shadow-active-item: inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+  --shadow-glow-primary: inset 0 0 10px rgba(210, 150, 50, 0.3);
+  --shadow-glow-warning: inset 0 0 10px rgba(230, 120, 20, 0.3);
+  --shadow-glow-danger: inset 0 0 10px rgba(240, 50, 20, 0.3);
+  --shadow-glow-elevated: 0 0 15px rgba(0, 0, 0, 0.8);
+  --shadow-glow: var(--shadow-glow-primary);
+  --overlay-blur: 0px;
+  --overlay-sheen: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 1;
+  --opacity-disabled: 0.4;
+  --transition-base:
+    transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out, box-shadow 0.1s ease-out,
+    background-color 0.1s ease-out, border-color 0.1s ease-out, color 0.1s ease-out;
+  --transition-fast:
+    transform 0.05s ease-out, opacity 0.05s ease-out, filter 0.05s ease-out,
+    box-shadow 0.05s ease-out, background-color 0.05s ease-out, border-color 0.05s ease-out,
+    color 0.05s ease-out;
+  --ui-chrome-letter-spacing: 0.14em;
+  --ui-chrome-title-letter-spacing: 0.2em;
+
+  --app-bg-gradient:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(135deg, oklch(25% 0.01 60) 0%, oklch(15% 0.01 60) 100%);
+  --bpm-value-webkit-bg-clip: text;
+  --bpm-value-bg-clip: text;
+  --bpm-value-color: transparent;
+  --bpm-value-gradient: linear-gradient(
+    180deg,
+    oklch(95% 0.05 80),
+    oklch(72% 0.16 70),
+    oklch(45% 0.14 70)
+  );
+  --bpm-value-filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.8));
+  --bpm-blur-visibility: hidden;
+  --bpm-wheel-bg: linear-gradient(180deg, oklch(24% 0.01 60) 0%, oklch(17% 0.01 60) 100%);
+  --bpm-wheel-border: 1px solid oklch(42% 0.01 60);
+  --bpm-wheel-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.72),
+    inset 0 4px 10px rgba(0, 0, 0, 0.45);
+  --bpm-wheel-active-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 0 rgba(0, 0, 0, 0.82),
+    inset 0 4px 12px rgba(0, 0, 0, 0.62), 0 0 0 1px oklch(85% 0.16 70 / 0.25);
+  --bpm-wheel-line: var(--accent-primary);
+  --bpm-wheel-line-glow: none;
+  --bpm-wheel-tick: oklch(55% 0.01 70);
+  --btn-active-transform: translateY(1px);
+  --btn-filled-active-bg: linear-gradient(180deg, oklch(18% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+  --btn-filled-active-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.8);
+  --btn-filled-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+  --btn-filled-shadow: var(--shadow-sm);
+  --btn-filled-checked-shadow: var(--shadow-active-item);
+  --btn-filled-checked-color: oklch(90% 0.01 70);
+  --btn-filled-checked-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
+  --btn-outline-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+  --btn-outline-shadow: var(--shadow-sm);
+  --btn-outline-active-bg: linear-gradient(180deg, oklch(18% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+  --btn-outline-active-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.8);
+  --btn-outline-checked-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
+  --btn-outline-checked-shadow: var(--shadow-active-item);
+  --btn-outline-checked-color: oklch(90% 0.01 70);
+  --btn-outline-checked-border-color: oklch(85% 0.16 70);
+  --btn-outline-color: oklch(70% 0.01 70);
+  --app-modal-inner-shadow: none;
+  --select-dropdown-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+  --checkbox-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+  --checkbox-border: oklch(42% 0.01 60);
+  --checkbox-shadow: var(--shadow-sm);
+  --checkbox-checked-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
+  --checkbox-checked-border-color: oklch(85% 0.16 70);
+  --checkbox-checked-shadow: var(--shadow-active-item);
+  --checkbox-knob-bg: linear-gradient(180deg, oklch(80% 0.015 78) 0%, oklch(62% 0.025 76) 100%);
+  --checkbox-knob-checked-bg: linear-gradient(
+    180deg,
+    oklch(96% 0.01 80) 0%,
+    oklch(78% 0.04 78) 100%
+  );
+  --checkbox-knob-border: oklch(85% 0.02 80 / 0.55);
+  --checkbox-knob-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15), inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  --swing-slider-track-bg: linear-gradient(180deg, oklch(22% 0.01 60) 0%, oklch(16% 0.01 60) 100%);
+  --swing-slider-track-border-width: 1px;
+  --swing-slider-track-border: oklch(42% 0.01 60);
+  --swing-slider-track-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.06), inset -1px -1px 0 rgba(0, 0, 0, 0.72),
+    inset 0 3px 6px rgba(0, 0, 0, 0.35);
+  --swing-slider-progress-bg: linear-gradient(90deg, oklch(72% 0.16 70), oklch(45% 0.12 70));
+  --swing-slider-thumb-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
+  --swing-slider-thumb-border-width: 1px;
+  --swing-slider-thumb-border: oklch(85% 0.02 80 / 0.55);
+  --swing-slider-thumb-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15), inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  --visualizer-block-bg: oklch(18% 0.012 60);
+  --visualizer-block-empty: oklch(18% 0.012 60);
+  --visualizer-block-empty-active: oklch(34% 0.05 72);
+  --visualizer-block-border: 1px solid oklch(38% 0.02 60);
+  --visualizer-block-accent-dim: oklch(58% 0.11 72);
+  --visualizer-block-shadow-filled: none;
+  --visualizer-block-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+  --history-item-active-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
+  --history-item-active-color: oklch(90% 0.01 70);
+  --history-item-active-shadow: var(--shadow-active-item);
+  --history-item-shadow: var(--shadow-sm);
+  --history-item-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+}

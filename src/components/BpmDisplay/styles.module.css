@@ -1,5 +1,5 @@
 .bpm-display {
-  --bpm-lable-fz: var(--bpm-value-fz-mobile, 6rem);
+  --readout-value-size: var(--readout-value-size-mobile);
   position: relative;
   z-index: 20;
   display: flex;
@@ -11,19 +11,19 @@
 
 @media (min-width: 768px) {
   .bpm-display {
-    --bpm-lable-fz: var(--bpm-value-fz-desktop, 10rem);
+    --readout-value-size: var(--readout-value-size-desktop);
   }
 }
 
 .bpm-display__resize-area {
-  --bpm-action-gap: 0.5rem;
+  --readout-action-gap: 0.5rem;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: calc(40px * 4 + var(--bpm-action-gap) * 3);
-  transition: var(--bpm-transition, var(--transition-base));
+  height: calc(40px * 4 + var(--readout-action-gap) * 3);
+  transition: var(--readout-transition, var(--transition-base));
 }
 
 .bpm-display__label {
@@ -31,12 +31,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--bpm-label-gap, 2rem);
-  color: var(--bpm-label-color, var(--text-muted));
-  font-family: var(--bpm-label-ff, monospace);
-  font-weight: var(--bpm-label-fw, 700);
-  font-size: var(--bpm-label-fz, 1.25rem);
-  letter-spacing: var(--bpm-label-letter-spacing, 0.08em);
+  gap: var(--readout-label-gap);
+  color: var(--readout-label-color);
+  font-family: var(--readout-label-ff);
+  font-weight: var(--readout-label-weight);
+  font-size: var(--readout-label-size);
+  text-transform: var(--type-control-transform, uppercase);
+  letter-spacing: var(--readout-label-letter-spacing);
   pointer-events: none;
   width: 4rem;
 }
@@ -46,10 +47,11 @@
   display: grid;
   place-items: center;
   flex: 1;
-  font-family: var(--bpm-value-ff, inherit);
-  font-size: var(--bpm-lable-fz);
-  font-weight: var(--bpm-value-fw, bold);
-  letter-spacing: var(--bpm-value-ls, -0.05em);
+  cursor: pointer;
+  font-family: var(--readout-value-ff);
+  font-size: var(--readout-value-size);
+  font-weight: var(--readout-value-weight);
+  letter-spacing: var(--readout-value-letter-spacing);
   line-height: 1;
   font-variant-numeric: tabular-nums;
   min-width: 3ch;
@@ -61,12 +63,12 @@
   width: 100%;
   text-align: center;
   transition: var(--transition-fast, opacity 0.2s ease);
-  background-clip: var(--bpm-value-bg-clip, text);
-  -webkit-background-clip: var(--bpm-value-webkit-bg-clip, text);
-  color: var(--bpm-value-color, var(--text-primary));
-  background-image: var(--bpm-value-gradient, none);
-  filter: var(--bpm-value-filter, none);
-  text-shadow: var(--bpm-value-shadow, none);
+  background-clip: var(--readout-value-bg-clip);
+  -webkit-background-clip: var(--readout-value-webkit-bg-clip);
+  color: var(--readout-value-color);
+  background-image: var(--readout-value-gradient);
+  filter: var(--readout-value-filter);
+  text-shadow: var(--readout-value-shadow);
 }
 
 .bpm-display__value--blur {
@@ -75,11 +77,11 @@
   pointer-events: none;
   width: 100%;
   text-align: center;
-  color: var(--bpm-blur-color, var(--fill-active));
+  color: var(--readout-blur-color);
   filter: blur(1px);
   transform: translateY(4px);
   mix-blend-mode: overlay;
-  visibility: var(--bpm-blur-visibility, visible);
+  visibility: var(--readout-blur-visibility);
 }
 
 .bpm-display__input {
@@ -89,24 +91,25 @@
   height: 100%;
   text-align: center;
   background: transparent;
-  border: var(--bpm-input-border, none);
+  border: var(--readout-input-border);
   outline: none;
   padding: 0;
   margin: 0;
-  color: var(--bpm-input-color, var(--text-primary));
-  filter: var(--bpm-input-filter, none);
-  font-family: var(--bpm-input-ff, system-ui, -apple-system, sans-serif);
-  font-weight: bold;
-  font-size: var(--bpm-lable-fz);
+  color: var(--readout-input-color);
+  filter: var(--readout-input-filter);
+  font-family: var(--readout-input-ff);
+  font-weight: var(--readout-value-weight);
+  font-size: var(--readout-value-size);
   line-height: 1;
-  letter-spacing: var(--bpm-input-letter-spacing, var(--bpm-value-ls, -0.05em));
+  letter-spacing: var(--readout-input-letter-spacing);
+  font-variant-numeric: tabular-nums;
   -moz-appearance: textfield;
   appearance: textfield;
-  caret-color: var(--bpm-input-caret-color, var(--text-primary));
+  caret-color: var(--readout-input-caret-color);
 }
 
 .bpm-display__input::selection {
-  background-color: var(--bpm-input-selection, var(--fill-active));
+  background-color: var(--readout-input-selection);
 }
 
 .visible {
@@ -128,7 +131,7 @@
   flex-direction: row;
   align-items: stretch;
   gap: 0.5rem;
-  color: var(--bpm-controls-color, var(--text-secondary));
+  color: var(--readout-controls-color);
   width: auto;
   height: 100%;
 }
@@ -139,7 +142,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.25rem;
-  width: 2.5rem;
+  width: var(--control-size-icon-md, 2.5rem);
 }
 
 .bpm-display__btn {
@@ -147,8 +150,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: var(--control-size-icon-md, 2.5rem);
+  height: var(--control-size-icon-md, 2.5rem);
 }
 
 .bpm-display__btn:disabled {
@@ -159,14 +162,14 @@
 
 .bpm-display__wheel {
   --wheel-offset: 0;
-  width: 2.5rem;
+  width: var(--control-size-icon-md, 2.5rem);
   flex-shrink: 0;
-  background: var(--bpm-wheel-bg, var(--bg-surface));
-  border-radius: var(--bpm-wheel-radius, var(--radius-control));
+  background: var(--readout-wheel-bg);
+  border-radius: var(--readout-wheel-radius);
   cursor: grab;
   position: relative;
-  border: var(--bpm-wheel-border, 1px solid var(--border-subtle));
-  box-shadow: var(--bpm-wheel-shadow, var(--shadow-panel));
+  border: var(--readout-wheel-border);
+  box-shadow: var(--readout-wheel-shadow);
   overflow: hidden;
   touch-action: none;
   transition: var(--transition-fast);
@@ -174,9 +177,9 @@
 
 .bpm-display__wheel--dragging {
   cursor: grabbing;
-  opacity: var(--bpm-wheel-active-opacity, 1);
-  box-shadow: var(--bpm-wheel-active-shadow, var(--bpm-wheel-shadow, var(--shadow-panel)));
-  transform: var(--bpm-wheel-active-transform, none);
+  opacity: var(--readout-wheel-active-opacity);
+  box-shadow: var(--readout-wheel-active-shadow);
+  transform: var(--readout-wheel-active-transform);
 }
 
 .bpm-display__wheel::before {
@@ -189,7 +192,7 @@
   background-image: linear-gradient(
     to bottom,
     transparent 45%,
-    var(--bpm-wheel-tick, var(--border-active)) 50%,
+    var(--readout-wheel-tick) 50%,
     transparent 55%
   );
   background-size: 100% 1rem;
@@ -205,8 +208,8 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--bpm-wheel-line, var(--white));
-  box-shadow: 0 0 5px var(--bpm-wheel-line-glow, transparent);
+  background: var(--readout-wheel-line);
+  box-shadow: 0 0 5px var(--readout-wheel-line-glow);
   transform: translateY(-50%);
   pointer-events: none;
 }

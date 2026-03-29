@@ -28,45 +28,6 @@ export const STORAGE_KEY_SWING = "vibe-metronome-swing";
 export const STORAGE_KEY_SHIFT = "vibe-metronome-shift";
 export const STORAGE_KEY_THEME = "vibe-metronome-theme";
 
-export type Theme =
-  | "cyberpunk"
-  | "kids"
-  | "swiss"
-  | "zen"
-  | "e-ink"
-  | "neumorphism"
-  | "amoled"
-  | "retro"
-  | "blueprint"
-  | "aurora"
-  | "terminal"
-  | "brutalism"
-  | "clay"
-  | "sketch"
-  | "mechanical"
-  | "wood";
-
-export const DEFAULT_THEME = "amoled";
-
-export const THEMES: { id: Theme; label: string }[] = [
-  { id: "cyberpunk", label: "Cyberpunk" },
-  { id: "kids", label: "Kids Pop" },
-  { id: "swiss", label: "Swiss Style" },
-  { id: "zen", label: "Zen Mode" },
-  { id: "e-ink", label: "E-Paper" },
-  { id: "neumorphism", label: "Neumorphism" },
-  { id: "amoled", label: "Amoled" },
-  { id: "retro", label: "Retro" },
-  { id: "blueprint", label: "Blueprint" },
-  { id: "aurora", label: "Aurora" },
-  { id: "terminal", label: "Hacker Terminal" },
-  { id: "brutalism", label: "Neo Brutalism" },
-  { id: "clay", label: "Soft Clay" },
-  { id: "sketch", label: "Paper Sketch" },
-  { id: "mechanical", label: "Industrial" },
-  { id: "wood", label: "Classic Mahogany" },
-];
-
 export interface Preset {
   id: string;
   name: string;

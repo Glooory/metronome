@@ -1,0 +1,194 @@
+@import "./semantic.css";
+
+:root {
+  /* ----- Action Recipes ----- */
+  --action-font-family: var(--type-control-ff, var(--ui-chrome-ff, var(--font-display)));
+  --action-font-weight: var(--type-control-fw, var(--ui-chrome-fw, 700));
+  --action-letter-spacing: var(
+    --type-control-letter-spacing,
+    var(--ui-chrome-letter-spacing, 0.05em)
+  );
+  --action-text-transform: var(--type-control-transform, var(--ui-chrome-transform, uppercase));
+  --action-radius: var(--control-radius, var(--radius-control));
+  --action-focus-ring: var(--control-focus-ring, var(--accent-primary, #3b82f6));
+  --action-active-opacity: var(--control-active-opacity, var(--opacity-btn-active, 0.7));
+  --action-active-transform: var(--control-active-transform, scale(0.98));
+
+  --action-solid-bg: var(--control-bg, var(--fill-subtle));
+  --action-solid-color: var(--control-color, var(--text-primary));
+  --action-solid-border-width: var(--control-border-width, 1px);
+  --action-solid-border-color: var(--control-border-color, transparent);
+  --action-solid-shadow: var(--control-shadow, none);
+  --action-solid-active-bg: var(--control-active-bg, var(--action-solid-bg));
+  --action-solid-active-shadow: var(--control-active-shadow, none);
+  --action-solid-selected-bg: var(--control-selected-bg, var(--accent-primary));
+  --action-solid-selected-color: var(--control-selected-color, var(--text-inverse));
+  --action-solid-selected-border-width: var(
+    --control-selected-border-width,
+    var(--action-solid-border-width)
+  );
+  --action-solid-selected-border-color: var(--control-selected-border-color, var(--accent-primary));
+  --action-solid-selected-shadow: var(--control-selected-shadow, none);
+
+  --action-outline-bg: var(--control-quiet-bg, transparent);
+  --action-outline-color: var(--control-quiet-color, var(--text-secondary));
+  --action-outline-border-width: var(--control-border-width, 1px);
+  --action-outline-border-color: var(--control-border-color, var(--border-subtle));
+  --action-outline-shadow: var(--control-shadow, none);
+  --action-outline-active-bg: var(--control-quiet-active-bg, var(--action-outline-bg));
+  --action-outline-active-shadow: var(--control-quiet-active-shadow, none);
+  --action-outline-selected-bg: var(--action-outline-bg, var(--control-quiet-bg, transparent));
+  --action-outline-selected-color: var(--control-quiet-selected-color, var(--accent-primary));
+  --action-outline-selected-border-width: var(
+    --action-outline-border-width,
+    var(--control-border-width, 1px)
+  );
+  --action-outline-selected-border-color: var(
+    --control-quiet-selected-border-color,
+    var(--accent-primary)
+  );
+  --action-outline-selected-shadow: var(--action-outline-shadow, var(--control-shadow, none));
+
+  --action-ghost-bg: var(--control-quiet-bg, transparent);
+  --action-ghost-color: var(--control-quiet-color, var(--text-secondary));
+  --action-ghost-border-width: var(--control-quiet-border-width, 1px);
+  --action-ghost-border-color: var(--control-quiet-border-color, transparent);
+  --action-ghost-shadow: var(--control-quiet-shadow, none);
+  --action-ghost-active-bg: var(--control-quiet-active-bg, var(--action-ghost-bg));
+  --action-ghost-active-shadow: var(--control-quiet-active-shadow, none);
+  --action-ghost-selected-bg: var(--control-quiet-selected-bg, transparent);
+  --action-ghost-selected-color: var(--control-quiet-selected-color, var(--accent-primary));
+  --action-ghost-selected-border-width: var(
+    --control-quiet-selected-border-width,
+    var(--action-ghost-border-width)
+  );
+  --action-ghost-selected-border-color: var(
+    --control-quiet-selected-border-color,
+    var(--action-ghost-border-color)
+  );
+  --action-ghost-selected-shadow: var(--control-quiet-selected-shadow, none);
+
+  /* ----- Switch Recipes ----- */
+  --switch-width: 52px;
+  --switch-height: 28px;
+  --switch-padding: 3px;
+  --switch-track-bg: var(--control-bg, var(--fill-subtle));
+  --switch-track-shadow: var(--control-shadow, none);
+  --switch-track-radius: var(--control-radius, var(--radius-control));
+  --switch-track-border-width: var(--control-border-width, 1px);
+  --switch-track-border-color: var(--control-border-color, var(--border-subtle));
+  --switch-track-selected-bg: var(--control-selected-bg, var(--accent-primary));
+  --switch-track-selected-border-color: var(--control-selected-border-color, var(--accent-primary));
+  --switch-track-selected-shadow: var(--control-selected-shadow, var(--switch-track-shadow, none));
+  --switch-thumb-bg: var(--control-handle-bg, var(--text-primary));
+  --switch-thumb-radius: var(
+    --control-handle-radius,
+    var(--switch-track-radius, var(--control-radius, var(--radius-control)))
+  );
+  --switch-thumb-border-width: var(--control-handle-border-width, 1px);
+  --switch-thumb-border-color: var(--control-handle-border-color, transparent);
+  --switch-thumb-shadow: var(--control-handle-shadow, var(--shadow-sm));
+  --switch-thumb-selected-bg: var(
+    --control-handle-selected-bg,
+    var(--switch-thumb-bg, var(--text-primary))
+  );
+  --switch-thumb-selected-border-color: var(
+    --control-handle-selected-border-color,
+    var(--switch-thumb-border-color, transparent)
+  );
+  --switch-thumb-selected-shadow: var(
+    --control-handle-selected-shadow,
+    var(--switch-thumb-shadow, var(--shadow-sm))
+  );
+
+  /* ----- Range Recipes ----- */
+  --range-track-bg: var(--field-bg, var(--fill-muted));
+  --range-track-border-width: 1px;
+  --range-track-border-color: var(--field-border-color, var(--border-subtle));
+  --range-track-shadow: var(--field-shadow, none);
+  --range-track-height: 8px;
+  --range-progress-bg: var(--accent-primary);
+  --range-thumb-size: 18px;
+  --range-thumb-bg: var(--control-handle-accent-bg, var(--accent-primary));
+  --range-thumb-radius: var(--control-handle-radius, var(--radius-control));
+  --range-thumb-border-width: var(--control-handle-accent-border-width, 1px);
+  --range-thumb-border-color: var(--control-handle-accent-border-color, var(--bg-elevated));
+  --range-thumb-shadow: var(--control-handle-accent-shadow, var(--shadow-sm));
+  --range-focus-ring: var(--control-focus-ring, var(--accent-primary));
+
+  /* ----- Readout Recipes ----- */
+  --readout-transition: var(--transition-base);
+  --readout-label-ff: var(--type-control-ff, var(--font-display));
+  --readout-label-color: var(--text-muted);
+  --readout-label-size: 1.125rem;
+  --readout-label-weight: var(--type-control-fw, 700);
+  --readout-label-letter-spacing: var(--type-control-title-letter-spacing, 0.08em);
+  --readout-label-gap: 2rem;
+  --readout-value-ff: var(--type-readout-ff, var(--font-display));
+  --readout-value-size-mobile: 6rem;
+  --readout-value-size-desktop: 10rem;
+  --readout-value-weight: var(--type-readout-fw, 700);
+  --readout-value-letter-spacing: var(--type-readout-letter-spacing, -0.05em);
+  --readout-value-bg-clip: text;
+  --readout-value-webkit-bg-clip: text;
+  --readout-value-color: var(--text-primary);
+  --readout-value-gradient: none;
+  --readout-value-filter: none;
+  --readout-value-shadow: none;
+  --readout-blur-color: var(--fill-active);
+  --readout-blur-visibility: visible;
+  --readout-input-ff: var(--readout-value-ff, var(--type-readout-ff, var(--font-display)));
+  --readout-input-color: var(--readout-value-color, var(--text-primary));
+  --readout-input-filter: none;
+  --readout-input-caret-color: var(--text-primary);
+  --readout-input-selection: var(--fill-active);
+  --readout-input-border: none;
+  --readout-input-letter-spacing: var(
+    --readout-value-letter-spacing,
+    var(--type-readout-letter-spacing, -0.05em)
+  );
+  --readout-controls-color: var(--control-quiet-color, var(--text-secondary));
+  --readout-wheel-bg: var(--field-bg, var(--control-bg, var(--bg-surface)));
+  --readout-wheel-radius: var(--field-radius, var(--control-radius, var(--radius-control)));
+  --readout-wheel-border: var(
+    --field-border,
+    var(--control-border-width, 1px) solid var(--control-border-color, var(--border-subtle))
+  );
+  --readout-wheel-shadow: var(--field-shadow, var(--control-shadow, var(--shadow-panel)));
+  --readout-wheel-active-opacity: 1;
+  --readout-wheel-active-shadow: var(
+    --control-selected-shadow,
+    var(--readout-wheel-shadow, var(--shadow-panel))
+  );
+  --readout-wheel-active-transform: none;
+  --readout-wheel-tick: var(--border-active);
+  --readout-wheel-line: var(--control-focus-ring, var(--accent-primary));
+  --readout-wheel-line-glow: transparent;
+
+  /* ----- Meter Recipes ----- */
+  --meter-block-radius: var(--control-radius, var(--radius-control));
+  --meter-block-border: none;
+  --meter-block-bg: var(--control-bg, var(--fill-subtle));
+  --meter-block-shadow: var(--control-shadow, none);
+  --meter-block-shadow-filled: none;
+  --meter-block-shadow-active: var(--meter-block-shadow-filled, var(--meter-block-shadow, none));
+  --meter-block-accent: var(--accent-primary);
+  --meter-block-accent-dim: var(--accent-primary-muted);
+  --meter-block-empty: var(--meter-block-bg, var(--fill-subtle));
+  --meter-block-empty-active: var(--meter-block-empty, var(--meter-block-bg, var(--fill-subtle)));
+  --meter-label-color: var(--text-muted);
+  --meter-label-ff: var(--type-control-ff, var(--font-display));
+  --meter-label-fw: var(--type-control-fw, 700);
+  --meter-label-transform: var(--type-control-transform, uppercase);
+  --meter-label-letter-spacing: var(--type-control-letter-spacing, 0.05em);
+  --meter-controls-bg: var(--control-bg, var(--fill-subtle));
+  --meter-controls-radius: var(--control-radius, var(--radius-control));
+  --meter-controls-border: var(--control-border-width, 1px) solid
+    var(--control-border-color, var(--border-subtle));
+  --meter-controls-shadow: var(--control-shadow, none);
+  --meter-value-color: var(--text-secondary);
+  --meter-value-active-color: var(--accent-primary);
+  --meter-value-ff: var(--type-metric-ff, var(--font-app-mono));
+  --meter-value-fw: var(--type-metric-fw, 600);
+  --meter-value-transition: color 0.2s;
+}

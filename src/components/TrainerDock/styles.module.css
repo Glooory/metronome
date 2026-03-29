@@ -5,12 +5,16 @@
   justify-content: center;
   gap: 8px;
   padding: 8px;
-  background: var(--trainer-dock-bg, var(--bg-surface));
-  backdrop-filter: blur(var(--trainer-dock-blur, var(--overlay-blur, 0px)));
-  -webkit-backdrop-filter: blur(var(--trainer-dock-blur, var(--overlay-blur, 0px)));
-  border-radius: var(--trainer-dock-radius, var(--radius-panel));
-  border: var(--trainer-dock-border, 1px solid var(--border-subtle));
-  box-shadow: var(--trainer-dock-shadow, var(--shadow-panel));
+  background: var(--surface-panel-bg, var(--bg-surface));
+  backdrop-filter: blur(var(--surface-panel-blur, var(--overlay-blur, 0px)));
+  -webkit-backdrop-filter: blur(var(--surface-panel-blur, var(--overlay-blur, 0px)));
+  border-radius: var(--surface-panel-radius, var(--radius-panel));
+  border: var(
+    --surface-panel-border,
+    var(--surface-panel-border-width, 1px) solid
+      var(--surface-panel-border-color, var(--border-subtle))
+  );
+  box-shadow: var(--surface-panel-shadow, var(--shadow-panel));
   margin-bottom: 12px;
 }
 

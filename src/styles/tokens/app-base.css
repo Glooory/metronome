@@ -1,4 +1,4 @@
-@import "./semantic.css";
+@import "./recipes.css";
 
 /* 
   Token Application Layer
@@ -26,7 +26,8 @@ body {
   height: 100dvh;
   margin: 0;
   padding: 0;
-  font-family: var(--font-app-sans);
+  font-family: var(--type-body-ff, var(--font-app-sans));
+  font-weight: var(--type-body-fw, 400);
   color: var(--text-primary);
   line-height: 1.5;
 }

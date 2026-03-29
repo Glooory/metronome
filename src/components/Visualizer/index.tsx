@@ -25,22 +25,19 @@ export const Visualizer = ({
   onShiftChange,
   language,
 }: VisualizerProps) => {
-  const t = translations.swingTrainer;
+  const common = translations.common;
+  const t = translations.visualizer;
   const maxShift = Math.max(1, stepStates.length - 1);
   const minShift = -maxShift;
   const canShiftLeft = shift > minShift;
   const canShiftRight = shift < maxShift;
-  const getBlockBackground = (isFilled: boolean, isActive: boolean) => {
-    if (isActive && isFilled) {
-      return "var(--visualizer-block-accent, var(--accent-primary))";
-    }
-
-    if (isFilled) {
-      return "var(--visualizer-block-accent-dim, var(--accent-primary-muted))";
-    }
-
-    return "var(--visualizer-block-empty, var(--visualizer-block-bg, var(--fill-subtle)))";
-  };
+  const getBlockClassName = (isFilled: boolean, isActive: boolean) =>
+    clsx(
+      styles["visualizer__block"],
+      isFilled && styles["visualizer__block--filled"],
+      !isFilled && styles["visualizer__block--empty"],
+      isActive && isFilled && styles["visualizer__block--filled-active"]
+    );
 
   return (
     <div className={styles.visualizer}>
@@ -54,7 +51,7 @@ export const Visualizer = ({
             disabled={!canShiftLeft}
             className={styles["visualizer__control-btn"]}
             onClick={() => canShiftLeft && onShiftChange(shift - 1)}
-            title="Shift Left (Early)"
+            title={t.shiftLeft[language]}
           >
             <Minus size={24} />
           </Button>
@@ -73,7 +70,7 @@ export const Visualizer = ({
             disabled={!canShiftRight}
             className={styles["visualizer__control-btn"]}
             onClick={() => canShiftRight && onShiftChange(shift + 1)}
-            title="Shift Right (Delay)"
+            title={t.shiftRight[language]}
           >
             <Plus size={24} />
           </Button>
@@ -82,10 +79,12 @@ export const Visualizer = ({
         <Button
           noPadding
           disabled={shift === 0}
-          style={{ visibility: shift !== 0 ? "visible" : "hidden" }}
-          className={styles["visualizer__reset-btn"]}
+          className={clsx(
+            styles["visualizer__reset-btn"],
+            shift === 0 && styles["visualizer__reset-btn--hidden"]
+          )}
           onClick={() => onShiftChange(0)}
-          title={t.reset[language]}
+          title={common.reset[language]}
         >
           <RefreshCcw size={20} />
         </Button>
@@ -106,33 +105,9 @@ export const Visualizer = ({
               className={styles["visualizer__column"]}
             >
               <div className={styles["visualizer__stack"]}>
-                <div
-                  style={{ background: getBlockBackground(isAccent, isActive) }}
-                  className={clsx(
-                    styles["visualizer__block"],
-                    (isActive && isAccent) || isAccent
-                      ? styles["visualizer__block--filled"]
-                      : undefined
-                  )}
-                />
-                <div
-                  style={{ background: getBlockBackground(isAccent || isSubAccent, isActive) }}
-                  className={clsx(
-                    styles["visualizer__block"],
-                    (isActive && (isAccent || isSubAccent)) || isAccent || isSubAccent
-                      ? styles["visualizer__block--filled"]
-                      : undefined
-                  )}
-                />
-                <div
-                  style={{ background: getBlockBackground(!isMute, isActive) }}
-                  className={clsx(
-                    styles["visualizer__block"],
-                    (isActive && !isMute) || !isMute
-                      ? styles["visualizer__block--filled"]
-                      : undefined
-                  )}
-                />
+                <div className={getBlockClassName(isAccent, isActive)} />
+                <div className={getBlockClassName(isAccent || isSubAccent, isActive)} />
+                <div className={getBlockClassName(!isMute, isActive)} />
               </div>
             </div>
           );

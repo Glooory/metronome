@@ -1,49 +1,52 @@
 .theme-swiss {
-  --swiss-paper: oklch(97% 0.004 85);
-  --swiss-card: oklch(99% 0.002 85);
-  --swiss-ink: oklch(16% 0.018 260);
-  --swiss-ink-mid: oklch(34% 0.014 260);
-  --swiss-ink-muted: oklch(54% 0.009 260);
-  --swiss-ink-dim: oklch(72% 0.006 260);
-  --swiss-red: oklch(50% 0.19 26);
-  --swiss-red-muted: oklch(50% 0.19 26 / 0.11);
-  --swiss-red-soft: oklch(50% 0.19 26 / 0.055);
-  --swiss-blue: oklch(42% 0.085 252);
-  --swiss-blue-muted: oklch(42% 0.085 252 / 0.08);
-  --swiss-green: oklch(46% 0.12 158);
-  --swiss-amber: oklch(58% 0.14 68);
-  --swiss-shadow-ink: oklch(20% 0.016 260 / 0.72);
-  --swiss-rule: oklch(82% 0.006 260);
+  --swiss-paper: rgba(245, 246, 242, 1);
+  --swiss-paper-bright: rgba(252, 252, 249, 1);
+  --swiss-panel: rgba(249, 249, 246, 0.98);
+  --swiss-panel-strong: rgba(255, 255, 255, 0.98);
+  --swiss-ink: rgba(17, 20, 24, 1);
+  --swiss-ink-mid: rgba(61, 64, 68, 1);
+  --swiss-ink-muted: rgba(109, 112, 116, 1);
+  --swiss-ink-dim: rgba(174, 176, 179, 1);
+  --swiss-red: rgba(214, 22, 35, 1);
+  --swiss-red-muted: rgba(214, 22, 35, 0.14);
+  --swiss-red-soft: rgba(214, 22, 35, 0.05);
+  --swiss-blue: rgba(24, 84, 140, 1);
+  --swiss-green: rgba(0, 121, 84, 1);
+  --swiss-amber: rgba(148, 102, 8, 1);
+  --swiss-rule: rgba(210, 212, 214, 1);
+  --swiss-rule-strong: rgba(164, 167, 170, 1);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   --bg-primary: var(--swiss-paper);
-  --bg-surface: var(--swiss-card);
-  --bg-elevated: oklch(100% 0 0);
-  --bg-overlay: oklch(16% 0.018 260 / 0.82);
+  --bg-surface: var(--swiss-panel);
+  --bg-elevated: var(--swiss-panel-strong);
+  --bg-overlay: rgba(244, 245, 247, 0.8);
 
-  --fill-subtle: oklch(96.2% 0.004 85);
-  --fill-muted: oklch(93.4% 0.005 85);
-  --fill-active: var(--swiss-ink);
+  --fill-subtle: rgba(250, 250, 248, 1);
+  --fill-muted: rgba(238, 239, 241, 1);
+  --fill-active: var(--swiss-red-soft);
 
   --border-subtle: var(--swiss-rule);
-  --border-base: var(--swiss-ink);
+  --border-base: var(--swiss-rule-strong);
   --border-active: var(--swiss-red);
 
   --radius-panel: 0px;
   --radius-modal: 0px;
   --radius-control: 0px;
   --radius-pill: 0px;
-  --history-item-radius: var(--radius-control);
-  --history-remove-btn-radius: var(--radius-panel);
 
   --text-primary: var(--swiss-ink);
   --text-secondary: var(--swiss-ink-mid);
   --text-muted: var(--swiss-ink-muted);
-  --text-inverse: var(--swiss-card);
+  --text-inverse: var(--swiss-panel-strong);
 
+  --font-app-sans: "Helvetica Neue", "Helvetica", "Arial", var(--font-sans);
   --font-display: "Helvetica Neue", "Helvetica", "Arial", var(--font-sans);
+  --type-readout-ff: var(--font-display);
+  --type-readout-fw: 800;
+  --type-readout-letter-spacing: -0.06em;
 
   --accent-primary: var(--swiss-red);
   --accent-primary-muted: var(--swiss-red-muted);
@@ -51,165 +54,214 @@
   --accent-danger: var(--swiss-red);
   --accent-success: var(--swiss-green);
 
-  --shadow-sm: 2px 2px 0 var(--swiss-shadow-ink);
-  --shadow-panel: 3px 3px 0 var(--swiss-shadow-ink);
-  --shadow-modal: 6px 6px 0 var(--swiss-shadow-ink);
-  --shadow-active-item: 2px 2px 0 oklch(32% 0.12 26);
+  --shadow-sm: none;
+  --shadow-panel: none;
+  --shadow-modal: 0 18px 42px rgba(17, 20, 24, 0.08);
+  --shadow-active-item: inset 0 0 0 1px var(--swiss-red);
   --shadow-glow-primary: none;
   --shadow-glow-warning: none;
   --shadow-glow-danger: none;
   --shadow-glow-elevated: none;
   --shadow-glow: none;
   --overlay-blur: 0px;
+  --modal-shell-overlay-blur: 2px;
   --overlay-sheen: none;
 
   --opacity-btn-hover: 1;
-  --opacity-btn-active: 0.65;
+  --opacity-btn-active: 0.84;
   --opacity-disabled: 0.35;
   --transition-base:
-    transform 0.1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.1s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.1s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.1s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.1s cubic-bezier(0.22, 1, 0.36, 1), color 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.12s ease-out, background-color 0.12s ease-out, border-color 0.12s ease-out,
+    color 0.12s ease-out, box-shadow 0.12s ease-out;
   --transition-fast:
-    transform 0.06s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.06s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.06s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.06s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.06s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.06s cubic-bezier(0.22, 1, 0.36, 1), color 0.06s cubic-bezier(0.22, 1, 0.36, 1);
-  --ui-chrome-letter-spacing: 0.14em;
-  --ui-chrome-title-letter-spacing: 0.2em;
+    opacity 0.08s ease-out, background-color 0.08s ease-out, border-color 0.08s ease-out,
+    color 0.08s ease-out, box-shadow 0.08s ease-out;
+  --ui-chrome-fw: 700;
+  --ui-chrome-letter-spacing: 0.08em;
+  --ui-chrome-title-letter-spacing: 0.14em;
+  --control-focus-ring: rgba(214, 22, 35, 0.38);
+  --action-radius: 8px;
+  --control-handle-radius: 999px;
 
-  --app-bg-gradient: repeating-linear-gradient(
-    transparent,
-    transparent 31px,
-    var(--swiss-rule) 31px,
-    var(--swiss-rule) 32px
-  );
-  --app-bg-gradient-opacity: 0.45;
+  --app-bg-color: var(--bg-primary);
+  --app-text-color: var(--text-primary);
+  --app-bg-gradient:
+    linear-gradient(90deg, rgba(214, 22, 35, 0.08) 0 32px, transparent 32px),
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent 95px,
+      rgba(210, 212, 214, 0.72) 95px,
+      rgba(210, 212, 214, 0.72) 96px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 63px,
+      rgba(210, 212, 214, 0.56) 63px,
+      rgba(210, 212, 214, 0.56) 64px
+    ),
+    linear-gradient(180deg, var(--swiss-paper-bright) 0%, var(--swiss-paper) 100%);
 
-  --app-panel-border: 2px solid var(--swiss-ink);
-  --app-panel-shadow: var(--shadow-panel);
+  --surface-panel-bg: rgba(255, 255, 255, 0.72);
+  --surface-panel-border-width: 1px;
+  --surface-panel-border-color: var(--swiss-rule-strong);
+  --surface-panel-border: 1px solid var(--swiss-rule-strong);
+  --surface-panel-shadow: none;
 
-  --app-modal-border: 2px solid var(--swiss-ink);
-  --app-modal-shadow: var(--shadow-modal);
+  --surface-floating-bg: var(--swiss-panel-strong);
+  --surface-floating-border-width: 1px;
+  --surface-floating-border-color: var(--swiss-rule-strong);
+  --surface-floating-border: 1px solid var(--swiss-rule-strong);
+  --surface-floating-shadow: var(--shadow-modal);
+  --surface-floating-inner-shadow: none;
+  --surface-floating-sheen: none;
 
-  --app-input-border: 2px solid var(--swiss-ink);
-  --app-input-border-width: 2px;
-  --app-input-shadow: none;
+  --field-bg: rgba(255, 255, 255, 0.92);
+  --field-border: 1px solid var(--swiss-rule-strong);
+  --field-border-width: 1px;
+  --field-border-color: var(--swiss-rule-strong);
+  --field-color: var(--swiss-ink);
+  --field-shadow: none;
+  --field-focus-border: var(--swiss-red);
+  --field-focus-bg: var(--swiss-panel-strong);
 
-  --bpm-value-fw: 900;
-  --bpm-value-ls: -0.04em;
-  --bpm-value-color: var(--swiss-ink);
-  --bpm-value-shadow: none;
-  --bpm-value-filter: none;
-  --bpm-blur-visibility: hidden;
-  --bpm-input-border: none;
-  --bpm-input-selection: var(--swiss-red-muted);
-  --bpm-wheel-bg: var(--fill-muted);
-  --bpm-wheel-border: 2px solid var(--swiss-ink);
-  --bpm-wheel-shadow: none;
-  --bpm-wheel-active-shadow: inset 0 0 0 2px var(--swiss-red);
-  --bpm-wheel-line: var(--swiss-red);
-  --bpm-wheel-line-glow: transparent;
-  --bpm-wheel-tick: var(--swiss-ink-dim);
+  --control-bg: rgba(255, 255, 255, 0.92);
+  --control-color: var(--swiss-ink);
+  --control-border-width: 1px;
+  --control-border-color: var(--swiss-rule-strong);
+  --control-shadow: none;
+  --control-active-bg: var(--fill-muted);
+  --control-active-shadow: none;
+  --control-active-transform: none;
+  --control-quiet-bg: transparent;
+  --control-quiet-color: var(--swiss-ink-mid);
+  --control-quiet-border-width: 1px;
+  --control-quiet-border-color: transparent;
+  --control-quiet-shadow: none;
+  --control-quiet-active-bg: var(--swiss-red-soft);
+  --control-quiet-active-shadow: none;
+  --control-selected-bg: var(--swiss-ink);
+  --control-selected-color: var(--swiss-panel-strong);
+  --control-selected-border-width: 1px;
+  --control-selected-border-color: var(--swiss-ink);
+  --control-selected-shadow: inset 0 0 0 1px var(--swiss-ink);
+  --control-quiet-selected-bg: var(--swiss-red-soft);
+  --control-quiet-selected-color: var(--swiss-red);
+  --control-quiet-selected-border-width: 1px;
+  --control-quiet-selected-border-color: var(--swiss-red);
+  --control-quiet-selected-shadow: inset 0 0 0 1px var(--swiss-red);
 
-  --btn-active-transform: translate(2px, 2px);
+  --action-outline-bg: transparent;
+  --action-outline-color: var(--swiss-ink-mid);
+  --action-outline-border-width: 1px;
+  --action-outline-border-color: var(--swiss-rule-strong);
+  --action-outline-shadow: none;
+  --action-outline-active-bg: var(--swiss-red-soft);
+  --action-outline-active-shadow: none;
+  --action-outline-selected-bg: var(--swiss-red-soft);
+  --action-outline-selected-color: var(--swiss-red);
+  --action-outline-selected-border-width: 1px;
+  --action-outline-selected-border-color: var(--swiss-red);
+  --action-outline-selected-shadow: inset 0 0 0 1px var(--swiss-red);
+  --action-ghost-selected-bg: var(--swiss-red-soft);
+  --action-ghost-selected-color: var(--swiss-red);
+  --action-ghost-selected-border-width: 1px;
+  --action-ghost-selected-border-color: var(--swiss-red);
+  --action-ghost-selected-shadow: none;
 
-  --btn-filled-bg: var(--swiss-card);
-  --btn-filled-color: var(--swiss-ink);
-  --btn-filled-border-width: 2px;
-  --btn-filled-border-color: var(--swiss-ink);
-  --btn-filled-shadow: var(--shadow-sm);
-  --btn-filled-active-shadow: none;
-  --btn-filled-active-bg: var(--swiss-card);
-  --btn-filled-checked-bg: var(--swiss-ink);
-  --btn-filled-checked-color: var(--swiss-card);
-  --btn-filled-checked-shadow: var(--shadow-sm);
+  --readout-label-color: var(--swiss-ink-muted);
+  --readout-value-color: var(--swiss-ink);
+  --readout-value-weight: 800;
+  --readout-value-letter-spacing: -0.06em;
+  --readout-value-shadow: none;
+  --readout-value-filter: none;
+  --readout-blur-visibility: hidden;
+  --readout-input-color: var(--swiss-ink);
+  --readout-input-caret-color: var(--swiss-red);
+  --readout-input-selection: var(--swiss-red-muted);
+  --readout-input-border: none;
+  --readout-controls-color: var(--swiss-ink-muted);
+  --readout-wheel-bg:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 9px,
+      rgba(109, 112, 116, 0.08) 9px,
+      rgba(109, 112, 116, 0.08) 10px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 243, 245, 1) 100%);
+  --readout-wheel-border: 1px solid var(--swiss-rule-strong);
+  --readout-wheel-shadow: none;
+  --readout-wheel-active-shadow: inset 0 0 0 1px var(--swiss-red);
+  --readout-wheel-line: var(--swiss-red);
+  --readout-wheel-line-glow: transparent;
+  --readout-wheel-tick: rgba(109, 112, 116, 0.32);
 
-  --btn-outline-bg: var(--swiss-card);
-  --btn-outline-border-width: 2px;
-  --btn-outline-border-color: var(--swiss-ink);
-  --btn-outline-shadow: var(--shadow-sm);
-  --btn-outline-active-shadow: none;
-  --btn-outline-active-bg: var(--swiss-card);
-  --btn-outline-checked-bg: var(--swiss-ink);
-  --btn-outline-checked-color: var(--swiss-card);
-  --btn-outline-checked-border-color: var(--swiss-ink);
-  --btn-outline-checked-shadow: var(--shadow-sm);
+  --meter-block-border: 1px solid var(--swiss-rule);
+  --meter-block-bg: rgba(255, 255, 255, 0.88);
+  --meter-block-shadow: none;
+  --meter-block-empty: rgba(255, 255, 255, 0.7);
+  --meter-block-empty-active: rgba(243, 244, 246, 0.92);
+  --meter-block-accent: var(--swiss-red);
+  --meter-block-accent-dim: rgba(214, 22, 35, 0.26);
+  --meter-block-shadow-filled: none;
+  --meter-block-shadow-active: inset 0 0 0 1px var(--swiss-red);
+  --meter-label-color: var(--swiss-ink-muted);
+  --meter-controls-bg: rgba(255, 255, 255, 0.72);
+  --meter-controls-border: 1px solid var(--swiss-rule-strong);
+  --meter-controls-shadow: none;
+  --meter-value-color: var(--swiss-ink-muted);
+  --meter-value-active-color: var(--swiss-red);
 
-  --btn-transparent-border-width: 2px;
-  --btn-transparent-border-color: transparent;
-  --btn-transparent-shadow: none;
-  --btn-transparent-active-shadow: none;
-  --btn-transparent-checked-bg: var(--swiss-ink);
-  --btn-transparent-checked-color: var(--swiss-card);
-  --select-dropdown-bg: var(--swiss-card);
-  --select-dropdown-border-width: 2px;
-  --select-dropdown-border-color: var(--swiss-ink);
-  --select-dropdown-shadow: var(--shadow-panel);
-  --select-option-selected-bg: var(--swiss-red);
-  --select-option-selected-color: var(--swiss-card);
-  --select-option-selected-border-color: var(--swiss-red);
+  --control-handle-bg: var(--swiss-panel-strong);
+  --control-handle-border-width: 1px;
+  --control-handle-border-color: var(--swiss-rule-strong);
+  --control-handle-shadow: none;
+  --control-handle-selected-bg: var(--swiss-panel-strong);
+  --control-handle-selected-border-width: 1px;
+  --control-handle-selected-border-color: var(--swiss-ink);
+  --control-handle-selected-shadow: none;
+  --control-handle-accent-bg: var(--swiss-red);
+  --control-handle-accent-border-width: 1px;
+  --control-handle-accent-border-color: var(--swiss-ink);
+  --control-handle-accent-shadow: none;
+
+  --switch-track-bg: rgba(255, 255, 255, 0.88);
+  --switch-track-border-width: 1px;
+  --switch-track-border-color: var(--swiss-rule-strong);
+  --switch-track-shadow: none;
+  --switch-track-selected-bg: var(--swiss-red);
+  --switch-track-selected-border-color: var(--swiss-red);
+  --switch-track-selected-shadow: inset 0 0 0 1px var(--swiss-red);
+  --switch-thumb-bg: var(--swiss-panel-strong);
+  --switch-thumb-border-width: 1px;
+  --switch-thumb-border-color: var(--swiss-rule-strong);
+  --switch-thumb-shadow: none;
+  --switch-thumb-selected-bg: var(--swiss-panel-strong);
+  --switch-thumb-selected-border-color: var(--swiss-ink);
+  --switch-thumb-selected-shadow: none;
+
+  --range-track-bg: rgba(255, 255, 255, 0.92);
+  --range-track-border-width: 1px;
+  --range-track-border-color: var(--swiss-rule-strong);
+  --range-track-shadow: none;
+  --range-track-height: 6px;
+  --range-progress-bg: var(--swiss-red);
+  --range-thumb-size: 16px;
+  --range-thumb-bg: var(--swiss-red);
+  --range-thumb-radius: var(--control-handle-radius);
+  --range-thumb-border-width: 1px;
+  --range-thumb-border-color: var(--swiss-ink);
+  --range-thumb-shadow: none;
+  --range-focus-ring: rgba(214, 22, 35, 0.32);
+
+  --select-dropdown-title-color: var(--swiss-ink-muted);
+  --select-scrollbar-color: var(--swiss-rule-strong);
+  --select-option-radius: var(--action-radius);
+  --select-option-color: var(--swiss-ink);
   --select-dot-color: var(--swiss-red);
   --select-dot-shadow: none;
-
-  --visualizer-block-border: 1px solid var(--swiss-rule);
-  --visualizer-block-bg: var(--fill-subtle);
-  --visualizer-block-empty: var(--fill-subtle);
-  --visualizer-block-empty-active: var(--fill-muted);
-  --visualizer-block-accent: var(--swiss-red);
-  --visualizer-block-accent-dim: oklch(74% 0.08 26);
-  --visualizer-block-shadow-filled: 1px 1px 0 var(--swiss-shadow-ink);
-  --visualizer-value-active-color: var(--swiss-red);
-  --visualizer-controls-bg: transparent;
-
-  --trainer-dock-border: 2px solid var(--swiss-ink);
-  --trainer-dock-shadow: var(--shadow-panel);
-
-  --history-item-bg: transparent;
-  --history-item-border: 2px solid var(--swiss-rule);
-  --history-item-shadow: none;
-  --history-item-active-bg: var(--swiss-red);
-  --history-item-active-border: 2px solid var(--swiss-red);
-  --history-item-active-color: var(--swiss-card);
-  --history-item-active-shadow: 2px 2px 0 oklch(30% 0.14 26);
-
-  --checkbox-border-width: 2px;
-  --checkbox-border: var(--swiss-ink);
-  --checkbox-shadow: none;
-  --checkbox-checked-bg: var(--swiss-red);
-  --checkbox-checked-border-color: var(--swiss-red);
-  --checkbox-checked-shadow: 2px 2px 0 var(--swiss-shadow-ink);
-  --checkbox-knob-bg: var(--swiss-card);
-  --checkbox-knob-checked-bg: var(--swiss-card);
-  --checkbox-knob-border-width: 2px;
-  --checkbox-knob-border: var(--swiss-ink);
-  --checkbox-knob-shadow: 2px 2px 0 var(--swiss-shadow-ink);
-
-  --swing-slider-track-border-width: 2px;
-  --swing-slider-track-border: var(--swiss-ink);
-  --swing-slider-progress-bg: var(--swiss-red);
-  --swing-slider-thumb-bg: var(--swiss-red);
-  --swing-slider-thumb-border-width: 2px;
-  --swing-slider-thumb-border: var(--swiss-ink);
-  --swing-slider-thumb-shadow: 2px 2px 0 var(--swiss-shadow-ink);
-
-  --speed-status-border: var(--swiss-ink);
-  --speed-status-border-width: 2px;
-
-  --interval-status-border: var(--swiss-ink);
-  --interval-status-border-width: 2px;
-
-  --presets-btn-confirm-del-color: var(--swiss-red);
-
-  --help-content-border: 2px solid var(--swiss-ink);
-  --help-content-shadow: var(--shadow-modal);
-  --help-header-bg: var(--fill-muted);
-  --help-footer-bg: var(--fill-muted);
-  --help-icon-box-border: 2px solid var(--swiss-ink);
-  --help-kbd-bg: var(--fill-muted);
-  --help-accent-cyan: var(--swiss-blue);
-  --help-accent-amber: var(--swiss-red);
 
   --app-title-icon-color: var(--swiss-red);
 }

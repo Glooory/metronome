@@ -1,5 +1,4 @@
 import { clsx } from "clsx";
-import { AnimatePresence } from "framer-motion";
 import { Drum, Globe, HelpCircle, Music, Palette, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
@@ -25,7 +24,6 @@ import {
   BEAT_MUTE,
   BEAT_NORMAL,
   BEAT_SUB_ACCENT,
-  DEFAULT_THEME,
   MAX_BPM,
   MIN_BPM,
   SOUND_DRUM,
@@ -45,14 +43,19 @@ import {
   STORAGE_KEY_SWING,
   STORAGE_KEY_THEME,
   TAP_TIMEOUT,
-  THEMES,
   type IntervalTrainerConfig,
   type Preset,
   type SpeedTrainerConfig,
-  type Theme,
 } from "./constants";
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
+import {
+  DEFAULT_THEME,
+  getThemeClassName,
+  isTheme,
+  THEME_IDS,
+  type Theme,
+} from "./theme-registry";
 
 function getStorageItem<T>(
   key: string,
@@ -70,10 +73,11 @@ function getStorageItem<T>(
   }
 }
 
-const setStorageItem = (key: string, value: any) => {
+const setStorageItem = (key: string, value: unknown) => {
   if (typeof window === "undefined") return;
   try {
-    const valueToStore = typeof value === "object" ? JSON.stringify(value) : String(value);
+    const valueToStore =
+      typeof value === "object" && value !== null ? JSON.stringify(value) : String(value);
     localStorage.setItem(key, valueToStore);
   } catch (e) {
     console.warn(`Error writing ${key} to localStorage`, e);
@@ -148,8 +152,8 @@ export default function MetronomeApp() {
   });
 
   const [theme, setTheme] = useState<Theme>(() => {
-    const _theme = getStorageItem(STORAGE_KEY_THEME, DEFAULT_THEME) as Theme;
-    return THEMES.some((t) => t.id === _theme) ? _theme : DEFAULT_THEME;
+    const storedTheme = getStorageItem(STORAGE_KEY_THEME, DEFAULT_THEME);
+    return isTheme(storedTheme) ? storedTheme : DEFAULT_THEME;
   });
 
   const [speedTrainer, setSpeedTrainer] = useState<SpeedTrainerConfig>(() =>
@@ -239,7 +243,6 @@ export default function MetronomeApp() {
   useEffect(() => {
     const baseUrl = import.meta.env.BASE_URL;
     const faviconMap: Record<Theme, string> = {
-      amoled: `${baseUrl}favicons/favicon-amoled.svg`,
       aurora: `${baseUrl}favicons/favicon-aurora.svg`,
       blueprint: `${baseUrl}favicons/favicon-blueprint.svg`,
       brutalism: `${baseUrl}favicons/favicon-brutalism.svg`,
@@ -248,9 +251,10 @@ export default function MetronomeApp() {
       "e-ink": `${baseUrl}favicons/favicon-eink.svg`,
       kids: `${baseUrl}favicons/favicon-kids.svg`,
       mechanical: `${baseUrl}favicons/favicon-mechanical.svg`,
-      neumorphism: `${baseUrl}favicons/favicon-neumorphism.svg`,
-      retro: `${baseUrl}favicons/favicon-retro.svg`,
+      oled: `${baseUrl}favicons/favicon-amoled.svg`,
+      disco: `${baseUrl}favicons/favicon-disco.svg`,
       sketch: `${baseUrl}favicons/favicon-sketch.svg`,
+      soft: `${baseUrl}favicons/favicon-neumorphism.svg`,
       swiss: `${baseUrl}favicons/favicon-swiss.svg`,
       terminal: `${baseUrl}favicons/favicon-terminal.svg`,
       wood: `${baseUrl}favicons/favicon-wood.svg`,
@@ -259,12 +263,12 @@ export default function MetronomeApp() {
 
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
     if (link) {
-      link.href = faviconMap[theme] || faviconMap.amoled;
+      link.href = faviconMap[theme] || faviconMap.oled;
     } else {
       // Fallback if no favicon link exists
       const newLink = document.createElement("link");
       newLink.rel = "icon";
-      newLink.href = faviconMap[theme] || faviconMap.amoled;
+      newLink.href = faviconMap[theme] || faviconMap.oled;
       document.head.appendChild(newLink);
     }
   }, [theme]);
@@ -356,36 +360,24 @@ export default function MetronomeApp() {
     { label: translations.options.subdivisions.sixteenth[language], value: 4 },
   ];
 
-  const themeOrder: Theme[] = [
-    "swiss",
-    "zen",
-    "e-ink",
-    "cyberpunk",
-    "kids",
-    "neumorphism",
-    "amoled",
-    "retro",
-    "blueprint",
-    "aurora",
-    "terminal",
-    "brutalism",
-    "clay",
-    "sketch",
-    "mechanical",
-    "wood",
-  ];
-
   const cycleTheme = () => {
     setTheme((prev) => {
-      const idx = themeOrder.indexOf(prev);
-      const nextIdx = (idx + 1) % themeOrder.length;
-      return themeOrder[nextIdx];
+      const idx = THEME_IDS.indexOf(prev);
+      const nextIdx = (idx + 1) % THEME_IDS.length;
+      return THEME_IDS[nextIdx];
     });
   };
 
+  const themeOptions = THEME_IDS.map((id) => ({
+    label: translations.options.themes[id][language],
+    value: id,
+  })).sort((a, b) =>
+    translations.options.themes[a.value].en.localeCompare(translations.options.themes[b.value].en)
+  );
+
   const getSoundDisplay = (val: string) => {
     const opt = soundOptions.find((o) => o.value === val);
-    return opt ? opt.label : "SINE";
+    return opt ? opt.label : translations.options.sounds.sine[language];
   };
 
   const handleSavePreset = (name: string) => {
@@ -422,7 +414,7 @@ export default function MetronomeApp() {
   return (
     <HelmetProvider>
       <SEO language={language} />
-      <div className={clsx(styles.app, `theme-${theme}`)}>
+      <div className={clsx(styles.app, getThemeClassName(theme))} data-theme={theme}>
         {/* SEO: Hidden H1 for semantics */}
         <h1
           style={{
@@ -454,24 +446,7 @@ export default function MetronomeApp() {
             icon={Palette}
             value={theme}
             onChange={(v) => setTheme(v as Theme)}
-            options={[
-              { label: translations.options.themes.swiss[language], value: "swiss" },
-              { label: translations.options.themes.zen[language], value: "zen" },
-              { label: translations.options.themes["e-ink"][language], value: "e-ink" },
-              { label: translations.options.themes.cyberpunk[language], value: "cyberpunk" },
-              { label: translations.options.themes.kids[language], value: "kids" },
-              { label: translations.options.themes.neumorphism[language], value: "neumorphism" },
-              { label: translations.options.themes.amoled[language], value: "amoled" },
-              { label: translations.options.themes.retro[language], value: "retro" },
-              { label: translations.options.themes.blueprint[language], value: "blueprint" },
-              { label: translations.options.themes.aurora[language], value: "aurora" },
-              { label: translations.options.themes.terminal[language], value: "terminal" },
-              { label: translations.options.themes.brutalism[language], value: "brutalism" },
-              { label: translations.options.themes.clay[language], value: "clay" },
-              { label: translations.options.themes.sketch[language], value: "sketch" },
-              { label: translations.options.themes.mechanical[language], value: "mechanical" },
-              { label: translations.options.themes.wood[language], value: "wood" },
-            ]}
+            options={themeOptions}
             title={translations.dock.theme[language]}
             displayLabel={translations.options.themes[theme][language]}
             alignment="right"
@@ -493,21 +468,13 @@ export default function MetronomeApp() {
             <HelpCircle size={20} />
           </Button>
         </div>
-        <AnimatePresence>
-          {isHelpOpen && (
-            <HelpModal
-              isOpen={isHelpOpen}
-              onClose={() => setIsHelpOpen(false)}
-              language={language}
-            />
-          )}
-        </AnimatePresence>
+        <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} language={language} />
 
         <div className={styles["app__bg-gradient"]} />
 
         <div className={styles["app__content"]}>
           <div className={styles["bpm-section"]}>
-            <BpmDisplay bpm={bpm} setBpm={setBpm} />
+            <BpmDisplay bpm={bpm} setBpm={setBpm} language={language} />
             <BpmHistoryBar
               currentBpm={bpm}
               setBpm={setBpm}
@@ -567,7 +534,7 @@ export default function MetronomeApp() {
               />
 
               <Button
-                variant="filled"
+                variant="outline"
                 isChecked={isPlaying}
                 onClick={() => setIsPlaying(!isPlaying)}
                 className={styles["play-btn"]}
@@ -592,55 +559,43 @@ export default function MetronomeApp() {
           </div>
         </div>
 
-        <AnimatePresence>
-          {showSpeedModal && (
-            <SpeedTrainerModal
-              config={speedTrainer}
-              onConfigChange={setSpeedTrainer}
-              onClose={() => setShowSpeedModal(false)}
-              currentBpm={bpm}
-              measureCount={measureCount}
-              language={language}
-            />
-          )}
-        </AnimatePresence>
+        <SpeedTrainerModal
+          isOpen={showSpeedModal}
+          config={speedTrainer}
+          onConfigChange={setSpeedTrainer}
+          onClose={() => setShowSpeedModal(false)}
+          currentBpm={bpm}
+          measureCount={measureCount}
+          language={language}
+        />
 
-        <AnimatePresence>
-          {showIntervalModal && (
-            <IntervalTrainerModal
-              config={intervalTrainer}
-              onConfigChange={setIntervalTrainer}
-              onClose={() => setShowIntervalModal(false)}
-              measureCount={measureCount}
-              isMuted={isMeasureMuted}
-              language={language}
-            />
-          )}
-        </AnimatePresence>
+        <IntervalTrainerModal
+          isOpen={showIntervalModal}
+          config={intervalTrainer}
+          onConfigChange={setIntervalTrainer}
+          onClose={() => setShowIntervalModal(false)}
+          measureCount={measureCount}
+          isMuted={isMeasureMuted}
+          language={language}
+        />
 
-        <AnimatePresence>
-          {showSwingModal && (
-            <SwingSettingModal
-              swing={swing}
-              onSwingChange={setSwing}
-              onClose={() => setShowSwingModal(false)}
-              language={language}
-            />
-          )}
-        </AnimatePresence>
+        <SwingSettingModal
+          isOpen={showSwingModal}
+          swing={swing}
+          onSwingChange={setSwing}
+          onClose={() => setShowSwingModal(false)}
+          language={language}
+        />
 
-        <AnimatePresence>
-          {showPresetsModal && (
-            <PresetsModal
-              presets={presets}
-              onSave={handleSavePreset}
-              onLoad={handleLoadPreset}
-              onDelete={handleDeletePreset}
-              onClose={() => setShowPresetsModal(false)}
-              language={language}
-            />
-          )}
-        </AnimatePresence>
+        <PresetsModal
+          isOpen={showPresetsModal}
+          presets={presets}
+          onSave={handleSavePreset}
+          onLoad={handleLoadPreset}
+          onDelete={handleDeletePreset}
+          onClose={() => setShowPresetsModal(false)}
+          language={language}
+        />
       </div>
     </HelmetProvider>
   );

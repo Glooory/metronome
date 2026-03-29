@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
-import { AudioWaveform, RefreshCcw, X } from "lucide-react";
+import { AudioWaveform, RefreshCcw } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
 import { Button } from "../Button";
+import { ModalShell } from "../ModalShell";
+import { Slider } from "../Slider";
 import styles from "./styles.module.css";
 
 interface SwingSettingModalProps {
+  isOpen: boolean;
   swing: number;
   onSwingChange: (val: number) => void;
   onClose: () => void;
@@ -13,11 +15,13 @@ interface SwingSettingModalProps {
 }
 
 export const SwingSettingModal = ({
+  isOpen,
   swing,
   onSwingChange,
   onClose,
   language,
 }: SwingSettingModalProps) => {
+  const common = translations.common;
   const t = translations.swingTrainer;
 
   const handleReset = () => {
@@ -25,62 +29,41 @@ export const SwingSettingModal = ({
   };
 
   return (
-    <motion.div
-      className={styles["swing-trainer-modal__overlay"]}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
+    <ModalShell
+      isOpen={isOpen}
+      title={t.title[language]}
+      closeLabel={common.close[language]}
+      onClose={onClose}
+      icon={AudioWaveform}
+      panelClassName={styles["swing-trainer-modal__panel"]}
+      headerClassName={styles["swing-trainer-modal__header"]}
     >
-      <motion.div
-        className={styles["swing-trainer-modal"]}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className={styles["swing-trainer-modal__header"]}>
-          <div className={styles["swing-trainer-modal__title"]}>
-            <AudioWaveform size={20} className={styles["swing-trainer-modal__title-icon"]} />
-            {t.title[language]}
+      <div className={styles["swing-trainer-modal__content"]}>
+        <div className={styles["swing-trainer-modal__section"]}>
+          <div className={styles["swing-trainer-modal__label-row"]}>
+            <span className={styles["swing-trainer-modal__label"]}>{t.swing[language]}</span>
+            <span className={styles["swing-trainer-modal__value"]}>{swing}%</span>
           </div>
-          <Button size="icon-sm" onClick={onClose} aria-label="Close">
-            <X size={20} />
-          </Button>
-        </div>
-
-        <div className={styles["swing-trainer-modal__content"]}>
-          <div className={styles["swing-trainer-modal__section"]}>
-            <div className={styles["swing-trainer-modal__label-row"]}>
-              <span className={styles["swing-trainer-modal__label"]}>{t.swing[language]}</span>
-              <span className={styles["swing-trainer-modal__value"]}>{swing}%</span>
-            </div>
-            <div className={styles["swing-trainer-modal__desc"]}>{t.swingDesc[language]}</div>
-            <div className={styles["swing-trainer-modal__slider-container"]}>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={swing}
-                onChange={(e) => onSwingChange(Number(e.target.value))}
-                className={styles["swing-trainer-modal__slider"]}
-                style={{ ["--swing-slider-progress" as string]: `${swing}%` }}
-              />
-            </div>
-          </div>
-          <Button className={styles["swing-trainer-modal__reset-btn"]} onClick={handleReset}>
-            <RefreshCcw
-              size={14}
-              style={{
-                verticalAlign: "text-bottom",
-                marginRight: 6,
-                transform: "translateY(1px)",
-              }}
+          <div className={styles["swing-trainer-modal__desc"]}>{t.swingDesc[language]}</div>
+          <div className={styles["swing-trainer-modal__slider-container"]}>
+            <Slider
+              min="0"
+              max="100"
+              value={swing}
+              onChange={(e) => onSwingChange(Number(e.target.value))}
+              className={styles["swing-trainer-modal__slider"]}
             />
-            {t.reset[language]}
-          </Button>
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+        <Button
+          className={styles["swing-trainer-modal__reset-btn"]}
+          classNames={{ startIcon: styles["swing-trainer-modal__reset-icon"] }}
+          startIcon={<RefreshCcw size={14} />}
+          onClick={handleReset}
+        >
+          {t.reset[language]}
+        </Button>
+      </div>
+    </ModalShell>
   );
 };

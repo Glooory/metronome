@@ -1,13 +1,15 @@
-import { motion } from "framer-motion";
-import { Gauge, X } from "lucide-react";
+import { clsx } from "clsx";
+import { Gauge } from "lucide-react";
 import type { SpeedTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
-import { Button } from "../Button";
 import { Checkbox } from "../Checkbox";
+import { Input } from "../Input";
+import { ModalShell } from "../ModalShell";
 import styles from "./styles.module.css";
 
 interface SpeedTrainerModalProps {
+  isOpen: boolean;
   config: SpeedTrainerConfig;
   onConfigChange: (config: SpeedTrainerConfig) => void;
   onClose: () => void;
@@ -17,6 +19,7 @@ interface SpeedTrainerModalProps {
 }
 
 export const SpeedTrainerModal = ({
+  isOpen,
   config,
   onConfigChange,
   onClose,
@@ -24,6 +27,7 @@ export const SpeedTrainerModal = ({
   measureCount,
   language,
 }: SpeedTrainerModalProps) => {
+  const common = translations.common;
   const t = translations.speedTrainer;
 
   const handleToggle = () => {
@@ -38,118 +42,112 @@ export const SpeedTrainerModal = ({
   const hasReachedTarget = currentBpm >= config.targetBpm;
 
   return (
-    <motion.div
-      className={styles["speed-trainer-modal__overlay"]}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
+    <ModalShell
+      isOpen={isOpen}
+      title={t.title[language]}
+      closeLabel={common.close[language]}
+      onClose={onClose}
+      icon={Gauge}
+      panelClassName={styles["speed-trainer-modal__panel"]}
     >
-      <motion.div
-        className={styles["speed-trainer-modal"]}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className={styles["speed-trainer-modal__header"]}>
-          <div className={styles["speed-trainer-modal__title"]}>
-            <Gauge size={20} className={styles["speed-trainer-modal__title-icon"]} />
-            {t.title[language]}
-          </div>
-          <Button size="icon-sm" onClick={onClose} aria-label="Close">
-            <X size={20} />
-          </Button>
-        </div>
-
-        <div className={styles["speed-trainer-modal__content"]}>
-          <div className={styles["speed-trainer-modal__row"]}>
-            <span className={styles["speed-trainer-modal__label"]}>
-              {t.enableTraining[language]}
-            </span>
-            <Checkbox checked={config.enabled} onChange={handleToggle} aria-label={t.enableTraining[language]} />
-          </div>
-
-          <div className={styles["speed-trainer-modal__divider"]} />
-
-          <div className={styles["speed-trainer-modal__row"]}>
-            <span className={styles["speed-trainer-modal__label"]}>
-              {t.everyMeasures[language]}
-            </span>
-            <input
-              type="number"
-              className={styles["speed-trainer-modal__input"]}
-              value={config.everyMeasures}
-              onChange={(e) =>
-                handleChange("everyMeasures", Math.max(1, parseInt(e.target.value) || 1))
-              }
-              min={1}
-              max={32}
-            />
-          </div>
-
-          <div className={styles["speed-trainer-modal__row"]}>
-            <span className={styles["speed-trainer-modal__label"]}>{t.incrementBpm[language]}</span>
-            <input
-              type="number"
-              className={styles["speed-trainer-modal__input"]}
-              value={config.increment}
-              onChange={(e) =>
-                handleChange("increment", Math.max(1, parseInt(e.target.value) || 1))
-              }
-              min={1}
-              max={50}
-            />
-          </div>
-
-          <div className={styles["speed-trainer-modal__row"]}>
-            <span className={styles["speed-trainer-modal__label"]}>{t.targetBpm[language]}</span>
-            <input
-              type="number"
-              className={styles["speed-trainer-modal__input"]}
-              value={config.targetBpm}
-              onChange={(e) =>
-                handleChange("targetBpm", Math.max(currentBpm, parseInt(e.target.value) || 200))
-              }
-              min={currentBpm}
-              max={300}
-            />
-          </div>
-
-          {/* Status section - always rendered to prevent height changes */}
-          <div
-            className={styles["speed-trainer-modal__divider"]}
-            style={{ opacity: config.enabled ? 1 : 0 }}
+      <div className={styles["speed-trainer-modal__content"]}>
+        <div className={styles["speed-trainer-modal__row"]}>
+          <span className={styles["speed-trainer-modal__label"]}>{t.enableTraining[language]}</span>
+          <Checkbox
+            checked={config.enabled}
+            onChange={handleToggle}
+            aria-label={t.enableTraining[language]}
           />
-          <div
-            className={styles["speed-trainer-modal__status"]}
-            style={{
-              opacity: config.enabled ? 1 : 0,
-              pointerEvents: config.enabled ? "auto" : "none",
-            }}
-          >
-            <div className={styles["speed-trainer-modal__status-text"]}>
-              {hasReachedTarget ? (
-                <>
-                  {t.reachedTarget[language]}{" "}
-                  <span className={styles["speed-trainer-modal__status-highlight"]}>
-                    {config.targetBpm} BPM
-                  </span>
-                </>
-              ) : (
-                <>
-                  {measuresUntilNext} {t.measuresUntil[language]}
-                  <br />
-                  BPM: {currentBpm} →{" "}
-                  <span className={styles["speed-trainer-modal__status-highlight"]}>
-                    {Math.min(currentBpm + config.increment, config.targetBpm)}
-                  </span>
-                </>
-              )}
-            </div>
+        </div>
+
+        <div className={styles["speed-trainer-modal__divider"]} />
+
+        <div className={styles["speed-trainer-modal__row"]}>
+          <span className={styles["speed-trainer-modal__label"]}>{t.everyMeasures[language]}</span>
+          <Input
+            type="number"
+            className={styles["speed-trainer-modal__input"]}
+            font="metric"
+            size="sm"
+            align="center"
+            hideNumberSpinner
+            value={config.everyMeasures}
+            onChange={(e) =>
+              handleChange("everyMeasures", Math.max(1, parseInt(e.target.value) || 1))
+            }
+            min={1}
+            max={32}
+          />
+        </div>
+
+        <div className={styles["speed-trainer-modal__row"]}>
+          <span className={styles["speed-trainer-modal__label"]}>{t.incrementBpm[language]}</span>
+          <Input
+            type="number"
+            className={styles["speed-trainer-modal__input"]}
+            font="metric"
+            size="sm"
+            align="center"
+            hideNumberSpinner
+            value={config.increment}
+            onChange={(e) => handleChange("increment", Math.max(1, parseInt(e.target.value) || 1))}
+            min={1}
+            max={50}
+          />
+        </div>
+
+        <div className={styles["speed-trainer-modal__row"]}>
+          <span className={styles["speed-trainer-modal__label"]}>{t.targetBpm[language]}</span>
+          <Input
+            type="number"
+            className={styles["speed-trainer-modal__input"]}
+            font="metric"
+            size="sm"
+            align="center"
+            hideNumberSpinner
+            value={config.targetBpm}
+            onChange={(e) =>
+              handleChange("targetBpm", Math.max(currentBpm, parseInt(e.target.value) || 200))
+            }
+            min={currentBpm}
+            max={300}
+          />
+        </div>
+
+        {/* Status section stays mounted to keep modal height stable. */}
+        <div
+          className={clsx(
+            styles["speed-trainer-modal__divider"],
+            !config.enabled && styles["speed-trainer-modal__divider--hidden"]
+          )}
+        />
+        <div
+          className={clsx(
+            styles["speed-trainer-modal__status"],
+            !config.enabled && styles["speed-trainer-modal__status--inactive"]
+          )}
+        >
+          <div className={styles["speed-trainer-modal__status-text"]}>
+            {hasReachedTarget ? (
+              <>
+                {t.reachedTarget[language]}{" "}
+                <span className={styles["speed-trainer-modal__status-highlight"]}>
+                  {config.targetBpm} BPM
+                </span>
+              </>
+            ) : (
+              <>
+                {measuresUntilNext} {t.measuresUntil[language]}
+                <br />
+                BPM: {currentBpm} →{" "}
+                <span className={styles["speed-trainer-modal__status-highlight"]}>
+                  {Math.min(currentBpm + config.increment, config.targetBpm)}
+                </span>
+              </>
+            )}
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </ModalShell>
   );
 };

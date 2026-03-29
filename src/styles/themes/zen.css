@@ -1,60 +1,65 @@
 .theme-zen {
-  --zen-ink: oklch(32% 0.055 230);
-  --zen-ink-faint: oklch(32% 0.055 230 / 0.08);
-  --zen-ink-mid: oklch(32% 0.055 230 / 0.18);
-  --zen-ink-strong: oklch(32% 0.055 230 / 0.55);
-  --zen-paper: oklch(97.5% 0.006 220);
-  --zen-paper-warm: oklch(96% 0.008 80);
-  --zen-mist: oklch(91% 0.008 220);
+  --zen-ink: rgba(13, 56, 73, 1);
+  --zen-ink-faint: rgba(13, 56, 73, 0.08);
+  --zen-ink-mid: rgba(13, 56, 73, 0.18);
+  --zen-ink-strong: rgba(13, 56, 73, 0.55);
+  --zen-paper: rgba(243, 248, 250, 1);
+  --zen-paper-warm: rgba(245, 241, 236, 1);
+  --zen-mist: rgba(220, 227, 229, 1);
+  --zen-sage-wash: rgba(223, 234, 228, 1);
+  --zen-sage-soft: rgba(46, 87, 70, 0.14);
 
-  --bg-primary: oklch(97.5% 0.006 220);
-  --bg-surface: oklch(98.5% 0.004 220);
-  --bg-elevated: oklch(99.5% 0.002 220);
-  --bg-overlay: oklch(20% 0.04 220 / 0.12);
+  --bg-primary: rgba(243, 248, 250, 1);
+  --bg-surface: rgba(247, 251, 252, 1);
+  --bg-elevated: rgba(252, 254, 254, 1);
+  --bg-overlay: rgba(0, 26, 34, 0.18);
 
-  --fill-subtle: oklch(95% 0.007 220);
-  --fill-muted: oklch(92% 0.01 220);
-  --fill-active: oklch(32% 0.055 230);
+  --fill-subtle: rgba(234, 240, 242, 1);
+  --fill-muted: rgba(222, 230, 233, 1);
+  --fill-active: rgba(13, 56, 73, 1);
 
-  --border-subtle: oklch(32% 0.04 190 / 0.08);
-  --border-base: oklch(32% 0.04 190 / 0.14);
-  --border-active: oklch(42% 0.055 165 / 0.4);
+  --border-subtle: rgba(23, 57, 55, 0.08);
+  --border-base: rgba(23, 57, 55, 0.14);
+  --border-active: rgba(46, 87, 70, 0.4);
 
   --radius-panel: 10px;
   --radius-modal: 16px;
   --radius-control: 8px;
   --radius-pill: 999px;
-  --history-item-radius: var(--radius-control);
-  --history-remove-btn-radius: var(--radius-panel);
 
-  --text-primary: oklch(22% 0.04 225);
-  --text-secondary: oklch(35% 0.03 190);
-  --text-muted: oklch(54% 0.02 195);
-  --text-inverse: oklch(97.5% 0.006 220);
+  --text-primary: rgba(1, 30, 40, 1);
+  --text-secondary: rgba(40, 64, 62, 1);
+  --text-muted: rgba(98, 115, 114, 1);
+  --text-inverse: rgba(243, 248, 250, 1);
 
-  --accent-primary: oklch(42% 0.055 165);
-  --accent-primary-muted: oklch(42% 0.055 165 / 0.16);
-  --accent-warning: oklch(62% 0.1 60);
-  --accent-danger: oklch(54% 0.14 22);
-  --accent-success: oklch(54% 0.1 160);
+  --accent-primary: rgba(46, 87, 70, 1);
+  --accent-primary-muted: rgba(46, 87, 70, 0.16);
+  --accent-warning: rgba(178, 119, 68, 1);
+  --accent-danger: rgba(177, 70, 72, 1);
+  --accent-success: rgba(46, 128, 90, 1);
 
-  --shadow-sm: 0 1px 4px oklch(32% 0.055 230 / 0.04);
+  --shadow-sm: 0 1px 4px rgba(13, 56, 73, 0.04);
   --shadow-panel:
-    0 1px 0 oklch(32% 0.055 230 / 0.05) inset, 0 8px 24px oklch(32% 0.055 230 / 0.04),
-    0 2px 6px oklch(32% 0.055 230 / 0.03);
+    0 1px 0 rgba(13, 56, 73, 0.05) inset, 0 8px 24px rgba(13, 56, 73, 0.04),
+    0 2px 6px rgba(13, 56, 73, 0.03);
   --shadow-modal:
-    0 1px 0 oklch(32% 0.055 230 / 0.06) inset, 0 32px 80px oklch(22% 0.04 225 / 0.1),
-    0 4px 16px oklch(22% 0.04 225 / 0.05);
+    0 1px 0 rgba(13, 56, 73, 0.06) inset, 0 32px 80px rgba(1, 30, 40, 0.1),
+    0 4px 16px rgba(1, 30, 40, 0.05);
   --shadow-active-item:
-    0 0 0 1.5px oklch(42% 0.055 165 / 0.3), 0 4px 14px oklch(42% 0.055 165 / 0.08);
-  --shadow-glow: 0 0 18px oklch(42% 0.055 165 / 0.16);
-  --shadow-glow-primary: 0 0 18px oklch(42% 0.055 165 / 0.16);
-  --shadow-glow-warning: 0 0 10px oklch(62% 0.1 60 / 0.2);
-  --shadow-glow-danger: 0 0 10px oklch(54% 0.14 22 / 0.2);
-  --shadow-glow-elevated: 0 0 20px oklch(32% 0.055 230 / 0.05);
+    0 0 0 1.5px rgba(46, 87, 70, 0.3), 0 4px 14px rgba(46, 87, 70, 0.08);
+  --shadow-glow: 0 0 12px rgba(46, 87, 70, 0.09);
+  --shadow-glow-primary: 0 0 12px rgba(46, 87, 70, 0.09);
+  --shadow-glow-warning: 0 0 8px rgba(178, 119, 68, 0.16);
+  --shadow-glow-danger: 0 0 8px rgba(177, 70, 72, 0.16);
+  --shadow-glow-elevated: 0 0 16px rgba(13, 56, 73, 0.04);
 
   --overlay-blur: 16px;
-  --overlay-sheen: linear-gradient(180deg, oklch(100% 0 0 / 0.5) 0%, oklch(100% 0 0 / 0) 100%);
+  --overlay-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.06) 58%,
+    rgba(255, 255, 255, 0) 100%
+  );
 
   --opacity-btn-hover: 0.85;
   --opacity-btn-active: 0.6;
@@ -77,69 +82,145 @@
 
   --app-bg-gradient:
     url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
-    linear-gradient(160deg, oklch(98.5% 0.004 210) 0%, oklch(96.5% 0.009 80) 100%);
+    linear-gradient(160deg, rgba(247, 251, 252, 1) 0%, rgba(247, 243, 237, 1) 100%);
 
-  --app-panel-blur: var(--overlay-blur);
+  --control-focus-ring: rgba(46, 87, 70, 0.28);
 
-  --bpm-value-fw: 260;
-  --bpm-value-ls: 0.02em;
-  --bpm-value-color: oklch(22% 0.04 225);
-  --bpm-value-filter: none;
-  --bpm-value-shadow: none;
-  --bpm-label-color: var(--text-muted);
-  --bpm-wheel-bg: linear-gradient(180deg, oklch(99.5% 0.002 220) 0%, oklch(95% 0.007 220) 100%);
-  --bpm-wheel-border: 1px solid oklch(32% 0.055 230 / 0.08);
-  --bpm-wheel-shadow:
-    inset 0 1px 0 oklch(100% 0 0 / 0.85), inset 0 -1px 0 oklch(32% 0.055 230 / 0.04),
-    0 4px 12px oklch(32% 0.055 230 / 0.04);
-  --bpm-wheel-active-shadow:
-    inset 0 1px 0 oklch(100% 0 0 / 0.92), inset 0 -1px 0 oklch(42% 0.055 165 / 0.08),
-    0 0 0 1px oklch(42% 0.055 165 / 0.18);
-  --bpm-wheel-tick: oklch(42% 0.055 165 / 0.45);
-  --bpm-wheel-line: oklch(42% 0.055 165);
-  --bpm-wheel-line-glow: transparent;
+  --readout-value-weight: 260;
+  --readout-value-letter-spacing: 0.02em;
+  --readout-value-color: rgba(1, 30, 40, 1);
+  --readout-value-filter: none;
+  --readout-value-shadow: none;
+  --readout-label-color: var(--text-muted);
+  --readout-input-color: var(--readout-value-color);
+  --readout-input-caret-color: var(--accent-primary);
+  --readout-input-selection: rgba(46, 87, 70, 0.18);
+  --readout-wheel-bg: linear-gradient(180deg, rgba(251, 253, 253, 1) 0%, rgba(236, 242, 243, 1) 100%);
+  --readout-wheel-border: 1px solid rgba(13, 56, 73, 0.1);
+  --readout-wheel-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 -1px 0 rgba(13, 56, 73, 0.03),
+    0 3px 10px rgba(13, 56, 73, 0.04);
+  --readout-wheel-active-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72), inset 0 -1px 0 rgba(46, 87, 70, 0.07),
+    0 0 0 1px rgba(46, 87, 70, 0.14), 0 6px 14px rgba(13, 56, 73, 0.04);
+  --readout-wheel-tick: rgba(46, 87, 70, 0.34);
+  --readout-wheel-line: rgba(46, 87, 70, 1);
+  --readout-wheel-line-glow: transparent;
 
-  --visualizer-block-bg: var(--fill-subtle);
-  --visualizer-block-empty: oklch(94% 0.01 220);
-  --visualizer-block-empty-active: oklch(90% 0.02 185);
-  --visualizer-block-accent: var(--accent-primary);
-  --visualizer-block-accent-dim: oklch(72% 0.04 165);
+  --meter-block-bg: var(--fill-subtle);
+  --meter-block-empty: rgba(228, 237, 240, 1);
+  --meter-block-empty-active: rgba(208, 227, 224, 1);
+  --meter-block-border: 1px solid rgba(13, 56, 73, 0.06);
+  --meter-block-accent: var(--accent-primary);
+  --meter-block-accent-dim: rgba(142, 173, 158, 1);
+  --meter-block-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  --meter-block-shadow-filled: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  --meter-block-shadow-active:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(46, 87, 70, 0.08);
+  --meter-controls-bg: rgba(245, 249, 250, 0.84);
+  --meter-controls-border: 1px solid rgba(13, 56, 73, 0.08);
+  --meter-controls-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  --meter-value-color: var(--text-secondary);
+  --meter-value-active-color: var(--accent-primary);
 
-  --dock-bg: oklch(98.5% 0.004 220 / 0.82);
-  --dock-blur: var(--overlay-blur);
-  --dock-border: 1px solid oklch(32% 0.055 230 / 0.08);
-  --dock-shadow:
-    0 1px 0 oklch(100% 0 0 / 0.7) inset, 0 -1px 0 oklch(32% 0.055 230 / 0.04) inset,
-    0 16px 48px oklch(32% 0.055 230 / 0.06);
+  --surface-panel-bg: rgba(247, 251, 252, 0.82);
+  --surface-panel-blur: var(--overlay-blur);
+  --surface-panel-border: 1px solid rgba(13, 56, 73, 0.08);
+  --surface-panel-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 -1px 0 rgba(13, 56, 73, 0.04) inset,
+    0 16px 48px rgba(13, 56, 73, 0.06);
 
-  --history-item-bg: oklch(95% 0.007 220 / 0.6);
-  --history-item-border: 1px solid oklch(32% 0.055 230 / 0.07);
+  --control-bg: rgba(236, 243, 244, 0.92);
+  --control-border-color: rgba(13, 56, 73, 0.08);
+  --control-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 1px 2px rgba(13, 56, 73, 0.03);
+  --control-active-bg: rgba(232, 239, 240, 0.96);
+  --control-active-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  --control-selected-bg: rgba(46, 87, 70, 0.12);
+  --control-selected-color: rgba(46, 87, 70, 1);
+  --control-selected-border-color: rgba(46, 87, 70, 0.22);
+  --control-selected-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 2px 8px rgba(46, 87, 70, 0.05);
+  --control-quiet-bg: rgba(250, 252, 253, 0.56);
+  --control-quiet-color: var(--text-secondary);
+  --control-quiet-border-color: rgba(13, 56, 73, 0.08);
+  --control-quiet-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  --control-quiet-active-bg: rgba(246, 250, 251, 0.72);
+  --control-quiet-active-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
+  --control-quiet-selected-bg: rgba(223, 234, 228, 0.92);
+  --control-quiet-selected-color: var(--accent-primary);
+  --control-quiet-selected-border-color: rgba(46, 87, 70, 0.18);
+  --control-quiet-selected-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 2px 8px rgba(46, 87, 70, 0.04);
 
-  --btn-filled-bg: oklch(96% 0.007 220);
-  --btn-filled-color: var(--text-primary);
-  --btn-filled-border-width: 1px;
-  --btn-filled-border-color: oklch(32% 0.055 230 / 0.06);
-  --btn-filled-shadow: 0 1px 0 oklch(100% 0 0 / 0.8) inset, 0 1px 3px oklch(32% 0.055 230 / 0.05);
-  --btn-filled-checked-bg: oklch(42% 0.055 165 / 0.12);
-  --btn-filled-checked-color: oklch(42% 0.055 165);
-  --btn-filled-checked-border-color: oklch(42% 0.055 165 / 0.22);
-  --btn-filled-checked-shadow: 0 1px 0 oklch(100% 0 0 / 0.7) inset;
+  --field-bg: rgba(250, 252, 253, 0.9);
+  --field-color: var(--zen-ink);
+  --field-border-color: rgba(13, 56, 73, 0.08);
+  --field-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
+  --field-focus-border: rgba(46, 87, 70, 0.28);
+  --field-focus-bg: rgba(252, 254, 254, 0.98);
 
-  --btn-outline-border-color: oklch(32% 0.055 230 / 0.12);
+  --action-solid-bg: rgba(237, 243, 245, 1);
+  --action-solid-color: var(--text-primary);
+  --action-solid-border-width: 1px;
+  --action-solid-border-color: rgba(13, 56, 73, 0.06);
+  --action-solid-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 1px 3px rgba(13, 56, 73, 0.05);
+  --action-solid-active-bg: rgba(232, 239, 240, 1);
+  --action-solid-active-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 2px rgba(13, 56, 73, 0.04);
+  --action-outline-bg: rgba(250, 252, 253, 0.56);
+  --action-outline-color: var(--text-secondary);
+  --action-outline-border-width: 1px;
+  --action-outline-border-color: rgba(13, 56, 73, 0.12);
+  --action-outline-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
+  --action-outline-selected-bg: var(--control-quiet-selected-bg);
+  --action-outline-selected-color: var(--control-quiet-selected-color);
+  --action-outline-selected-border-width: 1px;
+  --action-outline-selected-border-color: var(--control-quiet-selected-border-color);
+  --action-outline-selected-shadow: var(--control-quiet-selected-shadow);
 
-  --select-dropdown-bg: oklch(99% 0.003 220 / 0.96);
-  --select-dropdown-blur: var(--overlay-blur);
+  --surface-floating-bg: rgba(250, 252, 253, 0.92);
+  --surface-floating-border: 1px solid rgba(13, 56, 73, 0.08);
+  --surface-floating-blur: var(--overlay-blur);
+  --surface-floating-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.44) inset, 0 18px 48px rgba(13, 56, 73, 0.08),
+    0 4px 14px rgba(13, 56, 73, 0.04);
+  --surface-floating-inner-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34), inset 0 -1px 0 rgba(13, 56, 73, 0.03);
+  --surface-floating-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.04) 64%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --modal-shell-overlay-blur: var(--overlay-blur);
 
-  --checkbox-checked-bg: oklch(42% 0.055 165 / 0.12);
-  --checkbox-checked-border-color: oklch(42% 0.055 165 / 0.22);
-  --checkbox-checked-shadow: 0 1px 0 oklch(100% 0 0 / 0.7) inset;
+  --control-handle-bg: rgba(252, 254, 253, 1);
+  --control-handle-border-color: rgba(13, 56, 73, 0.08);
+  --control-handle-shadow: 0 2px 8px rgba(13, 56, 73, 0.08);
+  --control-handle-selected-bg: rgba(46, 87, 70, 0.94);
+  --control-handle-selected-border-color: rgba(245, 241, 236, 0.72);
+  --control-handle-selected-shadow: 0 2px 8px rgba(46, 87, 70, 0.16);
+  --control-handle-accent-bg: rgba(46, 87, 70, 1);
+  --control-handle-accent-border-color: rgba(245, 241, 236, 0.82);
+  --control-handle-accent-shadow: 0 2px 8px rgba(46, 87, 70, 0.18);
 
-  --swing-slider-track-border: oklch(32% 0.055 230 / 0.08);
-  --swing-slider-progress-bg: oklch(42% 0.055 165);
-  --swing-slider-thumb-bg: oklch(42% 0.055 165);
+  --switch-track-bg: rgba(231, 238, 240, 0.96);
+  --switch-track-border-color: rgba(13, 56, 73, 0.08);
+  --switch-track-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.64);
+  --switch-track-selected-bg: rgba(223, 234, 228, 0.96);
+  --switch-track-selected-border-color: rgba(46, 87, 70, 0.18);
+  --switch-track-selected-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.44);
 
-  --speed-status-border: oklch(32% 0.055 230 / 0.08);
+  --range-track-bg: rgba(228, 236, 238, 0.92);
+  --range-track-border-color: rgba(13, 56, 73, 0.08);
+  --range-track-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --range-progress-bg: rgba(46, 87, 70, 1);
+  --range-thumb-bg: linear-gradient(180deg, rgba(251, 253, 252, 1) 0%, rgba(229, 236, 233, 1) 100%);
+  --range-thumb-border-width: 1px;
+  --range-thumb-border-color: rgba(46, 87, 70, 0.24);
+  --range-thumb-shadow:
+    0 2px 8px rgba(13, 56, 73, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.68);
 
-  --interval-status-border: oklch(32% 0.055 230 / 0.08);
-  --interval-status-muted-border: oklch(32% 0.055 230 / 0.1);
+  --select-option-radius: var(--action-radius);
+  --select-dropdown-title-color: rgba(76, 97, 94, 0.78);
+  --select-dot-shadow: 0 0 0 1px rgba(252, 254, 253, 0.72);
 }

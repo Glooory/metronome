@@ -5,26 +5,28 @@
   gap: 0.5rem;
   padding: 0;
   margin: 0;
-  font-family: inherit;
-  font-weight: 500;
+  font-family: var(--action-font-family);
+  font-weight: var(--action-font-weight);
+  letter-spacing: var(--action-letter-spacing);
+  text-transform: var(--action-text-transform);
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
   appearance: none;
   touch-action: manipulation;
-  border-radius: var(--btn-radius, var(--radius-control));
+  border-radius: var(--action-radius);
   transition: var(--transition-fast, var(--transition-base));
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--btn-focus-ring, var(--accent-primary, #3b82f6));
+  outline: 2px solid var(--action-focus-ring);
   outline-offset: 2px;
 }
 
 .button:active {
-  opacity: var(--btn-active-opacity, var(--opacity-btn-active, 0.7));
-  transform: var(--btn-active-transform, scale(0.98));
+  opacity: var(--action-active-opacity);
+  transform: var(--action-active-transform);
 }
 
 .button:disabled {
@@ -33,35 +35,35 @@
 }
 
 .size-sm {
-  height: 2rem;
-  padding: 0 0.75rem;
-  font-size: 0.8125rem;
+  height: var(--control-height-sm, 2rem);
+  padding: 0 var(--control-padding-inline-sm, 0.75rem);
+  font-size: var(--type-control-size-sm, 0.75rem);
 }
 
 .size-md {
-  height: 2.5rem;
-  padding: 0 1rem;
-  font-size: 0.875rem;
+  height: var(--control-height-md, 2.5rem);
+  padding: 0 var(--control-padding-inline-md, 1rem);
+  font-size: var(--type-control-size-md, 0.875rem);
 }
 
 .size-lg {
-  height: 3rem;
-  padding: 0 1.5rem;
-  font-size: 1rem;
+  height: var(--control-height-lg, 3rem);
+  padding: 0 var(--control-padding-inline-lg, 1.5rem);
+  font-size: var(--type-control-size-lg, 1rem);
 }
 
 .size-icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: var(--control-size-icon-md, 2.5rem);
+  height: var(--control-size-icon-md, 2.5rem);
   padding: 0;
-  border-radius: var(--btn-radius, var(--radius-control));
+  border-radius: var(--action-radius);
 }
 
 .size-icon-sm {
-  width: 2rem;
-  height: 2rem;
+  width: var(--control-size-icon-sm, 2rem);
+  height: var(--control-size-icon-sm, 2rem);
   padding: 0;
-  border-radius: var(--btn-radius, var(--radius-control));
+  border-radius: var(--action-radius);
 }
 
 .icon {
@@ -72,66 +74,61 @@
 }
 
 .variant-filled {
-  background: var(--btn-filled-bg, var(--fill-subtle));
-  color: var(--btn-filled-color, var(--text-primary));
-  border: var(--btn-filled-border-width, 1px) solid var(--btn-filled-border-color, transparent);
-  box-shadow: var(--btn-filled-shadow, none);
+  background: var(--action-solid-bg);
+  color: var(--action-solid-color);
+  border: var(--action-solid-border-width) solid var(--action-solid-border-color);
+  box-shadow: var(--action-solid-shadow);
 }
 
 .variant-filled:active {
-  background: var(--btn-filled-active-bg, var(--btn-filled-bg, var(--fill-subtle)));
-  box-shadow: var(--btn-filled-active-shadow, none);
+  background: var(--action-solid-active-bg);
+  box-shadow: var(--action-solid-active-shadow);
 }
 
 .variant-filled[aria-checked="true"] {
-  background: var(--btn-filled-checked-bg, var(--accent-primary));
-  color: var(--btn-filled-checked-color, var(--text-inverse));
-  border: var(--btn-filled-checked-border-width, var(--btn-filled-border-width, 1px)) solid
-    var(--btn-filled-checked-border-color, var(--btn-filled-border-color, transparent));
-  box-shadow: var(--btn-filled-checked-shadow, none);
+  background: var(--action-solid-selected-bg);
+  color: var(--action-solid-selected-color);
+  border: var(--action-solid-selected-border-width) solid var(--action-solid-selected-border-color);
+  box-shadow: var(--action-solid-selected-shadow);
 }
 
 .variant-outline {
-  background: var(--btn-outline-bg, transparent);
-  color: var(--btn-outline-color, var(--text-secondary));
-  border: var(--btn-outline-border-width, 1px) solid
-    var(--btn-outline-border-color, var(--border-subtle));
-  box-shadow: var(--btn-outline-shadow, none);
+  background: var(--action-outline-bg);
+  color: var(--action-outline-color);
+  border: var(--action-outline-border-width) solid var(--action-outline-border-color);
+  box-shadow: var(--action-outline-shadow);
 }
 
 .variant-outline:active {
-  background: var(--btn-outline-active-bg, var(--btn-outline-bg, transparent));
-  box-shadow: var(--btn-outline-active-shadow, none);
+  background: var(--action-outline-active-bg);
+  box-shadow: var(--action-outline-active-shadow);
 }
 
 .variant-outline[aria-checked="true"] {
-  background: var(--btn-outline-checked-bg, var(--fill-subtle));
-  color: var(--btn-outline-checked-color, var(--accent-primary));
-  border: var(--btn-outline-checked-border-width, var(--btn-outline-border-width, 1px)) solid
-    var(--btn-outline-checked-border-color, var(--accent-primary));
-  box-shadow: var(--btn-outline-checked-shadow, none);
+  background: var(--action-outline-selected-bg);
+  color: var(--action-outline-selected-color);
+  border: var(--action-outline-selected-border-width) solid
+    var(--action-outline-selected-border-color);
+  box-shadow: var(--action-outline-selected-shadow);
 }
 
 .variant-transparent {
-  background: var(--btn-transparent-bg, transparent);
-  color: var(--btn-transparent-color, var(--text-secondary));
-  border: var(--btn-transparent-border-width, 1px) solid
-    var(--btn-transparent-border-color, transparent);
-  box-shadow: var(--btn-transparent-shadow, none);
+  background: var(--action-ghost-bg);
+  color: var(--action-ghost-color);
+  border: var(--action-ghost-border-width) solid var(--action-ghost-border-color);
+  box-shadow: var(--action-ghost-shadow);
 }
 
 .variant-transparent:active {
-  background: var(--btn-transparent-active-bg, var(--btn-transparent-bg, transparent));
-  box-shadow: var(--btn-transparent-active-shadow, none);
+  background: var(--action-ghost-active-bg);
+  box-shadow: var(--action-ghost-active-shadow);
 }
 
 .variant-transparent[aria-checked="true"] {
-  background: var(--btn-transparent-checked-bg, transparent);
-  color: var(--btn-transparent-checked-color, var(--accent-primary));
-  border: var(--btn-transparent-checked-border-width, var(--btn-transparent-border-width, 1px))
-    solid
-    var(--btn-transparent-checked-border-color, var(--btn-transparent-border-color, transparent));
-  box-shadow: var(--btn-transparent-checked-shadow, none);
+  background: var(--action-ghost-selected-bg);
+  color: var(--action-ghost-selected-color);
+  border: var(--action-ghost-selected-border-width) solid var(--action-ghost-selected-border-color);
+  box-shadow: var(--action-ghost-selected-shadow);
 }
 
 .no-padding {

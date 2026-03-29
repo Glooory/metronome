@@ -1,49 +1,10 @@
-.presets-modal__overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--app-modal-overlay-bg, var(--bg-overlay));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  padding: 20px;
-}
-
-.presets-modal {
-  background: var(--app-modal-bg, var(--bg-surface));
-  border: var(--app-modal-border, 1px solid var(--border-subtle));
-  border-radius: var(--app-modal-radius, var(--radius-modal));
-  padding: 24px;
-  min-width: 340px;
-  max-width: 420px;
-  width: 100%;
-  max-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow:
-    var(--app-modal-shadow, var(--shadow-modal)),
-    var(--app-modal-inner-shadow, none);
+.presets-modal__panel {
+  --modal-shell-min-width: 340px;
+  --modal-shell-max-width: 420px;
+  --modal-shell-max-height: 80vh;
+  --surface-floating-inner-shadow: none;
   position: relative;
-}
-
-.presets-modal__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.presets-modal__title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.presets-modal__title-icon {
-  color: var(--app-title-icon-color, var(--accent-primary));
+  overflow: hidden;
 }
 
 .presets-modal__content {
@@ -61,24 +22,6 @@
 .presets-modal__name-input {
   flex: 1;
   min-width: 0;
-  padding: 10px 14px;
-  background: var(--app-input-bg, var(--fill-subtle));
-  border: var(--app-input-border, var(--app-input-border-width, 1px) solid var(--border-subtle));
-  box-shadow: var(--app-input-shadow, none);
-  border-radius: var(--app-input-radius, var(--radius-control));
-  color: var(--app-input-color, var(--text-primary));
-  font-size: 14px;
-  outline: none;
-  transition: var(--transition-fast);
-}
-
-.presets-modal__name-input::placeholder {
-  color: var(--presets-input-placeholder, var(--text-muted));
-}
-
-.presets-modal__name-input:focus {
-  border-color: var(--app-input-focus-border, var(--accent-primary));
-  background: var(--app-input-focus-bg, var(--bg-surface));
 }
 
 .presets-modal__save-btn {
@@ -88,7 +31,7 @@
 
 .presets-modal__divider {
   height: 1px;
-  background: var(--presets-divider-bg, var(--border-subtle));
+  background: var(--border-subtle);
 }
 
 .presets-modal__list {
@@ -106,13 +49,13 @@
 }
 
 .presets-modal__list::-webkit-scrollbar-track {
-  background: var(--presets-scroll-track, var(--fill-subtle));
-  border-radius: var(--presets-scrollbar-radius, var(--radius-pill));
+  background: var(--fill-subtle);
+  border-radius: var(--radius-pill);
 }
 
 .presets-modal__list::-webkit-scrollbar-thumb {
-  background: var(--presets-scroll-thumb, var(--fill-active));
-  border-radius: var(--presets-scrollbar-thumb-radius, var(--radius-pill));
+  background: var(--fill-active);
+  border-radius: var(--radius-pill);
 }
 
 .presets-modal__item {
@@ -120,10 +63,13 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: var(--presets-item-bg, var(--fill-subtle));
-  border: 1px solid var(--presets-item-border, var(--border-subtle));
-  border-radius: var(--presets-item-radius, var(--radius-control));
-  box-shadow: var(--presets-item-shadow, none);
+  background: var(--field-bg, var(--fill-subtle));
+  border: var(
+    --field-border,
+    var(--field-border-width, 1px) solid var(--field-border-color, var(--border-subtle))
+  );
+  border-radius: var(--field-radius, var(--radius-control));
+  box-shadow: var(--field-shadow, none);
 }
 
 .presets-modal__item-info {
@@ -132,9 +78,10 @@
 }
 
 .presets-modal__item-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--presets-item-name-color, var(--text-primary));
+  font-family: var(--type-body-ff, var(--font-app-sans));
+  font-size: var(--type-body-size-sm, 0.875rem);
+  font-weight: var(--type-body-strong-fw, 600);
+  color: var(--text-primary);
   margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -142,8 +89,9 @@
 }
 
 .presets-modal__item-meta {
-  font-size: 12px;
-  color: var(--presets-item-meta-color, var(--text-secondary));
+  font-family: var(--type-caption-ff, var(--font-app-sans));
+  font-size: var(--type-caption-size, 0.75rem);
+  color: var(--text-secondary);
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
@@ -155,14 +103,15 @@
 }
 
 .presets-modal__item-delete-btn {
-  color: var(--presets-item-delete-btn-color, var(--accent-danger));
+  color: var(--accent-danger);
 }
 
 .presets-modal__empty-state {
   text-align: center;
   padding: 32px 16px;
-  color: var(--presets-empty-text, var(--text-muted));
-  font-size: 14px;
+  color: var(--text-muted);
+  font-family: var(--type-body-ff, var(--font-app-sans));
+  font-size: var(--type-body-size-sm, 0.875rem);
 }
 
 .presets-modal__empty-icon {
@@ -173,39 +122,48 @@
 .presets-modal__confirm-overlay {
   position: absolute;
   inset: 0;
-  background: var(--app-modal-overlay-bg, var(--bg-overlay));
-  backdrop-filter: none;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(var(--modal-shell-overlay-blur, var(--overlay-blur, 0px)));
+  -webkit-backdrop-filter: blur(var(--modal-shell-overlay-blur, var(--overlay-blur, 0px)));
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
-  border-radius: var(--app-modal-radius, var(--radius-modal));
+  border-radius: var(--surface-floating-radius, var(--radius-modal));
 }
 
 .presets-modal__confirm-dialog {
-  background: var(--app-modal-bg, var(--bg-surface));
-  border: var(--app-modal-border, 1px solid var(--border-subtle));
-  border-radius: var(--app-modal-radius, var(--radius-modal));
+  background: var(--surface-floating-bg, var(--bg-surface));
+  border: var(
+    --surface-floating-border,
+    var(--surface-floating-border-width, 1px) solid
+      var(--surface-floating-border-color, var(--border-subtle))
+  );
+  border-radius: var(--surface-floating-radius, var(--radius-modal));
   padding: 20px;
   width: 90%;
   max-width: 320px;
   box-shadow:
-    var(--app-modal-shadow, var(--shadow-modal)),
-    var(--app-modal-inner-shadow, none);
+    var(--surface-floating-shadow, var(--shadow-modal)),
+    var(--surface-floating-inner-shadow, none);
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: center;
+  animation: presets-modal-confirm-in 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .presets-modal__confirm-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--type-title-ff, var(--font-display));
+  font-size: var(--type-title-size-sm, 1rem);
+  font-weight: var(--type-title-fw, 600);
+  letter-spacing: var(--type-title-letter-spacing, -0.02em);
   color: var(--app-title-color, var(--text-primary));
 }
 
 .presets-modal__confirm-message {
-  font-size: 14px;
+  font-family: var(--type-body-ff, var(--font-app-sans));
+  font-size: var(--type-body-size-sm, 0.875rem);
   color: var(--text-secondary);
 }
 
@@ -219,25 +177,34 @@
 .presets-modal__confirm-btn-delete {
   flex: 1;
   padding: 8px;
-  font-size: 14px;
-  font-weight: 500;
 }
 
 .presets-modal__confirm-btn-delete {
-  color: var(--presets-btn-confirm-del-color, var(--accent-danger));
-  border: var(--presets-btn-confirm-del-border, 1px solid transparent);
-  box-shadow: var(--presets-btn-confirm-del-shadow, none);
-}
-
-.presets-modal__confirm-btn-cancel {
-  border: var(--presets-btn-cancel-border, 1px solid transparent);
-  box-shadow: var(--presets-btn-cancel-shadow, none);
+  color: var(--accent-danger);
 }
 
 .presets-modal__confirm-btn-cancel:active {
-  opacity: var(--presets-btn-cancel-active-opacity, var(--opacity-btn-active, 0.7));
+  opacity: var(--opacity-btn-active, 0.7);
 }
 
 .presets-modal__confirm-btn-delete:active {
-  opacity: var(--presets-btn-confirm-del-active-opacity, var(--opacity-btn-active, 0.7));
+  opacity: var(--opacity-btn-active, 0.7);
+}
+
+@keyframes presets-modal-confirm-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presets-modal__confirm-dialog {
+    animation-duration: 1ms;
+  }
 }

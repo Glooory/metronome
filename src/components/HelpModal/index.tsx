@@ -1,5 +1,3 @@
-import { clsx } from "clsx";
-import { motion } from "framer-motion";
 import {
   AudioWaveform,
   Gauge,
@@ -10,11 +8,10 @@ import {
   Music,
   Star,
   VolumeX,
-  X,
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
-import { Button } from "../Button";
+import { ModalShell } from "../ModalShell";
 import styles from "./styles.module.css";
 
 interface HelpModalProps {
@@ -24,144 +21,117 @@ interface HelpModalProps {
 }
 
 export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
-  if (!isOpen) return null;
-
+  const common = translations.common;
   const t = translations.help;
 
   return (
-    <motion.div
-      className={styles["help-modal"]}
-      onClick={onClose}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.15 }}
+    <ModalShell
+      isOpen={isOpen}
+      title={t.title[language]}
+      titleAs="h2"
+      closeLabel={common.close[language]}
+      onClose={onClose}
+      icon={HelpCircle}
+      overlayClassName={styles["help-modal__overlay"]}
+      panelClassName={styles["help-modal__panel"]}
+      headerClassName={styles["help-modal__header"]}
+      titleRowClassName={styles["help-modal__title-row"]}
+      titleClassName={styles["help-modal__title"]}
+      titleIconClassName={styles["help-modal__title-icon"]}
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 10 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 10 }}
-        transition={{
-          type: "spring",
-          stiffness: 450,
-          damping: 30,
-          mass: 0.8,
-        }}
-        onClick={(e) => e.stopPropagation()}
-        className={styles["help-modal__content"]}
-      >
-        <div className={styles["help-modal__header"]}>
-          <div className={styles["header-title-wrapper"]}>
-            <HelpCircle className={styles.icon} size={20} />
-            <h2 className={styles["help-modal__title"]}>{t.title[language]}</h2>
+      <div className={styles["help-modal__body"]}>
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <GripVertical size={20} />
           </div>
-          <Button size="icon-sm" onClick={onClose} aria-label="Close">
-            <X size={20} />
-          </Button>
-        </div>
-
-        <div className={clsx(styles["help-modal__body"], "custom-scrollbar")}>
-          {/* BPM Control */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <GripVertical size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.bpmControl[language]}</h3>
-              <p className={styles["section-text"]}>
-                {t.bpmControlDesc[language]}
-                <br />
-                <span className={styles["text-xs"]}>{t.bpmControlKeys[language]}</span>
-              </p>
-            </div>
-          </div>
-
-          {/* BPM Memory */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <Star size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.bpmMemory[language]}</h3>
-              <p className={styles["section-text"]}>{t.bpmMemoryDesc[language]}</p>
-            </div>
-          </div>
-
-          {/* Beat Bars */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <MousePointerClick size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.beatBars[language]}</h3>
-              <p className={styles["section-text"]}>
-                {t.beatBarsDesc[language]}
-                <br />
-                <strong>{t.beatBarsLegend[language]}</strong>
-              </p>
-            </div>
-          </div>
-
-          {/* Speed Trainer */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <Gauge size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.speedTrainer[language]}</h3>
-              <p className={styles["section-text"]}>{t.speedTrainerDesc[language]}</p>
-            </div>
-          </div>
-
-          {/* Interval Trainer */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <VolumeX size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.intervalTrainer[language]}</h3>
-              <p className={styles["section-text"]}>{t.intervalTrainerDesc[language]}</p>
-            </div>
-          </div>
-
-          {/* Swing & Shift */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <AudioWaveform size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.swingTrainer[language]}</h3>
-              <p className={styles["section-text"]}>{t.swingTrainerDesc[language]}</p>
-            </div>
-          </div>
-
-          {/* Presets */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <ListMusic size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.presetsFeature[language]}</h3>
-              <p className={styles["section-text"]}>{t.presetsDesc[language]}</p>
-            </div>
-          </div>
-
-          {/* Bottom Dock */}
-          <div className={styles["help-modal__row"]}>
-            <div className={styles["help-modal__icon-box"]}>
-              <Music size={20} />
-            </div>
-            <div className="flex-1">
-              <h3 className={styles["section-title"]}>{t.bottomDock[language]}</h3>
-              <p className={styles["section-text"]}>{t.bottomDockDesc[language]}</p>
-            </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.bpmControl[language]}</h3>
+            <p className={styles["section-text"]}>
+              {t.bpmControlDesc[language]}
+              <br />
+              <span className={styles["text-xs"]}>{t.bpmControlKeys[language]}</span>
+            </p>
           </div>
         </div>
 
-        <div className={styles["help-modal__footer"]}>
-          <p className={styles["help-modal__footer-text"]}>{t.footer[language]}</p>
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <Star size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.bpmMemory[language]}</h3>
+            <p className={styles["section-text"]}>{t.bpmMemoryDesc[language]}</p>
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <MousePointerClick size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.beatBars[language]}</h3>
+            <p className={styles["section-text"]}>
+              {t.beatBarsDesc[language]}
+              <br />
+              <strong>{t.beatBarsLegend[language]}</strong>
+            </p>
+          </div>
+        </div>
+
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <Gauge size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.speedTrainer[language]}</h3>
+            <p className={styles["section-text"]}>{t.speedTrainerDesc[language]}</p>
+          </div>
+        </div>
+
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <VolumeX size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.intervalTrainer[language]}</h3>
+            <p className={styles["section-text"]}>{t.intervalTrainerDesc[language]}</p>
+          </div>
+        </div>
+
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <AudioWaveform size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.swingTrainer[language]}</h3>
+            <p className={styles["section-text"]}>{t.swingTrainerDesc[language]}</p>
+          </div>
+        </div>
+
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <ListMusic size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.presetsFeature[language]}</h3>
+            <p className={styles["section-text"]}>{t.presetsDesc[language]}</p>
+          </div>
+        </div>
+
+        <div className={styles["help-modal__row"]}>
+          <div className={styles["help-modal__icon-box"]}>
+            <Music size={20} />
+          </div>
+          <div className={styles["help-modal__section-body"]}>
+            <h3 className={styles["section-title"]}>{t.bottomDock[language]}</h3>
+            <p className={styles["section-text"]}>{t.bottomDockDesc[language]}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles["help-modal__footer"]}>
+        <p className={styles["help-modal__footer-text"]}>{t.footer[language]}</p>
+      </div>
+    </ModalShell>
   );
 };

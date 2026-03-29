@@ -1,0 +1,490 @@
+{
+  "project": "Vibe Metronome",
+  "registry_status": "MANUALLY_CURATED",
+  "registry": [
+    {
+      "area": "Main_Header (顶部工具栏)",
+      "container": "styles['header-buttons']",
+      "path": "src/App.tsx",
+      "entities": [
+        {
+          "id": "btn_theme_cycle",
+          "name": "主题轮播按钮",
+          "icon": "Palette",
+          "path": "src/App.tsx",
+          "logic": "cycleTheme()",
+          "desc": "右上角图标，顺序循环切换主题"
+        },
+        {
+          "id": "sel_theme_picker",
+          "name": "主题选择列表",
+          "icon": "Palette",
+          "path": "src/App.tsx",
+          "desc": "基于 Select 组件的主题下拉，呼出所有主题文字列表"
+        },
+        {
+          "id": "sel_lang_picker",
+          "name": "语言切换器",
+          "icon": "Globe",
+          "path": "src/App.tsx",
+          "desc": "基于 Select 组件的语言下拉，切换 9 种语言"
+        },
+        {
+          "id": "btn_help_open",
+          "name": "帮助中心入口",
+          "icon": "HelpCircle",
+          "path": "src/App.tsx",
+          "action": "setIsHelpOpen(true)"
+        }
+      ]
+    },
+    {
+      "area": "Main_BPM_Display (速度显示区)",
+      "container": "styles['bpm-display']",
+      "path": "src/components/BpmDisplay/index.tsx",
+      "entities": [
+        {
+          "id": "lbl_bpm",
+          "name": "BPM 竖排标签",
+          "selector": ".bpm-display__label",
+          "desc": "主读数左侧的 B/P/M 字母标签"
+        },
+        {
+          "id": "dsp_bpm_value",
+          "name": "BPM 核心读数",
+          "selector": ".bpm-display__value-wrapper",
+          "desc": "主数字显示，点击进入编辑态 (inp_bpm_input)"
+        },
+        {
+          "id": "inp_bpm_input",
+          "name": "BPM 编辑框",
+          "selector": ".bpm-display__input",
+          "desc": "激活态下的数字输入文本框"
+        },
+        {
+          "id": "whl_bpm_wheel",
+          "name": "BPM 物理滚轮",
+          "selector": ".bpm-display__wheel",
+          "desc": "数字右侧垂直条，拖拽调节"
+        },
+        {
+          "id": "btn_bpm_step_p5",
+          "name": "步进 +5",
+          "icon": "ChevronsUp",
+          "logic": "handleBtnClick(e, 5)"
+        },
+        {
+          "id": "btn_bpm_step_p1",
+          "name": "步进 +1",
+          "icon": "ChevronUp",
+          "logic": "handleBtnClick(e, 1)"
+        },
+        {
+          "id": "btn_bpm_step_m1",
+          "name": "步进 -1",
+          "icon": "ChevronDown",
+          "logic": "handleBtnClick(e, -1)"
+        },
+        {
+          "id": "btn_bpm_step_m5",
+          "name": "步进 -5",
+          "icon": "ChevronsDown",
+          "logic": "handleBtnClick(e, -5)"
+        }
+      ]
+    },
+    {
+      "area": "Main_BPM_History (速度历史与测速)",
+      "container": "styles['history-bar']",
+      "path": "src/components/BpmHistoryBar/index.tsx",
+      "entities": [
+        {
+          "id": "lst_bpm_history",
+          "name": "历史速度列表容器",
+          "selector": ".history-bar__list",
+          "desc": "横向滚动容器，承载历史 BPM 胶囊与空状态"
+        },
+        {
+          "id": "btn_bpm_save",
+          "name": "保存当前速度",
+          "icon": "Star",
+          "desc": "点击收藏当前速率"
+        },
+        {
+          "id": "btn_bpm_tap",
+          "name": "手动测速按钮",
+          "selector": ".history-bar__tap-btn",
+          "desc": "TAP 键"
+        },
+        {
+          "id": "lst_bpm_chip",
+          "name": "历史速度胶囊",
+          "selector": ".history-bar__item",
+          "desc": "左侧列表项"
+        },
+        {
+          "id": "btn_bpm_chip_del",
+          "name": "删除单条纪录",
+          "selector": ".history-bar__remove-btn"
+        },
+        {
+          "id": "emp_bpm_history",
+          "name": "无历史记录提示",
+          "selector": ".no-history",
+          "desc": "当未保存任何 BPM 时显示的空状态文字"
+        }
+      ]
+    },
+    {
+      "area": "Main_Visualizer (节奏可视化区)",
+      "container": "styles['visualizer']",
+      "path": "src/components/Visualizer/index.tsx",
+      "entities": [
+        {
+          "id": "lbl_vis_shift",
+          "name": "偏移标签",
+          "selector": ".visualizer__label",
+          "desc": "偏移控制组左侧的 Shift/偏移 标签"
+        },
+        {
+          "id": "btn_vis_shift_l",
+          "name": "节奏左偏 (Shift-)",
+          "icon": "Minus"
+        },
+        {
+          "id": "dsp_vis_shift_value",
+          "name": "偏移数值读数",
+          "selector": ".visualizer__value",
+          "desc": "显示当前 shift 值；非 0 时进入激活态高亮"
+        },
+        {
+          "id": "btn_vis_shift_r",
+          "name": "节奏右偏 (Shift+)",
+          "icon": "Plus"
+        },
+        {
+          "id": "btn_vis_reset",
+          "name": "重置偏移",
+          "icon": "RefreshCcw",
+          "logic": "shift !== 0 时显示"
+        },
+        {
+          "id": "col_vis_step",
+          "name": "单体节拍柱",
+          "selector": ".visualizer__column",
+          "logic": "toggleStepState(i)"
+        }
+      ]
+    },
+    {
+      "area": "Main_Subdivision_Row (底部细分切换行)",
+      "container": "styles['subdivision-row']",
+      "path": "src/App.tsx",
+      "entities": [
+        {
+          "id": "btn_subdiv_1_4",
+          "name": "细分: 四分音符",
+          "logic": "setSubdivision(1)"
+        },
+        {
+          "id": "btn_subdiv_1_8",
+          "name": "细分: 八分音符",
+          "logic": "setSubdivision(2)"
+        },
+        {
+          "id": "btn_subdiv_1_3",
+          "name": "细分: 三连音",
+          "logic": "setSubdivision(3)"
+        },
+        {
+          "id": "btn_subdiv_1_16",
+          "name": "细分: 十六分音符",
+          "logic": "setSubdivision(4)"
+        }
+      ]
+    },
+    {
+      "area": "Main_Dock_Stack (底部双 dock 容器)",
+      "container": "styles['dock-section']",
+      "path": "src/App.tsx",
+      "contains": ["Main_Trainer_Dock", "Main_Control_Dock"],
+      "desc": "底部整块区域，内部先上后下依次是 TrainerDock 与 ControlDock"
+    },
+    {
+      "area": "Main_Trainer_Dock (训练与预设 dock)",
+      "container": "styles['trainer-dock']",
+      "path": "src/components/TrainerDock/index.tsx",
+      "entities": [
+        {
+          "id": "btn_trainer_speed_entry",
+          "name": "速度训练入口",
+          "icon": "Gauge",
+          "action": "onSpeedClick"
+        },
+        {
+          "id": "btn_trainer_interval_entry",
+          "name": "间隔训练入口",
+          "icon": "VolumeX",
+          "action": "onIntervalClick"
+        },
+        {
+          "id": "btn_trainer_swing_entry",
+          "name": "摇摆训练入口",
+          "icon": "AudioWaveform",
+          "action": "onSwingClick"
+        },
+        {
+          "id": "btn_trainer_presets_entry",
+          "name": "预设管理入口",
+          "icon": "ListMusic",
+          "action": "onPresetsClick"
+        }
+      ]
+    },
+    {
+      "area": "Main_Control_Dock (底部播放主控 dock)",
+      "container": "styles['dock']",
+      "path": "src/components/ControlDock/index.tsx",
+      "entities": [
+        {
+          "id": "sel_time_signature",
+          "name": "拍号选择器",
+          "icon": "Music",
+          "path": "src/App.tsx",
+          "desc": "基于 Select 组件，控制 2/4 - 6/4"
+        },
+        {
+          "id": "btn_play_pause",
+          "name": "主播放/暂停键",
+          "icon": ["Play", "Pause"],
+          "path": "src/App.tsx",
+          "selector": ".play-btn",
+          "logic": "setIsPlaying(!isPlaying)"
+        },
+        {
+          "id": "sel_sound_presets",
+          "name": "音色预设器",
+          "icon": "Drum",
+          "path": "src/App.tsx",
+          "desc": "基于 Select 组件，切换 sine / wood / drum / mech"
+        }
+      ]
+    },
+    {
+      "area": "Modal_SpeedTrainer (速度训练弹窗)",
+      "path": "src/components/SpeedTrainerModal/index.tsx",
+      "state_trigger": "showSpeedModal",
+      "entities": [
+        {
+          "id": "chk_speed_enable",
+          "name": "启用训练开关",
+          "path": "src/components/Checkbox/index.tsx"
+        },
+        {
+          "id": "inp_speed_every",
+          "name": "变化频率 (小节)",
+          "desc": "Every (measures) 输入框"
+        },
+        {
+          "id": "inp_speed_inc",
+          "name": "BPM增量",
+          "desc": "Increment BPM输入框"
+        },
+        {
+          "id": "inp_speed_target",
+          "name": "目标速度",
+          "desc": "Target BPM输入框"
+        },
+        {
+          "id": "sts_speed_progress",
+          "name": "速度训练状态卡",
+          "selector": ".speed-trainer-modal__status",
+          "desc": "展示距下一次加速还有几小节，或已达到目标 BPM"
+        },
+        {
+          "id": "txt_speed_progress_highlight",
+          "name": "速度训练高亮读数",
+          "selector": ".speed-trainer-modal__status-highlight",
+          "desc": "状态卡中的目标 BPM 或下一档 BPM 高亮数字"
+        },
+        {
+          "id": "btn_speed_close",
+          "name": "关闭窗体",
+          "icon": "X"
+        }
+      ]
+    },
+    {
+      "area": "Modal_IntervalTrainer (间隔训练弹窗)",
+      "path": "src/components/IntervalTrainerModal/index.tsx",
+      "state_trigger": "showIntervalModal",
+      "entities": [
+        {
+          "id": "chk_interval_enable",
+          "name": "启用训练开关",
+          "path": "src/components/Checkbox/index.tsx"
+        },
+        {
+          "id": "inp_interval_play",
+          "name": "播放时长 (小节)",
+          "desc": "Play (measures) 输入框"
+        },
+        {
+          "id": "inp_interval_mute",
+          "name": "静音时长 (小节)",
+          "desc": "Mute (measures) 输入框"
+        },
+        {
+          "id": "sts_interval_cycle",
+          "name": "间隔训练状态卡",
+          "selector": ".interval-trainer-modal__status",
+          "desc": "显示当前处于播放或静音阶段，以及距离切换还剩几小节"
+        },
+        {
+          "id": "txt_interval_cycle_highlight",
+          "name": "间隔训练状态高亮",
+          "selector": ".interval-trainer-modal__status-highlight",
+          "desc": "状态卡中的 Playing / Muted 高亮文本"
+        },
+        {
+          "id": "txt_interval_hint",
+          "name": "间隔训练提示文案",
+          "selector": ".interval-trainer-modal__hint",
+          "desc": "状态卡下方的练习提示说明"
+        },
+        {
+          "id": "btn_interval_close",
+          "name": "关闭窗体",
+          "icon": "X"
+        }
+      ]
+    },
+    {
+      "area": "Modal_SwingSetting (摇摆设置弹窗)",
+      "path": "src/components/SwingSettingModal/index.tsx",
+      "state_trigger": "showSwingModal",
+      "entities": [
+        {
+          "id": "dsp_swing_value",
+          "name": "摇摆百分比读数",
+          "selector": ".swing-trainer-modal__value",
+          "desc": "滑块右侧的即时百分比显示"
+        },
+        {
+          "id": "txt_swing_desc",
+          "name": "摇摆说明文案",
+          "selector": ".swing-trainer-modal__desc",
+          "desc": "解释 swing 含义与适用范围的说明文字"
+        },
+        {
+          "id": "sld_swing_range",
+          "name": "摇摆百分比滑块",
+          "type": "range"
+        },
+        {
+          "id": "btn_swing_reset",
+          "name": "重置摇摆 (Reset)",
+          "icon": "RefreshCcw"
+        },
+        {
+          "id": "btn_swing_close",
+          "name": "关闭窗体",
+          "icon": "X"
+        }
+      ]
+    },
+    {
+      "area": "Modal_Presets (预设管理器弹窗)",
+      "path": "src/components/PresetsModal/index.tsx",
+      "state_trigger": "showPresetsModal",
+      "entities": [
+        {
+          "id": "inp_preset_new_name",
+          "name": "新预设名称输入",
+          "selector": ".presets-modal__name-input"
+        },
+        {
+          "id": "btn_preset_save",
+          "name": "保存当前配置",
+          "selector": ".presets-modal__save-btn"
+        },
+        {
+          "id": "lst_preset_items",
+          "name": "预设列表容器",
+          "selector": ".presets-modal__list",
+          "desc": "显示预设列表或空状态"
+        },
+        {
+          "id": "emp_preset_empty",
+          "name": "预设空状态",
+          "selector": ".presets-modal__empty-state",
+          "desc": "当没有任何预设时显示的提示区"
+        },
+        {
+          "id": "btn_preset_load",
+          "name": "加载预设",
+          "icon": "Play",
+          "desc": "列表项中的播放按钮"
+        },
+        {
+          "id": "btn_preset_del_trigger",
+          "name": "删除预设触发器",
+          "icon": "Trash2",
+          "desc": "点击开启二次确认"
+        },
+        {
+          "id": "btn_preset_del_confirm",
+          "name": "确认删除按钮",
+          "selector": ".presets-modal__confirm-btn-delete",
+          "desc": "二次确认框中的红色按钮"
+        },
+        {
+          "id": "btn_preset_del_cancel",
+          "name": "取消删除按钮",
+          "selector": ".presets-modal__confirm-btn-cancel",
+          "desc": "二次确认框中的取消按钮"
+        },
+        {
+          "id": "dlg_preset_del_confirm",
+          "name": "删除确认对话框",
+          "selector": ".presets-modal__confirm-dialog",
+          "desc": "点击删除触发器后出现的二次确认层"
+        },
+        {
+          "id": "btn_preset_close",
+          "name": "关闭窗体",
+          "icon": "X"
+        }
+      ]
+    },
+    {
+      "area": "Modal_Help (帮助指引弹窗)",
+      "path": "src/components/HelpModal/index.tsx",
+      "state_trigger": "isHelpOpen",
+      "entities": [
+        {
+          "id": "btn_help_close",
+          "name": "关闭帮助页",
+          "icon": "X"
+        },
+        {
+          "id": "lay_help_body",
+          "name": "说明文字滚动区",
+          "selector": ".help-modal__body"
+        },
+        {
+          "id": "sec_help_row",
+          "name": "帮助条目行",
+          "selector": ".help-modal__row",
+          "desc": "每一条帮助说明的图标 + 文案组合行"
+        },
+        {
+          "id": "txt_help_footer",
+          "name": "帮助页底部说明",
+          "selector": ".help-modal__footer-text",
+          "desc": "帮助弹窗底部的总结说明文字"
+        }
+      ]
+    }
+  ]
+}

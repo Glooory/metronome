@@ -1,13 +1,15 @@
 .dock {
   position: relative;
-  backdrop-filter: blur(var(--dock-blur, var(--overlay-blur, 0px)));
-  -webkit-backdrop-filter: blur(var(--dock-blur, var(--overlay-blur, 0px)));
-  background-color: var(--dock-bg, var(--bg-elevated));
-  border: var(--dock-border, 1px solid var(--border-base));
-  box-shadow:
-    var(--dock-shadow, var(--shadow-panel)),
-    0 0 0 1px var(--dock-shadow-outline, var(--border-subtle));
-  border-radius: var(--dock-radius, var(--radius-pill));
+  backdrop-filter: blur(var(--surface-panel-blur, var(--overlay-blur, 0px)));
+  -webkit-backdrop-filter: blur(var(--surface-panel-blur, var(--overlay-blur, 0px)));
+  background-color: var(--surface-panel-bg, var(--bg-elevated));
+  border: var(
+    --surface-panel-border,
+    var(--surface-panel-border-width, 1px) solid
+      var(--surface-panel-border-color, var(--border-base))
+  );
+  box-shadow: var(--surface-panel-shadow, var(--shadow-panel));
+  border-radius: var(--surface-panel-radius, var(--radius-panel));
   display: flex;
   justify-content: space-evenly;
   align-items: center;

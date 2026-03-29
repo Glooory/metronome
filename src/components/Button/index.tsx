@@ -10,7 +10,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   };
   /**
    * Visual style variant
-   * @default 'filled'
+   * @default 'outline'
    */
   variant?: "filled" | "outline" | "transparent";
 
@@ -46,7 +46,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       className,
       classNames,
-      variant = "filled",
+      variant = "outline",
       size = "md",
       isChecked = false,
       noPadding = false,

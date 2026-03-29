@@ -1,0 +1,93 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--modal-shell-overlay-z-index, 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--modal-shell-overlay-padding, 20px);
+  background: var(--bg-overlay);
+  backdrop-filter: blur(var(--modal-shell-overlay-blur, var(--overlay-blur, 0px)));
+  -webkit-backdrop-filter: blur(var(--modal-shell-overlay-blur, var(--overlay-blur, 0px)));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--modal-shell-overlay-duration, 140ms)
+    var(--modal-shell-overlay-ease, ease);
+}
+
+.overlay[data-state="open"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  min-width: min(var(--modal-shell-min-width, 320px), 100%);
+  max-width: var(--modal-shell-max-width, 400px);
+  max-height: var(--modal-shell-max-height, none);
+  padding: var(--modal-shell-padding, 24px);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-floating-bg, var(--bg-surface));
+  border: var(
+    --surface-floating-border,
+    var(--surface-floating-border-width, 1px) solid
+      var(--surface-floating-border-color, var(--border-subtle))
+  );
+  border-radius: var(--surface-floating-radius, var(--radius-modal));
+  box-shadow:
+    var(--surface-floating-shadow, var(--shadow-modal)),
+    var(--surface-floating-inner-shadow, inset 0 1px 0 rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(var(--surface-floating-blur, var(--overlay-blur, 0px)));
+  -webkit-backdrop-filter: blur(var(--surface-floating-blur, var(--overlay-blur, 0px)));
+  color: var(--text-primary);
+  will-change: transform, opacity;
+  transform-origin: center center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--modal-shell-panel-duration, 160ms) var(--modal-shell-panel-ease, ease);
+}
+
+.panel[data-state="open"] {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: var(--modal-shell-header-margin, 20px);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--modal-shell-title-ff, var(--type-title-ff, var(--font-display)));
+  font-size: var(--modal-shell-title-size, var(--type-title-size-md, 18px));
+  font-weight: var(--modal-shell-title-weight, var(--type-title-fw, 600));
+  text-transform: var(--modal-shell-title-transform, var(--type-title-transform, none));
+  letter-spacing: var(--modal-shell-title-letter-spacing, var(--type-title-letter-spacing, -0.02em));
+  line-height: 1.1;
+  color: var(--app-title-color, var(--text-primary));
+}
+
+.titleIcon {
+  flex-shrink: 0;
+  color: var(--app-title-icon-color, var(--accent-primary));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay[data-state],
+  .panel[data-state] {
+    transition-duration: 1ms;
+  }
+}

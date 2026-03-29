@@ -1,18 +1,2 @@
 /* Global Token System */
 @import "./styles/tokens/index.css";
-@import "./styles/themes/amoled.css";
-@import "./styles/themes/aurora.css";
-@import "./styles/themes/blueprint.css";
-@import "./styles/themes/brutalism.css";
-@import "./styles/themes/clay.css";
-@import "./styles/themes/cyberpunk.css";
-@import "./styles/themes/e-ink.css";
-@import "./styles/themes/kids.css";
-@import "./styles/themes/mechanical.css";
-@import "./styles/themes/neumorphism.css";
-@import "./styles/themes/retro.css";
-@import "./styles/themes/sketch.css";
-@import "./styles/themes/swiss.css";
-@import "./styles/themes/terminal.css";
-@import "./styles/themes/wood.css";
-@import "./styles/themes/zen.css";

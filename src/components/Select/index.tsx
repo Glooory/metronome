@@ -1,7 +1,6 @@
 import { clsx } from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronUp, LucideIcon } from "lucide-react";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState, type TransitionEvent } from "react";
 import { Button } from "../Button";
 import styles from "./styles.module.css";
 
@@ -32,8 +31,9 @@ export const Select = ({
   placement = "top",
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPresent, setIsPresent] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const activeDotId = useId();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -45,12 +45,36 @@ export const Select = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const initialY = placement === "top" ? 10 : -10;
+  useEffect(() => {
+    if (isOpen) {
+      setIsPresent(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isPresent) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      setIsVisible(isOpen);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [isOpen, isPresent]);
+
+  const handleDropdownTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
+    if (event.target !== event.currentTarget || event.propertyName !== "opacity" || isOpen) {
+      return;
+    }
+
+    setIsPresent(false);
+  };
 
   return (
     <div className={styles["select"]} ref={containerRef}>
       <Button
-        variant="filled"
+        variant="outline"
         isChecked={isOpen}
         className={styles["select__btn"]}
         onClick={() => setIsOpen(!isOpen)}
@@ -63,48 +87,37 @@ export const Select = ({
         </div>
       </Button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: initialY }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: initialY }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
-            className={clsx(
-              styles["select__dropdown"],
-              styles[`select__dropdown--${alignment}`],
-              styles[`select__dropdown--${placement}`]
-            )}
-          >
-            <div className={styles["select__overlay"]} />
-            <div className={styles["select__dropdown-title"]}>{title}</div>
-            <div className={styles["select__options"]}>
-              {options.map((opt) => (
-                <Button
-                  variant="transparent"
-                  key={opt.value}
-                  onClick={() => {
-                    onChange(opt.value);
-                    setIsOpen(false);
-                  }}
-                  className={clsx(
-                    styles["select__option"],
-                    opt.value === value && styles["select__option--selected"]
-                  )}
-                >
-                  {opt.label}
-                  {opt.value === value && (
-                    <motion.div
-                      layoutId={`dot-${activeDotId}`}
-                      className={styles["select__active-dot"]}
-                    />
-                  )}
-                </Button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isPresent && (
+        <div
+          data-state={isVisible ? "open" : "closed"}
+          onTransitionEnd={handleDropdownTransitionEnd}
+          className={clsx(
+            styles["select__dropdown"],
+            styles[`select__dropdown--${alignment}`],
+            styles[`select__dropdown--${placement}`]
+          )}
+        >
+          <div className={styles["select__overlay"]} />
+          <div className={styles["select__dropdown-title"]}>{title}</div>
+          <div className={styles["select__options"]}>
+            {options.map((opt) => (
+              <Button
+                variant="transparent"
+                key={opt.value}
+                isChecked={opt.value === value}
+                onClick={() => {
+                  onChange(opt.value);
+                  setIsOpen(false);
+                }}
+                className={styles["select__option"]}
+              >
+                {opt.label}
+                {opt.value === value && <div className={styles["select__active-dot"]} />}
+              </Button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

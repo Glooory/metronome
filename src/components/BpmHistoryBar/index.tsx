@@ -1,5 +1,4 @@
 import { clsx } from "clsx";
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { Star, X } from "lucide-react";
 import { useRef } from "react";
 import { translations, type Language } from "../../i18n";
@@ -46,37 +45,28 @@ export const BpmHistoryBar = ({
   return (
     <div className={styles["history-bar"]}>
       <div ref={listRef} className={styles["history-bar__list"]}>
-        <LayoutGroup>
-          <AnimatePresence mode="popLayout">
-            {savedBpms.map((b) => (
-              <motion.div
-                layout
-                key={b}
-                initial={{ opacity: 0, scale: 0.5, x: -20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.5, width: 0 }}
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                onClick={() => setBpm(b)}
-                className={clsx(
-                  styles["history-bar__item"],
-                  b === currentBpm && styles["history-bar__item--active"]
-                )}
-              >
-                <span className={styles["history-bar__item-text"]}>{b}</span>
-                <Button
-                  noPadding
-                  size="icon-sm"
-                  classNames={{
-                    button: styles["history-bar__remove-btn"],
-                  }}
-                  onClick={(e) => removeBpm(e, b)}
-                >
-                  <X size={10} strokeWidth={3} />
-                </Button>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </LayoutGroup>
+        {savedBpms.map((b) => (
+          <div
+            key={b}
+            onClick={() => setBpm(b)}
+            className={clsx(
+              styles["history-bar__item"],
+              b === currentBpm && styles["history-bar__item--active"]
+            )}
+          >
+            <span className={styles["history-bar__item-text"]}>{b}</span>
+            <Button
+              noPadding
+              size="icon-sm"
+              classNames={{
+                button: styles["history-bar__remove-btn"],
+              }}
+              onClick={(e) => removeBpm(e, b)}
+            >
+              <X size={10} strokeWidth={3} />
+            </Button>
+          </div>
+        ))}
 
         {savedBpms.length === 0 && (
           <span className={styles["no-history"]}>

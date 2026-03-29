@@ -1,16 +1,25 @@
 import { clsx } from "clsx";
 import { ChevronDown, ChevronsDown, ChevronsUp, ChevronUp } from "lucide-react";
-import { KeyboardEvent, PointerEvent, useEffect, useRef, useState } from "react";
+import {
+  KeyboardEvent,
+  PointerEvent as ReactPointerEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { MAX_BPM, MIN_BPM } from "../../constants";
+import type { Language } from "../../i18n";
+import { translations } from "../../i18n";
 import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface BpmDisplayProps {
   bpm: number;
   setBpm: (value: number | ((prev: number) => number)) => void;
+  language: Language;
 }
 
-export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
+export const BpmDisplay = ({ bpm, setBpm, language }: BpmDisplayProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isWheelDragging, setIsWheelDragging] = useState(false);
   const [inputValue, setInputValue] = useState(String(bpm));
@@ -44,7 +53,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
     if (e.key === "Enter") inputRef.current?.blur();
   };
 
-  const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
+  const handlePointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest(".bpm-control-btn") || isEditing) return;
     e.preventDefault();
     setIsWheelDragging(false);
@@ -52,7 +61,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
     startBpm.current = bpm;
     hasMoved.current = false;
     document.body.style.cursor = "grabbing";
-    window.addEventListener("pointermove", handlePointerMove as any);
+    window.addEventListener("pointermove", handlePointerMove);
     window.addEventListener("pointerup", handlePointerUp);
   };
   const handlePointerMove = (e: globalThis.PointerEvent) => {
@@ -70,7 +79,7 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
   };
   const handlePointerUp = () => {
     document.body.style.cursor = "";
-    window.removeEventListener("pointermove", handlePointerMove as any);
+    window.removeEventListener("pointermove", handlePointerMove);
     window.removeEventListener("pointerup", handlePointerUp);
     setIsWheelDragging(false);
     if (!hasMoved.current) setIsEditing(true);
@@ -93,7 +102,6 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
         <div
           className={styles["bpm-display__value-wrapper"]}
           onClick={() => !isEditing && setIsEditing(true)}
-          style={{ cursor: "pointer" }}
         >
           <h1
             className={clsx(
@@ -160,11 +168,9 @@ export const BpmDisplay = ({ bpm, setBpm }: BpmDisplayProps) => {
               isWheelDragging && styles["bpm-display__wheel--dragging"]
             )}
             onPointerDown={handlePointerDown}
-            title="Drag to adjust BPM"
+            title={translations.bpmDisplay.dragToAdjust[language]}
             style={{ "--wheel-offset": `${wheelOffset}px` } as React.CSSProperties}
-          >
-            <div className={styles["bpm-display__wheel-lines"]}></div>
-          </div>
+          ></div>
         </div>
       </div>
     </div>

@@ -17,6 +17,10 @@ interface Note {
   time: number;
 }
 
+interface WindowWithWebkitAudio extends Window {
+  webkitAudioContext?: typeof AudioContext;
+}
+
 interface UseMetronomeOptions {
   swing?: number; // 0-100
   shift?: number; // integer
@@ -45,7 +49,7 @@ export const useMetronome = (
   const timerID = useRef<number | null>(null);
   const notesInQueue = useRef<Note[]>([]);
 
-  const buildImpulseResponse = (ctx: AudioContext) => {
+  const buildImpulseResponse = useCallback((ctx: AudioContext) => {
     const rate = ctx.sampleRate;
     const length = rate * 0.5; // Short room reverb (0.5s) instead of hall
     const decay = 2.0;
@@ -60,7 +64,7 @@ export const useMetronome = (
       right[i] = (Math.random() * 2 - 1) * env;
     }
     return impulse;
-  };
+  }, []);
 
   const swingRef = useRef(options.swing ?? 0);
   const shiftRef = useRef(options.shift ?? 0);
@@ -79,9 +83,12 @@ export const useMetronome = (
   const convolverRef = useRef<ConvolverNode | null>(null);
   const wetGainNodeRef = useRef<GainNode | null>(null);
 
-  const ensureAudioContext = () => {
+  const ensureAudioContext = useCallback(() => {
     if (!audioContext.current) {
-      audioContext.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const audioWindow = window as WindowWithWebkitAudio;
+      const AudioContextCtor = window.AudioContext || audioWindow.webkitAudioContext;
+      if (!AudioContextCtor) return;
+      audioContext.current = new AudioContextCtor();
     }
     if (audioContext.current.state === "suspended") {
       audioContext.current.resume();
@@ -100,11 +107,11 @@ export const useMetronome = (
       convolverRef.current = conv;
       wetGainNodeRef.current = wet;
     }
-  };
+  }, [buildImpulseResponse]);
 
   const noiseBufferRef = useRef<AudioBuffer | null>(null);
 
-  const getNoiseBuffer = (ctx: AudioContext) => {
+  const getNoiseBuffer = useCallback((ctx: AudioContext) => {
     if (!noiseBufferRef.current) {
       const bufferSize = ctx.sampleRate * 2.0;
       const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
@@ -115,9 +122,9 @@ export const useMetronome = (
       noiseBufferRef.current = buffer;
     }
     return noiseBufferRef.current;
-  };
+  }, []);
 
-  const playSine = (ctx: AudioContext, time: number, beatType: number) => {
+  const playSine = useCallback((ctx: AudioContext, time: number, beatType: number) => {
     const osc = ctx.createOscillator();
     const filter = ctx.createBiquadFilter();
     const gainNode = ctx.createGain();
@@ -156,9 +163,9 @@ export const useMetronome = (
 
     osc.start(time);
     osc.stop(time + decay + 0.05);
-  };
+  }, []);
 
-  const playWoodblock = (ctx: AudioContext, time: number, beatType: number) => {
+  const playWoodblock = useCallback((ctx: AudioContext, time: number, beatType: number) => {
     const carrier = ctx.createOscillator();
     const modulator = ctx.createOscillator();
     const modGain = ctx.createGain();
@@ -201,9 +208,9 @@ export const useMetronome = (
     modulator.start(time);
     carrier.stop(time + decay + 0.05);
     modulator.stop(time + decay + 0.05);
-  };
+  }, []);
 
-  const playDrum = (ctx: AudioContext, time: number, beatType: number) => {
+  const playDrum = useCallback((ctx: AudioContext, time: number, beatType: number) => {
     if (beatType === BEAT_ACCENT) {
       const osc = ctx.createOscillator();
       const gainNode = ctx.createGain();
@@ -271,9 +278,9 @@ export const useMetronome = (
       noise.start(time);
       noise.stop(time + 0.1);
     }
-  };
+  }, [getNoiseBuffer]);
 
-  const playMech = (ctx: AudioContext, time: number, beatType: number) => {
+  const playMech = useCallback((ctx: AudioContext, time: number, beatType: number) => {
     const noise = ctx.createBufferSource();
     noise.buffer = getNoiseBuffer(ctx);
 
@@ -314,7 +321,7 @@ export const useMetronome = (
 
     noise.start(time);
     noise.stop(time + decay + 0.02);
-  };
+  }, [getNoiseBuffer]);
 
   const stepStatesRef = useRef(stepStates);
 
@@ -372,7 +379,7 @@ export const useMetronome = (
           break;
       }
     },
-    [isMeasureMuted]
+    [isMeasureMuted, playDrum, playMech, playSine, playWoodblock]
   );
 
   const nextNote = useCallback(() => {
@@ -491,7 +498,7 @@ export const useMetronome = (
     return () => {
       if (timerID.current) window.clearTimeout(timerID.current);
     };
-  }, [isPlaying, scheduler]);
+  }, [ensureAudioContext, isPlaying, scheduler]);
 
   const [visualBeat, setVisualBeat] = useState<number | null>(null);
 

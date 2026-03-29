@@ -1,162 +1,426 @@
 .theme-mechanical {
+  --mech-iron-950: rgba(16, 13, 11, 1);
+  --mech-iron-900: rgba(24, 20, 17, 1);
+  --mech-iron-850: rgba(34, 29, 25, 1);
+  --mech-iron-800: rgba(45, 39, 34, 1);
+  --mech-iron-750: rgba(58, 51, 45, 1);
+  --mech-iron-700: rgba(77, 70, 63, 1);
+  --mech-iron-650: rgba(101, 93, 84, 1);
+  --mech-steel-250: rgba(225, 219, 210, 1);
+  --mech-steel-300: rgba(197, 189, 177, 1);
+  --mech-steel-400: rgba(157, 145, 130, 1);
+  --mech-steel-500: rgba(123, 112, 100, 1);
+  --mech-brass-250: rgba(248, 225, 179, 1);
+  --mech-brass-350: rgba(225, 181, 98, 1);
+  --mech-brass-450: rgba(184, 130, 43, 1);
+  --mech-brass-550: rgba(128, 83, 20, 1);
+  --mech-rust: rgba(187, 83, 44, 1);
+  --mech-oxide: rgba(146, 47, 55, 1);
+  --mech-patina: rgba(89, 143, 108, 1);
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --bg-primary: oklch(20% 0.01 60);
-  --bg-surface: oklch(24% 0.01 60);
-  --bg-elevated: oklch(28% 0.01 60);
-  --bg-overlay: rgba(0, 0, 0, 0.85);
-  --fill-subtle: oklch(18% 0.01 60);
-  --fill-muted: oklch(26% 0.01 60);
-  --fill-active: oklch(72% 0.16 70);
-  --border-subtle: oklch(32% 0.01 60);
-  --border-base: oklch(42% 0.01 60);
-  --border-active: oklch(85% 0.16 70);
+
+  --bg-primary: var(--mech-iron-900);
+  --bg-surface: var(--mech-iron-850);
+  --bg-elevated: var(--mech-iron-800);
+  --bg-overlay: rgba(0, 0, 0, 0.88);
+
+  --fill-subtle: var(--mech-iron-950);
+  --fill-muted: var(--mech-iron-800);
+  --fill-active: rgba(100, 67, 21, 1);
+
+  --border-subtle: rgba(66, 60, 54, 1);
+  --border-base: rgba(98, 90, 81, 1);
+  --border-active: var(--mech-brass-350);
+
   --radius-panel: 2px;
   --radius-modal: 4px;
   --radius-control: 2px;
   --radius-pill: 2px;
-  --history-item-radius: var(--radius-control);
-  --history-remove-btn-radius: var(--radius-panel);
-  --text-primary: oklch(90% 0.01 70);
-  --text-secondary: oklch(70% 0.01 70);
-  --text-muted: oklch(50% 0.01 70);
-  --text-inverse: oklch(20% 0.01 60);
+
+  --text-primary: rgba(228, 223, 216, 1);
+  --text-secondary: rgba(171, 163, 152, 1);
+  --text-muted: rgba(110, 102, 94, 1);
+  --text-inverse: rgba(24, 18, 12, 1);
+
   --font-app-sans: var(--font-mono);
-  --accent-primary: oklch(72% 0.16 70);
-  --accent-primary-muted: oklch(45% 0.1 70);
-  --accent-warning: oklch(65% 0.18 40);
-  --accent-danger: oklch(55% 0.18 20);
-  --accent-success: oklch(65% 0.15 140);
+  --font-app-mono: var(--font-mono);
+
+  --accent-primary: var(--mech-brass-350);
+  --accent-primary-muted: rgba(116, 82, 31, 1);
+  --accent-warning: var(--mech-rust);
+  --accent-danger: var(--mech-oxide);
+  --accent-success: var(--mech-patina);
+
   --shadow-sm:
-    inset 1px 1px 0px rgba(255, 255, 255, 0.08), inset -1px -1px 0px rgba(0, 0, 0, 0.6),
-    0 2px 4px rgba(0, 0, 0, 0.4);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.64),
+    0 2px 4px rgba(0, 0, 0, 0.42);
   --shadow-panel:
-    inset 1px 1px 0px rgba(255, 255, 255, 0.1), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
-    0 8px 16px rgba(0, 0, 0, 0.6);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.78),
+    0 10px 22px rgba(0, 0, 0, 0.58);
   --shadow-modal:
-    inset 1px 1px 0px rgba(255, 255, 255, 0.15), inset -1px -1px 0px rgba(0, 0, 0, 0.8),
-    0 20px 40px rgba(0, 0, 0, 0.9);
-  --shadow-active-item: inset 2px 2px 6px rgba(0, 0, 0, 0.8);
-  --shadow-glow-primary: inset 0 0 10px rgba(210, 150, 50, 0.3);
-  --shadow-glow-warning: inset 0 0 10px rgba(230, 120, 20, 0.3);
-  --shadow-glow-danger: inset 0 0 10px rgba(240, 50, 20, 0.3);
-  --shadow-glow-elevated: 0 0 15px rgba(0, 0, 0, 0.8);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 0 rgba(0, 0, 0, 0.82),
+    0 22px 42px rgba(0, 0, 0, 0.86);
+  --shadow-active-item:
+    inset 1px 1px 0 rgba(255, 244, 220, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.78),
+    inset 0 0 0 1px rgba(225, 181, 98, 0.34);
+  --shadow-glow-primary: 0 0 0 1px rgba(225, 181, 98, 0.18);
+  --shadow-glow-warning: 0 0 0 1px rgba(187, 83, 44, 0.22);
+  --shadow-glow-danger: 0 0 0 1px rgba(146, 47, 55, 0.22);
+  --shadow-glow-elevated: 0 12px 28px rgba(0, 0, 0, 0.62);
   --shadow-glow: var(--shadow-glow-primary);
+
   --overlay-blur: 0px;
   --overlay-sheen: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.05) 0%,
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.015) 32%,
     rgba(255, 255, 255, 0) 100%
   );
+  --modal-shell-overlay-blur: 0px;
+
   --opacity-btn-hover: 1;
   --opacity-btn-active: 1;
   --opacity-disabled: 0.4;
   --transition-base:
-    transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out, box-shadow 0.1s ease-out,
-    background-color 0.1s ease-out, border-color 0.1s ease-out, color 0.1s ease-out;
+    transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out,
+    box-shadow 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out,
+    color 0.1s ease-out;
   --transition-fast:
     transform 0.05s ease-out, opacity 0.05s ease-out, filter 0.05s ease-out,
     box-shadow 0.05s ease-out, background-color 0.05s ease-out, border-color 0.05s ease-out,
     color 0.05s ease-out;
+
+  --ui-chrome-fw: 700;
   --ui-chrome-letter-spacing: 0.14em;
   --ui-chrome-title-letter-spacing: 0.2em;
+  --control-focus-ring: rgba(225, 181, 98, 0.62);
 
+  --app-bg-color: var(--bg-primary);
+  --app-text-color: var(--text-primary);
   --app-bg-gradient:
+    radial-gradient(circle at 50% -10%, rgba(184, 130, 43, 0.16) 0%, transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 18%),
     repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.018) 0px,
+      rgba(255, 255, 255, 0.018) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(180deg, rgba(49, 43, 38, 1) 0%, rgba(14, 11, 9, 1) 100%);
+  --app-title-icon-color: var(--mech-brass-350);
+
+  --surface-panel-bg:
+    linear-gradient(
+      180deg,
+      rgba(70, 61, 54, 0.94) 0%,
+      rgba(42, 36, 32, 0.98) 48%,
+      rgba(22, 18, 15, 0.98) 100%
+    );
+  --surface-panel-border: 1px solid var(--border-base);
+  --surface-panel-shadow: var(--shadow-panel);
+  --surface-floating-bg:
+    linear-gradient(
+      180deg,
+      rgba(76, 67, 59, 0.98) 0%,
+      rgba(47, 40, 35, 0.98) 42%,
+      rgba(24, 19, 16, 0.99) 100%
+    );
+  --surface-floating-border: 1px solid rgba(115, 105, 94, 1);
+  --surface-floating-shadow: var(--shadow-modal);
+  --surface-floating-inner-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.06), inset -1px -1px 0 rgba(0, 0, 0, 0.6);
+  --surface-floating-sheen: var(--overlay-sheen);
+
+  --control-bg:
+    linear-gradient(
+      180deg,
+      rgba(69, 61, 54, 1) 0%,
+      rgba(49, 42, 37, 1) 46%,
+      rgba(29, 24, 21, 1) 100%
+    );
+  --control-color: var(--text-primary);
+  --control-border-width: 1px;
+  --control-border-color: var(--border-base);
+  --control-shadow: var(--shadow-sm);
+  --control-active-bg:
+    linear-gradient(
+      180deg,
+      rgba(26, 21, 18, 1) 0%,
+      rgba(33, 28, 24, 1) 44%,
+      rgba(22, 18, 15, 1) 100%
+    );
+  --control-active-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.76),
+    inset 0 2px 6px rgba(0, 0, 0, 0.52);
+  --control-active-transform: translateY(1px);
+
+  --control-quiet-bg:
+    linear-gradient(
+      180deg,
+      rgba(71, 63, 56, 0.72) 0%,
+      rgba(42, 35, 31, 0.72) 42%,
+      rgba(24, 20, 17, 0.76) 100%
+    );
+  --control-quiet-color: var(--text-secondary);
+  --control-quiet-border-width: 1px;
+  --control-quiet-border-color: rgba(95, 87, 78, 0.9);
+  --control-quiet-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05), inset -1px -1px 0 rgba(0, 0, 0, 0.56),
+    0 1px 3px rgba(0, 0, 0, 0.28);
+  --control-quiet-active-bg:
+    linear-gradient(
+      180deg,
+      rgba(37, 31, 27, 0.9) 0%,
+      rgba(23, 19, 16, 0.94) 100%
+    );
+  --control-quiet-active-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.72);
+
+  --control-selected-bg:
+    linear-gradient(
+      180deg,
+      rgba(122, 87, 31, 1) 0%,
+      rgba(93, 63, 20, 1) 46%,
+      rgba(58, 37, 10, 1) 100%
+    );
+  --control-selected-color: rgba(242, 234, 219, 1);
+  --control-selected-border-width: 1px;
+  --control-selected-border-color: rgba(235, 198, 123, 0.94);
+  --control-selected-shadow:
+    inset 1px 1px 0 rgba(255, 242, 211, 0.12), inset -1px -1px 0 rgba(45, 24, 0, 0.42),
+    0 0 0 1px rgba(225, 181, 98, 0.22);
+  --control-quiet-selected-bg:
+    linear-gradient(
+      180deg,
+      rgba(82, 61, 27, 0.96) 0%,
+      rgba(57, 40, 14, 0.98) 100%
+    );
+  --control-quiet-selected-color: var(--mech-brass-250);
+  --control-quiet-selected-border-width: 1px;
+  --control-quiet-selected-border-color: rgba(225, 181, 98, 0.82);
+  --control-quiet-selected-shadow:
+    inset 1px 1px 0 rgba(255, 242, 211, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.65);
+
+  --action-solid-bg: var(--control-bg);
+  --action-solid-color: var(--control-color);
+  --action-solid-border-width: var(--control-border-width);
+  --action-solid-border-color: var(--control-border-color);
+  --action-solid-shadow: var(--control-shadow);
+  --action-solid-active-bg: var(--control-active-bg);
+  --action-solid-active-shadow: var(--control-active-shadow);
+  --action-solid-selected-bg: var(--control-selected-bg);
+  --action-solid-selected-color: var(--control-selected-color);
+  --action-solid-selected-border-width: var(--control-selected-border-width);
+  --action-solid-selected-border-color: var(--control-selected-border-color);
+  --action-solid-selected-shadow: var(--control-selected-shadow);
+
+  --action-outline-bg: var(--control-quiet-bg);
+  --action-outline-color: var(--control-quiet-color);
+  --action-outline-border-width: var(--control-quiet-border-width);
+  --action-outline-border-color: var(--control-quiet-border-color);
+  --action-outline-shadow: var(--control-quiet-shadow);
+  --action-outline-active-bg: var(--control-quiet-active-bg);
+  --action-outline-active-shadow: var(--control-quiet-active-shadow);
+  --action-outline-selected-bg: var(--control-quiet-selected-bg);
+  --action-outline-selected-color: var(--control-quiet-selected-color);
+  --action-outline-selected-border-width: var(--control-quiet-selected-border-width);
+  --action-outline-selected-border-color: var(--control-quiet-selected-border-color);
+  --action-outline-selected-shadow: var(--control-quiet-selected-shadow);
+
+  --action-ghost-selected-bg: var(--control-quiet-selected-bg);
+  --action-ghost-selected-color: var(--control-quiet-selected-color);
+  --action-ghost-selected-border-width: var(--control-quiet-selected-border-width);
+  --action-ghost-selected-border-color: var(--control-quiet-selected-border-color);
+  --action-ghost-selected-shadow: var(--control-quiet-selected-shadow);
+
+  --field-bg:
+    linear-gradient(
+      180deg,
+      rgba(28, 23, 20, 1) 0%,
+      rgba(18, 15, 13, 1) 100%
+    );
+  --field-border: 1px solid var(--border-base);
+  --field-border-width: 1px;
+  --field-border-color: var(--border-base);
+  --field-color: var(--text-primary);
+  --field-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.04), inset -1px -1px 0 rgba(0, 0, 0, 0.72),
+    inset 0 3px 7px rgba(0, 0, 0, 0.45);
+  --field-focus-border: rgba(235, 198, 123, 0.94);
+  --field-focus-bg:
+    linear-gradient(
+      180deg,
+      rgba(35, 29, 25, 1) 0%,
+      rgba(22, 18, 15, 1) 100%
+    );
+
+  --readout-label-color: var(--text-muted);
+  --readout-value-webkit-bg-clip: text;
+  --readout-value-bg-clip: text;
+  --readout-value-color: transparent;
+  --readout-value-gradient: linear-gradient(
+    180deg,
+    rgba(244, 239, 229, 1) 0%,
+    rgba(225, 181, 98, 1) 42%,
+    rgba(128, 83, 20, 1) 100%
+  );
+  --readout-value-filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.82));
+  --readout-value-shadow: 0 1px 0 rgba(255, 245, 221, 0.12);
+  --readout-blur-color: rgba(184, 130, 43, 0.42);
+  --readout-blur-visibility: hidden;
+  --readout-input-color: var(--mech-brass-250);
+  --readout-input-caret-color: var(--mech-brass-350);
+  --readout-input-selection: rgba(225, 181, 98, 0.28);
+  --readout-controls-color: var(--text-secondary);
+  --readout-wheel-bg:
+    linear-gradient(
+      180deg,
+      rgba(58, 51, 45, 1) 0%,
+      rgba(34, 29, 25, 1) 46%,
+      rgba(17, 14, 12, 1) 100%
+    );
+  --readout-wheel-border: 1px solid var(--border-base);
+  --readout-wheel-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.74),
+    inset 0 4px 10px rgba(0, 0, 0, 0.46);
+  --readout-wheel-active-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 0 rgba(0, 0, 0, 0.78),
+    inset 0 5px 12px rgba(0, 0, 0, 0.58), 0 0 0 1px rgba(225, 181, 98, 0.28);
+  --readout-wheel-line: var(--mech-brass-350);
+  --readout-wheel-line-glow: transparent;
+  --readout-wheel-tick: rgba(120, 111, 101, 1);
+
+  --control-handle-bg:
+    linear-gradient(
+      180deg,
+      rgba(212, 206, 196, 1) 0%,
+      rgba(169, 157, 143, 1) 54%,
+      rgba(121, 110, 97, 1) 100%
+    );
+  --control-handle-border-width: 1px;
+  --control-handle-border-color: rgba(229, 222, 210, 0.48);
+  --control-handle-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.16), inset -1px -1px 0 rgba(0, 0, 0, 0.56),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  --control-handle-selected-bg:
+    linear-gradient(
+      180deg,
+      rgba(233, 227, 216, 1) 0%,
+      rgba(191, 179, 162, 1) 58%,
+      rgba(137, 123, 108, 1) 100%
+    );
+  --control-handle-selected-border-width: 1px;
+  --control-handle-selected-border-color: rgba(238, 199, 121, 0.54);
+  --control-handle-selected-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.18), inset -1px -1px 0 rgba(0, 0, 0, 0.56),
+    0 2px 4px rgba(0, 0, 0, 0.52);
+  --control-handle-accent-bg:
+    linear-gradient(
+      180deg,
+      rgba(248, 225, 179, 1) 0%,
+      rgba(207, 156, 72, 1) 48%,
+      rgba(128, 83, 20, 1) 100%
+    );
+  --control-handle-accent-border-width: 1px;
+  --control-handle-accent-border-color: rgba(245, 216, 159, 0.58);
+  --control-handle-accent-shadow:
+    inset 1px 1px 0 rgba(255, 247, 229, 0.2), inset -1px -1px 0 rgba(79, 44, 0, 0.42),
+    0 2px 4px rgba(0, 0, 0, 0.52);
+
+  --switch-track-bg:
+    linear-gradient(
+      180deg,
+      rgba(43, 37, 32, 1) 0%,
+      rgba(23, 19, 16, 1) 100%
+    );
+  --switch-track-border-width: 1px;
+  --switch-track-border-color: rgba(98, 90, 81, 1);
+  --switch-track-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.74),
+    inset 0 2px 5px rgba(0, 0, 0, 0.42);
+  --switch-track-selected-bg:
+    linear-gradient(
+      180deg,
+      rgba(105, 75, 28, 1) 0%,
+      rgba(65, 43, 12, 1) 100%
+    );
+  --switch-track-selected-border-color: rgba(225, 181, 98, 0.82);
+  --switch-track-selected-shadow:
+    inset 1px 1px 0 rgba(255, 242, 211, 0.08), inset -1px -1px 0 rgba(38, 22, 2, 0.48),
+    0 0 0 1px rgba(225, 181, 98, 0.18);
+  --switch-thumb-bg: var(--control-handle-bg);
+  --switch-thumb-border-width: 1px;
+  --switch-thumb-border-color: var(--control-handle-border-color);
+  --switch-thumb-shadow: var(--control-handle-shadow);
+  --switch-thumb-selected-bg: var(--control-handle-selected-bg);
+  --switch-thumb-selected-border-color: var(--control-handle-selected-border-color);
+  --switch-thumb-selected-shadow: var(--control-handle-selected-shadow);
+
+  --meter-block-radius: 2px;
+  --meter-block-bg: rgba(19, 15, 12, 1);
+  --meter-block-empty: rgba(19, 15, 12, 1);
+  --meter-block-empty-active: rgba(59, 42, 18, 1);
+  --meter-block-border: 1px solid rgba(74, 65, 57, 1);
+  --meter-block-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.68),
+    inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  --meter-block-accent: rgba(225, 181, 98, 1);
+  --meter-block-accent-dim: rgba(148, 108, 46, 1);
+  --meter-block-shadow-filled:
+    inset 1px 1px 0 rgba(255, 242, 211, 0.08), inset -1px -1px 0 rgba(67, 41, 5, 0.3);
+  --meter-block-shadow-active:
+    inset 1px 1px 0 rgba(255, 246, 223, 0.12), inset -1px -1px 0 rgba(52, 30, 0, 0.34),
+    0 0 0 1px rgba(225, 181, 98, 0.2);
+  --meter-label-color: var(--text-secondary);
+  --meter-controls-bg:
+    linear-gradient(
+      180deg,
+      rgba(54, 47, 42, 1) 0%,
+      rgba(30, 26, 22, 1) 100%
+    );
+  --meter-controls-radius: 2px;
+  --meter-controls-border: 1px solid rgba(98, 90, 81, 1);
+  --meter-controls-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05), inset -1px -1px 0 rgba(0, 0, 0, 0.7);
+  --meter-value-color: var(--text-secondary);
+  --meter-value-active-color: var(--mech-brass-250);
+
+  --range-track-bg:
+    linear-gradient(
+      180deg,
+      rgba(28, 23, 20, 1) 0%,
+      rgba(16, 13, 11, 1) 100%
+    );
+  --range-track-border-width: 1px;
+  --range-track-border-color: rgba(98, 90, 81, 1);
+  --range-track-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.04), inset -1px -1px 0 rgba(0, 0, 0, 0.74),
+    inset 0 3px 6px rgba(0, 0, 0, 0.38);
+  --range-track-height: 10px;
+  --range-progress-bg:
+    linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    linear-gradient(135deg, oklch(25% 0.01 60) 0%, oklch(15% 0.01 60) 100%);
-  --bpm-value-webkit-bg-clip: text;
-  --bpm-value-bg-clip: text;
-  --bpm-value-color: transparent;
-  --bpm-value-gradient: linear-gradient(
-    180deg,
-    oklch(95% 0.05 80),
-    oklch(72% 0.16 70),
-    oklch(45% 0.14 70)
-  );
-  --bpm-value-filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.8));
-  --bpm-blur-visibility: hidden;
-  --bpm-wheel-bg: linear-gradient(180deg, oklch(24% 0.01 60) 0%, oklch(17% 0.01 60) 100%);
-  --bpm-wheel-border: 1px solid oklch(42% 0.01 60);
-  --bpm-wheel-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.72),
-    inset 0 4px 10px rgba(0, 0, 0, 0.45);
-  --bpm-wheel-active-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 0 rgba(0, 0, 0, 0.82),
-    inset 0 4px 12px rgba(0, 0, 0, 0.62), 0 0 0 1px oklch(85% 0.16 70 / 0.25);
-  --bpm-wheel-line: var(--accent-primary);
-  --bpm-wheel-line-glow: none;
-  --bpm-wheel-tick: oklch(55% 0.01 70);
-  --btn-active-transform: translateY(1px);
-  --btn-filled-active-bg: linear-gradient(180deg, oklch(18% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
-  --btn-filled-active-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.8);
-  --btn-filled-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
-  --btn-filled-shadow: var(--shadow-sm);
-  --btn-filled-checked-shadow: var(--shadow-active-item);
-  --btn-filled-checked-color: oklch(90% 0.01 70);
-  --btn-filled-checked-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
-  --btn-outline-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
-  --btn-outline-shadow: var(--shadow-sm);
-  --btn-outline-active-bg: linear-gradient(180deg, oklch(18% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
-  --btn-outline-active-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.8);
-  --btn-outline-checked-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
-  --btn-outline-checked-shadow: var(--shadow-active-item);
-  --btn-outline-checked-color: oklch(90% 0.01 70);
-  --btn-outline-checked-border-color: oklch(85% 0.16 70);
-  --btn-outline-color: oklch(70% 0.01 70);
-  --app-modal-inner-shadow: none;
-  --select-dropdown-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
-  --checkbox-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
-  --checkbox-border: oklch(42% 0.01 60);
-  --checkbox-shadow: var(--shadow-sm);
-  --checkbox-checked-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
-  --checkbox-checked-border-color: oklch(85% 0.16 70);
-  --checkbox-checked-shadow: var(--shadow-active-item);
-  --checkbox-knob-bg: linear-gradient(180deg, oklch(80% 0.015 78) 0%, oklch(62% 0.025 76) 100%);
-  --checkbox-knob-checked-bg: linear-gradient(
-    180deg,
-    oklch(96% 0.01 80) 0%,
-    oklch(78% 0.04 78) 100%
-  );
-  --checkbox-knob-border: oklch(85% 0.02 80 / 0.55);
-  --checkbox-knob-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.15), inset -1px -1px 0 rgba(0, 0, 0, 0.55),
-    0 2px 4px rgba(0, 0, 0, 0.5);
-  --swing-slider-track-bg: linear-gradient(180deg, oklch(22% 0.01 60) 0%, oklch(16% 0.01 60) 100%);
-  --swing-slider-track-border-width: 1px;
-  --swing-slider-track-border: oklch(42% 0.01 60);
-  --swing-slider-track-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.06), inset -1px -1px 0 rgba(0, 0, 0, 0.72),
-    inset 0 3px 6px rgba(0, 0, 0, 0.35);
-  --swing-slider-progress-bg: linear-gradient(90deg, oklch(72% 0.16 70), oklch(45% 0.12 70));
-  --swing-slider-thumb-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
-  --swing-slider-thumb-border-width: 1px;
-  --swing-slider-thumb-border: oklch(85% 0.02 80 / 0.55);
-  --swing-slider-thumb-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.15), inset -1px -1px 0 rgba(0, 0, 0, 0.55),
-    0 2px 4px rgba(0, 0, 0, 0.5);
-  --visualizer-block-bg: oklch(18% 0.012 60);
-  --visualizer-block-empty: oklch(18% 0.012 60);
-  --visualizer-block-empty-active: oklch(34% 0.05 72);
-  --visualizer-block-border: 1px solid oklch(38% 0.02 60);
-  --visualizer-block-accent-dim: oklch(58% 0.11 72);
-  --visualizer-block-shadow-filled: none;
-  --visualizer-block-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-  --history-item-active-bg: radial-gradient(circle, oklch(65% 0.16 70), oklch(45% 0.12 70));
-  --history-item-active-color: oklch(90% 0.01 70);
-  --history-item-active-shadow: var(--shadow-active-item);
-  --history-item-shadow: var(--shadow-sm);
-  --history-item-bg: linear-gradient(180deg, oklch(28% 0.01 60) 0%, oklch(22% 0.01 60) 100%);
+      rgba(128, 83, 20, 1) 0%,
+      rgba(225, 181, 98, 1) 100%
+    );
+  --range-thumb-size: 18px;
+  --range-thumb-bg: var(--control-handle-accent-bg);
+  --range-thumb-radius: 2px;
+  --range-thumb-border-width: 1px;
+  --range-thumb-border-color: var(--control-handle-accent-border-color);
+  --range-thumb-shadow: var(--control-handle-accent-shadow);
+  --range-focus-ring: rgba(225, 181, 98, 0.48);
+
+  --select-dropdown-title-color: var(--text-muted);
+  --select-scrollbar-color: rgba(111, 101, 90, 1);
+  --select-option-radius: var(--radius-modal);
+  --select-option-color: var(--text-primary);
+  --select-option-fw: 700;
+  --select-option-transform: uppercase;
+  --select-option-letter-spacing: 0.04em;
+  --select-dot-color: var(--mech-brass-250);
+  --select-dot-shadow: none;
 }

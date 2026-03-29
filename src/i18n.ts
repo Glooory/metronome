@@ -140,6 +140,42 @@ export const translations = {
       ru: "Сдвиг",
       pt: "Deslocamento",
     },
+    shiftLeft: {
+      en: "Shift Left (Early)",
+      zh: "向左偏移（提前）",
+      ja: "左へシフト（前倒し）",
+      ko: "왼쪽으로 시프트(앞당김)",
+      de: "Nach links verschieben (früher)",
+      fr: "Décaler à gauche (en avance)",
+      es: "Desplazar a la izquierda (antes)",
+      ru: "Сдвиг влево (раньше)",
+      pt: "Deslocar para a esquerda (adiantar)",
+    },
+    shiftRight: {
+      en: "Shift Right (Delay)",
+      zh: "向右偏移（延后）",
+      ja: "右へシフト（後ろ倒し）",
+      ko: "오른쪽으로 시프트(지연)",
+      de: "Nach rechts verschieben (später)",
+      fr: "Décaler à droite (retarder)",
+      es: "Desplazar a la derecha (retrasar)",
+      ru: "Сдвиг вправо (позже)",
+      pt: "Deslocar para a direita (atrasar)",
+    },
+  },
+
+  bpmDisplay: {
+    dragToAdjust: {
+      en: "Drag to adjust BPM",
+      zh: "拖拽以调整 BPM",
+      ja: "ドラッグして BPM を調整",
+      ko: "드래그하여 BPM 조절",
+      de: "Ziehen zum Anpassen des BPM",
+      fr: "Faites glisser pour ajuster le BPM",
+      es: "Arrastra para ajustar el BPM",
+      ru: "Перетащите, чтобы изменить BPM",
+      pt: "Arraste para ajustar o BPM",
+    },
   },
 
   dock: {
@@ -973,7 +1009,7 @@ export const translations = {
         ru: "Детский",
         pt: "Kids",
       },
-      neumorphism: {
+      soft: {
         en: "Soft",
         zh: "拟物",
         ja: "ソフト",
@@ -984,7 +1020,7 @@ export const translations = {
         ru: "Мягкий",
         pt: "Soft",
       },
-      amoled: {
+      oled: {
         en: "OLED",
         zh: "极黑",
         ja: "OLED",
@@ -995,16 +1031,16 @@ export const translations = {
         ru: "OLED",
         pt: "OLED",
       },
-      retro: {
-        en: "Retro",
-        zh: "复古",
-        ja: "レトロ",
-        ko: "레트로",
-        de: "Retro",
-        fr: "Rétro",
-        es: "Retro",
-        ru: "Ретро",
-        pt: "Retrô",
+      disco: {
+        en: "Disco",
+        zh: "迪斯科",
+        ja: "ディスコ",
+        ko: "디스코",
+        de: "Disco",
+        fr: "Disco",
+        es: "Disco",
+        ru: "Диско",
+        pt: "Disco",
       },
       blueprint: {
         en: "Blueprint",
@@ -1123,23 +1159,29 @@ export const translations = {
   },
 } as const;
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+const isTranslationLeaf = (value: unknown): value is Record<Language, string> =>
+  isRecord(value) && typeof value.en === "string";
+
 export function t(key: string, lang: Language, section?: keyof typeof translations): string {
   const parts = key.split(".");
-  let value: any = translations;
+  let value: unknown = section ? translations[section] : translations;
 
-  if (section) {
-    value = translations[section as keyof typeof translations];
-    if (value && value[key]) {
-      return value[key][lang] || value[key]["en"] || key;
+  if (section && isRecord(value) && key in value) {
+    const sectionValue = value[key];
+    if (isTranslationLeaf(sectionValue)) {
+      return sectionValue[lang] || sectionValue.en || key;
     }
   }
 
   for (const part of parts) {
-    value = value?.[part];
+    value = isRecord(value) ? value[part] : undefined;
   }
 
-  if (value && typeof value === "object" && lang in value) {
-    return value[lang] || value["en"];
+  if (isTranslationLeaf(value)) {
+    return value[lang] || value.en;
   }
 
   return key;

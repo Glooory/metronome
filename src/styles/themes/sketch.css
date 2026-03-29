@@ -1,191 +1,320 @@
 .theme-sketch {
-  --sketch-paper: oklch(96% 0.015 85);
-  --sketch-paper-light: oklch(98% 0.01 85);
-  --sketch-paper-mid: oklch(93% 0.012 85);
-  --sketch-ink: oklch(22% 0.008 72);
-  --sketch-pencil: oklch(50% 0.01 72);
-  --sketch-pencil-light: oklch(74% 0.008 76);
-  --sketch-erased: oklch(88% 0.008 85);
-  --sketch-marker-orange: oklch(72% 0.17 55);
-  --sketch-marker-red: oklch(60% 0.2 25);
-  --sketch-marker-green: oklch(62% 0.15 150);
-  --sketch-marker-blue: oklch(58% 0.14 255);
+  --sketch-paper: rgba(250, 243, 229, 1);
+  --sketch-paper-light: rgba(255, 251, 242, 1);
+  --sketch-paper-mid: rgba(241, 236, 224, 1);
+  --sketch-paper-shadow: rgba(226, 218, 205, 1);
+  --sketch-ink: rgba(48, 39, 32, 1);
+  --sketch-ink-soft: rgba(80, 73, 67, 1);
+  --sketch-pencil: rgba(115, 109, 103, 1);
+  --sketch-pencil-light: rgba(184, 179, 173, 1);
+  --sketch-erased: rgba(231, 226, 217, 1);
+  --sketch-charcoal-shadow: rgba(48, 39, 32, 0.26);
+  --sketch-charcoal-shadow-deep: rgba(48, 39, 32, 0.16);
+  --sketch-marker-orange: rgba(255, 143, 49, 1);
+  --sketch-marker-orange-muted: rgba(255, 143, 49, 0.22);
+  --sketch-marker-orange-fill: rgba(255, 184, 130, 0.44);
+  --sketch-marker-red: rgba(229, 86, 74, 1);
+  --sketch-marker-green: rgba(62, 171, 94, 1);
+  --sketch-marker-blue: rgba(58, 132, 202, 1);
+  --sketch-marker-blue-fill: rgba(145, 190, 228, 0.72);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   --bg-primary: var(--sketch-paper);
   --bg-surface: var(--sketch-paper-light);
-  --bg-elevated: var(--sketch-paper-light);
-  --bg-overlay: oklch(96% 0.015 85 / 0.9);
+  --bg-elevated: rgba(255, 253, 247, 1);
+  --bg-overlay: rgba(118, 105, 85, 0.34);
 
   --fill-subtle: var(--sketch-paper-light);
-  --fill-muted: var(--sketch-erased);
-  --fill-active: var(--sketch-ink);
+  --fill-muted: var(--sketch-paper-shadow);
+  --fill-active: var(--sketch-marker-orange-fill);
 
-  --border-subtle: var(--sketch-ink);
-  --border-base: var(--sketch-ink);
-  --border-active: var(--sketch-ink);
+  --border-subtle: var(--sketch-pencil-light);
+  --border-base: var(--sketch-ink-soft);
+  --border-active: var(--sketch-marker-orange);
 
-  --radius-panel: 5px;
-  --radius-modal: 6px;
-  --radius-control: 4px;
-  --radius-pill: 4px;
-  --history-item-radius: var(--radius-control);
-  --history-remove-btn-radius: var(--radius-panel);
+  --radius-panel: 14px;
+  --radius-modal: 16px;
+  --radius-control: 10px;
+  --radius-pill: 999px;
 
   --text-primary: var(--sketch-ink);
   --text-secondary: var(--sketch-pencil);
   --text-muted: var(--sketch-pencil-light);
   --text-inverse: var(--sketch-paper-light);
 
+  --font-app-sans: "Trebuchet MS", "Avenir Next", "Segoe UI", var(--font-sans);
+  --font-display: "Bradley Hand", "Segoe Print", "Marker Felt", "Comic Sans MS", var(--font-sans);
+  --type-readout-ff: "Marker Felt", "Bradley Hand", "Segoe Print", "Comic Sans MS", var(--font-sans);
+  --type-readout-fw: 800;
+  --type-readout-letter-spacing: -0.04em;
+
   --accent-primary: var(--sketch-marker-orange);
-  --accent-primary-muted: oklch(72% 0.17 55 / 0.25);
+  --accent-primary-muted: var(--sketch-marker-orange-muted);
   --accent-warning: var(--sketch-marker-orange);
   --accent-danger: var(--sketch-marker-red);
   --accent-success: var(--sketch-marker-green);
 
-  --shadow-sm: 1px 2px 0 oklch(22% 0.008 72 / 0.75);
-  --shadow-panel: 2px 3px 0 oklch(22% 0.008 72 / 0.78);
-  --shadow-modal: 4px 5px 0 oklch(22% 0.008 72 / 0.78);
-  --shadow-active-item: 1px 2px 0 oklch(22% 0.008 72 / 0.82);
+  --shadow-sm: 1px 2px 0 var(--sketch-charcoal-shadow);
+  --shadow-panel: 2px 3px 0 var(--sketch-charcoal-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.48);
+  --shadow-modal: 4px 6px 0 rgba(48, 39, 32, 0.2), 0 14px 28px rgba(48, 39, 32, 0.08);
+  --shadow-active-item: 0 0 0 2px var(--sketch-marker-orange-muted);
   --shadow-glow-primary: none;
   --shadow-glow-warning: none;
   --shadow-glow-danger: none;
   --shadow-glow-elevated: none;
   --shadow-glow: none;
   --overlay-blur: 0px;
-  --overlay-sheen: none;
-
-  --opacity-btn-hover: 1;
-  --opacity-btn-active: 1;
-  --transition-base: none;
-  --transition-fast: none;
-  --ui-chrome-transform: none;
-  --ui-chrome-letter-spacing: 0.06em;
-  --ui-chrome-title-letter-spacing: 0.1em;
-
-  --app-bg-gradient: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 31px,
-    oklch(72% 0.008 85 / 0.35) 31px,
-    oklch(72% 0.008 85 / 0.35) 32px
+  --modal-shell-overlay-blur: 2px;
+  --overlay-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(255, 255, 255, 0.08) 42%,
+    transparent 100%
   );
 
-  --app-panel-border: 2px solid var(--sketch-ink);
-  --app-panel-shadow: var(--shadow-panel);
-  --app-modal-border: 2px solid var(--sketch-ink);
-  --app-modal-inner-shadow: none;
-  --help-footer-bg: var(--sketch-erased);
+  --opacity-btn-hover: 1;
+  --opacity-btn-active: 0.92;
+  --opacity-disabled: 0.42;
+  --transition-base:
+    transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.12s ease-out,
+    box-shadow 0.12s ease-out, background-color 0.12s ease-out, border-color 0.12s ease-out,
+    color 0.12s ease-out;
+  --transition-fast:
+    transform 0.08s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.08s ease-out,
+    box-shadow 0.08s ease-out, background-color 0.08s ease-out, border-color 0.08s ease-out,
+    color 0.08s ease-out;
+  --ui-chrome-fw: 700;
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.045em;
+  --ui-chrome-title-letter-spacing: 0.08em;
+  --control-focus-ring: rgba(255, 143, 49, 0.48);
 
-  --btn-active-transform: translate(2px, 2px);
+  --app-bg-color: var(--bg-primary);
+  --app-text-color: var(--text-primary);
+  --app-bg-gradient:
+    radial-gradient(circle at 14% 16%, rgba(255, 255, 255, 0.56) 0%, transparent 24%),
+    radial-gradient(circle at 84% 12%, rgba(255, 184, 130, 0.12) 0%, transparent 24%),
+    radial-gradient(circle at 18% 88%, rgba(145, 190, 228, 0.08) 0%, transparent 20%),
+    repeating-linear-gradient(
+      -11deg,
+      rgba(120, 116, 110, 0.05) 0,
+      rgba(120, 116, 110, 0.05) 1px,
+      transparent 1px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      9deg,
+      rgba(255, 255, 255, 0.18) 0,
+      rgba(255, 255, 255, 0.18) 2px,
+      transparent 2px,
+      transparent 22px
+    ),
+    linear-gradient(180deg, rgba(255, 250, 242, 1) 0%, rgba(244, 237, 225, 1) 100%);
 
-  --btn-filled-bg: var(--sketch-paper-light);
-  --btn-filled-border-width: 2px;
-  --btn-filled-border-color: var(--sketch-ink);
-  --btn-filled-shadow: var(--shadow-sm);
-  --btn-filled-active-bg: var(--sketch-paper-light);
-  --btn-filled-active-shadow: none;
-  --btn-filled-checked-bg: var(--sketch-ink);
-  --btn-filled-checked-color: var(--sketch-paper-light);
-  --btn-filled-checked-shadow: var(--shadow-sm);
+  --surface-panel-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 24%),
+    linear-gradient(180deg, rgba(253, 249, 241, 0.98) 0%, rgba(242, 235, 224, 0.98) 100%);
+  --surface-panel-border: 2px solid rgba(90, 82, 74, 0.92);
+  --surface-panel-shadow: var(--shadow-panel);
 
-  --btn-outline-bg: var(--sketch-paper-light);
-  --btn-outline-border-width: 2px;
-  --btn-outline-border-color: var(--sketch-ink);
-  --btn-outline-shadow: var(--shadow-sm);
-  --btn-outline-active-bg: var(--sketch-paper-light);
-  --btn-outline-active-shadow: none;
-  --btn-outline-checked-bg: var(--sketch-ink);
-  --btn-outline-checked-color: var(--sketch-paper-light);
-  --btn-outline-checked-border-color: var(--sketch-ink);
-  --btn-outline-checked-shadow: var(--shadow-sm);
+  --surface-floating-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.99) 0%, rgba(244, 237, 227, 0.99) 100%);
+  --surface-floating-border-width: 2px;
+  --surface-floating-border-color: rgba(90, 82, 74, 0.96);
+  --surface-floating-border: 2px solid rgba(90, 82, 74, 0.96);
+  --surface-floating-shadow: var(--shadow-modal);
+  --surface-floating-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
+  --surface-floating-sheen: var(--overlay-sheen);
 
-  --btn-transparent-border-width: 2px;
-  --btn-transparent-border-color: transparent;
-  --btn-transparent-shadow: none;
-  --btn-transparent-active-shadow: none;
-  --btn-transparent-active-bg: transparent;
-  --btn-transparent-checked-bg: var(--sketch-ink);
-  --btn-transparent-checked-color: var(--sketch-paper-light);
+  --control-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 26%),
+    linear-gradient(180deg, rgba(255, 251, 243, 1) 0%, rgba(243, 236, 225, 1) 100%);
+  --control-color: var(--sketch-ink);
+  --control-border-width: 2px;
+  --control-border-color: rgba(96, 88, 80, 0.9);
+  --control-shadow: var(--shadow-sm);
+  --control-active-bg:
+    linear-gradient(180deg, rgba(255, 232, 205, 0.36) 0%, rgba(255, 232, 205, 0) 30%),
+    linear-gradient(180deg, rgba(247, 240, 228, 1) 0%, rgba(236, 229, 217, 1) 100%);
+  --control-active-shadow: 1px 1px 0 var(--sketch-charcoal-shadow-deep);
+  --control-active-transform: translate(1px, 1px) rotate(-0.35deg);
+  --control-quiet-bg: rgba(255, 249, 240, 0.78);
+  --control-quiet-color: var(--sketch-pencil);
+  --control-quiet-border-width: 2px;
+  --control-quiet-border-color: rgba(130, 120, 109, 0.5);
+  --control-quiet-shadow: 1px 2px 0 rgba(48, 39, 32, 0.1);
+  --control-quiet-active-bg: rgba(246, 239, 227, 0.92);
+  --control-quiet-active-shadow: 1px 1px 0 rgba(48, 39, 32, 0.08);
 
-  --app-input-border: var(--sketch-ink);
-  --app-input-border-width: 2px;
+  --control-selected-bg:
+    linear-gradient(180deg, rgba(255, 206, 158, 0.54) 0%, rgba(255, 166, 104, 0.34) 100%),
+    linear-gradient(180deg, rgba(255, 251, 243, 1) 0%, rgba(244, 236, 225, 1) 100%);
+  --control-selected-color: var(--sketch-ink);
+  --control-selected-border-width: 2px;
+  --control-selected-border-color: rgba(218, 122, 44, 0.92);
+  --control-selected-shadow:
+    1px 2px 0 var(--sketch-charcoal-shadow), 0 0 0 2px var(--sketch-marker-orange-muted);
+  --control-quiet-selected-bg:
+    linear-gradient(180deg, rgba(255, 206, 158, 0.46) 0%, rgba(255, 166, 104, 0.24) 100%),
+    rgba(255, 249, 240, 0.94);
+  --control-quiet-selected-color: var(--sketch-ink);
+  --control-quiet-selected-border-width: 2px;
+  --control-quiet-selected-border-color: rgba(218, 122, 44, 0.86);
+  --control-quiet-selected-shadow:
+    1px 2px 0 rgba(48, 39, 32, 0.12), 0 0 0 2px var(--sketch-marker-orange-muted);
 
-  --bpm-value-gradient: none;
-  --bpm-value-color: var(--sketch-ink);
-  --bpm-value-fw: 900;
-  --bpm-value-ls: -0.03em;
-  --bpm-value-filter: none;
-  --bpm-value-shadow: none;
-  --bpm-blur-visibility: hidden;
-  --bpm-input-selection: var(--sketch-erased);
-  --bpm-input-border: none;
-  --bpm-wheel-bg: var(--sketch-erased);
-  --bpm-wheel-border: 2px solid var(--sketch-ink);
-  --bpm-wheel-shadow: 1px 2px 0 oklch(22% 0.008 72 / 0.55);
-  --bpm-wheel-active-shadow:
-    1px 2px 0 oklch(22% 0.008 72 / 0.55), inset 0 0 0 2px var(--sketch-marker-orange);
-  --bpm-wheel-line: var(--sketch-marker-orange);
-  --bpm-wheel-line-glow: transparent;
-  --bpm-wheel-tick: var(--sketch-pencil);
-  --select-dropdown-bg: var(--sketch-paper-light);
-  --select-dropdown-border-width: 2px;
-  --select-dropdown-border-color: var(--sketch-ink);
-  --select-dropdown-shadow: var(--shadow-panel);
-  --select-option-selected-bg: var(--sketch-ink);
-  --select-option-selected-color: var(--sketch-paper-light);
-  --select-option-selected-shadow: none;
+  --action-outline-bg: var(--control-quiet-bg);
+  --action-outline-color: var(--control-quiet-color);
+  --action-outline-border-width: var(--control-quiet-border-width);
+  --action-outline-border-color: var(--control-quiet-border-color);
+  --action-outline-shadow: var(--control-quiet-shadow);
+  --action-outline-active-bg: var(--control-quiet-active-bg);
+  --action-outline-active-shadow: var(--control-quiet-active-shadow);
+  --action-outline-selected-bg: var(--control-quiet-selected-bg);
+  --action-outline-selected-color: var(--control-quiet-selected-color);
+  --action-outline-selected-border-width: var(--control-quiet-selected-border-width);
+  --action-outline-selected-border-color: var(--control-quiet-selected-border-color);
+  --action-outline-selected-shadow: var(--control-quiet-selected-shadow);
+  --action-ghost-selected-bg: rgba(255, 204, 154, 0.28);
+  --action-ghost-selected-color: var(--sketch-ink);
+  --action-ghost-selected-border-width: 2px;
+  --action-ghost-selected-border-color: rgba(218, 122, 44, 0.72);
+  --action-ghost-selected-shadow: 0 0 0 2px rgba(255, 143, 49, 0.12);
 
-  --dock-bg: var(--sketch-paper-light);
-  --dock-border: 2px solid var(--sketch-ink);
-  --dock-shadow: var(--shadow-panel);
+  --field-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 28%),
+    linear-gradient(180deg, rgba(255, 251, 245, 1) 0%, rgba(241, 234, 223, 1) 100%);
+  --field-border: 2px solid rgba(95, 87, 79, 0.84);
+  --field-border-width: 2px;
+  --field-border-color: rgba(95, 87, 79, 0.84);
+  --field-color: var(--sketch-ink);
+  --field-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --field-focus-border: rgba(218, 122, 44, 0.92);
+  --field-focus-bg: rgba(255, 252, 246, 1);
 
-  --trainer-dock-border: 2px solid var(--sketch-ink);
-  --trainer-dock-shadow: var(--shadow-panel);
+  --readout-label-color: var(--sketch-pencil);
+  --readout-value-gradient: none;
+  --readout-value-color: var(--sketch-ink);
+  --readout-value-weight: 800;
+  --readout-value-letter-spacing: -0.04em;
+  --readout-value-filter: none;
+  --readout-value-shadow: 2px 2px 0 rgba(255, 255, 255, 0.72), 4px 4px 0 rgba(48, 39, 32, 0.16);
+  --readout-blur-visibility: hidden;
+  --readout-input-color: var(--sketch-ink);
+  --readout-input-caret-color: var(--sketch-marker-orange);
+  --readout-input-selection: rgba(255, 184, 130, 0.52);
+  --readout-input-border: none;
+  --readout-controls-color: var(--sketch-pencil);
+  --readout-wheel-bg:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0) 8px,
+      rgba(115, 109, 103, 0.06) 8px,
+      rgba(115, 109, 103, 0.06) 9px
+    ),
+    linear-gradient(180deg, rgba(255, 252, 246, 1) 0%, rgba(235, 228, 217, 1) 100%);
+  --readout-wheel-border: 2px solid rgba(95, 87, 79, 0.84);
+  --readout-wheel-shadow: 1px 2px 0 var(--sketch-charcoal-shadow);
+  --readout-wheel-active-shadow:
+    1px 2px 0 var(--sketch-charcoal-shadow), 0 0 0 2px var(--sketch-marker-orange-muted);
+  --readout-wheel-line: var(--sketch-marker-orange);
+  --readout-wheel-line-glow: transparent;
+  --readout-wheel-tick: rgba(115, 109, 103, 0.54);
 
-  --visualizer-block-bg: var(--sketch-erased);
-  --visualizer-block-empty: var(--sketch-erased);
-  --visualizer-block-empty-active: oklch(80% 0.03 70);
-  --visualizer-block-border: 1px solid var(--sketch-pencil-light);
-  --visualizer-block-accent: var(--sketch-ink);
-  --visualizer-block-accent-dim: var(--sketch-pencil);
-  --visualizer-block-shadow: none;
-  --visualizer-block-shadow-filled: none;
+  --meter-block-radius: 9px;
+  --meter-block-bg:
+    linear-gradient(180deg, rgba(251, 246, 237, 1) 0%, rgba(236, 229, 218, 1) 100%);
+  --meter-block-empty:
+    linear-gradient(180deg, rgba(244, 238, 229, 1) 0%, rgba(232, 225, 214, 1) 100%);
+  --meter-block-empty-active: var(--sketch-marker-orange-muted);
+  --meter-block-border: 1px solid rgba(154, 145, 134, 0.88);
+  --meter-block-accent:
+    linear-gradient(180deg, rgba(108, 164, 214, 1) 0%, rgba(58, 132, 202, 1) 100%);
+  --meter-block-accent-dim:
+    linear-gradient(180deg, rgba(205, 227, 245, 1) 0%, rgba(145, 190, 228, 1) 100%);
+  --meter-block-shadow: 1px 1px 0 rgba(48, 39, 32, 0.08);
+  --meter-block-shadow-filled: 1px 2px 0 rgba(48, 39, 32, 0.16);
+  --meter-block-shadow-active:
+    1px 2px 0 rgba(48, 39, 32, 0.18), 0 0 0 2px rgba(58, 132, 202, 0.16);
+  --meter-label-color: var(--sketch-pencil);
+  --meter-controls-bg: rgba(247, 241, 231, 0.96);
+  --meter-controls-border: 2px solid rgba(137, 127, 116, 0.4);
+  --meter-controls-shadow: 1px 2px 0 rgba(48, 39, 32, 0.08);
+  --meter-value-color: var(--sketch-pencil);
+  --meter-value-active-color: var(--sketch-marker-orange);
 
-  --history-item-border: 2px solid var(--sketch-ink);
-  --history-item-shadow: var(--shadow-sm);
-  --history-item-active-shadow: none;
-  --history-item-active-border: 2px solid var(--sketch-ink);
-  --history-item-active-bg: var(--sketch-ink);
-  --history-item-active-color: var(--sketch-paper-light);
+  --control-handle-bg:
+    linear-gradient(180deg, rgba(255, 252, 246, 1) 0%, rgba(243, 236, 226, 1) 100%);
+  --control-handle-border-width: 2px;
+  --control-handle-border-color: rgba(95, 87, 79, 0.84);
+  --control-handle-shadow: 1px 2px 0 rgba(48, 39, 32, 0.18);
+  --control-handle-selected-bg:
+    linear-gradient(180deg, rgba(255, 251, 245, 1) 0%, rgba(245, 237, 226, 1) 100%);
+  --control-handle-selected-border-width: 2px;
+  --control-handle-selected-border-color: rgba(218, 122, 44, 0.74);
+  --control-handle-selected-shadow: 1px 2px 0 rgba(48, 39, 32, 0.2);
+  --control-handle-accent-bg:
+    linear-gradient(180deg, rgba(255, 197, 145, 1) 0%, rgba(255, 143, 49, 1) 100%);
+  --control-handle-accent-border-width: 2px;
+  --control-handle-accent-border-color: rgba(95, 87, 79, 0.84);
+  --control-handle-accent-shadow: 1px 2px 0 rgba(48, 39, 32, 0.18);
 
-  --checkbox-border: var(--sketch-ink);
-  --checkbox-border-width: 2px;
-  --checkbox-shadow: none;
-  --checkbox-checked-bg: var(--sketch-ink);
-  --checkbox-checked-border-color: var(--sketch-ink);
-  --checkbox-knob-bg: var(--sketch-paper-light);
-  --checkbox-knob-checked-bg: var(--sketch-paper-light);
-  --checkbox-knob-border-width: 2px;
-  --checkbox-knob-border: var(--sketch-ink);
-  --checkbox-knob-checked-border: var(--sketch-ink);
-  --checkbox-knob-shadow: none;
+  --switch-track-bg:
+    linear-gradient(180deg, rgba(244, 238, 228, 1) 0%, rgba(232, 225, 214, 1) 100%);
+  --switch-track-radius: 999px;
+  --switch-track-border-width: 2px;
+  --switch-track-border-color: rgba(95, 87, 79, 0.7);
+  --switch-track-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 1px 2px 0 rgba(48, 39, 32, 0.12);
+  --switch-track-selected-bg:
+    linear-gradient(180deg, rgba(255, 200, 151, 0.94) 0%, rgba(255, 157, 88, 0.96) 100%);
+  --switch-track-selected-border-color: rgba(218, 122, 44, 0.9);
+  --switch-track-selected-shadow:
+    inset 0 1px 0 rgba(255, 239, 218, 0.36), 1px 2px 0 rgba(48, 39, 32, 0.16);
+  --switch-thumb-bg: var(--control-handle-bg);
+  --switch-thumb-radius: 999px;
+  --switch-thumb-border-width: 2px;
+  --switch-thumb-border-color: rgba(95, 87, 79, 0.82);
+  --switch-thumb-shadow: var(--control-handle-shadow);
+  --switch-thumb-selected-bg: var(--control-handle-selected-bg);
+  --switch-thumb-selected-border-color: rgba(218, 122, 44, 0.74);
+  --switch-thumb-selected-shadow: var(--control-handle-selected-shadow);
 
-  --swing-slider-track-bg: var(--sketch-erased);
-  --swing-slider-track-shadow: inset 0 0 0 1px var(--sketch-ink);
-  --swing-slider-thumb-bg: var(--sketch-paper-light);
-  --swing-slider-thumb-shadow: var(--shadow-sm);
-  --swing-slider-thumb-border-width: 2px;
-  --swing-slider-thumb-border: var(--sketch-ink);
-  --swing-value-border: 2px solid var(--sketch-ink);
+  --range-track-height: 10px;
+  --range-track-bg:
+    linear-gradient(180deg, rgba(239, 232, 221, 1) 0%, rgba(230, 223, 212, 1) 100%);
+  --range-track-border-width: 2px;
+  --range-track-border-color: rgba(137, 127, 116, 0.4);
+  --range-track-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --range-progress-bg:
+    linear-gradient(90deg, rgba(255, 197, 145, 1) 0%, rgba(255, 143, 49, 1) 100%);
+  --range-thumb-size: 20px;
+  --range-thumb-bg: var(--control-handle-accent-bg);
+  --range-thumb-radius: 999px;
+  --range-thumb-border-width: 2px;
+  --range-thumb-border-color: rgba(95, 87, 79, 0.84);
+  --range-thumb-shadow: 1px 2px 0 rgba(48, 39, 32, 0.18);
+  --range-focus-ring: rgba(255, 143, 49, 0.32);
 
-  --speed-status-border: var(--sketch-ink);
-  --speed-status-border-width: 2px;
+  --select-label-ff: var(--font-display);
+  --select-label-fw: 700;
+  --select-label-transform: none;
+  --select-label-letter-spacing: 0.02em;
+  --select-dropdown-title-ff: var(--font-display);
+  --select-dropdown-title-fw: 700;
+  --select-dropdown-title-transform: none;
+  --select-dropdown-title-letter-spacing: 0.04em;
+  --select-dropdown-title-color: var(--sketch-pencil);
+  --select-scrollbar-color: rgba(137, 127, 116, 0.48);
+  --select-option-radius: 10px;
+  --select-option-color: var(--sketch-ink);
+  --select-option-ff: var(--font-app-sans);
+  --select-option-fw: 600;
+  --select-dot-color: var(--sketch-marker-red);
+  --select-dot-shadow: none;
 
-  --interval-status-border: var(--sketch-ink);
-  --interval-status-border-width: 2px;
-
-  --help-content-border: 2px solid var(--sketch-ink);
+  --app-title-icon-color: var(--sketch-marker-red);
 }

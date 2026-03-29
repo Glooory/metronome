@@ -22,6 +22,91 @@
   --radius-modal: var(--radius-xl);
   --radius-control: var(--radius-md);
   --radius-pill: var(--radius-full);
+  --radius-badge: var(--radius-pill);
+
+  /* ----- Shared Surface Roles ----- */
+  --surface-panel-bg: var(--bg-surface);
+  --surface-panel-blur: var(--overlay-blur);
+  --surface-panel-border-width: 1px;
+  --surface-panel-border-color: var(--border-subtle);
+  --surface-panel-border: var(--surface-panel-border-width) solid var(--surface-panel-border-color);
+  --surface-panel-shadow: var(--shadow-panel);
+  --surface-panel-radius: var(--radius-panel);
+
+  --surface-floating-bg: var(--bg-surface);
+  --surface-floating-blur: var(--overlay-blur);
+  --surface-floating-border-width: 1px;
+  --surface-floating-border-color: var(--border-subtle);
+  --surface-floating-border: var(--surface-floating-border-width) solid
+    var(--surface-floating-border-color);
+  --surface-floating-shadow: var(--shadow-modal);
+  --surface-floating-radius: var(--radius-modal);
+  --surface-floating-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --surface-floating-sheen: var(--overlay-sheen);
+
+  /* ----- Shared Control Roles ----- */
+  --control-radius: var(--radius-control);
+  --control-height-sm: 2rem;
+  --control-height-md: 2.5rem;
+  --control-height-lg: 3rem;
+  --control-size-icon-sm: 2rem;
+  --control-size-icon-md: 2.5rem;
+  --control-padding-inline-sm: 0.75rem;
+  --control-padding-inline-md: 1rem;
+  --control-padding-inline-lg: 1.5rem;
+  --control-focus-ring: var(--accent-primary);
+  --control-active-opacity: var(--opacity-btn-active);
+  --control-active-transform: scale(0.98);
+  --control-bg: var(--fill-subtle);
+  --control-color: var(--text-primary);
+  --control-border-width: 1px;
+  --control-border-color: var(--border-subtle);
+  --control-shadow: none;
+  --control-active-bg: var(--control-bg);
+  --control-active-shadow: none;
+  --control-selected-bg: var(--fill-active);
+  --control-selected-color: var(--text-inverse);
+  --control-selected-border-width: var(--control-border-width);
+  --control-selected-border-color: var(--border-active);
+  --control-selected-shadow: var(--shadow-active-item);
+  --control-quiet-selected-bg: var(--control-selected-bg);
+  --control-quiet-selected-color: var(--control-selected-color);
+  --control-quiet-selected-border-width: var(--control-selected-border-width);
+  --control-quiet-selected-border-color: var(--control-selected-border-color);
+  --control-quiet-selected-shadow: var(--control-selected-shadow);
+  --control-quiet-bg: transparent;
+  --control-quiet-color: var(--text-secondary);
+  --control-quiet-border-width: 1px;
+  --control-quiet-border-color: transparent;
+  --control-quiet-shadow: none;
+  --control-quiet-active-bg: var(--control-quiet-bg);
+  --control-quiet-active-shadow: none;
+
+  /* ----- Shared Control Handle Roles ----- */
+  --control-handle-radius: var(--control-radius);
+  --control-handle-bg: var(--text-primary);
+  --control-handle-border-width: 1px;
+  --control-handle-border-color: transparent;
+  --control-handle-shadow: var(--shadow-sm);
+  --control-handle-selected-bg: var(--control-selected-color);
+  --control-handle-selected-border-width: var(--control-handle-border-width);
+  --control-handle-selected-border-color: var(--control-handle-border-color);
+  --control-handle-selected-shadow: var(--control-handle-shadow);
+  --control-handle-accent-bg: var(--accent-primary);
+  --control-handle-accent-border-width: var(--control-handle-border-width);
+  --control-handle-accent-border-color: var(--bg-elevated);
+  --control-handle-accent-shadow: var(--control-handle-shadow);
+
+  /* ----- Shared Field Roles ----- */
+  --field-bg: var(--control-bg);
+  --field-border-width: var(--control-border-width);
+  --field-border-color: var(--control-border-color);
+  --field-border: var(--field-border-width) solid var(--field-border-color);
+  --field-radius: var(--control-radius);
+  --field-color: var(--text-primary);
+  --field-shadow: var(--control-shadow);
+  --field-focus-border: var(--accent-primary);
+  --field-focus-bg: var(--bg-surface);
 
   /* ----- Typography (Text) ----- */
   --text-primary: var(--white);
@@ -32,10 +117,51 @@
   --font-app-sans: var(--font-sans);
   --font-app-mono: var(--font-mono);
   --font-display: var(--font-app-sans);
+  --ui-chrome-ff: var(--font-display);
+  --ui-chrome-fw: 700;
+  --ui-chrome-transform: uppercase;
+  --ui-chrome-letter-spacing: 0.05em;
+  --ui-chrome-title-letter-spacing: 0.08em;
+
+  --type-title-ff: var(--font-display);
+  --type-title-fw: 600;
+  --type-title-transform: none;
+  --type-title-letter-spacing: -0.02em;
+  --type-title-size-sm: 1rem;
+  --type-title-size-md: 1.125rem;
+
+  --type-body-ff: var(--font-app-sans);
+  --type-body-fw: 400;
+  --type-body-strong-fw: 600;
+  --type-body-size-sm: 0.875rem;
+  --type-body-size-md: 1rem;
+
+  --type-caption-ff: var(--font-app-sans);
+  --type-caption-fw: 600;
+  --type-caption-transform: none;
+  --type-caption-letter-spacing: 0.02em;
+  --type-caption-size: 0.75rem;
+
+  --type-control-ff: var(--ui-chrome-ff);
+  --type-control-fw: var(--ui-chrome-fw);
+  --type-control-transform: var(--ui-chrome-transform);
+  --type-control-letter-spacing: var(--ui-chrome-letter-spacing);
+  --type-control-title-letter-spacing: var(--ui-chrome-title-letter-spacing);
+  --type-control-size-sm: 0.75rem;
+  --type-control-size-md: 0.875rem;
+  --type-control-size-lg: 1rem;
+
+  --type-metric-ff: var(--font-app-mono);
+  --type-metric-fw: 600;
+  --type-metric-letter-spacing: -0.02em;
+
+  --type-readout-ff: var(--font-display);
+  --type-readout-fw: 700;
+  --type-readout-letter-spacing: -0.05em;
 
   /* ----- Accents & Status ----- */
   --accent-primary: var(--blue-500);
-  --accent-primary-muted: oklch(50% 0.1 260);
+  --accent-primary-muted: rgba(64, 99, 156, 1);
   --accent-warning: var(--amber-500);
   --accent-danger: var(--red-500);
   --accent-success: var(--green-500);
@@ -58,19 +184,11 @@
   --opacity-btn-active: 0.7;
   --opacity-disabled: 0.5;
   --transition-base:
-    transform 0.2s ease,
-    opacity 0.2s ease,
-    filter 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   --transition-fast:
-    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }

@@ -14,7 +14,7 @@ A professional online metronome with advanced training features, built with Reac
 |                    **Swiss Style**                    |                    **Zen Mode**                     |                   **E-Paper**                   |
 |    <img src="screenshots/swiss.png" width="200" />    |    <img src="screenshots/zen.png" width="200" />    | <img src="screenshots/eink.png" width="200" />  |
 |                    **Neumorphism**                    |                     **Amoled**                      |                    **Retro**                    |
-| <img src="screenshots/neumorphism.png" width="200" /> |  <img src="screenshots/amoled.png" width="200" />   | <img src="screenshots/retro.png" width="200" /> |
+| <img src="screenshots/neumorphism.png" width="200" /> |  <img src="screenshots/amoled.png" width="200" />   | <img src="screenshots/disco.png" width="200" /> |
 
 ## ✨ Features
 
@@ -48,8 +48,8 @@ A professional online metronome with advanced training features, built with Reac
 
 - **Frontend**: React 19 + TypeScript
 - **Build Tool**: Vite
-- **Styling**: CSS Modules (BEM naming)
-- **Animation**: Framer Motion
+- **Styling**: CSS Modules + CSS Tokens + Theme Overrides
+- **Animation**: Native CSS transitions
 - **Audio**: Web Audio API
 - **Icons**: Lucide React
 - **Deployment**: GitHub Pages
@@ -88,16 +88,24 @@ src/
 ├── components/
 │   ├── BpmDisplay/          # BPM wheel control
 │   ├── BpmHistoryBar/       # Saved BPM chips
-│   ├── CustomGlassSelect/   # Dropdown selects
+│   ├── Button/              # Button primitive
+│   ├── Checkbox/            # Toggle primitive
 │   ├── HelpModal/           # User guide modal
-│   ├── LiquidGlassDock/     # Bottom control dock
+│   ├── Input/               # Text/number input primitive
 │   ├── PresetsModal/        # Preset management
 │   ├── IntervalTrainerModal/  # Interval training config
+│   ├── ModalShell/          # Shared modal container
+│   ├── Select/              # Dropdown select
+│   ├── Slider/              # Range slider primitive
 │   ├── SpeedTrainerModal/   # Speed training config
+│   ├── ControlDock/         # Bottom playback dock
 │   ├── TrainerDock/         # Training tools toolbar
 │   └── Visualizer/          # Beat visualization
 ├── hooks/
 │   └── useMetronome.ts      # Audio scheduling logic
+├── styles/
+│   ├── tokens/              # Core + semantic + app-base tokens
+│   └── themes/              # Theme override files
 ├── i18n.ts                  # Translations
 ├── constants.ts             # App constants & types
 └── App.tsx                  # Main application

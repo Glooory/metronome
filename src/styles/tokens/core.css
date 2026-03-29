@@ -13,26 +13,26 @@
 
   /* ----- Color Primitives ----- */
   /* Grays (example scaling from base.css) */
-  --gray-0: oklch(99% 0 0);
-  --gray-50: oklch(96% 0.01 240);
-  --gray-100: oklch(90% 0.01 240);
-  --gray-200: oklch(80% 0.01 240);
-  --gray-300: oklch(70% 0.02 240);
-  --gray-400: oklch(60% 0.02 240);
-  --gray-500: oklch(50% 0.02 240);
-  --gray-600: oklch(40% 0.02 240);
-  --gray-700: oklch(30% 0.02 240);
-  --gray-800: oklch(20% 0.02 240);
-  --gray-900: oklch(10% 0.02 240);
-  --gray-950: oklch(5% 0.02 240);
+  --gray-0: rgba(252, 252, 252, 1);
+  --gray-50: rgba(236, 243, 248, 1);
+  --gray-100: rgba(216, 223, 228, 1);
+  --gray-200: rgba(184, 191, 196, 1);
+  --gray-300: rgba(148, 160, 170, 1);
+  --gray-400: rgba(118, 130, 139, 1);
+  --gray-500: rgba(89, 101, 110, 1);
+  --gray-600: rgba(62, 73, 82, 1);
+  --gray-700: rgba(37, 47, 55, 1);
+  --gray-800: rgba(14, 23, 30, 1);
+  --gray-900: rgba(0, 4, 8, 1);
+  --gray-950: rgba(0, 0, 2, 1);
   --black: #000000;
   --white: #ffffff;
 
   /* Base Accents */
-  --amber-500: oklch(75% 0.18 80);
-  --cyan-500: oklch(75% 0.15 220);
-  --purple-500: oklch(70% 0.18 300);
-  --blue-500: oklch(65% 0.2 260);
-  --red-500: oklch(65% 0.2 25);
-  --green-500: oklch(70% 0.16 150);
+  --amber-500: rgba(232, 157, 0, 1);
+  --cyan-500: rgba(0, 194, 239, 1);
+  --purple-500: rgba(177, 128, 252, 1);
+  --blue-500: rgba(62, 137, 255, 1);
+  --red-500: rgba(241, 77, 76, 1);
+  --green-500: rgba(67, 185, 102, 1);
 }

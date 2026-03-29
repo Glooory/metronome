@@ -5,15 +5,15 @@
       <stop offset="1" stop-color="#1a131e"/>
     </linearGradient>
     <linearGradient id="b" x1="29" x2="52" y1="45" y2="13" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffbf4a"/>
-      <stop offset=".6" stop-color="#ff8d42"/>
-      <stop offset="1" stop-color="#7de0d6"/>
+      <stop stop-color="#ffd47a"/>
+      <stop offset=".55" stop-color="#ff9467"/>
+      <stop offset="1" stop-color="#ff5294"/>
     </linearGradient>
   </defs>
   <path fill="url(#a)" stroke="#4b354d" stroke-width="2" d="M24 8H40L49 56H15Z"/>
   <path fill="#160f1a" d="M27 14h10l5 30H22z"/>
-  <path fill="#ffbf4a" fill-opacity=".24" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
+  <path fill="#ffd47a" fill-opacity=".24" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
   <path stroke="url(#b)" stroke-linecap="round" stroke-width="5" d="M29 45 52 13"/>
-  <circle cx="29" cy="45" r="3.1" fill="#ffbf4a"/>
-  <circle cx="47" cy="20" r="5.2" fill="#ff8d42"/>
+  <circle cx="29" cy="45" r="3.1" fill="#ffd47a"/>
+  <circle cx="47" cy="20" r="5.2" fill="#ff5294"/>
 </svg>

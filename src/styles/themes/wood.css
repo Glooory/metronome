@@ -1,32 +1,32 @@
 .theme-wood {
-  --wood-cream: oklch(92% 0.058 80);
-  --wood-flax: oklch(87% 0.072 76);
-  --wood-grain-light: oklch(82% 0.084 73);
-  --wood-grain-mid: oklch(74% 0.094 70);
-  --wood-honey: oklch(68% 0.108 68);
-  --wood-caramel: oklch(57% 0.108 64);
-  --wood-umber: oklch(36% 0.072 58);
-  --wood-espresso: oklch(22% 0.05 54);
-  --wood-light-top: oklch(99% 0.004 88 / 0.95);
-  --wood-light-side: oklch(99% 0.004 88 / 0.52);
-  --wood-shadow-base: oklch(32% 0.056 56 / 0.22);
-  --wood-shadow-deep: oklch(24% 0.048 54 / 0.36);
-  --wood-shadow-inset: oklch(26% 0.052 56 / 0.28);
+  --wood-cream: rgba(249, 225, 186, 1);
+  --wood-flax: rgba(240, 206, 159, 1);
+  --wood-grain-light: rgba(230, 188, 135, 1);
+  --wood-grain-mid: rgba(209, 160, 103, 1);
+  --wood-honey: rgba(196, 139, 73, 1);
+  --wood-caramel: rgba(163, 104, 41, 1);
+  --wood-umber: rgba(89, 50, 17, 1);
+  --wood-espresso: rgba(44, 19, 2, 1);
+  --wood-light-top: rgba(253, 252, 249, 0.95);
+  --wood-light-side: rgba(253, 252, 249, 0.52);
+  --wood-shadow-base: rgba(72, 43, 20, 0.22);
+  --wood-shadow-deep: rgba(49, 24, 7, 0.36);
+  --wood-shadow-inset: rgba(55, 29, 8, 0.28);
 
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
 
-  --bg-primary: oklch(86% 0.068 76);
-  --bg-surface: oklch(89.5% 0.062 78);
-  --bg-elevated: oklch(93% 0.05 80);
-  --bg-overlay: oklch(20% 0.036 58 / 0.54);
+  --bg-primary: rgba(235, 204, 159, 1);
+  --bg-surface: rgba(243, 216, 175, 1);
+  --bg-elevated: rgba(250, 229, 195, 1);
+  --bg-overlay: rgba(34, 18, 5, 0.54);
 
-  --fill-subtle: oklch(83% 0.074 74 / 0.65);
-  --fill-muted: oklch(78% 0.082 72 / 0.82);
+  --fill-subtle: rgba(229, 193, 146, 0.65);
+  --fill-muted: rgba(216, 175, 125, 0.82);
   --fill-active: var(--wood-caramel);
 
-  --border-subtle: oklch(55% 0.082 66 / 0.2);
-  --border-base: oklch(46% 0.076 64 / 0.34);
+  --border-subtle: rgba(146, 103, 59, 0.2);
+  --border-base: rgba(117, 78, 39, 0.34);
   --border-active: var(--wood-caramel);
 
   --radius-panel: 6px;
@@ -35,232 +35,320 @@
   --radius-pill: 9999px;
 
   --text-primary: var(--wood-espresso);
-  --text-secondary: oklch(34% 0.064 60);
-  --text-muted: oklch(50% 0.056 64);
-  --text-inverse: oklch(96% 0.012 82);
+  --text-secondary: rgba(80, 47, 17, 1);
+  --text-muted: rgba(122, 93, 65, 1);
+  --text-inverse: rgba(246, 241, 233, 1);
   --font-display: "Avenir Next", "Segoe UI", var(--font-sans);
 
   --accent-primary: var(--wood-caramel);
-  --accent-primary-muted: oklch(70% 0.088 70 / 0.44);
-  --accent-warning: oklch(56% 0.17 50);
-  --accent-danger: oklch(44% 0.17 18);
-  --accent-success: oklch(48% 0.14 146);
+  --accent-primary-muted: rgba(194, 149, 96, 0.44);
+  --accent-warning: rgba(190, 76, 0, 1);
+  --accent-danger: rgba(154, 11, 44, 1);
+  --accent-success: rgba(15, 113, 38, 1);
 
   --shadow-sm:
     inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
     inset 1px 0 0 var(--wood-light-side), 0 2px 5px var(--wood-shadow-base);
   --shadow-panel:
-    inset 0 2px 0 var(--wood-light-top), inset 0 -1.5px 0 oklch(32% 0.056 56 / 0.2),
-    inset 1.5px 0 0 var(--wood-light-side), inset -1px 0 0 oklch(32% 0.056 56 / 0.1),
+    inset 0 2px 0 var(--wood-light-top), inset 0 -1.5px 0 rgba(72, 43, 20, 0.2),
+    inset 1.5px 0 0 var(--wood-light-side), inset -1px 0 0 rgba(72, 43, 20, 0.1),
     0 3px 10px -1px var(--wood-shadow-base), 0 6px 20px -4px var(--wood-shadow-deep);
   --shadow-modal:
-    inset 0 2px 0 var(--wood-light-top), inset 0 -1.5px 0 oklch(32% 0.056 56 / 0.22),
+    inset 0 2px 0 var(--wood-light-top), inset 0 -1.5px 0 rgba(72, 43, 20, 0.22),
     0 28px 60px -10px var(--wood-shadow-deep), 0 10px 28px -4px var(--wood-shadow-base),
     0 0 0 1px var(--border-subtle);
-  --shadow-active-item: 0 0 0 2px var(--wood-caramel), 0 0 12px oklch(57% 0.108 64 / 0.36);
-  --shadow-glow-primary: 0 0 10px oklch(57% 0.108 64 / 0.4);
+  --shadow-active-item:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 0 1px rgba(122, 76, 28, 0.5),
+    0 3px 8px rgba(72, 43, 20, 0.18);
+  --shadow-glow-primary: 0 0 0 1px rgba(163, 104, 41, 0.18);
+  --shadow-glow-warning: 0 0 0 1px rgba(190, 76, 0, 0.18);
+  --shadow-glow-danger: 0 0 0 1px rgba(154, 11, 44, 0.2);
+  --shadow-glow-elevated: 0 18px 38px rgba(49, 24, 7, 0.28);
   --shadow-glow: var(--shadow-glow-primary);
 
   --overlay-blur: 0px;
+  --modal-shell-overlay-blur: 4px;
   --overlay-sheen: linear-gradient(
     160deg,
-    oklch(100% 0 / 0.68) 0%,
-    oklch(100% 0 / 0.2) 40%,
-    oklch(100% 0 / 0) 70%
+    rgba(255, 255, 255, 0.68) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0) 70%
   );
   --ui-chrome-transform: none;
   --ui-chrome-letter-spacing: 0.04em;
   --ui-chrome-title-letter-spacing: 0.08em;
+  --control-focus-ring: rgba(163, 104, 41, 0.28);
+  --app-title-icon-color: rgba(132, 84, 34, 0.86);
 
   --app-bg-gradient:
     repeating-linear-gradient(
       89deg,
-      oklch(58% 0.068 68 / 0.08) 0px,
-      oklch(58% 0.068 68 / 0.08) 1px,
+      rgba(149, 115, 78, 0.08) 0px,
+      rgba(149, 115, 78, 0.08) 1px,
       transparent 1px,
       transparent 22px
     ),
     repeating-linear-gradient(
       89deg,
-      oklch(66% 0.062 71 / 0.05) 0px,
-      oklch(66% 0.062 71 / 0.05) 1px,
+      rgba(171, 140, 104, 0.05) 0px,
+      rgba(171, 140, 104, 0.05) 1px,
       transparent 1px,
       transparent 7px
     ),
-    radial-gradient(ellipse 70% 45% at 20% 10%, oklch(97% 0.018 84 / 0.56) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 60% at 85% 90%, oklch(68% 0.072 68 / 0.24) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 45% at 20% 10%, rgba(251, 244, 232, 0.56) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 85% 90%, rgba(182, 144, 104, 0.24) 0%, transparent 60%),
     linear-gradient(
       155deg,
-      oklch(89% 0.062 80) 0%,
-      oklch(83% 0.076 74) 55%,
-      oklch(79% 0.084 71) 100%
+      rgba(241, 215, 173, 1) 0%,
+      rgba(229, 193, 144, 1) 55%,
+      rgba(221, 178, 126, 1) 100%
     );
 
-  --app-panel-border: 1px solid var(--border-subtle);
-  --app-panel-shadow: var(--shadow-panel);
-
-  --bpm-value-color: var(--text-primary);
-  --bpm-value-gradient: linear-gradient(
-    to bottom,
-    oklch(24% 0.058 58) 0%,
-    oklch(16% 0.042 54) 55%,
-    oklch(26% 0.062 60) 100%
-  );
-  --bpm-value-shadow:
-    0 3px 0 oklch(99% 0.004 88 / 0.75), 0 -1px 0 var(--wood-shadow-base),
+  --readout-label-color: var(--text-muted);
+  --readout-value-bg-clip: border-box;
+  --readout-value-webkit-bg-clip: border-box;
+  --readout-value-color: var(--text-primary);
+  --readout-value-gradient: none;
+  --readout-value-shadow:
+    0 3px 0 rgba(253, 252, 249, 0.75), 0 -1px 0 var(--wood-shadow-base),
     3px 5px 12px var(--wood-shadow-base);
-  --bpm-value-fw: 900;
-  --bpm-value-ls: -0.04em;
-  --bpm-wheel-bg: linear-gradient(to bottom, oklch(90% 0.056 79) 0%, oklch(84% 0.072 74) 100%);
-  --bpm-wheel-border: 1px solid var(--border-base);
-  --bpm-wheel-shadow:
+  --readout-value-filter: none;
+  --readout-value-weight: 900;
+  --readout-value-letter-spacing: -0.04em;
+  --readout-blur-color: rgba(163, 104, 41, 0.16);
+  --readout-blur-visibility: hidden;
+  --readout-input-color: var(--wood-espresso);
+  --readout-input-caret-color: var(--wood-caramel);
+  --readout-input-selection: rgba(196, 139, 73, 0.28);
+  --readout-controls-color: var(--text-secondary);
+  --readout-wheel-bg: linear-gradient(to bottom, rgba(242, 218, 181, 1) 0%, rgba(231, 196, 150, 1) 100%);
+  --readout-wheel-border: 1px solid var(--border-base);
+  --readout-wheel-shadow:
     inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
-    inset 1px 0 0 var(--wood-light-side), inset 0 6px 10px oklch(26% 0.052 56 / 0.14),
+    inset 1px 0 0 var(--wood-light-side), inset 0 6px 10px rgba(55, 29, 8, 0.14),
     0 2px 5px var(--wood-shadow-base);
-  --bpm-wheel-active-shadow:
-    inset 0 1.5px 0 oklch(100% 0 / 0.58), inset 0 -1px 0 var(--wood-shadow-base),
-    inset 0 6px 12px oklch(26% 0.052 56 / 0.18), 0 0 0 1px oklch(57% 0.108 64 / 0.28);
-  --bpm-wheel-line: var(--wood-caramel);
-  --bpm-wheel-line-glow: oklch(57% 0.108 64 / 0.44);
-  --bpm-wheel-tick: var(--wood-grain-mid);
+  --readout-wheel-active-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.58), inset 0 -1px 0 var(--wood-shadow-base),
+    inset 0 6px 12px rgba(55, 29, 8, 0.18), 0 0 0 1px rgba(163, 104, 41, 0.28);
+  --readout-wheel-line: var(--wood-caramel);
+  --readout-wheel-line-glow: transparent;
+  --readout-wheel-tick: var(--wood-grain-mid);
 
-  --btn-active-transform: scale(0.96);
-  --btn-filled-bg: linear-gradient(to bottom, oklch(94% 0.044 82) 0%, oklch(88% 0.06 77) 100%);
-  --btn-filled-shadow: var(--shadow-sm);
-  --btn-filled-border-width: 1px;
-  --btn-filled-border-color: var(--border-subtle);
-  --btn-filled-active-shadow:
-    inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.42);
-  --btn-filled-active-bg: linear-gradient(
+  --control-bg: linear-gradient(to bottom, rgba(250, 233, 203, 1) 0%, rgba(238, 211, 172, 1) 100%);
+  --control-color: var(--text-primary);
+  --control-border-width: 1px;
+  --control-border-color: rgba(117, 78, 39, 0.42);
+  --control-shadow: var(--shadow-sm);
+  --control-active-bg: linear-gradient(
     to bottom,
-    oklch(83% 0.072 73) 0%,
-    oklch(87% 0.062 77) 100%
+    rgba(228, 193, 148, 1) 0%,
+    rgba(236, 208, 167, 1) 100%
   );
-  --btn-filled-checked-bg: linear-gradient(
+  --control-active-shadow:
+    inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.42);
+  --control-quiet-bg: rgba(244, 222, 187, 0.72);
+  --control-quiet-color: var(--text-secondary);
+  --control-quiet-border-width: 1px;
+  --control-quiet-border-color: rgba(146, 103, 59, 0.26);
+  --control-quiet-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 3px rgba(72, 43, 20, 0.12);
+  --control-quiet-active-bg: rgba(232, 202, 161, 0.82);
+  --control-quiet-active-shadow:
+    inset 0 2px 4px rgba(55, 29, 8, 0.14), inset 0 -1px 0 rgba(253, 252, 249, 0.28);
+  --action-active-transform: scale(0.96);
+  --action-solid-bg: var(--control-bg);
+  --action-solid-color: var(--control-color);
+  --action-solid-shadow: var(--shadow-sm);
+  --action-solid-border-width: 1px;
+  --action-solid-border-color: var(--control-border-color);
+  --action-solid-active-shadow: var(--control-active-shadow);
+  --action-solid-active-bg: var(--control-active-bg);
+  --control-selected-bg: linear-gradient(
     to bottom,
-    oklch(54% 0.112 66) 0%,
-    oklch(48% 0.108 62) 100%
+    rgba(154, 95, 21, 1) 0%,
+    rgba(136, 77, 6, 1) 100%
   );
-  --btn-filled-checked-color: var(--text-inverse);
-  --btn-filled-checked-shadow:
-    inset 0 1.5px 0 oklch(100% 0 / 0.26), inset 0 -1.5px 0 oklch(22% 0.048 52 / 0.28),
-    0 3px 8px oklch(34% 0.088 60 / 0.32);
+  --control-selected-border-width: 1px;
+  --control-selected-border-color: rgba(244, 214, 173, 0.36);
+  --control-selected-color: var(--text-inverse);
+  --control-selected-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.26), inset 0 -1.5px 0 rgba(44, 19, 4, 0.28),
+    0 0 0 1px rgba(117, 78, 39, 0.28), 0 3px 8px rgba(88, 42, 0, 0.24);
+  --action-solid-selected-bg: var(--control-selected-bg);
+  --action-solid-selected-color: var(--control-selected-color);
+  --action-solid-selected-border-width: var(--control-selected-border-width);
+  --action-solid-selected-border-color: var(--control-selected-border-color);
+  --action-solid-selected-shadow: var(--control-selected-shadow);
 
-  --btn-outline-bg: oklch(91% 0.052 80 / 0.52);
-  --btn-outline-border-color: var(--border-base);
-  --btn-outline-shadow: var(--shadow-sm);
-  --btn-outline-checked-bg: linear-gradient(
+  --action-outline-bg: var(--control-quiet-bg);
+  --action-outline-color: var(--control-quiet-color);
+  --action-outline-border-width: var(--control-quiet-border-width);
+  --action-outline-border-color: rgba(117, 78, 39, 0.38);
+  --action-outline-shadow: var(--control-quiet-shadow);
+  --action-outline-active-bg: var(--control-quiet-active-bg);
+  --action-outline-active-shadow: var(--control-quiet-active-shadow);
+  --control-quiet-selected-bg: linear-gradient(
     to bottom,
-    oklch(54% 0.112 66) 0%,
-    oklch(48% 0.108 62) 100%
+    rgba(142, 88, 26, 0.98) 0%,
+    rgba(111, 65, 18, 1) 100%
   );
-  --btn-outline-checked-color: var(--text-inverse);
-  --btn-outline-checked-border-color: oklch(40% 0.082 60 / 0.62);
+  --control-quiet-selected-color: var(--text-inverse);
+  --control-quiet-selected-border-width: 1px;
+  --control-quiet-selected-border-color: rgba(103, 60, 18, 0.62);
+  --control-quiet-selected-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(44, 19, 4, 0.32),
+    0 0 0 1px rgba(163, 104, 41, 0.18);
+  --action-outline-selected-bg: var(--control-quiet-selected-bg);
+  --action-outline-selected-color: var(--control-quiet-selected-color);
+  --action-outline-selected-border-width: var(--control-quiet-selected-border-width);
+  --action-outline-selected-border-color: var(--control-quiet-selected-border-color);
+  --action-outline-selected-shadow: var(--control-quiet-selected-shadow);
+  --action-ghost-selected-bg: rgba(232, 201, 160, 0.82);
+  --action-ghost-selected-color: var(--text-primary);
+  --action-ghost-selected-border-width: 1px;
+  --action-ghost-selected-border-color: rgba(146, 103, 59, 0.36);
+  --action-ghost-selected-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 0 0 1px rgba(163, 104, 41, 0.12);
 
-  --select-dropdown-bg: oklch(93% 0.052 80);
-  --select-dropdown-border-width: 1px;
-  --select-dropdown-border-color: var(--border-base);
-  --select-dropdown-shadow:
+  --surface-floating-bg:
+    linear-gradient(180deg, rgba(255, 248, 239, 0.18) 0%, rgba(255, 248, 239, 0) 22%),
+    linear-gradient(180deg, rgba(250, 232, 201, 1) 0%, rgba(241, 212, 171, 1) 100%);
+  --surface-floating-border-width: 1px;
+  --surface-floating-border-color: var(--border-base);
+  --surface-floating-inner-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.48), inset 0 -1px 0 rgba(72, 43, 20, 0.1);
+  --surface-floating-shadow:
     inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
-    inset 1.5px 0 0 var(--wood-light-side), inset -1px 0 0 oklch(32% 0.056 56 / 0.1),
+    inset 1.5px 0 0 var(--wood-light-side), inset -1px 0 0 rgba(72, 43, 20, 0.1),
     0 20px 48px -8px var(--wood-shadow-deep), 0 8px 20px -4px var(--wood-shadow-base),
     0 0 0 1px var(--border-subtle);
-  --select-dropdown-sheen: linear-gradient(
+  --surface-floating-sheen: linear-gradient(
     to bottom,
-    oklch(100% 0 / 0.62) 0%,
-    oklch(100% 0 / 0.12) 30%,
-    oklch(100% 0 / 0) 55%
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0) 55%
   );
-  --select-option-selected-bg: oklch(83% 0.078 73 / 0.78);
-  --select-option-selected-color: var(--wood-espresso);
-  --select-option-selected-border-color: oklch(55% 0.082 66 / 0.28);
-  --select-option-selected-shadow:
-    inset 0 1.5px 0 var(--wood-light-top), inset 0 -1px 0 var(--wood-shadow-base);
+  --select-dropdown-title-color: var(--text-muted);
+  --select-scrollbar-color: rgba(117, 78, 39, 0.34);
+  --select-option-radius: var(--action-radius);
+  --select-option-color: var(--text-primary);
   --select-dot-color: var(--wood-caramel);
-  --select-dot-shadow: 0 0 6px oklch(57% 0.108 64 / 0.42);
+  --select-dot-shadow: 0 0 0 2px rgba(163, 104, 41, 0.16);
 
-  --visualizer-block-bg: oklch(80% 0.08 72 / 0.58);
-  --visualizer-block-empty: oklch(80% 0.08 72 / 0.58);
-  --visualizer-block-empty-active: oklch(74% 0.09 72 / 0.82);
-  --visualizer-block-border: 1px solid oklch(55% 0.07 68 / 0.12);
-  --visualizer-block-shadow:
-    inset 0 1.5px 3px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.45);
-  --visualizer-block-accent: linear-gradient(
+  --meter-block-bg: linear-gradient(to bottom, rgba(228, 191, 142, 0.66) 0%, rgba(215, 173, 121, 0.72) 100%);
+  --meter-block-empty: linear-gradient(
     to bottom,
-    oklch(54% 0.112 66) 0%,
-    oklch(48% 0.108 62) 100%
+    rgba(228, 191, 142, 0.56) 0%,
+    rgba(215, 173, 121, 0.62) 100%
   );
-  --visualizer-block-accent-dim: oklch(65% 0.102 68 / 0.82);
-
-  --dock-bg: linear-gradient(to bottom, oklch(91% 0.056 79) 0%, oklch(86% 0.068 76) 100%);
-  --dock-border: 1px solid var(--border-base);
-  --dock-shadow: var(--shadow-panel);
-
-  --swing-slider-track-bg: oklch(77% 0.082 72 / 0.72);
-  --swing-slider-track-border: oklch(55% 0.082 66 / 0.2);
-  --swing-slider-track-shadow:
-    inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.38);
-  --swing-slider-progress-bg: linear-gradient(
-    to right,
-    oklch(60% 0.112 68) 0%,
-    oklch(54% 0.108 64) 100%
-  );
-  --swing-slider-thumb-bg: linear-gradient(
+  --meter-block-empty-active: var(--meter-block-empty);
+  --meter-block-border: 1px solid rgba(141, 106, 67, 0.12);
+  --meter-block-shadow:
+    inset 0 1.5px 3px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.45);
+  --meter-block-accent: linear-gradient(
     to bottom,
-    oklch(60% 0.112 68) 0%,
-    oklch(54% 0.108 64) 100%
+    rgba(154, 95, 21, 1) 0%,
+    rgba(136, 77, 6, 1) 100%
   );
-  --swing-slider-thumb-shadow:
-    inset 0 1.5px 0 oklch(100% 0 / 0.32), inset 0 -1.5px 0 oklch(22% 0.048 52 / 0.26),
+  --meter-block-accent-dim: linear-gradient(
+    to bottom,
+    rgba(194, 141, 81, 0.96) 0%,
+    rgba(166, 112, 51, 0.96) 100%
+  );
+  --meter-block-shadow-filled:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(72, 43, 20, 0.16);
+  --meter-block-shadow-active:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(72, 43, 20, 0.2),
+    0 0 0 1px rgba(163, 104, 41, 0.18);
+  --meter-label-color: var(--text-muted);
+  --meter-controls-bg: rgba(244, 222, 187, 0.82);
+  --meter-controls-border: 1px solid rgba(117, 78, 39, 0.3);
+  --meter-controls-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 2px 6px rgba(72, 43, 20, 0.12);
+  --meter-value-color: var(--text-secondary);
+  --meter-value-active-color: var(--wood-caramel);
+
+  --surface-panel-bg: linear-gradient(to bottom, rgba(246, 222, 184, 1) 0%, rgba(235, 204, 159, 1) 100%);
+  --surface-panel-border: 1px solid var(--border-base);
+  --surface-panel-shadow: var(--shadow-panel);
+
+  --range-track-bg: rgba(213, 172, 122, 0.72);
+  --range-track-border-width: 1px;
+  --range-track-border-color: rgba(146, 103, 59, 0.2);
+  --range-track-height: 8px;
+  --range-track-shadow:
+    inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.38);
+  --range-progress-bg: linear-gradient(to right, rgba(172, 114, 43, 1) 0%, rgba(154, 95, 30, 1) 100%);
+  --range-thumb-size: 18px;
+  --range-thumb-bg: var(--control-handle-accent-bg);
+  --range-thumb-radius: var(--control-handle-radius, var(--radius-control));
+  --range-thumb-border-width: 1px;
+  --range-thumb-border-color: rgba(253, 252, 249, 0.55);
+  --range-thumb-shadow: var(--control-handle-accent-shadow);
+  --range-focus-ring: rgba(163, 104, 41, 0.24);
+  --control-handle-radius: 999px;
+  --control-handle-accent-bg: linear-gradient(
+    to bottom,
+    rgba(172, 114, 43, 1) 0%,
+    rgba(154, 95, 30, 1) 100%
+  );
+  --control-handle-accent-border-color: rgba(253, 252, 249, 0.55);
+  --control-handle-accent-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.32), inset 0 -1.5px 0 rgba(44, 19, 4, 0.26),
     0 3px 8px var(--wood-shadow-deep);
-  --swing-slider-thumb-border: oklch(99% 0.004 88 / 0.55);
 
-  --speed-status-border: var(--border-base);
-  --speed-status-border-width: 1px;
-
-  --interval-status-border: var(--border-base);
-  --interval-status-border-width: 1px;
-
-  --checkbox-shadow:
-    inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.38);
-  --checkbox-checked-bg: var(--wood-caramel);
-  --checkbox-checked-border-color: oklch(40% 0.082 60 / 0.55);
-  --checkbox-knob-bg: linear-gradient(to bottom, oklch(98% 0.006 84) 0%, oklch(87% 0.052 78) 100%);
-  --checkbox-knob-checked-bg: linear-gradient(
+  --switch-track-bg: linear-gradient(to bottom, rgba(221, 182, 132, 0.88) 0%, rgba(201, 157, 104, 0.92) 100%);
+  --switch-track-border-width: 1px;
+  --switch-track-border-color: rgba(117, 78, 39, 0.32);
+  --switch-track-radius: 999px;
+  --switch-track-shadow:
+    inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.38);
+  --switch-track-selected-bg: linear-gradient(
     to bottom,
-    oklch(98% 0.006 84) 0%,
-    oklch(87% 0.052 78) 100%
+    rgba(154, 95, 21, 1) 0%,
+    rgba(127, 74, 12, 1) 100%
   );
-  --checkbox-knob-border: oklch(99% 0.004 88 / 0.55);
-  --checkbox-knob-shadow:
-    inset 0 1.5px 0 oklch(100% 0 / 0.68), inset 0 -1px 0 oklch(40% 0.082 60 / 0.18),
+  --switch-track-selected-border-color: rgba(103, 60, 18, 0.62);
+  --switch-track-selected-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(44, 19, 4, 0.28),
+    0 0 0 1px rgba(163, 104, 41, 0.14);
+  --control-handle-bg: linear-gradient(to bottom, rgba(250, 248, 244, 1) 0%, rgba(231, 209, 175, 1) 100%);
+  --control-handle-border-width: 1px;
+  --control-handle-border-color: rgba(253, 252, 249, 0.55);
+  --control-handle-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.68), inset 0 -1px 0 rgba(103, 60, 18, 0.18),
     0 3px 7px var(--wood-shadow-deep);
+  --switch-thumb-bg: var(--control-handle-bg);
+  --switch-thumb-radius: var(--control-handle-radius);
+  --switch-thumb-border-width: var(--control-handle-border-width);
+  --switch-thumb-border-color: var(--control-handle-border-color);
+  --switch-thumb-shadow: var(--control-handle-shadow);
+  --control-handle-selected-bg: linear-gradient(
+    to bottom,
+    rgba(252, 249, 244, 1) 0%,
+    rgba(237, 216, 184, 1) 100%
+  );
+  --control-handle-selected-border-width: 1px;
+  --control-handle-selected-border-color: rgba(253, 252, 249, 0.55);
+  --control-handle-selected-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.68), inset 0 -1px 0 rgba(103, 60, 18, 0.18),
+    0 3px 7px var(--wood-shadow-deep);
+  --switch-thumb-selected-bg: var(--control-handle-selected-bg);
+  --switch-thumb-selected-border-color: rgba(251, 233, 207, 0.72);
+  --switch-thumb-selected-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.72), inset 0 -1px 0 rgba(103, 60, 18, 0.2),
+    0 3px 7px rgba(49, 24, 7, 0.3);
 
-  --history-item-bg: oklch(87% 0.064 76 / 0.62);
-  --history-item-border: 1px solid var(--border-subtle);
-  --history-item-shadow:
-    inset 0 1.5px 0 oklch(99% 0.004 88 / 0.6), inset 0 -1.5px 0 var(--wood-shadow-base);
-  --history-item-active-bg: oklch(91% 0.054 79 / 0.92);
-  --history-item-active-border: 1px solid var(--border-active);
-  --history-item-active-color: var(--wood-caramel);
-  --history-item-active-shadow:
-    inset 0 1.5px 0 oklch(99% 0.004 88 / 0.6), 0 0 0 1.5px var(--wood-caramel),
-    0 0 10px oklch(57% 0.108 64 / 0.3);
-
-  --app-input-bg: oklch(80% 0.08 72 / 0.62);
-  --app-input-border: 1px solid var(--border-subtle);
-  --app-input-shadow:
-    inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 oklch(99% 0.004 88 / 0.38);
-
-  --app-modal-border: 1px solid var(--border-subtle);
-  --app-modal-shadow: var(--shadow-modal);
-
-  --help-footer-bg: oklch(82% 0.072 73 / 0.52);
-
-  --dock-radius: var(--radius-panel);
-  --history-item-radius: var(--radius-control);
-  --history-remove-btn-radius: var(--radius-panel);
-  --checkbox-radius: var(--radius-control);
+  --field-bg: linear-gradient(to bottom, rgba(224, 185, 136, 0.72) 0%, rgba(209, 166, 115, 0.82) 100%);
+  --field-border-width: 1px;
+  --field-border-color: rgba(117, 78, 39, 0.28);
+  --field-border: 1px solid var(--field-border-color);
+  --field-color: var(--text-primary);
+  --field-shadow:
+    inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.38);
+  --field-focus-border: rgba(163, 104, 41, 0.52);
+  --field-focus-bg:
+    linear-gradient(180deg, rgba(236, 205, 164, 0.92) 0%, rgba(223, 185, 136, 0.96) 100%);
 
   --opacity-btn-active: 0.8;
   --transition-base:

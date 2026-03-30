@@ -173,6 +173,12 @@
           "name": "单体节拍柱",
           "selector": ".visualizer__column",
           "logic": "toggleStepState(i)"
+        },
+        {
+          "id": "ind_vis_beat_group_active",
+          "name": "大拍播放状态条",
+          "selector": ".visualizer__beat-indicator",
+          "desc": "每组大拍底部的播放态指示条；当前大拍播放时进入高亮态"
         }
       ]
     },

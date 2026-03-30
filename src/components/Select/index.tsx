@@ -100,21 +100,23 @@ export const Select = ({
           <div className={styles["select__overlay"]} />
           <div className={styles["select__dropdown-title"]}>{title}</div>
           <div className={styles["select__options"]}>
-            {options.map((opt) => (
-              <Button
-                variant="transparent"
-                key={opt.value}
-                isChecked={opt.value === value}
-                onClick={() => {
-                  onChange(opt.value);
-                  setIsOpen(false);
-                }}
-                className={styles["select__option"]}
-              >
-                {opt.label}
-                {opt.value === value && <div className={styles["select__active-dot"]} />}
-              </Button>
-            ))}
+            <div className={styles["select__options-inner"]}>
+              {options.map((opt) => (
+                <Button
+                  variant="transparent"
+                  key={opt.value}
+                  isChecked={opt.value === value}
+                  onClick={() => {
+                    onChange(opt.value);
+                    setIsOpen(false);
+                  }}
+                  className={styles["select__option"]}
+                >
+                  {opt.label}
+                  {opt.value === value && <div className={styles["select__active-dot"]} />}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       )}

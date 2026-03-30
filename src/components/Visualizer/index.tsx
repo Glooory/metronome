@@ -23,6 +23,7 @@ export const Visualizer = ({
   toggleStepState,
   shift,
   onShiftChange,
+  subdivision,
   language,
 }: VisualizerProps) => {
   const common = translations.common;
@@ -31,6 +32,15 @@ export const Visualizer = ({
   const minShift = -maxShift;
   const canShiftLeft = shift > minShift;
   const canShiftRight = shift < maxShift;
+  const safeSubdivision = Math.max(1, subdivision);
+  const activeBeatGroup =
+    activeBeat === null ? null : Math.floor(Math.max(activeBeat, 0) / safeSubdivision);
+  const groupedStepStates = stepStates.reduce<number[][]>((groups, currentState, index) => {
+    const beatIndex = Math.floor(index / safeSubdivision);
+    if (!groups[beatIndex]) groups[beatIndex] = [];
+    groups[beatIndex].push(currentState);
+    return groups;
+  }, []);
   const getBlockClassName = (isFilled: boolean, isActive: boolean) =>
     clsx(
       styles["visualizer__block"],
@@ -91,27 +101,43 @@ export const Visualizer = ({
       </div>
 
       <div className={styles["visualizer__container"]}>
-        {stepStates.map((currentState, i) => {
-          const isAccent = currentState === BEAT_ACCENT;
-          const isSubAccent = currentState === BEAT_SUB_ACCENT;
-          const isMute = currentState === BEAT_MUTE;
+        {groupedStepStates.map((beatGroup, beatIndex) => (
+          <div key={beatIndex} className={styles["visualizer__beat-group"]}>
+            <div className={styles["visualizer__beat-columns"]}>
+              {beatGroup.map((currentState, subdivisionIndex) => {
+                const stepIndex = beatIndex * safeSubdivision + subdivisionIndex;
+                const isAccent = currentState === BEAT_ACCENT;
+                const isSubAccent = currentState === BEAT_SUB_ACCENT;
+                const isMute = currentState === BEAT_MUTE;
+                const isActive = activeBeat === stepIndex;
 
-          const isActive = activeBeat === i;
-
-          return (
-            <div
-              key={i}
-              onClick={() => toggleStepState(i)}
-              className={styles["visualizer__column"]}
-            >
-              <div className={styles["visualizer__stack"]}>
-                <div className={getBlockClassName(isAccent, isActive)} />
-                <div className={getBlockClassName(isAccent || isSubAccent, isActive)} />
-                <div className={getBlockClassName(!isMute, isActive)} />
-              </div>
+                return (
+                  <div
+                    key={stepIndex}
+                    onClick={() => toggleStepState(stepIndex)}
+                    className={styles["visualizer__column"]}
+                  >
+                    <div className={styles["visualizer__stack"]}>
+                      <div className={getBlockClassName(isAccent, isActive)} />
+                      <div
+                        className={getBlockClassName(isAccent || isSubAccent, isActive)}
+                      />
+                      <div className={getBlockClassName(!isMute, isActive)} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+
+            <div
+              aria-hidden="true"
+              className={clsx(
+                styles["visualizer__beat-indicator"],
+                activeBeatGroup === beatIndex && styles["visualizer__beat-indicator--active"]
+              )}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

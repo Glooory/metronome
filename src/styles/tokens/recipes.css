@@ -191,4 +191,18 @@
   --meter-value-ff: var(--type-metric-ff, var(--font-app-mono));
   --meter-value-fw: var(--type-metric-fw, 600);
   --meter-value-transition: color 0.2s;
+  --meter-indicator-height: 6px;
+  --meter-indicator-radius: var(--radius-pill, 999px);
+  --meter-indicator-track-bg: var(--meter-block-bg, var(--fill-subtle));
+  --meter-indicator-track-border: var(--meter-block-border, none);
+  --meter-indicator-track-shadow: var(--meter-block-shadow, none);
+  --meter-indicator-fill: var(--meter-block-accent, var(--accent-primary));
+  --meter-indicator-fill-shadow: var(
+    --meter-block-shadow-active,
+    var(--meter-block-shadow-filled, none)
+  );
+  --meter-indicator-idle-opacity: 0.18;
+  --meter-indicator-active-opacity: 1;
+  --meter-indicator-transition:
+    opacity 0.14s ease-out, box-shadow 0.14s ease-out, background-color 0.14s ease-out;
 }

@@ -33,8 +33,6 @@ export const Visualizer = ({
   const canShiftLeft = shift > minShift;
   const canShiftRight = shift < maxShift;
   const safeSubdivision = Math.max(1, subdivision);
-  const activeBeatGroup =
-    activeBeat === null ? null : Math.floor(Math.max(activeBeat, 0) / safeSubdivision);
   const groupedStepStates = stepStates.reduce<number[][]>((groups, currentState, index) => {
     const beatIndex = Math.floor(index / safeSubdivision);
     if (!groups[beatIndex]) groups[beatIndex] = [];
@@ -119,23 +117,13 @@ export const Visualizer = ({
                   >
                     <div className={styles["visualizer__stack"]}>
                       <div className={getBlockClassName(isAccent, isActive)} />
-                      <div
-                        className={getBlockClassName(isAccent || isSubAccent, isActive)}
-                      />
+                      <div className={getBlockClassName(isAccent || isSubAccent, isActive)} />
                       <div className={getBlockClassName(!isMute, isActive)} />
                     </div>
                   </div>
                 );
               })}
             </div>
-
-            <div
-              aria-hidden="true"
-              className={clsx(
-                styles["visualizer__beat-indicator"],
-                activeBeatGroup === beatIndex && styles["visualizer__beat-indicator--active"]
-              )}
-            />
           </div>
         ))}
       </div>

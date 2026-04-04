@@ -140,16 +140,16 @@
   --type-caption-fw: 600;
   --type-caption-transform: none;
   --type-caption-letter-spacing: 0.02em;
-  --type-caption-size: 0.75rem;
+  --type-caption-size: 0.875rem;
 
   --type-control-ff: var(--ui-chrome-ff);
   --type-control-fw: var(--ui-chrome-fw);
   --type-control-transform: var(--ui-chrome-transform);
   --type-control-letter-spacing: var(--ui-chrome-letter-spacing);
   --type-control-title-letter-spacing: var(--ui-chrome-title-letter-spacing);
-  --type-control-size-sm: 0.75rem;
-  --type-control-size-md: 0.875rem;
-  --type-control-size-lg: 1rem;
+  --type-control-size-sm: 0.875rem;
+  --type-control-size-md: 1rem;
+  --type-control-size-lg: 1.125rem;
 
   --type-metric-ff: var(--font-app-mono);
   --type-metric-fw: 600;

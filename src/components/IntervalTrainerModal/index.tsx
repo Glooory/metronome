@@ -69,7 +69,7 @@ export const IntervalTrainerModal = ({
             type="number"
             className={styles["interval-trainer-modal__input"]}
             font="metric"
-            size="sm"
+            size="md"
             align="center"
             hideNumberSpinner
             value={config.playBars}
@@ -85,7 +85,7 @@ export const IntervalTrainerModal = ({
             type="number"
             className={styles["interval-trainer-modal__input"]}
             font="metric"
-            size="sm"
+            size="md"
             align="center"
             hideNumberSpinner
             value={config.muteBars}

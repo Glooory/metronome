@@ -39,7 +39,7 @@
   flex-direction: column;
   gap: 1.5rem;
   font-family: var(--type-body-ff, var(--font-app-sans));
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
   max-height: 70vh;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -99,19 +99,19 @@
 .section-text {
   font-family: var(--type-body-ff, var(--font-app-sans));
   color: var(--text-secondary);
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
   line-height: 1.5;
 }
 
 .text-xs {
   font-family: var(--type-caption-ff, var(--font-app-sans));
-  font-size: var(--type-caption-size, 0.75rem);
+  font-size: var(--type-body-size-md, 1rem);
   opacity: 0.7;
 }
 
 .help-modal__footer-text {
   font-family: var(--type-control-ff, var(--font-display));
-  font-size: var(--type-caption-size, 0.75rem);
+  font-size: var(--type-body-size-md, 1rem);
   text-transform: var(--type-control-transform, uppercase);
   letter-spacing: var(--type-control-title-letter-spacing, 0.08em);
   color: var(--text-muted);

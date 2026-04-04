@@ -82,7 +82,7 @@ export const PresetsModal = ({
           />
           <Button
             className={styles["presets-modal__save-btn"]}
-            size="sm"
+            size="md"
             onClick={handleSave}
             disabled={!name.trim()}
           >

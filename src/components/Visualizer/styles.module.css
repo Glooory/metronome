@@ -98,7 +98,7 @@
 
 .visualizer__label {
   font-family: var(--meter-label-ff);
-  font-size: var(--type-control-size-md, 0.875rem);
+  font-size: var(--type-control-size-md, 1rem);
   color: var(--meter-label-color);
   font-weight: var(--meter-label-fw);
   text-transform: var(--meter-label-transform);

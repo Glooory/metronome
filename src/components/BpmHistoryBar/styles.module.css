@@ -73,7 +73,7 @@
 
 .history-bar__item-text {
   font-family: var(--type-metric-ff, var(--font-app-mono));
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
   font-weight: var(--type-metric-fw, 600);
   letter-spacing: var(--type-metric-letter-spacing, -0.02em);
   font-variant-numeric: tabular-nums;
@@ -94,7 +94,7 @@
 .no-history {
   color: var(--text-muted);
   font-family: var(--type-caption-ff, var(--font-app-sans));
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
   font-style: italic;
   margin-left: 0.5rem;
 }

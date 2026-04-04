@@ -68,7 +68,7 @@ export const SpeedTrainerModal = ({
             type="number"
             className={styles["speed-trainer-modal__input"]}
             font="metric"
-            size="sm"
+            size="md"
             align="center"
             hideNumberSpinner
             value={config.everyMeasures}
@@ -86,7 +86,7 @@ export const SpeedTrainerModal = ({
             type="number"
             className={styles["speed-trainer-modal__input"]}
             font="metric"
-            size="sm"
+            size="md"
             align="center"
             hideNumberSpinner
             value={config.increment}
@@ -102,7 +102,7 @@ export const SpeedTrainerModal = ({
             type="number"
             className={styles["speed-trainer-modal__input"]}
             font="metric"
-            size="sm"
+            size="md"
             align="center"
             hideNumberSpinner
             value={config.targetBpm}

@@ -40,7 +40,7 @@
   justify-content: center;
   text-align: center;
   color: var(--text-secondary, var(--text-muted));
-  font-size: var(--type-caption-size, 0.75rem);
+  font-size: var(--type-control-size-md, 1rem);
   font-family: var(--type-control-ff, var(--font-display));
   font-weight: var(--type-caption-fw, 600);
   text-transform: var(--type-control-transform, uppercase);

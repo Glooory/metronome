@@ -79,7 +79,7 @@
 
 .presets-modal__item-name {
   font-family: var(--type-body-ff, var(--font-app-sans));
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
   font-weight: var(--type-body-strong-fw, 600);
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -90,7 +90,7 @@
 
 .presets-modal__item-meta {
   font-family: var(--type-caption-ff, var(--font-app-sans));
-  font-size: var(--type-caption-size, 0.75rem);
+  font-size: var(--type-body-size-md, 1rem);
   color: var(--text-secondary);
   display: flex;
   gap: 4px;
@@ -111,7 +111,7 @@
   padding: 32px 16px;
   color: var(--text-muted);
   font-family: var(--type-body-ff, var(--font-app-sans));
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
 }
 
 .presets-modal__empty-icon {
@@ -163,7 +163,7 @@
 
 .presets-modal__confirm-message {
   font-family: var(--type-body-ff, var(--font-app-sans));
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
   color: var(--text-secondary);
 }
 

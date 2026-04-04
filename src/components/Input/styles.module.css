@@ -35,7 +35,7 @@
 .size-sm {
   min-height: var(--control-height-sm, 2rem);
   padding: 0.5rem 0.75rem;
-  font-size: var(--type-body-size-sm, 0.875rem);
+  font-size: var(--type-body-size-md, 1rem);
 }
 
 .size-md {

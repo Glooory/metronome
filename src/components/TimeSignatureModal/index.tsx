@@ -65,7 +65,7 @@ export const TimeSignatureModal = ({
             return (
               <Button
                 key={value}
-                size="sm"
+                size="md"
                 isChecked={isSelected}
                 className={styles["time-signature-modal__quick-signature-btn"]}
                 onClick={() => onTimeSignatureChange(signature.numerator, signature.denominator)}

@@ -55,9 +55,13 @@
 .time-signature-modal__value {
   width: 100%;
   padding: 0.875rem 0.5rem;
-  border-radius: var(--radius-lg, 1rem);
-  border: 1px solid var(--border-base);
-  background: var(--fill-subtle);
+  border-radius: var(--field-radius, var(--radius-control));
+  border: var(
+    --field-border,
+    var(--field-border-width, 1px) solid var(--field-border-color, var(--border-subtle))
+  );
+  background: var(--field-bg, var(--fill-subtle));
+  box-shadow: var(--field-shadow, none);
   color: var(--text-primary);
   text-align: center;
   font-family: var(--readout-value-ff, var(--font-display));

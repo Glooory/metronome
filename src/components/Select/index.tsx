@@ -5,7 +5,7 @@ import { Button } from "../Button";
 import styles from "./styles.module.css";
 
 interface Option {
-  label: string;
+  label: React.ReactNode;
   value: string | number;
 }
 
@@ -16,7 +16,7 @@ interface SelectProps {
   onChange: (value: string | number) => void;
   options: Option[];
   title: string;
-  displayLabel: string;
+  displayLabel: React.ReactNode;
   alignment?: "left" | "center" | "right";
   placement?: "top" | "bottom";
   className?: string;

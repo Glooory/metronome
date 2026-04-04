@@ -8,10 +8,10 @@ import {
   useState,
 } from "react";
 import { BPM_BIND_NOTE_OPTIONS, MAX_BPM, MIN_BPM } from "../../constants";
-import { getBpmBindNoteLabel } from "../../helpers";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
 import { Button } from "../Button";
+import { NoteIcon } from "../NoteIcon";
 import { Select } from "../Select";
 import styles from "./styles.module.css";
 
@@ -104,26 +104,31 @@ export const BpmDisplay = ({
   return (
     <div className={styles["bpm-display"]}>
       <div className={styles["bpm-display__resize-area"]}>
-        <div className={styles["bpm-display__label"]}>
-          <span>B</span>
-          <span>P</span>
-          <span>M</span>
-        </div>
-        <div className={styles["bpm-display__bind-note"]}>
-          <Select
-            rightIcon={Equal}
-            placement="bottom"
-            value={bpmBindNote}
-            onChange={(value) => setBpmBindNote(Number(value))}
-            options={BPM_BIND_NOTE_OPTIONS.map((option) => ({
-              label: option.label,
-              value: option.value,
-            }))}
-            title={translations.bpmDisplay.bindNote[language]}
-            displayLabel={getBpmBindNoteLabel(bpmBindNote)}
-            className={styles["bpm-display__bind-note-select"]}
-            buttonClassName={styles["bpm-display__bind-note-btn"]}
-          />
+        <div className={styles["bpm-display__bind-note-wrapper"]}>
+          <div className={styles["bpm-display__section-label"]}>BPM</div>
+          <div className={styles["bpm-display__bind-note"]}>
+            <Select
+              rightIcon={Equal}
+              placement="bottom"
+              value={bpmBindNote}
+              onChange={(value) => setBpmBindNote(Number(value))}
+              options={BPM_BIND_NOTE_OPTIONS.map((option) => ({
+                label: (
+                  <div className={styles["bpm-display__select-option"]}>
+                    <NoteIcon value={option.value} size={22} />
+                    <span className={styles["bpm-display__select-option-label"]}>
+                      {option.label}
+                    </span>
+                  </div>
+                ),
+                value: option.value,
+              }))}
+              title={translations.bpmDisplay.bindNote[language]}
+              displayLabel={<NoteIcon value={bpmBindNote} size={28} />}
+              className={styles["bpm-display__bind-note-select"]}
+              buttonClassName={styles["bpm-display__bind-note-btn"]}
+            />
+          </div>
         </div>
         <div
           className={styles["bpm-display__value-wrapper"]}

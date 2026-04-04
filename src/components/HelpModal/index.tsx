@@ -1,11 +1,16 @@
 import {
+  Activity,
   AudioWaveform,
+  BarChart2,
+  Command,
   Gauge,
-  GripVertical,
+  Grid,
   HelpCircle,
+  Keyboard,
   ListMusic,
   MousePointerClick,
   Music,
+  Palette,
   Star,
   VolumeX,
 } from "lucide-react";
@@ -24,6 +29,36 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
   const common = translations.common;
   const t = translations.help;
 
+  const HelpRow = ({
+    icon: Icon,
+    title,
+    desc,
+    legend,
+  }: {
+    icon: any;
+    title: string;
+    desc: string;
+    legend?: string;
+  }) => (
+    <div className={styles["help-modal__row"]}>
+      <div className={styles["help-modal__icon-box"]}>
+        <Icon size={20} />
+      </div>
+      <div className={styles["help-modal__section-body"]}>
+        <h3 className={styles["section-title"]}>{title}</h3>
+        <p className={styles["section-text"]}>
+          {desc}
+          {legend && (
+            <>
+              <br />
+              <strong className={styles["section-legend"]}>{legend}</strong>
+            </>
+          )}
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <ModalShell
       isOpen={isOpen}
@@ -40,97 +75,104 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
       titleIconClassName={styles["help-modal__title-icon"]}
     >
       <div className={styles["help-modal__body"]}>
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <GripVertical size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.bpmControl[language]}</h3>
-            <p className={styles["section-text"]}>
-              {t.bpmControlDesc[language]}
-              <br />
-              <span className={styles["text-xs"]}>{t.bpmControlKeys[language]}</span>
-            </p>
-          </div>
-        </div>
+        <p className={styles["help-modal__intro"]}>{t.intro[language]}</p>
 
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <Star size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.bpmMemory[language]}</h3>
-            <p className={styles["section-text"]}>{t.bpmMemoryDesc[language]}</p>
-          </div>
-        </div>
+        <section className={styles["help-modal__section"]}>
+          <h4 className={styles["help-modal__section-heading"]}>
+            <Activity size={14} />
+            {t.coreFeatures[language]}
+          </h4>
+          <HelpRow
+            icon={Activity}
+            title={t.bpmControl[language]}
+            desc={t.bpmControlDesc[language]}
+          />
+          <HelpRow
+            icon={MousePointerClick}
+            title={t.tapTempo[language]}
+            desc={t.tapTempoDesc[language]}
+          />
+          <HelpRow
+            icon={Music}
+            title={t.bpmNote[language]}
+            desc={t.bpmNoteDesc[language]}
+          />
+          <HelpRow
+            icon={BarChart2}
+            title={t.beatBars[language]}
+            desc={t.beatBarsDesc[language]}
+            legend={t.beatBarsLegend[language]}
+          />
+          <HelpRow
+            icon={Grid}
+            title={t.subdivisions[language]}
+            desc={t.subdivisionsDesc[language]}
+          />
+        </section>
 
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <MousePointerClick size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.beatBars[language]}</h3>
-            <p className={styles["section-text"]}>
-              {t.beatBarsDesc[language]}
-              <br />
-              <strong>{t.beatBarsLegend[language]}</strong>
-            </p>
-          </div>
-        </div>
+        <section className={styles["help-modal__section"]}>
+          <h4 className={styles["help-modal__section-heading"]}>
+            <Gauge size={14} />
+            {t.trainingTools[language]}
+          </h4>
+          <HelpRow
+            icon={Gauge}
+            title={t.speedTrainer[language]}
+            desc={t.speedTrainerDesc[language]}
+          />
+          <HelpRow
+            icon={VolumeX}
+            title={t.intervalTrainer[language]}
+            desc={t.intervalTrainerDesc[language]}
+          />
+          <HelpRow
+            icon={AudioWaveform}
+            title={t.swingTrainer[language]}
+            desc={t.swingTrainerDesc[language]}
+          />
+        </section>
 
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <Gauge size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.speedTrainer[language]}</h3>
-            <p className={styles["section-text"]}>{t.speedTrainerDesc[language]}</p>
-          </div>
-        </div>
+        <section className={styles["help-modal__section"]}>
+          <h4 className={styles["help-modal__section-heading"]}>
+            <Palette size={14} />
+            {t.managementAndCustom[language]}
+          </h4>
+          <HelpRow icon={Star} title={t.bpmMemory[language]} desc={t.bpmMemoryDesc[language]} />
+          <HelpRow
+            icon={ListMusic}
+            title={t.presetsFeature[language]}
+            desc={t.presetsDesc[language]}
+          />
+        </section>
 
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <VolumeX size={20} />
+        <section className={styles["help-modal__shortcuts-card"]}>
+          <div className={styles["shortcuts-card__header"]}>
+            <Keyboard size={18} />
+            <h4 className={styles["shortcuts-card__title"]}>{t.shortcutsTitle[language]}</h4>
           </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.intervalTrainer[language]}</h3>
-            <p className={styles["section-text"]}>{t.intervalTrainerDesc[language]}</p>
+          <div className={styles["shortcuts-card__grid"]}>
+            <div className={styles["shortcut-item"]}>
+              <div className={styles["shortcut-keys"]}>
+                <kbd className={styles["kbd-key"]}>Space</kbd>
+              </div>
+              <span className={styles["shortcut-text"]}>{t.spaceKey[language]}</span>
+            </div>
+            <div className={styles["shortcut-item"]}>
+              <div className={styles["shortcut-keys"]}>
+                <kbd className={styles["kbd-key"]}>↑</kbd>
+                <kbd className={styles["kbd-key"]}>↓</kbd>
+              </div>
+              <span className={styles["shortcut-text"]}>{t.arrowKeys[language]}</span>
+            </div>
           </div>
-        </div>
-
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <AudioWaveform size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.swingTrainer[language]}</h3>
-            <p className={styles["section-text"]}>{t.swingTrainerDesc[language]}</p>
-          </div>
-        </div>
-
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <ListMusic size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.presetsFeature[language]}</h3>
-            <p className={styles["section-text"]}>{t.presetsDesc[language]}</p>
-          </div>
-        </div>
-
-        <div className={styles["help-modal__row"]}>
-          <div className={styles["help-modal__icon-box"]}>
-            <Music size={20} />
-          </div>
-          <div className={styles["help-modal__section-body"]}>
-            <h3 className={styles["section-title"]}>{t.bottomDock[language]}</h3>
-            <p className={styles["section-text"]}>{t.bottomDockDesc[language]}</p>
-          </div>
-        </div>
+        </section>
       </div>
 
       <div className={styles["help-modal__footer"]}>
-        <p className={styles["help-modal__footer-text"]}>{t.footer[language]}</p>
+        <p className={styles["help-modal__footer-text"]}>
+          <Command size={14} className={styles["footer-icon"]} />
+          {t.footer[language]}
+        </p>
       </div>
     </ModalShell>
   );

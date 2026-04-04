@@ -10,7 +10,8 @@ interface Option {
 }
 
 interface SelectProps {
-  icon: LucideIcon;
+  leftIcon?: LucideIcon;
+  rightIcon?: LucideIcon;
   value: string | number;
   onChange: (value: string | number) => void;
   options: Option[];
@@ -18,10 +19,13 @@ interface SelectProps {
   displayLabel: string;
   alignment?: "left" | "center" | "right";
   placement?: "top" | "bottom";
+  className?: string;
+  buttonClassName?: string;
 }
 
 export const Select = ({
-  icon: Icon,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   value,
   onChange,
   options,
@@ -29,6 +33,8 @@ export const Select = ({
   displayLabel,
   alignment = "center",
   placement = "top",
+  className,
+  buttonClassName,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isPresent, setIsPresent] = useState(false);
@@ -72,19 +78,23 @@ export const Select = ({
   };
 
   return (
-    <div className={styles["select"]} ref={containerRef}>
+    <div className={clsx(styles["select"], className)} ref={containerRef}>
       <Button
         variant="outline"
         isChecked={isOpen}
-        className={styles["select__btn"]}
+        className={clsx(styles["select__btn"], buttonClassName)}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Icon size={20} />
+        {!!LeftIcon && <LeftIcon size={20} />}
         <span className={styles["select__label"]}>{displayLabel}</span>
-        <div className={styles["select__chevrons"]}>
-          <ChevronUp size={12} />
-          <ChevronDown size={12} />
-        </div>
+        {!!RightIcon ? (
+          <RightIcon size={20} />
+        ) : (
+          <div className={styles["select__chevrons"]}>
+            <ChevronUp size={12} />
+            <ChevronDown size={12} />
+          </div>
+        )}
       </Button>
 
       {isPresent && (

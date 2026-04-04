@@ -14,6 +14,7 @@ import { Select } from "./components/Select";
 import { SEO } from "./components/SEO";
 import { SpeedTrainerModal } from "./components/SpeedTrainerModal";
 import { SwingSettingModal } from "./components/SwingSettingModal";
+import { TimeSignatureModal } from "./components/TimeSignatureModal";
 import { TrainerDock } from "./components/TrainerDock";
 import { Visualizer } from "./components/Visualizer";
 
@@ -24,14 +25,20 @@ import {
   BEAT_MUTE,
   BEAT_NORMAL,
   BEAT_SUB_ACCENT,
+  BPM_BIND_NOTE_OPTIONS,
+  DEFAULT_BEAT_UNIT,
+  DEFAULT_BPM_BIND_NOTE,
+  MAX_BEATS_PER_MEASURE,
   MAX_BPM,
   MIN_BPM,
   SOUND_DRUM,
   SOUND_MECH,
   SOUND_SINE,
   SOUND_WOOD,
+  STORAGE_KEY_BEAT_UNIT,
   STORAGE_KEY_BEATS,
   STORAGE_KEY_BPM,
+  STORAGE_KEY_BPM_BIND_NOTE,
   STORAGE_KEY_INTERVAL_TRAINER,
   STORAGE_KEY_PRESETS,
   STORAGE_KEY_SAVED_BPMS,
@@ -42,20 +49,23 @@ import {
   STORAGE_KEY_SUBDIV_VAL,
   STORAGE_KEY_SWING,
   STORAGE_KEY_THEME,
+  SUBDIVISION_VALUES,
   TAP_TIMEOUT,
+  TIME_SIGNATURE_DENOMINATORS,
   type IntervalTrainerConfig,
   type Preset,
   type SpeedTrainerConfig,
 } from "./constants";
+import {
+  convertBeatsPerMeasureForBeatUnit,
+  createDefaultStepStates,
+  getSubdivisionLabel,
+  isSubdivisionAllowed,
+  normalizeSubdivisionForBeatUnit,
+} from "./helpers";
 import { useMetronome } from "./hooks/useMetronome";
 import { translations } from "./i18n";
-import {
-  DEFAULT_THEME,
-  getThemeClassName,
-  isTheme,
-  THEME_IDS,
-  type Theme,
-} from "./theme-registry";
+import { DEFAULT_THEME, getThemeClassName, isTheme, THEME_IDS, type Theme } from "./theme-registry";
 
 function getStorageItem<T>(
   key: string,
@@ -91,10 +101,30 @@ export default function MetronomeApp() {
     )
   );
   const [beatsPerMeasure, setBeatsPerMeasure] = useState<number>(() =>
-    getStorageItem(STORAGE_KEY_BEATS, 4, (v) => Math.max(parseInt(v, 10), 1))
+    getStorageItem(STORAGE_KEY_BEATS, 4, (v) =>
+      Math.min(Math.max(parseInt(v, 10), 1), MAX_BEATS_PER_MEASURE)
+    )
+  );
+  const [beatUnit, setBeatUnit] = useState<number>(() =>
+    getStorageItem(STORAGE_KEY_BEAT_UNIT, DEFAULT_BEAT_UNIT, (v) => {
+      const parsed = parseInt(v, 10);
+      return TIME_SIGNATURE_DENOMINATORS.includes(
+        parsed as (typeof TIME_SIGNATURE_DENOMINATORS)[number]
+      )
+        ? parsed
+        : DEFAULT_BEAT_UNIT;
+    })
   );
   const [subdivision, setSubdivision] = useState<number>(() =>
     getStorageItem(STORAGE_KEY_SUBDIV_VAL, 1, (v) => parseInt(v, 10))
+  );
+  const [bpmBindNote, setBpmBindNote] = useState<number>(() =>
+    getStorageItem(STORAGE_KEY_BPM_BIND_NOTE, DEFAULT_BPM_BIND_NOTE, (v) => {
+      const parsed = parseFloat(v);
+      return BPM_BIND_NOTE_OPTIONS.some((option) => option.value === parsed)
+        ? parsed
+        : DEFAULT_BPM_BIND_NOTE;
+    })
   );
   const [swing, setSwing] = useState<number>(() =>
     getStorageItem(STORAGE_KEY_SWING, 0, (v) => parseInt(v, 10))
@@ -117,14 +147,7 @@ export default function MetronomeApp() {
       return saved;
     }
 
-    const newSteps: number[] = [];
-    for (let b = 0; b < beatsPerMeasure; b++) {
-      const chunk = [];
-      chunk.push(b === 0 ? BEAT_ACCENT : BEAT_NORMAL);
-      for (let i = 1; i < subdivision; i++) chunk.push(BEAT_NORMAL);
-      newSteps.push(...chunk);
-    }
-    return newSteps;
+    return createDefaultStepStates(beatsPerMeasure, subdivision);
   });
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
@@ -178,21 +201,22 @@ export default function MetronomeApp() {
   const [showIntervalModal, setShowIntervalModal] = useState(false);
   const [showSwingModal, setShowSwingModal] = useState(false);
   const [showPresetsModal, setShowPresetsModal] = useState(false);
+  const [showTimeSignatureModal, setShowTimeSignatureModal] = useState(false);
+  const configKeyRef = useRef(`${beatsPerMeasure}-${beatUnit}-${subdivision}`);
 
   useEffect(() => {
-    setStepStates((prev) => {
-      const currentTotal = prev.length;
-      const targetTotal = beatsPerMeasure * subdivision;
-      if (currentTotal === targetTotal) return prev;
+    const nextConfigKey = `${beatsPerMeasure}-${beatUnit}-${subdivision}`;
+    if (configKeyRef.current === nextConfigKey) {
+      return;
+    }
 
-      const newSteps: number[] = [];
-      for (let b = 0; b < beatsPerMeasure; b++) {
-        newSteps.push(b === 0 ? BEAT_ACCENT : BEAT_NORMAL);
-        for (let i = 1; i < subdivision; i++) newSteps.push(BEAT_NORMAL);
-      }
-      return newSteps;
-    });
-  }, [beatsPerMeasure, subdivision]);
+    configKeyRef.current = nextConfigKey;
+    setStepStates(createDefaultStepStates(beatsPerMeasure, subdivision));
+  }, [beatUnit, beatsPerMeasure, subdivision]);
+
+  useEffect(() => {
+    setSubdivision((prev) => normalizeSubdivisionForBeatUnit(beatUnit, prev));
+  }, [beatUnit]);
 
   useEffect(() => {
     const totalSteps = stepStates.length;
@@ -204,6 +228,8 @@ export default function MetronomeApp() {
   useEffect(() => {
     setStorageItem(STORAGE_KEY_BPM, bpm);
     setStorageItem(STORAGE_KEY_BEATS, beatsPerMeasure);
+    setStorageItem(STORAGE_KEY_BEAT_UNIT, beatUnit);
+    setStorageItem(STORAGE_KEY_BPM_BIND_NOTE, bpmBindNote);
     setStorageItem(STORAGE_KEY_STEP_STATES, stepStates);
     setStorageItem(STORAGE_KEY_SUBDIV_VAL, subdivision);
     setStorageItem(STORAGE_KEY_SWING, swing);
@@ -227,6 +253,8 @@ export default function MetronomeApp() {
   }, [
     bpm,
     beatsPerMeasure,
+    beatUnit,
+    bpmBindNote,
     stepStates,
     subdivision,
     swing,
@@ -298,12 +326,21 @@ export default function MetronomeApp() {
   };
 
   const { isPlaying, setIsPlaying, visualBeat, ensureAudioContext, measureCount, isMeasureMuted } =
-    useMetronome(bpm, beatsPerMeasure, subdivision, soundPreset, stepStates, {
-      swing,
-      shift,
-      intervalTrainer: intervalTrainer,
-      onMeasureComplete: handleMeasureComplete,
-    });
+    useMetronome(
+      bpm,
+      beatsPerMeasure,
+      beatUnit,
+      bpmBindNote,
+      subdivision,
+      soundPreset,
+      stepStates,
+      {
+        swing,
+        shift,
+        intervalTrainer: intervalTrainer,
+        onMeasureComplete: handleMeasureComplete,
+      }
+    );
 
   const tapTimes = useRef<number[]>([]);
   const handleTap = () => {
@@ -346,19 +383,18 @@ export default function MetronomeApp() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [setIsPlaying]);
 
-  const beatOptions = [2, 3, 4, 5, 6].map((b) => ({ label: `${b}/4`, value: b }));
   const soundOptions = [
     { label: translations.options.sounds.sine[language], value: SOUND_SINE },
     { label: translations.options.sounds.wood[language], value: SOUND_WOOD },
     { label: translations.options.sounds.drum[language], value: SOUND_DRUM },
     { label: translations.options.sounds.mech[language], value: SOUND_MECH },
   ];
-  const subdivOptions = [
-    { label: translations.options.subdivisions.qtr[language], value: 1 },
-    { label: translations.options.subdivisions.eighth[language], value: 2 },
-    { label: translations.options.subdivisions.triplet[language], value: 3 },
-    { label: translations.options.subdivisions.sixteenth[language], value: 4 },
-  ];
+
+  const subdivOptions = SUBDIVISION_VALUES.map((value) => ({
+    label: getSubdivisionLabel(beatUnit, value),
+    value,
+    disabled: !isSubdivisionAllowed(beatUnit, value),
+  }));
 
   const cycleTheme = () => {
     setTheme((prev) => {
@@ -386,6 +422,8 @@ export default function MetronomeApp() {
       name,
       bpm,
       beatsPerMeasure,
+      beatUnit,
+      bpmBindNote,
       subdivision,
       soundPreset,
       stepStates: [...stepStates],
@@ -397,18 +435,46 @@ export default function MetronomeApp() {
   };
 
   const handleLoadPreset = (preset: Preset) => {
+    const nextBeatUnit = preset.beatUnit ?? DEFAULT_BEAT_UNIT;
+    const nextBpmBindNote = preset.bpmBindNote ?? DEFAULT_BPM_BIND_NOTE;
+    const nextSubdivision = normalizeSubdivisionForBeatUnit(nextBeatUnit, preset.subdivision);
+    const expectedSteps = preset.beatsPerMeasure * nextSubdivision;
+    const nextStepStates =
+      preset.stepStates.length === expectedSteps
+        ? preset.stepStates
+        : createDefaultStepStates(preset.beatsPerMeasure, nextSubdivision);
+
     setBpm(preset.bpm);
     setBeatsPerMeasure(preset.beatsPerMeasure);
-    setSubdivision(preset.subdivision);
+    setBeatUnit(nextBeatUnit);
+    setBpmBindNote(nextBpmBindNote);
+    setSubdivision(nextSubdivision);
     setSoundPreset(preset.soundPreset);
     if (preset.swing !== undefined) setSwing(preset.swing);
     if (preset.shift !== undefined) setShift(preset.shift);
-    setTimeout(() => setStepStates(preset.stepStates), 0);
+    setTimeout(() => setStepStates(nextStepStates), 0);
     setShowPresetsModal(false);
   };
 
   const handleDeletePreset = (id: string) => {
     setPresets((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  const handleBeatUnitChange = (nextBeatUnit: number) => {
+    if (nextBeatUnit === beatUnit) return;
+    setBeatsPerMeasure((current) =>
+      convertBeatsPerMeasureForBeatUnit(current, beatUnit, nextBeatUnit)
+    );
+    setSubdivision((current) => normalizeSubdivisionForBeatUnit(nextBeatUnit, current));
+    setBpmBindNote(1 / nextBeatUnit);
+    setBeatUnit(nextBeatUnit);
+  };
+
+  const handleTimeSignatureChange = (nextBeatsPerMeasure: number, nextBeatUnit: number) => {
+    if (nextBeatUnit !== beatUnit) {
+      handleBeatUnitChange(nextBeatUnit);
+    }
+    setBeatsPerMeasure(nextBeatsPerMeasure);
   };
 
   return (
@@ -443,7 +509,7 @@ export default function MetronomeApp() {
             <Palette size={20} />
           </Button>
           <Select
-            icon={Palette}
+            leftIcon={Palette}
             value={theme}
             onChange={(v) => setTheme(v as Theme)}
             options={themeOptions}
@@ -454,7 +520,7 @@ export default function MetronomeApp() {
           />
 
           <Select
-            icon={Globe}
+            leftIcon={Globe}
             title={translations.header.language[language]}
             value={language}
             options={languages}
@@ -474,7 +540,13 @@ export default function MetronomeApp() {
 
         <div className={styles["app__content"]}>
           <div className={styles["bpm-section"]}>
-            <BpmDisplay bpm={bpm} setBpm={setBpm} language={language} />
+            <BpmDisplay
+              bpm={bpm}
+              setBpm={setBpm}
+              bpmBindNote={bpmBindNote}
+              setBpmBindNote={setBpmBindNote}
+              language={language}
+            />
             <BpmHistoryBar
               currentBpm={bpm}
               setBpm={setBpm}
@@ -503,8 +575,9 @@ export default function MetronomeApp() {
                   isChecked={subdivision === opt.value}
                   className={styles["subdivision-btn"]}
                   onClick={() => setSubdivision(opt.value)}
+                  disabled={opt.disabled}
                 >
-                  {opt.label.split(" ")[0]}
+                  {opt.label}
                 </Button>
               ))}
             </div>
@@ -523,15 +596,14 @@ export default function MetronomeApp() {
             />
 
             <ControlDock>
-              <Select
-                icon={Music}
-                value={beatsPerMeasure}
-                onChange={(v) => setBeatsPerMeasure(parseInt(v as string))}
-                options={beatOptions}
-                title={translations.dock.timeSignature[language]}
-                displayLabel={`${beatsPerMeasure}/4`}
-                alignment="left"
-              />
+              <Button
+                variant="outline"
+                className={styles["time-signature-btn"]}
+                onClick={() => setShowTimeSignatureModal(true)}
+                startIcon={<Music size={20} />}
+              >
+                {beatsPerMeasure}/{beatUnit}
+              </Button>
 
               <Button
                 variant="outline"
@@ -547,7 +619,7 @@ export default function MetronomeApp() {
               </Button>
 
               <Select
-                icon={Drum}
+                leftIcon={Drum}
                 value={soundPreset}
                 onChange={(v) => setSoundPreset(v as string)}
                 options={soundOptions}
@@ -594,6 +666,17 @@ export default function MetronomeApp() {
           onLoad={handleLoadPreset}
           onDelete={handleDeletePreset}
           onClose={() => setShowPresetsModal(false)}
+          language={language}
+        />
+
+        <TimeSignatureModal
+          isOpen={showTimeSignatureModal}
+          numerator={beatsPerMeasure}
+          denominator={beatUnit}
+          onNumeratorChange={setBeatsPerMeasure}
+          onDenominatorChange={handleBeatUnitChange}
+          onTimeSignatureChange={handleTimeSignatureChange}
+          onClose={() => setShowTimeSignatureModal(false)}
           language={language}
         />
       </div>

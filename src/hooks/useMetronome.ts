@@ -31,6 +31,8 @@ interface UseMetronomeOptions {
 export const useMetronome = (
   bpm: number,
   beatsPerMeasure: number,
+  beatUnit: number,
+  bpmBindNote: number,
   subdivision: number,
   soundPreset: string,
   stepStates: number[],
@@ -39,6 +41,8 @@ export const useMetronome = (
   const intervalTrainerRef = useRef(options.intervalTrainer);
   const onMeasureCompleteRef = useRef(options.onMeasureComplete);
   const bpmRef = useRef(bpm);
+  const beatUnitRef = useRef(beatUnit);
+  const bpmBindNoteRef = useRef(bpmBindNote);
   const soundPresetRef = useRef(soundPreset);
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -75,8 +79,19 @@ export const useMetronome = (
     swingRef.current = options.swing ?? 0;
     shiftRef.current = options.shift ?? 0;
     bpmRef.current = bpm;
+    beatUnitRef.current = beatUnit;
+    bpmBindNoteRef.current = bpmBindNote;
     soundPresetRef.current = soundPreset;
-  }, [bpm, soundPreset, options.intervalTrainer, options.onMeasureComplete, options.swing, options.shift]);
+  }, [
+    bpm,
+    beatUnit,
+    bpmBindNote,
+    soundPreset,
+    options.intervalTrainer,
+    options.onMeasureComplete,
+    options.swing,
+    options.shift,
+  ]);
 
   const schedulerRef = useRef<{ beatCounter: number }>({ beatCounter: 0 });
 
@@ -210,118 +225,124 @@ export const useMetronome = (
     modulator.stop(time + decay + 0.05);
   }, []);
 
-  const playDrum = useCallback((ctx: AudioContext, time: number, beatType: number) => {
-    if (beatType === BEAT_ACCENT) {
-      const osc = ctx.createOscillator();
-      const gainNode = ctx.createGain();
-      osc.connect(gainNode);
-      gainNode.connect(ctx.destination);
-      if (convolverRef.current) gainNode.connect(convolverRef.current);
+  const playDrum = useCallback(
+    (ctx: AudioContext, time: number, beatType: number) => {
+      if (beatType === BEAT_ACCENT) {
+        const osc = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        if (convolverRef.current) gainNode.connect(convolverRef.current);
 
-      osc.frequency.setValueAtTime(180, time);
-      osc.frequency.exponentialRampToValueAtTime(50, time + 0.1);
+        osc.frequency.setValueAtTime(180, time);
+        osc.frequency.exponentialRampToValueAtTime(50, time + 0.1);
 
-      gainNode.gain.setValueAtTime(1.5, time);
-      gainNode.gain.linearRampToValueAtTime(1.5, time + 0.005);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.25);
+        gainNode.gain.setValueAtTime(1.5, time);
+        gainNode.gain.linearRampToValueAtTime(1.5, time + 0.005);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.25);
 
-      osc.start(time);
-      osc.stop(time + 0.3);
-    } else if (beatType === BEAT_SUB_ACCENT) {
+        osc.start(time);
+        osc.stop(time + 0.3);
+      } else if (beatType === BEAT_SUB_ACCENT) {
+        const noise = ctx.createBufferSource();
+        noise.buffer = getNoiseBuffer(ctx);
+        const noiseFilter = ctx.createBiquadFilter();
+        noiseFilter.type = "highpass";
+        noiseFilter.frequency.value = 1000;
+        const noiseGain = ctx.createGain();
+
+        noise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        if (convolverRef.current) noiseGain.connect(convolverRef.current);
+
+        noiseGain.gain.setValueAtTime(0, time);
+        noiseGain.gain.linearRampToValueAtTime(0.8, time + 0.005);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, time + 0.15);
+
+        noise.start(time);
+        noise.stop(time + 0.2);
+
+        const osc = ctx.createOscillator();
+        const oscGain = ctx.createGain();
+        osc.connect(oscGain);
+        oscGain.connect(ctx.destination);
+        osc.frequency.setValueAtTime(250, time);
+        osc.type = "triangle";
+        oscGain.gain.setValueAtTime(0, time);
+        oscGain.gain.linearRampToValueAtTime(0.3, time + 0.005);
+        oscGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
+        osc.start(time);
+        osc.stop(time + 0.15);
+      } else {
+        const noise = ctx.createBufferSource();
+        noise.buffer = getNoiseBuffer(ctx);
+        const filter = ctx.createBiquadFilter();
+        filter.type = "highpass";
+        filter.frequency.value = 9000;
+        const gainNode = ctx.createGain();
+
+        noise.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        if (convolverRef.current) gainNode.connect(convolverRef.current);
+
+        gainNode.gain.setValueAtTime(0, time);
+        gainNode.gain.linearRampToValueAtTime(0.3, time + 0.005);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.05);
+
+        noise.start(time);
+        noise.stop(time + 0.1);
+      }
+    },
+    [getNoiseBuffer]
+  );
+
+  const playMech = useCallback(
+    (ctx: AudioContext, time: number, beatType: number) => {
       const noise = ctx.createBufferSource();
       noise.buffer = getNoiseBuffer(ctx);
-      const noiseFilter = ctx.createBiquadFilter();
-      noiseFilter.type = "highpass";
-      noiseFilter.frequency.value = 1000;
-      const noiseGain = ctx.createGain();
 
-      noise.connect(noiseFilter);
-      noiseFilter.connect(noiseGain);
-      noiseGain.connect(ctx.destination);
-      if (convolverRef.current) noiseGain.connect(convolverRef.current);
-
-      noiseGain.gain.setValueAtTime(0, time);
-      noiseGain.gain.linearRampToValueAtTime(0.8, time + 0.005);
-      noiseGain.gain.exponentialRampToValueAtTime(0.01, time + 0.15);
-
-      noise.start(time);
-      noise.stop(time + 0.2);
-
-      const osc = ctx.createOscillator();
-      const oscGain = ctx.createGain();
-      osc.connect(oscGain);
-      oscGain.connect(ctx.destination);
-      osc.frequency.setValueAtTime(250, time);
-      osc.type = "triangle";
-      oscGain.gain.setValueAtTime(0, time);
-      oscGain.gain.linearRampToValueAtTime(0.3, time + 0.005);
-      oscGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
-      osc.start(time);
-      osc.stop(time + 0.15);
-    } else {
-      const noise = ctx.createBufferSource();
-      noise.buffer = getNoiseBuffer(ctx);
       const filter = ctx.createBiquadFilter();
-      filter.type = "highpass";
-      filter.frequency.value = 9000;
       const gainNode = ctx.createGain();
 
       noise.connect(filter);
       filter.connect(gainNode);
       gainNode.connect(ctx.destination);
-      if (convolverRef.current) gainNode.connect(convolverRef.current);
+      // Mechanical preset is dry/crisp, no reverb
+      // if (convolverRef.current) gainNode.connect(convolverRef.current);
+
+      filter.type = "bandpass";
+
+      let centerFreq = 1500;
+      let q = 5.0;
+      let peakGain = 4;
+      let decay = 0.03;
+
+      if (beatType === BEAT_ACCENT) {
+        centerFreq = 2000;
+        q = 4.0;
+        peakGain = 10;
+        decay = 0.05;
+      } else if (beatType === BEAT_SUB_ACCENT) {
+        centerFreq = 1800;
+        q = 4.5;
+        peakGain = 7;
+        decay = 0.04;
+      }
+
+      filter.frequency.value = centerFreq;
+      filter.Q.value = q;
 
       gainNode.gain.setValueAtTime(0, time);
-      gainNode.gain.linearRampToValueAtTime(0.3, time + 0.005);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.05);
+      gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.001);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, time + decay);
 
       noise.start(time);
-      noise.stop(time + 0.1);
-    }
-  }, [getNoiseBuffer]);
-
-  const playMech = useCallback((ctx: AudioContext, time: number, beatType: number) => {
-    const noise = ctx.createBufferSource();
-    noise.buffer = getNoiseBuffer(ctx);
-
-    const filter = ctx.createBiquadFilter();
-    const gainNode = ctx.createGain();
-
-    noise.connect(filter);
-    filter.connect(gainNode);
-    gainNode.connect(ctx.destination);
-    // Mechanical preset is dry/crisp, no reverb
-    // if (convolverRef.current) gainNode.connect(convolverRef.current);
-
-    filter.type = "bandpass";
-
-    let centerFreq = 1500;
-    let q = 5.0;
-    let peakGain = 4;
-    let decay = 0.03;
-
-    if (beatType === BEAT_ACCENT) {
-      centerFreq = 2000;
-      q = 4.0;
-      peakGain = 10;
-      decay = 0.05;
-    } else if (beatType === BEAT_SUB_ACCENT) {
-      centerFreq = 1800;
-      q = 4.5;
-      peakGain = 7;
-      decay = 0.04;
-    }
-
-    filter.frequency.value = centerFreq;
-    filter.Q.value = q;
-
-    gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(peakGain, time + 0.001);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, time + decay);
-
-    noise.start(time);
-    noise.stop(time + decay + 0.02);
-  }, [getNoiseBuffer]);
+      noise.stop(time + decay + 0.02);
+    },
+    [getNoiseBuffer]
+  );
 
   const stepStatesRef = useRef(stepStates);
 
@@ -385,7 +406,11 @@ export const useMetronome = (
   const nextNote = useCallback(() => {
     const safeSubdivision = Math.max(1, subdivisionRef.current || 1);
     const safeBpm = Math.max(1, bpmRef.current || 120);
-    const secondsPerSubdivision = 60.0 / safeBpm / safeSubdivision;
+    const safeBeatUnit = Math.max(1, beatUnitRef.current || 4);
+    const safeBpmBindNote = Math.max(0.0001, bpmBindNoteRef.current || 0.25);
+    const wholeNoteDuration = 60.0 / safeBpm / safeBpmBindNote;
+    const secondsPerBeat = wholeNoteDuration / safeBeatUnit;
+    const secondsPerSubdivision = secondsPerBeat / safeSubdivision;
     nextNoteTime.current += secondsPerSubdivision;
   }, []);
 

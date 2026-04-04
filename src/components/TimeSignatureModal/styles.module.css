@@ -1,0 +1,90 @@
+.time-signature-modal__panel {
+  max-width: 28rem;
+}
+
+.time-signature-modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.time-signature-modal__quick-signatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.time-signature-modal__quick-signature-btn {
+  flex: 1 1 calc(20% - 0.5rem);
+  min-width: 4.5rem;
+}
+
+.time-signature-modal__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.time-signature-modal__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.time-signature-modal__label {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-secondary, var(--text-muted));
+  font-size: var(--type-caption-size, 0.75rem);
+  font-family: var(--type-control-ff, var(--font-display));
+  font-weight: var(--type-caption-fw, 600);
+  text-transform: var(--type-control-transform, uppercase);
+  letter-spacing: var(--ui-chrome-title-letter-spacing, 0.08em);
+}
+
+.time-signature-modal__step-btn {
+  width: 100%;
+  max-width: 5rem;
+}
+
+.time-signature-modal__value {
+  width: 100%;
+  padding: 0.875rem 0.5rem;
+  border-radius: var(--radius-lg, 1rem);
+  border: 1px solid var(--border-base);
+  background: var(--fill-subtle);
+  color: var(--text-primary);
+  text-align: center;
+  font-family: var(--readout-value-ff, var(--font-display));
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-signature-modal__slash {
+  color: var(--text-muted);
+  font-family: var(--readout-value-ff, var(--font-display));
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1;
+  transform: translateY(1.5rem);
+}
+
+@media (max-width: 480px) {
+  .time-signature-modal__quick-signature-btn {
+    flex-basis: calc(33.333% - 0.5rem);
+  }
+
+  .time-signature-modal__grid {
+    gap: 0.625rem;
+  }
+
+  .time-signature-modal__label {
+    min-height: 3rem;
+  }
+}

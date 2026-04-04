@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { ChevronDown, ChevronsDown, ChevronsUp, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronsDown, ChevronsUp, ChevronUp, Equal } from "lucide-react";
 import {
   KeyboardEvent,
   PointerEvent as ReactPointerEvent,
@@ -7,19 +7,29 @@ import {
   useRef,
   useState,
 } from "react";
-import { MAX_BPM, MIN_BPM } from "../../constants";
+import { BPM_BIND_NOTE_OPTIONS, MAX_BPM, MIN_BPM } from "../../constants";
+import { getBpmBindNoteLabel } from "../../helpers";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
 import { Button } from "../Button";
+import { Select } from "../Select";
 import styles from "./styles.module.css";
 
 interface BpmDisplayProps {
   bpm: number;
   setBpm: (value: number | ((prev: number) => number)) => void;
+  bpmBindNote: number;
+  setBpmBindNote: (value: number) => void;
   language: Language;
 }
 
-export const BpmDisplay = ({ bpm, setBpm, language }: BpmDisplayProps) => {
+export const BpmDisplay = ({
+  bpm,
+  setBpm,
+  bpmBindNote,
+  setBpmBindNote,
+  language,
+}: BpmDisplayProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isWheelDragging, setIsWheelDragging] = useState(false);
   const [inputValue, setInputValue] = useState(String(bpm));
@@ -98,6 +108,22 @@ export const BpmDisplay = ({ bpm, setBpm, language }: BpmDisplayProps) => {
           <span>B</span>
           <span>P</span>
           <span>M</span>
+        </div>
+        <div className={styles["bpm-display__bind-note"]}>
+          <Select
+            rightIcon={Equal}
+            placement="bottom"
+            value={bpmBindNote}
+            onChange={(value) => setBpmBindNote(Number(value))}
+            options={BPM_BIND_NOTE_OPTIONS.map((option) => ({
+              label: option.label,
+              value: option.value,
+            }))}
+            title={translations.bpmDisplay.bindNote[language]}
+            displayLabel={getBpmBindNoteLabel(bpmBindNote)}
+            className={styles["bpm-display__bind-note-select"]}
+            buttonClassName={styles["bpm-display__bind-note-btn"]}
+          />
         </div>
         <div
           className={styles["bpm-display__value-wrapper"]}

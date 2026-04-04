@@ -42,6 +42,29 @@
   width: 4rem;
 }
 
+.bpm-display__bind-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.bpm-display__bind-note-select {
+  height: auto;
+}
+
+.bpm-display__bind-note-btn {
+  width: 5rem;
+}
+
+.bpm-display__bind-note-equals {
+  color: var(--text-muted);
+  font-family: var(--readout-label-ff);
+  font-size: var(--readout-label-size);
+  font-weight: var(--readout-label-weight);
+  letter-spacing: var(--readout-label-letter-spacing);
+}
+
 .bpm-display__value-wrapper {
   position: relative;
   display: grid;

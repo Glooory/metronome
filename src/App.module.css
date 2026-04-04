@@ -46,6 +46,12 @@
   flex-shrink: 0;
 }
 
+.time-signature-btn {
+  min-width: 6.5rem;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 @media (min-width: 768px) {
   .play-btn {
     width: calc(var(--control-size-icon-md, 2.5rem) + 1.5rem);

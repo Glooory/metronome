@@ -50,6 +50,12 @@
           "desc": "主读数左侧的 B/P/M 字母标签"
         },
         {
+          "id": "sel_bpm_bind_note",
+          "name": "BPM 绑定音符选择器",
+          "selector": ".bpm-display__bind-note",
+          "desc": "主读数左上方的绑定音符下拉；拍号分母变化时会同步到对应音符值，但仍可手动改写"
+        },
+        {
           "id": "dsp_bpm_value",
           "name": "BPM 核心读数",
           "selector": ".bpm-display__value-wrapper",
@@ -254,10 +260,10 @@
       "entities": [
         {
           "id": "sel_time_signature",
-          "name": "拍号选择器",
+          "name": "拍号入口",
           "icon": "Music",
           "path": "src/App.tsx",
-          "desc": "基于 Select 组件，控制 2/4 - 6/4"
+          "desc": "底部 dock 中的拍号按钮，点击打开 TimeSignatureModal"
         },
         {
           "id": "btn_play_pause",
@@ -273,6 +279,92 @@
           "icon": "Drum",
           "path": "src/App.tsx",
           "desc": "基于 Select 组件，切换 sine / wood / drum / mech"
+        }
+      ]
+    },
+    {
+      "area": "Modal_TimeSignature (拍号弹窗)",
+      "path": "src/components/TimeSignatureModal/index.tsx",
+      "state_trigger": "showTimeSignatureModal",
+      "entities": [
+        {
+          "id": "row_time_signature_quick",
+          "name": "常用拍号快捷按钮组",
+          "selector": ".time-signature-modal__quick-signatures",
+          "desc": "提供 2/4、3/4、4/4、6/8、12/8 一键切换；会一次性更新分子和分母"
+        },
+        {
+          "id": "btn_time_signature_quick_2_4",
+          "name": "快捷拍号 2/4",
+          "logic": "onTimeSignatureChange(2, 4)"
+        },
+        {
+          "id": "btn_time_signature_quick_3_4",
+          "name": "快捷拍号 3/4",
+          "logic": "onTimeSignatureChange(3, 4)"
+        },
+        {
+          "id": "btn_time_signature_quick_4_4",
+          "name": "快捷拍号 4/4",
+          "logic": "onTimeSignatureChange(4, 4)"
+        },
+        {
+          "id": "btn_time_signature_quick_6_8",
+          "name": "快捷拍号 6/8",
+          "logic": "onTimeSignatureChange(6, 8)"
+        },
+        {
+          "id": "btn_time_signature_quick_12_8",
+          "name": "快捷拍号 12/8",
+          "logic": "onTimeSignatureChange(12, 8)"
+        },
+        {
+          "id": "lbl_time_signature_numerator",
+          "name": "分子标签",
+          "selector": ".time-signature-modal__label",
+          "desc": "左侧分子控制列标题"
+        },
+        {
+          "id": "btn_time_signature_numerator_inc",
+          "name": "分子 +1",
+          "icon": "Plus",
+          "logic": "onNumeratorChange(numerator + 1)"
+        },
+        {
+          "id": "dsp_time_signature_numerator",
+          "name": "分子读数",
+          "selector": ".time-signature-modal__value",
+          "desc": "左侧大号数字读数"
+        },
+        {
+          "id": "btn_time_signature_numerator_dec",
+          "name": "分子 -1",
+          "icon": "Minus",
+          "logic": "onNumeratorChange(numerator - 1)"
+        },
+        {
+          "id": "lbl_time_signature_denominator",
+          "name": "分母标签",
+          "selector": ".time-signature-modal__label",
+          "desc": "右侧分母控制列标题"
+        },
+        {
+          "id": "btn_time_signature_denominator_inc",
+          "name": "分母切到更小音符",
+          "icon": "Plus",
+          "logic": "onDenominatorChange(TIME_SIGNATURE_DENOMINATORS[denominatorIndex + 1])"
+        },
+        {
+          "id": "dsp_time_signature_denominator",
+          "name": "分母读数",
+          "selector": ".time-signature-modal__value",
+          "desc": "右侧大号数字读数；改变时会同步 BPM 绑定音符"
+        },
+        {
+          "id": "btn_time_signature_denominator_dec",
+          "name": "分母切到更大音符",
+          "icon": "Minus",
+          "logic": "onDenominatorChange(TIME_SIGNATURE_DENOMINATORS[denominatorIndex - 1])"
         }
       ]
     },

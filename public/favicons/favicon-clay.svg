@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="a" x1="24" x2="47" y1="8" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f6e6d3"/>
-      <stop offset="1" stop-color="#d7bfaa"/>
+      <stop stop-color="#f2ece6"/>
+      <stop offset="1" stop-color="#d7cdc4"/>
     </linearGradient>
   </defs>
-  <path fill="#cbb29f" fill-opacity=".72" d="M25 9H41L50 57H16Z"/>
-  <path fill="#fff6ec" fill-opacity=".9" d="M23 7H39L48 55H14Z"/>
+  <path fill="#c7b8ac" fill-opacity=".72" d="M25 9H41L50 57H16Z"/>
+  <path fill="#fbf7f2" fill-opacity=".92" d="M23 7H39L48 55H14Z"/>
   <path fill="url(#a)" d="M24 8H40L49 56H15Z"/>
-  <path fill="#fdf2e8" fill-opacity=".55" d="M27 14h9l4 23H22z"/>
-  <path fill="#c49b81" fill-opacity=".3" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
-  <path stroke="#8e8a94" stroke-linecap="round" stroke-width="4.5" d="M29 45 52 13"/>
-  <circle cx="29" cy="45" r="3.1" fill="#b9a89c"/>
-  <circle cx="47" cy="20" r="5.2" fill="#e86d5f"/>
+  <path fill="#fffaf6" fill-opacity=".58" d="M27 14h9l4 23H22z"/>
+  <path fill="#bb977f" fill-opacity=".3" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
+  <path stroke="#845c4b" stroke-linecap="round" stroke-width="4.5" d="M32 45 60 17"/>
+  <circle cx="32" cy="45" r="3.2" fill="#baa79a"/>
+  <circle cx="54" cy="23" r="5.2" fill="#c25f44"/>
 </svg>

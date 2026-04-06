@@ -1,21 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="a" x1="24" x2="45" y1="8" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#858c93"/>
-      <stop offset=".5" stop-color="#535a61"/>
-      <stop offset="1" stop-color="#2b3035"/>
+      <stop stop-color="#72655a"/>
+      <stop offset=".5" stop-color="#413733"/>
+      <stop offset="1" stop-color="#17120f"/>
     </linearGradient>
-    <linearGradient id="b" x1="41" x2="53" y1="14" y2="26" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff2bf"/>
-      <stop offset=".55" stop-color="#d8ab42"/>
-      <stop offset="1" stop-color="#8b5a18"/>
+    <linearGradient id="b" x1="48" x2="60" y1="17" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0d39a"/>
+      <stop offset=".55" stop-color="#ba8335"/>
+      <stop offset="1" stop-color="#6e4311"/>
+    </linearGradient>
+    <linearGradient id="c" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8d6330"/>
+      <stop offset=".58" stop-color="#bf8d44"/>
+      <stop offset="1" stop-color="#f1d7a0"/>
     </linearGradient>
   </defs>
-  <path fill="url(#a)" stroke="#0d0f12" stroke-width="1.4" d="M24 8H40L49 56H15Z"/>
-  <path fill="#25292d" d="M27 14h10l5 30H22z"/>
-  <path fill="#7a8289" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
-  <circle cx="26.5" cy="14.5" r="1.5" fill="#b0b7be"/><circle cx="37.5" cy="14.5" r="1.5" fill="#b0b7be"/>
-  <path stroke="#9ca5ad" stroke-linecap="round" stroke-width="4.4" d="M29 45 52 13"/>
-  <circle cx="29" cy="45" r="3.3" fill="#0d0f12"/>
-  <rect x="41" y="14.5" width="12" height="12" rx="2" fill="url(#b)" stroke="#704512" stroke-width="1"/>
+  <path fill="url(#a)" stroke="#17110d" stroke-width="1.4" d="M24 8H40L49 56H15Z"/>
+  <path fill="#221a16" d="M27 14h10l5 30H22z"/>
+  <path fill="#9b8a73" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
+  <rect x="25" y="13" width="3" height="3" rx=".7" fill="#b8ab97"/>
+  <rect x="36" y="13" width="3" height="3" rx=".7" fill="#b8ab97"/>
+  <path stroke="#4a3119" stroke-linecap="square" stroke-width="5.2" d="M32 45 60 17"/>
+  <path stroke="url(#c)" stroke-linecap="square" stroke-width="3.2" d="M32 45 60 17"/>
+  <rect x="29" y="42" width="6" height="6" rx=".9" fill="#16100d" stroke="#866036" stroke-width=".8"/>
+  <rect x="49" y="18" width="10" height="10" rx="1" fill="url(#b)" stroke="#5f3910" stroke-width="1"/>
 </svg>

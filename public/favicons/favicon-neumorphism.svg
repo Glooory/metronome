@@ -1,11 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <path fill="#cfd6e2" fill-opacity=".9" d="M25 9H41L50 57H16Z"/>
-  <path fill="#fff" fill-opacity=".95" d="M23 7H39L48 55H14Z"/>
-  <path fill="#e8edf5" d="M24 8H40L49 56H15Z"/>
-  <path fill="#f5f8fc" fill-opacity=".8" d="M27 14h9l4 23H22z"/>
-  <path fill="#d3dae6" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
-  <path stroke="#98a3b8" stroke-linecap="round" stroke-width="4.5" d="M29 45 52 13"/>
-  <circle cx="29" cy="45" r="3.1" fill="#cdd5e2"/>
-  <circle cx="47" cy="20" r="5.2" fill="#e8edf5"/>
-  <circle cx="47" cy="20" r="1.9" fill="#4d8fff"/>
+  <defs>
+    <linearGradient id="shell" x1="24" x2="47" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f1f5f9"/>
+      <stop offset=".52" stop-color="#e5ebf2"/>
+      <stop offset="1" stop-color="#d4dde8"/>
+    </linearGradient>
+    <linearGradient id="well" x1="24" x2="40" y1="14" y2="37" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7fafc" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#d8e1eb"/>
+    </linearGradient>
+    <linearGradient id="arm" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#97a8bd"/>
+      <stop offset=".6" stop-color="#8fa7c4"/>
+      <stop offset="1" stop-color="#6f8fb5"/>
+    </linearGradient>
+    <radialGradient id="pivot" cx="0" cy="0" r="1" gradientTransform="translate(30.5 43.5) rotate(45) scale(7.2)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7fafc"/>
+      <stop offset=".55" stop-color="#dbe4ee"/>
+      <stop offset="1" stop-color="#bfcad7"/>
+    </radialGradient>
+    <radialGradient id="weight" cx="0" cy="0" r="1" gradientTransform="translate(52.5 21.5) rotate(45) scale(11.5)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eef4fa"/>
+      <stop offset=".65" stop-color="#d6e2ef"/>
+      <stop offset="1" stop-color="#b6c8dc"/>
+    </radialGradient>
+  </defs>
+  <path fill="#cad3de" fill-opacity=".78" d="M25 9H41L50 57H16Z"/>
+  <path fill="#f7fafc" fill-opacity=".82" d="M23 7H39L48 55H14Z"/>
+  <path fill="url(#shell)" stroke="#f4f8fb" stroke-opacity=".62" stroke-linejoin="round" stroke-width=".7" d="M24 8H40L49 56H15Z"/>
+  <path fill="url(#well)" d="M27 14h9l4 23H22z"/>
+  <path fill="#bac6d4" fill-opacity=".9" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
+  <path stroke="#eef4fa" stroke-linecap="round" stroke-opacity=".52" stroke-width="5.2" d="M32 45 60 17"/>
+  <path stroke="url(#arm)" stroke-linecap="round" stroke-width="3.6" d="M32 45 60 17"/>
+  <circle cx="32" cy="45" r="3.2" fill="url(#pivot)"/>
+  <circle cx="54" cy="23" r="5.2" fill="url(#weight)"/>
+  <circle cx="54" cy="23" r="1.9" fill="#5f84b0"/>
 </svg>

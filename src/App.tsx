@@ -279,7 +279,7 @@ export default function MetronomeApp() {
       "e-ink": `${baseUrl}favicons/favicon-eink.svg`,
       kids: `${baseUrl}favicons/favicon-kids.svg`,
       mechanical: `${baseUrl}favicons/favicon-mechanical.svg`,
-      oled: `${baseUrl}favicons/favicon-amoled.svg`,
+      oled: `${baseUrl}favicons/favicon-oled.svg`,
       disco: `${baseUrl}favicons/favicon-disco.svg`,
       sketch: `${baseUrl}favicons/favicon-sketch.svg`,
       soft: `${baseUrl}favicons/favicon-neumorphism.svg`,

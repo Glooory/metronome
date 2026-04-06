@@ -1,39 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="a" x1="24" x2="45" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="a" x1="50" x2="86.75" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6a356a"/>
       <stop offset=".42" stop-color="#45234f"/>
       <stop offset="1" stop-color="#1c0f22"/>
     </linearGradient>
-    <linearGradient id="c" x1="22" x2="40" y1="11" y2="41" gradientUnits="userSpaceOnUse">
+    <linearGradient id="c" x1="46.5" x2="78" y1="27.25" y2="79.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#ffe9d5" stop-opacity=".22"/>
       <stop offset=".36" stop-color="#ffbf7d" stop-opacity=".1"/>
       <stop offset=".72" stop-color="#ff5294" stop-opacity=".05"/>
       <stop offset="1" stop-color="#ff5294" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="b" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="b" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#fff0d1"/>
       <stop offset=".3" stop-color="#ffbf7d"/>
       <stop offset=".62" stop-color="#ff8d4a"/>
       <stop offset="1" stop-color="#ff5294"/>
     </linearGradient>
-    <radialGradient id="d" cx="0" cy="0" r="1" gradientTransform="matrix(0 3.1 -3.1 0 32 45)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="d" cx="0" cy="0" r="1" gradientTransform="matrix(0 5.425 -5.425 0 64 86.75)" gradientUnits="userSpaceOnUse">
       <stop stop-color="#fff0d1"/>
       <stop offset=".58" stop-color="#edbc5b"/>
       <stop offset="1" stop-color="#a56f2d"/>
     </radialGradient>
-    <radialGradient id="e" cx="0" cy="0" r="1" gradientTransform="matrix(0 5.2 -5.2 0 54 23)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="e" cx="0" cy="0" r="1" gradientTransform="matrix(0 9.1 -9.1 0 102.5 48.25)" gradientUnits="userSpaceOnUse">
       <stop stop-color="#ffe6cd"/>
       <stop offset=".34" stop-color="#ffb277"/>
       <stop offset=".72" stop-color="#ff6e7c"/>
       <stop offset="1" stop-color="#ff5294"/>
     </radialGradient>
   </defs>
-  <path fill="url(#a)" stroke="#d5a064" stroke-opacity=".58" stroke-linejoin="round" stroke-width="2" d="M24 8H40L49 56H15Z"/>
-  <path fill="#2d1633" d="M27 14h10l5 30H22z"/>
-  <path fill="url(#c)" d="M27 14h10l5 30H22z"/>
-  <path fill="#f9e8d2" fill-opacity=".18" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
-  <path stroke="url(#b)" stroke-linecap="round" stroke-width="5" d="M32 45 60 17"/>
-  <circle cx="32" cy="45" r="3.2" fill="url(#d)"/>
-  <circle cx="54" cy="23" r="5.2" fill="url(#e)" stroke="#ffe6cd" stroke-opacity=".36" stroke-width="1"/>
+  <path fill="url(#a)" stroke="#d5a064" stroke-opacity=".58" stroke-linejoin="round" stroke-width="3.5" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#2d1633" d="M 55.25 32.5 h 17.5 l 8.75 52.5 H 46.5 z"/>
+  <path fill="url(#c)" d="M 55.25 32.5 h 17.5 l 8.75 52.5 H 46.5 z"/>
+  <path fill="#f9e8d2" fill-opacity=".18" d="M 58.75 39.5 h 10.5 v 3.5 h -10.5 z m -1.75 14 h 14 v 3.5 h -14 z m 1.75 14 h 10.5 v 3.5 h -10.5 z"/>
+  <path stroke="url(#b)" stroke-linecap="round" stroke-width="8.75" d="M 64 86.75 113 37.75"/>
+  <circle cx="64" cy="86.75" r="5.6" fill="url(#d)"/>
+  <circle cx="102.5" cy="48.25" r="9.1" fill="url(#e)" stroke="#ffe6cd" stroke-opacity=".36" stroke-width="1.75"/>
 </svg>

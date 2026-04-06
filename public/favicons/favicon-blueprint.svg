@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <path fill="#184a86" stroke="#eefaff" stroke-width="2.1" d="M24 8H40L49 56H15Z"/>
-  <path fill="none" stroke="#eefaff" stroke-dasharray="2 2" stroke-width="1.5" d="M24 8H40L49 56H15Z"/>
-  <path fill="#eefaff" fill-opacity=".22" d="M28 17h8v2h-8zm-1 8h10v2H27zm1 8h8v2h-8z"/>
-  <path stroke="#eefaff" stroke-linecap="square" stroke-width="4.6" d="M32 45 60 17"/>
-  <rect x="29" y="42" width="6" height="6" fill="#eefaff"/>
-  <rect x="49" y="18" width="10" height="10" fill="#184a86" stroke="#eefaff" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <path fill="#184a86" stroke="#eefaff" stroke-width="3.675" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="none" stroke="#eefaff" stroke-dasharray="3.5 3.5" stroke-width="2.625" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#eefaff" fill-opacity=".22" d="M 57 37.75 h 14 v 3.5 h -14 z m -1.75 14 h 17.5 v 3.5 H 55.25 z m 1.75 14 h 14 v 3.5 h -14 z"/>
+  <path stroke="#eefaff" stroke-linecap="square" stroke-width="8.05" d="M 64 86.75 113 37.75"/>
+  <rect x="58.75" y="81.5" width="10.5" height="10.5" fill="#eefaff"/>
+  <rect x="93.75" y="39.5" width="17.5" height="17.5" fill="#184a86" stroke="#eefaff" stroke-width="3.5"/>
 </svg>

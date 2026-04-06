@@ -1,25 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="a" x1="24" x2="45" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="a" x1="50" x2="86.75" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f1d7ad"/>
       <stop offset=".55" stop-color="#ddb27e"/>
       <stop offset="1" stop-color="#c48949"/>
     </linearGradient>
-    <linearGradient id="b" x1="27" x2="39" y1="14" y2="38" gradientUnits="userSpaceOnUse">
+    <linearGradient id="b" x1="55.25" x2="76.25" y1="32.5" y2="74.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#fdfcf9" stop-opacity=".58"/>
       <stop offset="1" stop-color="#f9e1ba" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="c" x1="48" x2="60" y1="17" y2="29" gradientUnits="userSpaceOnUse">
+    <linearGradient id="c" x1="92" x2="113" y1="37.75" y2="58.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f0ce9f"/>
       <stop offset=".58" stop-color="#c48949"/>
       <stop offset="1" stop-color="#9a5f15"/>
     </linearGradient>
   </defs>
-  <path fill="url(#a)" stroke="#593211" stroke-width="2.2" d="M24 8H40L49 56H15Z"/>
-  <path stroke="#8c6339" stroke-opacity=".38" d="M26 18h12M24.5 26h15M24.5 34h15"/>
-  <path fill="url(#b)" d="M27 14h9l4 24H22z"/>
-  <path stroke="#6f4725" stroke-linecap="round" stroke-width="4.5" d="M32 45 60 17"/>
-  <path stroke="#c48949" stroke-linecap="round" stroke-opacity=".5" stroke-width="1.8" d="M32 45 60 17"/>
-  <circle cx="32" cy="45" r="3.2" fill="#402717" stroke="#d8b383" stroke-opacity=".55" stroke-width=".7"/>
-  <circle cx="54" cy="23" r="5.2" fill="url(#c)" stroke="#6f4725" stroke-width=".9"/>
+  <path fill="url(#a)" stroke="#593211" stroke-width="3.85" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path stroke="#8c6339" stroke-opacity=".38" d="M 53.5 39.5 h 21 M 50.875 53.5 h 26.25 M 50.875 67.5 h 26.25"/>
+  <path fill="url(#b)" d="M 55.25 32.5 h 15.75 l 7 42 H 46.5 z"/>
+  <path stroke="#6f4725" stroke-linecap="round" stroke-width="7.875" d="M 64 86.75 113 37.75"/>
+  <path stroke="#c48949" stroke-linecap="round" stroke-opacity=".5" stroke-width="3.15" d="M 64 86.75 113 37.75"/>
+  <circle cx="64" cy="86.75" r="5.6" fill="#402717" stroke="#d8b383" stroke-opacity=".55" stroke-width="1.225"/>
+  <circle cx="102.5" cy="48.25" r="9.1" fill="url(#c)" stroke="#6f4725" stroke-width="1.575"/>
 </svg>

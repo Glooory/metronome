@@ -1,29 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="sketch-body" x1="24" x2="46" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="sketch-body" x1="50" x2="88.5" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#fdfcfa"/>
       <stop offset=".62" stop-color="#f5f2eb"/>
       <stop offset="1" stop-color="#eae6dd"/>
     </linearGradient>
-    <linearGradient id="sketch-swing" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="sketch-swing" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#e64a40"/>
       <stop offset="1" stop-color="#ff7ca3"/>
     </linearGradient>
-    <linearGradient id="sketch-bob" x1="50" x2="58" y1="19" y2="27" gradientUnits="userSpaceOnUse">
+    <linearGradient id="sketch-bob" x1="95.5" x2="109.5" y1="41.25" y2="55.25" gradientUnits="userSpaceOnUse">
       <stop stop-color="#22c3e6"/>
       <stop offset="1" stop-color="#ffd933"/>
     </linearGradient>
   </defs>
-  <path fill="url(#sketch-body)" d="M24 8H40L49 56H15Z"/>
-  <path fill="#fdfcfa" fill-opacity=".55" d="M27 14h9l4 24H22z"/>
-  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M24.5 8.9 39.4 8.2 48.8 55.5 15.2 55.8Z"/>
-  <path fill="none" stroke="#666666" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".78" stroke-width="1.15" d="M23.7 8.1 40.3 8.8 49.4 56.2 15.8 55.1Z"/>
-  <path fill="none" stroke="#858585" stroke-linecap="round" stroke-opacity=".82" stroke-width="1.45" d="M29.1 18.2h6.1m-7.2 8.4h8.4m-7.1 8.2h7.6"/>
-  <path fill="none" stroke="#c2c2c2" stroke-linecap="round" stroke-opacity=".7" stroke-width="1" d="M28.6 19.3h5.8m-5.7 8.2h7.1m-5.8 8.6h6.1"/>
-  <path fill="none" stroke="url(#sketch-swing)" stroke-linecap="round" stroke-width="4.7" d="M31.8 45.2C39.1 38 48.4 28.1 59.8 17.2"/>
-  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-opacity=".78" stroke-width="1.9" d="M32.9 44.2C40 36.7 49 27.5 59.1 18.1"/>
-  <circle cx="32" cy="45" r="3.2" fill="#ffd933" stroke="#2b2b2b" stroke-width="1.3"/>
-  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-opacity=".65" stroke-width="1.1" d="M29.9 43.8c.8-.9 2-1.3 3.2-1.2 1.3.2 2.2.9 2.8 2"/>
-  <rect x="49.1" y="18.2" width="10" height="10" fill="url(#sketch-bob)" stroke="#2b2b2b" stroke-linejoin="round" stroke-width="1.4" transform="rotate(-11 54.1 23.2)"/>
-  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-opacity=".7" stroke-width="1" d="M49.8 19.1 58.5 17.9M49.4 26 58.1 24.8"/>
+  <path fill="url(#sketch-body)" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#fdfcfa" fill-opacity=".55" d="M 55.25 32.5 h 15.75 l 7 42 H 46.5 z"/>
+  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2" d="M 50.875 23.575 76.95 22.35 93.4 105.125 34.6 105.65 Z"/>
+  <path fill="none" stroke="#666666" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".78" stroke-width="2.0125" d="M 49.475 22.175 78.525 23.4 94.45 106.35 35.65 104.425 Z"/>
+  <path fill="none" stroke="#858585" stroke-linecap="round" stroke-opacity=".82" stroke-width="2.5375" d="M 58.925 39.85 h 10.675 m -12.6 14.7 h 14.7 m -12.425 14.35 h 13.3"/>
+  <path fill="none" stroke="#c2c2c2" stroke-linecap="round" stroke-opacity=".7" stroke-width="1.75" d="M 58.05 41.775 h 10.15 m -9.975 14.35 h 12.425 m -10.15 15.05 h 10.675"/>
+  <path fill="none" stroke="url(#sketch-swing)" stroke-linecap="round" stroke-width="8.225" d="M 63.65 87.1 C 76.425 74.5 92.7 57.175 112.65 38.1"/>
+  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-opacity=".78" stroke-width="3.325" d="M 65.575 85.35 C 78 72.225 93.75 56.125 111.425 39.675"/>
+  <circle cx="64" cy="86.75" r="5.6" fill="#ffd933" stroke="#2b2b2b" stroke-width="2.275"/>
+  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-opacity=".65" stroke-width="1.925" d="M 60.325 84.65 c 1.4 -1.575 3.5 -2.275 5.6 -2.1 2.275 0.35 3.85 1.575 4.9 3.5"/>
+  <rect x="93.925" y="39.85" width="17.5" height="17.5" fill="url(#sketch-bob)" stroke="#2b2b2b" stroke-linejoin="round" stroke-width="2.45" transform="rotate(-11 102.675 48.6)"/>
+  <path fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-opacity=".7" stroke-width="1.75" d="M 95.15 41.425 110.375 39.325 M 94.45 53.5 109.675 51.4"/>
 </svg>

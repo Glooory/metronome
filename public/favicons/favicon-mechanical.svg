@@ -1,28 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="a" x1="24" x2="45" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="a" x1="50" x2="86.75" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#72655a"/>
       <stop offset=".5" stop-color="#413733"/>
       <stop offset="1" stop-color="#17120f"/>
     </linearGradient>
-    <linearGradient id="b" x1="48" x2="60" y1="17" y2="29" gradientUnits="userSpaceOnUse">
+    <linearGradient id="b" x1="92" x2="113" y1="37.75" y2="58.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f0d39a"/>
       <stop offset=".55" stop-color="#ba8335"/>
       <stop offset="1" stop-color="#6e4311"/>
     </linearGradient>
-    <linearGradient id="c" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="c" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#8d6330"/>
       <stop offset=".58" stop-color="#bf8d44"/>
       <stop offset="1" stop-color="#f1d7a0"/>
     </linearGradient>
   </defs>
-  <path fill="url(#a)" stroke="#17110d" stroke-width="1.4" d="M24 8H40L49 56H15Z"/>
-  <path fill="#221a16" d="M27 14h10l5 30H22z"/>
-  <path fill="#9b8a73" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
-  <rect x="25" y="13" width="3" height="3" rx=".7" fill="#b8ab97"/>
-  <rect x="36" y="13" width="3" height="3" rx=".7" fill="#b8ab97"/>
-  <path stroke="#4a3119" stroke-linecap="square" stroke-width="5.2" d="M32 45 60 17"/>
-  <path stroke="url(#c)" stroke-linecap="square" stroke-width="3.2" d="M32 45 60 17"/>
-  <rect x="29" y="42" width="6" height="6" rx=".9" fill="#16100d" stroke="#866036" stroke-width=".8"/>
-  <rect x="49" y="18" width="10" height="10" rx="1" fill="url(#b)" stroke="#5f3910" stroke-width="1"/>
+  <path fill="url(#a)" stroke="#17110d" stroke-width="2.45" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#221a16" d="M 55.25 32.5 h 17.5 l 8.75 52.5 H 46.5 z"/>
+  <path fill="#9b8a73" d="M 58.75 39.5 h 10.5 v 3.5 h -10.5 z m -1.75 14 h 14 v 3.5 h -14 z m 1.75 14 h 10.5 v 3.5 h -10.5 z"/>
+  <rect x="51.75" y="30.75" width="5.25" height="5.25" rx="1.225" fill="#b8ab97"/>
+  <rect x="71" y="30.75" width="5.25" height="5.25" rx="1.225" fill="#b8ab97"/>
+  <path stroke="#4a3119" stroke-linecap="square" stroke-width="9.1" d="M 64 86.75 113 37.75"/>
+  <path stroke="url(#c)" stroke-linecap="square" stroke-width="5.6" d="M 64 86.75 113 37.75"/>
+  <rect x="58.75" y="81.5" width="10.5" height="10.5" rx="1.575" fill="#16100d" stroke="#866036" stroke-width="1.4"/>
+  <rect x="93.75" y="39.5" width="17.5" height="17.5" rx="1.75" fill="url(#b)" stroke="#5f3910" stroke-width="1.75"/>
 </svg>

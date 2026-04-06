@@ -1,38 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="shell" x1="24" x2="47" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="shell" x1="50" x2="90.25" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f1f5f9"/>
       <stop offset=".52" stop-color="#e5ebf2"/>
       <stop offset="1" stop-color="#d4dde8"/>
     </linearGradient>
-    <linearGradient id="well" x1="24" x2="40" y1="14" y2="37" gradientUnits="userSpaceOnUse">
+    <linearGradient id="well" x1="50" x2="78" y1="32.5" y2="72.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f7fafc" stop-opacity=".92"/>
       <stop offset="1" stop-color="#d8e1eb"/>
     </linearGradient>
-    <linearGradient id="arm" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="arm" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#97a8bd"/>
       <stop offset=".6" stop-color="#8fa7c4"/>
       <stop offset="1" stop-color="#6f8fb5"/>
     </linearGradient>
-    <radialGradient id="pivot" cx="0" cy="0" r="1" gradientTransform="translate(30.5 43.5) rotate(45) scale(7.2)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="pivot" cx="0" cy="0" r="1" gradientTransform="translate(61.375 84.125) rotate(45) scale(12.6)" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f7fafc"/>
       <stop offset=".55" stop-color="#dbe4ee"/>
       <stop offset="1" stop-color="#bfcad7"/>
     </radialGradient>
-    <radialGradient id="weight" cx="0" cy="0" r="1" gradientTransform="translate(52.5 21.5) rotate(45) scale(11.5)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="weight" cx="0" cy="0" r="1" gradientTransform="translate(99.875 45.625) rotate(45) scale(20.125)" gradientUnits="userSpaceOnUse">
       <stop stop-color="#eef4fa"/>
       <stop offset=".65" stop-color="#d6e2ef"/>
       <stop offset="1" stop-color="#b6c8dc"/>
     </radialGradient>
   </defs>
-  <path fill="#cad3de" fill-opacity=".78" d="M25 9H41L50 57H16Z"/>
-  <path fill="#f7fafc" fill-opacity=".82" d="M23 7H39L48 55H14Z"/>
-  <path fill="url(#shell)" stroke="#f4f8fb" stroke-opacity=".62" stroke-linejoin="round" stroke-width=".7" d="M24 8H40L49 56H15Z"/>
-  <path fill="url(#well)" d="M27 14h9l4 23H22z"/>
-  <path fill="#bac6d4" fill-opacity=".9" d="M29 18h6v2h-6zm-1 8h8v2h-8zm1 8h6v2h-6z"/>
-  <path stroke="#eef4fa" stroke-linecap="round" stroke-opacity=".52" stroke-width="5.2" d="M32 45 60 17"/>
-  <path stroke="url(#arm)" stroke-linecap="round" stroke-width="3.6" d="M32 45 60 17"/>
-  <circle cx="32" cy="45" r="3.2" fill="url(#pivot)"/>
-  <circle cx="54" cy="23" r="5.2" fill="url(#weight)"/>
-  <circle cx="54" cy="23" r="1.9" fill="#5f84b0"/>
+  <path fill="#cad3de" fill-opacity=".78" d="M 51.75 23.75 H 79.75 L 95.5 107.75 H 36 Z"/>
+  <path fill="#f7fafc" fill-opacity=".82" d="M 48.25 20.25 H 76.25 L 92 104.25 H 32.5 Z"/>
+  <path fill="url(#shell)" stroke="#f4f8fb" stroke-opacity=".62" stroke-linejoin="round" stroke-width="1.225" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="url(#well)" d="M 55.25 32.5 h 15.75 l 7 40.25 H 46.5 z"/>
+  <path fill="#bac6d4" fill-opacity=".9" d="M 58.75 39.5 h 10.5 v 3.5 h -10.5 z m -1.75 14 h 14 v 3.5 h -14 z m 1.75 14 h 10.5 v 3.5 h -10.5 z"/>
+  <path stroke="#eef4fa" stroke-linecap="round" stroke-opacity=".52" stroke-width="9.1" d="M 64 86.75 113 37.75"/>
+  <path stroke="url(#arm)" stroke-linecap="round" stroke-width="6.3" d="M 64 86.75 113 37.75"/>
+  <circle cx="64" cy="86.75" r="5.6" fill="url(#pivot)"/>
+  <circle cx="102.5" cy="48.25" r="9.1" fill="url(#weight)"/>
+  <circle cx="102.5" cy="48.25" r="3.325" fill="#5f84b0"/>
 </svg>

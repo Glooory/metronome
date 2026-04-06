@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="body" x1="24" x2="40" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="body" x1="50" x2="78" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#182554"/>
       <stop offset=".58" stop-color="#0d1534"/>
       <stop offset="1" stop-color="#04081a"/>
     </linearGradient>
-    <linearGradient id="body-sheen" x1="22" x2="41" y1="12" y2="42" gradientUnits="userSpaceOnUse">
+    <linearGradient id="body-sheen" x1="46.5" x2="79.75" y1="29" y2="81.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#7ee8ff" stop-opacity=".14"/>
       <stop offset=".42" stop-color="#ff00be" stop-opacity=".07"/>
       <stop offset="1" stop-color="#7ee8ff" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="arm" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="arm" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#7cf6ff"/>
       <stop offset="1" stop-color="#00f0f2"/>
     </linearGradient>
   </defs>
-  <path fill="none" stroke="#ff00be" stroke-opacity=".34" stroke-linejoin="miter" stroke-width="2" d="M25.5 8H41.5L50.5 56H16.5Z"/>
-  <path fill="url(#body)" stroke="#44b6ce" stroke-opacity=".9" stroke-linejoin="miter" stroke-width="2" d="M24 8H40L49 56H15Z"/>
-  <path fill="url(#body-sheen)" d="M27 14h9l4 24H22z"/>
-  <path fill="#7ee8ff" fill-opacity=".14" d="M28 18h8v2h-8zm-1 8h10v2H27zm1 8h8v2h-8z"/>
-  <path stroke="#ff00be" stroke-opacity=".42" stroke-linecap="square" stroke-width="5" d="M34 45 61 18"/>
-  <path stroke="url(#arm)" stroke-linecap="square" stroke-width="5" d="M32 45 60 17"/>
-  <rect x="29" y="42" width="6" height="6" fill="#7cf6ff"/>
-  <rect x="49" y="18" width="10" height="10" fill="#10162f" stroke="#ff00be" stroke-width="2"/>
+  <path fill="none" stroke="#ff00be" stroke-opacity=".34" stroke-linejoin="miter" stroke-width="3.5" d="M 52.625 22 H 80.625 L 96.375 106 H 36.875 Z"/>
+  <path fill="url(#body)" stroke="#44b6ce" stroke-opacity=".9" stroke-linejoin="miter" stroke-width="3.5" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="url(#body-sheen)" d="M 55.25 32.5 h 15.75 l 7 42 H 46.5 z"/>
+  <path fill="#7ee8ff" fill-opacity=".14" d="M 57 39.5 h 14 v 3.5 h -14 z m -1.75 14 h 17.5 v 3.5 H 55.25 z m 1.75 14 h 14 v 3.5 h -14 z"/>
+  <path stroke="#ff00be" stroke-opacity=".42" stroke-linecap="square" stroke-width="8.75" d="M 67.5 86.75 114.75 39.5"/>
+  <path stroke="url(#arm)" stroke-linecap="square" stroke-width="8.75" d="M 64 86.75 113 37.75"/>
+  <rect x="58.75" y="81.5" width="10.5" height="10.5" fill="#7cf6ff"/>
+  <rect x="93.75" y="39.5" width="17.5" height="17.5" fill="#10162f" stroke="#ff00be" stroke-width="3.5"/>
 </svg>

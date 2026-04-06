@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <path fill="#f7f6f0" stroke="#211f1a" stroke-linejoin="bevel" stroke-width="3" d="M24 8H40L49 56H15Z"/>
-  <path fill="#f2f1ee" d="M27 13h10l5 31H22Z"/>
-  <path fill="none" stroke="#81807c" stroke-linejoin="bevel" stroke-opacity=".55" stroke-width="1.4" d="M25 9H39L48 55H16Z"/>
-  <path fill="#565552" d="M29 18h6v2h-6zm-1 10h8v2h-8zm1 10h6v2h-6z"/>
-  <path stroke="#211f1a" stroke-linecap="square" stroke-width="4.2" d="M32 45 60 17"/>
-  <rect x="29" y="42" width="6" height="6" rx="1" fill="#211f1a"/>
-  <rect x="49" y="18" width="10" height="10" rx="1.4" fill="#211f1a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <path fill="#f7f6f0" stroke="#211f1a" stroke-linejoin="bevel" stroke-width="5.25" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#f2f1ee" d="M 55.25 30.75 h 17.5 l 8.75 54.25 H 46.5 Z"/>
+  <path fill="none" stroke="#81807c" stroke-linejoin="bevel" stroke-opacity=".55" stroke-width="2.45" d="M 51.75 23.75 H 76.25 L 92 104.25 H 36 Z"/>
+  <path fill="#565552" d="M 58.75 39.5 h 10.5 v 3.5 h -10.5 z m -1.75 17.5 h 14 v 3.5 h -14 z m 1.75 17.5 h 10.5 v 3.5 h -10.5 z"/>
+  <path stroke="#211f1a" stroke-linecap="square" stroke-width="7.35" d="M 64 86.75 113 37.75"/>
+  <rect x="58.75" y="81.5" width="10.5" height="10.5" rx="1.75" fill="#211f1a"/>
+  <rect x="93.75" y="39.5" width="17.5" height="17.5" rx="2.45" fill="#211f1a"/>
 </svg>

@@ -1,24 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="kids-body" x1="24" x2="47" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="kids-body" x1="50" x2="90.25" y1="22" y2="106" gradientUnits="userSpaceOnUse">
       <stop stop-color="#fffdf8"/>
       <stop offset=".58" stop-color="#fff0dc"/>
       <stop offset="1" stop-color="#f4ecff"/>
     </linearGradient>
-    <linearGradient id="kids-swing" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="kids-swing" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#ffa084"/>
       <stop offset="1" stop-color="#ff89c3"/>
     </linearGradient>
-    <linearGradient id="kids-bob" x1="50" x2="58" y1="19" y2="27" gradientUnits="userSpaceOnUse">
+    <linearGradient id="kids-bob" x1="95.5" x2="109.5" y1="41.25" y2="55.25" gradientUnits="userSpaceOnUse">
       <stop stop-color="#ffe27e"/>
       <stop offset="1" stop-color="#ffb38f"/>
     </linearGradient>
   </defs>
-  <path fill="url(#kids-body)" stroke="#796fd6" stroke-linejoin="round" stroke-width="3" d="M24 8H40L49 56H15Z"/>
-  <path fill="#fff9ef" fill-opacity=".62" d="M27 14h9l4 24H22z"/>
-  <path fill="#7b75ff" fill-opacity=".16" d="M29 18h6v3h-6zm-1 8h8v3h-8zm1 8h6v3h-6z"/>
-  <path stroke="url(#kids-swing)" stroke-linecap="round" stroke-width="6" d="M32 45 60 17"/>
-  <circle cx="32" cy="45" r="3.2" fill="#655cdd"/>
-  <circle cx="54" cy="23" r="5.2" fill="url(#kids-bob)" stroke="#796fd6" stroke-width="2"/>
-  <circle cx="52.4" cy="21.2" r="1.15" fill="#fff9ef" fill-opacity=".78"/>
+  <path fill="url(#kids-body)" stroke="#796fd6" stroke-linejoin="round" stroke-width="5.25" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#fff9ef" fill-opacity=".62" d="M 55.25 32.5 h 15.75 l 7 42 H 46.5 z"/>
+  <path fill="#7b75ff" fill-opacity=".16" d="M 58.75 39.5 h 10.5 v 5.25 h -10.5 z m -1.75 14 h 14 v 5.25 h -14 z m 1.75 14 h 10.5 v 5.25 h -10.5 z"/>
+  <path stroke="url(#kids-swing)" stroke-linecap="round" stroke-width="10.5" d="M 64 86.75 113 37.75"/>
+  <circle cx="64" cy="86.75" r="5.6" fill="#655cdd"/>
+  <circle cx="102.5" cy="48.25" r="9.1" fill="url(#kids-bob)" stroke="#796fd6" stroke-width="3.5"/>
+  <circle cx="99.7" cy="45.1" r="2.0125" fill="#fff9ef" fill-opacity=".78"/>
 </svg>

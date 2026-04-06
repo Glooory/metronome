@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="a" x1="32" x2="60" y1="45" y2="17" gradientUnits="userSpaceOnUse">
+    <linearGradient id="a" x1="64" x2="113" y1="86.75" y2="37.75" gradientUnits="userSpaceOnUse">
       <stop stop-color="#00e5ff"/>
       <stop offset=".68" stop-color="#8ff7ff"/>
       <stop offset="1" stop-color="#d9fdff"/>
     </linearGradient>
-    <radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="matrix(0 5.2 -5.2 0 54 23)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="matrix(0 9.1 -9.1 0 102.5 48.25)" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f4feff"/>
       <stop offset=".58" stop-color="#bcfbff"/>
       <stop offset="1" stop-color="#63eeff"/>
     </radialGradient>
   </defs>
-  <path fill="#000000" stroke="#00e5ff" stroke-linejoin="round" stroke-width="2.4" d="M24 8H40L49 56H15Z"/>
-  <path fill="#090e12" d="M28 17h8v3h-8zm-1.5 9h11v3h-11zm1.5 9h8v3h-8z"/>
-  <path stroke="url(#a)" stroke-linecap="round" stroke-width="5" d="M32 45 60 17"/>
-  <circle cx="32" cy="45" r="3.2" fill="#00e5ff"/>
-  <circle cx="54" cy="23" r="5.2" fill="url(#b)"/>
+  <path fill="#000000" stroke="#00e5ff" stroke-linejoin="round" stroke-width="4.2" d="M 50 22 H 78 L 93.75 106 H 34.25 Z"/>
+  <path fill="#090e12" d="M 57 37.75 h 14 v 5.25 h -14 z m -2.625 15.75 h 19.25 v 5.25 h -19.25 z m 2.625 15.75 h 14 v 5.25 h -14 z"/>
+  <path stroke="url(#a)" stroke-linecap="round" stroke-width="8.75" d="M 64 86.75 113 37.75"/>
+  <circle cx="64" cy="86.75" r="5.6" fill="#00e5ff"/>
+  <circle cx="102.5" cy="48.25" r="9.1" fill="url(#b)"/>
 </svg>

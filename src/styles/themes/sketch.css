@@ -30,23 +30,31 @@
   --text-muted: var(--sketch-pencil-light);
   --text-inverse: var(--sketch-paper-base);
 
-  --font-sketch-hand:
-    "Noteworthy", "Ink Free", "Segoe Print", "Chalkboard SE", "Comic Sans MS", var(--font-sans);
-  --font-app-sans: var(--font-sketch-hand);
-  --font-display: var(--font-sketch-hand);
-  --type-title-ff: var(--font-sketch-hand);
-  --type-body-ff: var(--font-sketch-hand);
-  --type-caption-ff: var(--font-sketch-hand);
-  --type-metric-ff: var(--font-sketch-hand);
+  --font-theme-ui: "Chalkboard SE", "Chalkboard", "Comic Sans MS", var(--font-sans);
+  --font-theme-readout: var(--font-theme-ui);
+  --font-theme-code: var(--font-theme-ui);
+  --type-title-fw: 600;
+  --type-title-letter-spacing: 0.01em;
+  --type-body-fw: 500;
+  --type-body-strong-fw: 600;
+  --type-caption-fw: 500;
+  --type-caption-letter-spacing: 0.01em;
   --type-metric-fw: 600;
-  --type-metric-letter-spacing: -0.03em;
-  --type-control-ff: var(--font-sketch-hand);
+  --type-metric-letter-spacing: 0;
   --type-control-fw: 600;
-  --type-control-title-letter-spacing: 0.06em;
-  --type-control-letter-spacing: 0.03em;
-  --type-readout-ff: var(--font-sketch-hand);
-  --type-readout-fw: 700;
-  --type-readout-letter-spacing: -0.035em;
+  --type-control-title-letter-spacing: 0.015em;
+  --type-control-letter-spacing: 0.01em;
+  --type-readout-fw: 600;
+  --type-readout-letter-spacing: -0.01em;
+  --action-font-weight: 600;
+  --action-letter-spacing: 0.01em;
+  --action-text-transform: none;
+  --readout-label-weight: 600;
+  --readout-label-letter-spacing: 0.01em;
+  --meter-label-fw: 600;
+  --meter-label-transform: none;
+  --meter-label-letter-spacing: 0.01em;
+  --meter-value-fw: 600;
 
   --radius-panel: 255px 15px 225px 15px / 15px 225px 15px 255px;
   --radius-modal: 255px 15px 225px 15px / 15px 225px 15px 255px;
@@ -200,14 +208,28 @@
   --switch-thumb-shadow: none;
   --switch-thumb-selected-shadow: none;
 
+  --modal-shell-title-weight: 600;
+  --modal-shell-title-transform: none;
+  --modal-shell-title-letter-spacing: 0.01em;
+
+  --select-label-fw: 600;
+  --select-label-transform: none;
+  --select-label-letter-spacing: 0.01em;
+  --select-dropdown-title-fw: 600;
+  --select-dropdown-title-transform: none;
+  --select-dropdown-title-letter-spacing: 0.01em;
   --select-option-radius: var(--radius-control);
+  --select-option-fw: 600;
+  --select-option-transform: none;
+  --select-option-letter-spacing: 0.01em;
   --select-scrollbar-color: var(--sketch-ink-muted);
 
   --app-title-icon-color: var(--sketch-marker-red);
 
   --ui-chrome-transform: none;
-  --ui-chrome-letter-spacing: 0.05em;
-  --ui-chrome-fw: 800;
+  --ui-chrome-letter-spacing: 0.01em;
+  --ui-chrome-title-letter-spacing: 0.015em;
+  --ui-chrome-fw: 600;
 }
 
 .theme-sketch .dock,

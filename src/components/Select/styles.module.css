@@ -20,7 +20,6 @@
 }
 
 .select__label {
-  font-family: var(--select-label-ff, var(--action-font-family));
   font-size: var(--type-control-size-md, 1rem);
   font-weight: var(--select-label-fw, var(--action-font-weight));
   text-transform: var(--select-label-transform, var(--action-text-transform));
@@ -123,7 +122,6 @@
 
 .select__dropdown-title {
   font-size: var(--type-body-size-md, 1rem);
-  font-family: var(--select-dropdown-title-ff, var(--type-control-ff, var(--font-display)));
   font-weight: var(--select-dropdown-title-fw, var(--type-caption-fw, 600));
   text-transform: var(--select-dropdown-title-transform, var(--type-control-transform, uppercase));
   letter-spacing: var(
@@ -191,7 +189,6 @@
   width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: var(--type-body-size-md, 1rem);
-  font-family: var(--select-option-ff, var(--type-body-ff, var(--font-app-sans)));
   font-weight: var(--select-option-fw, var(--type-body-strong-fw, 600));
   text-transform: var(--select-option-transform, none);
   letter-spacing: var(--select-option-letter-spacing, 0);

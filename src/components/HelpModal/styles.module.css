@@ -23,7 +23,6 @@
 }
 
 .help-modal__title {
-  font-family: var(--type-title-ff, var(--font-display));
   font-size: var(--type-title-size-md, 1.25rem);
   font-weight: var(--type-title-fw, 700);
   letter-spacing: var(--type-title-letter-spacing, -0.02em);
@@ -39,7 +38,6 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  font-family: var(--type-body-ff, var(--font-app-sans));
   font-size: var(--type-body-size-md, 1rem);
   max-height: 75vh;
   overflow-y: auto;
@@ -81,7 +79,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--type-control-ff, var(--font-display));
   font-size: var(--type-control-size-sm, 0.875rem);
   font-weight: var(--type-control-fw, 700);
   color: var(--text-muted);
@@ -116,7 +113,6 @@
 }
 
 .section-title {
-  font-family: var(--type-body-ff, var(--font-app-sans));
   font-weight: var(--type-body-strong-fw, 600);
   font-size: var(--type-body-size-md, 1rem);
   margin-bottom: 0.25rem;
@@ -124,7 +120,6 @@
 }
 
 .section-text {
-  font-family: var(--type-body-ff, var(--font-app-sans));
   color: var(--text-secondary);
   font-size: var(--type-body-size-md, 1rem);
   line-height: var(--type-body-line-height, 1.6);
@@ -136,7 +131,6 @@
   padding: 0.25rem 0.625rem;
   background-color: var(--bg-elevated);
   border-radius: var(--control-radius, 4px);
-  font-family: var(--font-app-mono, monospace);
   font-size: var(--type-body-size-sm, 0.875rem);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
@@ -160,7 +154,6 @@
 }
 
 .shortcuts-card__title {
-  font-family: var(--type-title-ff, var(--font-display));
   font-size: var(--type-title-size-sm, 1rem);
   font-weight: var(--type-title-fw, 600);
 }
@@ -189,7 +182,6 @@
   min-width: 2rem;
   height: 2rem;
   padding: 0 0.625rem;
-  font-family: var(--font-app-mono, monospace);
   font-size: var(--type-body-size-sm, 0.875rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -217,7 +209,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--type-control-ff, var(--font-display));
   font-size: var(--type-control-size-sm, 0.875rem);
   text-transform: var(--type-control-transform, uppercase);
   letter-spacing: var(--type-control-letter-spacing, 0.05em);

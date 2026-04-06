@@ -41,10 +41,12 @@
   text-align: center;
   color: var(--text-secondary, var(--text-muted));
   font-size: var(--type-control-size-md, 1rem);
-  font-family: var(--type-control-ff, var(--font-display));
-  font-weight: var(--type-caption-fw, 600);
-  text-transform: var(--type-control-transform, uppercase);
-  letter-spacing: var(--ui-chrome-title-letter-spacing, 0.08em);
+  font-weight: var(--type-control-fw, var(--type-caption-fw, 600));
+  text-transform: var(--type-control-transform, none);
+  letter-spacing: var(
+    --type-control-title-letter-spacing,
+    var(--ui-chrome-title-letter-spacing, 0.08em)
+  );
 }
 
 .time-signature-modal__step-btn {
@@ -64,7 +66,6 @@
   box-shadow: var(--field-shadow, none);
   color: var(--text-primary);
   text-align: center;
-  font-family: var(--readout-value-ff, var(--font-display));
   font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 700;
   line-height: 1;
@@ -73,7 +74,6 @@
 
 .time-signature-modal__slash {
   color: var(--text-muted);
-  font-family: var(--readout-value-ff, var(--font-display));
   font-size: clamp(2rem, 8vw, 3rem);
   line-height: 1;
   transform: translateY(1.5rem);

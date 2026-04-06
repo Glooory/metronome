@@ -45,12 +45,10 @@
 }
 
 .font-body {
-  font-family: var(--type-body-ff, var(--font-app-sans));
   font-weight: var(--type-body-fw, 400);
 }
 
 .font-metric {
-  font-family: var(--type-metric-ff, var(--font-app-mono));
   font-weight: var(--type-metric-fw, 600);
   letter-spacing: var(--type-metric-letter-spacing, -0.02em);
   font-variant-numeric: tabular-nums;

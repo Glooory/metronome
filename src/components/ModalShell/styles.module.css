@@ -71,7 +71,6 @@
 
 .title {
   margin: 0;
-  font-family: var(--modal-shell-title-ff, var(--type-title-ff, var(--font-display)));
   font-size: var(--modal-shell-title-size, var(--type-title-size-md, 18px));
   font-weight: var(--modal-shell-title-weight, var(--type-title-fw, 600));
   text-transform: var(--modal-shell-title-transform, var(--type-title-transform, none));

@@ -21,7 +21,6 @@
 .interval-trainer-modal__label {
   flex: 1;
   min-width: 0;
-  font-family: var(--type-body-ff, var(--font-app-sans));
   font-size: var(--type-body-size-md, 1rem);
   font-weight: var(--type-body-strong-fw, 600);
   color: var(--text-primary);
@@ -54,7 +53,6 @@
 }
 
 .interval-trainer-modal__status-text {
-  font-family: var(--type-body-ff, var(--font-app-sans));
   font-size: var(--type-body-size-md, 1rem);
   color: var(--text-primary);
   line-height: 1.5;
@@ -66,7 +64,6 @@
 }
 
 .interval-trainer-modal__hint {
-  font-family: var(--type-caption-ff, var(--font-app-sans));
   font-size: var(--type-body-size-md, 1rem);
   color: var(--text-secondary);
   text-align: center;

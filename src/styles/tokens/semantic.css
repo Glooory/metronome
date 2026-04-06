@@ -117,32 +117,35 @@
   --font-app-sans: var(--font-sans);
   --font-app-mono: var(--font-mono);
   --font-display: var(--font-app-sans);
-  --ui-chrome-ff: var(--font-display);
+  --font-theme-ui: var(--font-app-sans);
+  --font-theme-readout: var(--font-theme-ui);
+  --font-theme-code: var(--font-app-mono);
+  --ui-chrome-ff: var(--font-theme-ui);
   --ui-chrome-fw: 700;
   --ui-chrome-transform: uppercase;
   --ui-chrome-letter-spacing: 0.05em;
   --ui-chrome-title-letter-spacing: 0.08em;
 
-  --type-title-ff: var(--font-display);
+  --type-title-ff: var(--font-theme-ui);
   --type-title-fw: 600;
   --type-title-transform: none;
   --type-title-letter-spacing: -0.02em;
   --type-title-size-sm: 1rem;
   --type-title-size-md: 1.125rem;
 
-  --type-body-ff: var(--font-app-sans);
+  --type-body-ff: var(--font-theme-ui);
   --type-body-fw: 400;
   --type-body-strong-fw: 600;
   --type-body-size-sm: 0.875rem;
   --type-body-size-md: 1rem;
 
-  --type-caption-ff: var(--font-app-sans);
+  --type-caption-ff: var(--font-theme-ui);
   --type-caption-fw: 600;
   --type-caption-transform: none;
   --type-caption-letter-spacing: 0.02em;
   --type-caption-size: 0.875rem;
 
-  --type-control-ff: var(--ui-chrome-ff);
+  --type-control-ff: var(--font-theme-ui);
   --type-control-fw: var(--ui-chrome-fw);
   --type-control-transform: var(--ui-chrome-transform);
   --type-control-letter-spacing: var(--ui-chrome-letter-spacing);
@@ -151,11 +154,11 @@
   --type-control-size-md: 1rem;
   --type-control-size-lg: 1.125rem;
 
-  --type-metric-ff: var(--font-app-mono);
+  --type-metric-ff: var(--font-theme-ui);
   --type-metric-fw: 600;
   --type-metric-letter-spacing: -0.02em;
 
-  --type-readout-ff: var(--font-display);
+  --type-readout-ff: var(--font-theme-readout);
   --type-readout-fw: 700;
   --type-readout-letter-spacing: -0.05em;
 

@@ -278,11 +278,9 @@
   --range-thumb-shadow: var(--control-handle-accent-shadow);
   --range-focus-ring: rgba(255, 160, 132, 0.5);
 
-  --select-label-ff: var(--font-display);
   --select-label-fw: 800;
   --select-label-transform: none;
   --select-label-letter-spacing: 0.02em;
-  --select-dropdown-title-ff: var(--font-display);
   --select-dropdown-title-fw: 700;
   --select-dropdown-title-transform: none;
   --select-dropdown-title-letter-spacing: 0.04em;
@@ -290,7 +288,6 @@
   --select-scrollbar-color: rgba(121, 111, 214, 0.48);
   --select-option-radius: 12px;
   --select-option-color: var(--text-primary);
-  --select-option-ff: var(--font-app-sans);
   --select-option-fw: 700;
   --select-option-transform: none;
   --select-option-letter-spacing: 0.01em;

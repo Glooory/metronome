@@ -52,7 +52,6 @@
   --modal-shell-max-height: initial;
   --modal-shell-padding: initial;
   --modal-shell-header-margin: initial;
-  --modal-shell-title-ff: initial;
   --modal-shell-title-size: initial;
   --modal-shell-title-weight: initial;
   --modal-shell-title-transform: initial;
@@ -61,11 +60,9 @@
   --modal-shell-panel-ease: initial;
 
   /* Select */
-  --select-label-ff: initial;
   --select-label-fw: initial;
   --select-label-transform: initial;
   --select-label-letter-spacing: initial;
-  --select-dropdown-title-ff: initial;
   --select-dropdown-title-fw: initial;
   --select-dropdown-title-transform: initial;
   --select-dropdown-title-letter-spacing: initial;
@@ -73,7 +70,6 @@
   --select-scrollbar-color: initial;
   --select-option-radius: initial;
   --select-option-color: initial;
-  --select-option-ff: initial;
   --select-option-fw: initial;
   --select-option-transform: initial;
   --select-option-letter-spacing: initial;

@@ -26,14 +26,12 @@
 }
 
 .swing-trainer-modal__label {
-  font-family: var(--type-body-ff, var(--font-app-sans));
   font-size: var(--type-body-size-md, 1rem);
   font-weight: var(--type-body-strong-fw, 600);
   color: var(--text-primary);
 }
 
 .swing-trainer-modal__value {
-  font-family: var(--type-metric-ff, var(--font-app-mono));
   font-size: var(--type-body-size-md, 1rem);
   font-weight: var(--type-metric-fw, 600);
   letter-spacing: var(--type-metric-letter-spacing, -0.02em);
@@ -50,7 +48,6 @@
 }
 
 .swing-trainer-modal__desc {
-  font-family: var(--type-caption-ff, var(--font-app-sans));
   font-size: var(--type-body-size-md, 1rem);
   color: var(--text-secondary);
   margin-top: -8px;

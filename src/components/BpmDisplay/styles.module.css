@@ -24,13 +24,12 @@
 }
 
 .bpm-display__section-label {
-  font-family: var(--readout-label-ff);
-  font-weight: 600;
+  font-weight: var(--readout-label-weight, 600);
   font-size: var(--type-body-size-sm);
-  letter-spacing: 0.15em;
+  letter-spacing: var(--readout-label-letter-spacing, var(--type-control-title-letter-spacing, 0.08em));
   color: var(--readout-label-color);
   opacity: 0.6;
-  text-transform: uppercase;
+  text-transform: var(--type-control-transform, none);
 }
 
 .bpm-display__select-option {
@@ -40,9 +39,8 @@
 }
 
 .bpm-display__select-option-label {
-  font-family: var(--type-body-ff);
   font-size: var(--type-body-size-md);
-  font-weight: 500;
+  font-weight: var(--type-body-strong-fw, 600);
 }
 
 .bpm-display__resize-area {
@@ -78,7 +76,7 @@
   place-items: center;
   flex: 1;
   cursor: pointer;
-  font-family: var(--readout-value-ff);
+  font-family: var(--font-theme-readout, inherit);
   font-size: var(--readout-value-size);
   font-weight: var(--readout-value-weight);
   letter-spacing: var(--readout-value-letter-spacing);
@@ -127,7 +125,7 @@
   margin: 0;
   color: var(--readout-input-color);
   filter: var(--readout-input-filter);
-  font-family: var(--readout-input-ff);
+  font-family: var(--font-theme-readout, inherit);
   font-weight: var(--readout-value-weight);
   font-size: var(--readout-value-size);
   line-height: 1;

@@ -26,10 +26,6 @@ body {
   height: 100dvh;
   margin: 0;
   padding: 0;
-  font-family: var(--type-body-ff, var(--font-app-sans));
-  font-weight: var(--type-body-fw, 400);
-  color: var(--text-primary);
-  line-height: 1.5;
 }
 
 button {
@@ -79,5 +75,5 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--font-app-mono);
+  font-family: var(--font-theme-code, var(--font-app-mono));
 }

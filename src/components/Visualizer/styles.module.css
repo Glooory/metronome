@@ -97,7 +97,6 @@
 }
 
 .visualizer__label {
-  font-family: var(--meter-label-ff);
   font-size: var(--type-control-size-md, 1rem);
   color: var(--meter-label-color);
   font-weight: var(--meter-label-fw);
@@ -123,7 +122,6 @@
 }
 
 .visualizer__value {
-  font-family: var(--meter-value-ff);
   font-size: var(--type-body-size-md, 1rem);
   font-weight: var(--meter-value-fw);
   letter-spacing: var(--type-metric-letter-spacing, -0.02em);

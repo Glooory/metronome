@@ -19,9 +19,9 @@
   background: var(--app-bg-gradient, none);
   z-index: 0;
   pointer-events: none;
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transform: var(--app-bg-layer-transform, translateZ(0));
+  -webkit-backface-visibility: var(--app-bg-layer-backface, hidden);
+  backface-visibility: var(--app-bg-layer-backface, hidden);
 }
 
 .app__content {

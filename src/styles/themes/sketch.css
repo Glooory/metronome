@@ -1,320 +1,217 @@
 .theme-sketch {
-  --sketch-paper: rgba(250, 243, 229, 1);
-  --sketch-paper-light: rgba(255, 251, 242, 1);
-  --sketch-paper-mid: rgba(241, 236, 224, 1);
-  --sketch-paper-shadow: rgba(226, 218, 205, 1);
-  --sketch-ink: rgba(48, 39, 32, 1);
-  --sketch-ink-soft: rgba(80, 73, 67, 1);
-  --sketch-pencil: rgba(115, 109, 103, 1);
-  --sketch-pencil-light: rgba(184, 179, 173, 1);
-  --sketch-erased: rgba(231, 226, 217, 1);
-  --sketch-charcoal-shadow: rgba(48, 39, 32, 0.26);
-  --sketch-charcoal-shadow-deep: rgba(48, 39, 32, 0.16);
-  --sketch-marker-orange: rgba(255, 143, 49, 1);
-  --sketch-marker-orange-muted: rgba(255, 143, 49, 0.22);
-  --sketch-marker-orange-fill: rgba(255, 184, 130, 0.44);
-  --sketch-marker-red: rgba(229, 86, 74, 1);
-  --sketch-marker-green: rgba(62, 171, 94, 1);
-  --sketch-marker-blue: rgba(58, 132, 202, 1);
-  --sketch-marker-blue-fill: rgba(145, 190, 228, 0.72);
+  --sketch-paper-base: #f5f2eb;
+  --sketch-paper-dark: #eae6dd;
+  --sketch-ink: #2b2b2b;
+  --sketch-ink-muted: #666666;
+  --sketch-pencil: #858585;
+  --sketch-pencil-light: #c2c2c2;
+  --sketch-marker-yellow: #ffd933;
+  --sketch-marker-cyan: #22c3e6;
+  --sketch-marker-rose: #ff7ca3;
+  --sketch-marker-amber: #ff9b42;
+  --sketch-marker-red: #e64a40;
+  --sketch-paper-bright: #fdfcfa;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-primary: var(--sketch-paper-base);
+  --bg-surface: var(--sketch-paper-dark);
+  --bg-elevated: var(--sketch-paper-bright);
+  --bg-overlay: rgba(43, 43, 43, 0.5);
 
-  --bg-primary: var(--sketch-paper);
-  --bg-surface: var(--sketch-paper-light);
-  --bg-elevated: rgba(255, 253, 247, 1);
-  --bg-overlay: rgba(118, 105, 85, 0.34);
-
-  --fill-subtle: var(--sketch-paper-light);
-  --fill-muted: var(--sketch-paper-shadow);
-  --fill-active: var(--sketch-marker-orange-fill);
+  --fill-subtle: rgba(43, 43, 43, 0.04);
+  --fill-muted: rgba(43, 43, 43, 0.08);
+  --fill-active: var(--sketch-marker-yellow);
 
   --border-subtle: var(--sketch-pencil-light);
-  --border-base: var(--sketch-ink-soft);
-  --border-active: var(--sketch-marker-orange);
-
-  --radius-panel: 14px;
-  --radius-modal: 16px;
-  --radius-control: 10px;
-  --radius-pill: 999px;
+  --border-base: var(--sketch-ink-muted);
+  --border-active: var(--sketch-ink);
 
   --text-primary: var(--sketch-ink);
   --text-secondary: var(--sketch-pencil);
   --text-muted: var(--sketch-pencil-light);
-  --text-inverse: var(--sketch-paper-light);
+  --text-inverse: var(--sketch-paper-base);
 
-  --font-app-sans: "Trebuchet MS", "Avenir Next", "Segoe UI", var(--font-sans);
-  --font-display: "Bradley Hand", "Segoe Print", "Marker Felt", "Comic Sans MS", var(--font-sans);
-  --type-readout-ff: "Marker Felt", "Bradley Hand", "Segoe Print", "Comic Sans MS", var(--font-sans);
-  --type-readout-fw: 800;
-  --type-readout-letter-spacing: -0.04em;
+  --font-sketch-hand:
+    "Noteworthy", "Ink Free", "Segoe Print", "Chalkboard SE", "Comic Sans MS", var(--font-sans);
+  --font-app-sans: var(--font-sketch-hand);
+  --font-display: var(--font-sketch-hand);
+  --type-title-ff: var(--font-sketch-hand);
+  --type-body-ff: var(--font-sketch-hand);
+  --type-caption-ff: var(--font-sketch-hand);
+  --type-metric-ff: var(--font-sketch-hand);
+  --type-metric-fw: 600;
+  --type-metric-letter-spacing: -0.03em;
+  --type-control-ff: var(--font-sketch-hand);
+  --type-control-fw: 600;
+  --type-control-title-letter-spacing: 0.06em;
+  --type-control-letter-spacing: 0.03em;
+  --type-readout-ff: var(--font-sketch-hand);
+  --type-readout-fw: 700;
+  --type-readout-letter-spacing: -0.035em;
 
-  --accent-primary: var(--sketch-marker-orange);
-  --accent-primary-muted: var(--sketch-marker-orange-muted);
-  --accent-warning: var(--sketch-marker-orange);
-  --accent-danger: var(--sketch-marker-red);
-  --accent-success: var(--sketch-marker-green);
+  --radius-panel: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --radius-modal: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --radius-control: 120px 10px 100px 10px / 10px 100px 10px 120px;
+  --radius-pill: 255px 35px 225px 35px / 35px 225px 35px 255px;
 
-  --shadow-sm: 1px 2px 0 var(--sketch-charcoal-shadow);
-  --shadow-panel: 2px 3px 0 var(--sketch-charcoal-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.48);
-  --shadow-modal: 4px 6px 0 rgba(48, 39, 32, 0.2), 0 14px 28px rgba(48, 39, 32, 0.08);
-  --shadow-active-item: 0 0 0 2px var(--sketch-marker-orange-muted);
-  --shadow-glow-primary: none;
-  --shadow-glow-warning: none;
-  --shadow-glow-danger: none;
-  --shadow-glow-elevated: none;
+  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  --shadow-panel:
+    1px 2px 0 var(--sketch-ink), -1px -1px 0 var(--sketch-ink), 3px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-modal: 2px 4px 0 var(--sketch-ink), 0 10px 20px rgba(0, 0, 0, 0.1);
+  --shadow-active-item: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
   --shadow-glow: none;
   --overlay-blur: 0px;
-  --modal-shell-overlay-blur: 2px;
-  --overlay-sheen: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.26) 0%,
-    rgba(255, 255, 255, 0.08) 42%,
-    transparent 100%
-  );
+  --modal-shell-overlay-blur: 0px;
+  --opacity-btn-active: 1;
+  --app-bg-layer-transform: none;
+  --app-bg-layer-backface: visible;
 
-  --opacity-btn-hover: 1;
-  --opacity-btn-active: 0.92;
-  --opacity-disabled: 0.42;
-  --transition-base:
-    transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.12s ease-out,
-    box-shadow 0.12s ease-out, background-color 0.12s ease-out, border-color 0.12s ease-out,
-    color 0.12s ease-out;
-  --transition-fast:
-    transform 0.08s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.08s ease-out,
-    box-shadow 0.08s ease-out, background-color 0.08s ease-out, border-color 0.08s ease-out,
-    color 0.08s ease-out;
-  --ui-chrome-fw: 700;
-  --ui-chrome-transform: none;
-  --ui-chrome-letter-spacing: 0.045em;
-  --ui-chrome-title-letter-spacing: 0.08em;
-  --control-focus-ring: rgba(255, 143, 49, 0.48);
+  --transition-base: none;
+  --transition-fast: none;
 
   --app-bg-color: var(--bg-primary);
-  --app-text-color: var(--text-primary);
   --app-bg-gradient:
-    radial-gradient(circle at 14% 16%, rgba(255, 255, 255, 0.56) 0%, transparent 24%),
-    radial-gradient(circle at 84% 12%, rgba(255, 184, 130, 0.12) 0%, transparent 24%),
-    radial-gradient(circle at 18% 88%, rgba(145, 190, 228, 0.08) 0%, transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4), transparent),
     repeating-linear-gradient(
-      -11deg,
-      rgba(120, 116, 110, 0.05) 0,
-      rgba(120, 116, 110, 0.05) 1px,
+      rgba(43, 43, 43, 0.04) 0,
+      rgba(43, 43, 43, 0.04) 1px,
       transparent 1px,
-      transparent 14px
+      transparent 30px
     ),
     repeating-linear-gradient(
-      9deg,
-      rgba(255, 255, 255, 0.18) 0,
-      rgba(255, 255, 255, 0.18) 2px,
-      transparent 2px,
-      transparent 22px
+      90deg,
+      rgba(43, 43, 43, 0.04) 0,
+      rgba(43, 43, 43, 0.04) 1px,
+      transparent 1px,
+      transparent 30px
     ),
-    linear-gradient(180deg, rgba(255, 250, 242, 1) 0%, rgba(244, 237, 225, 1) 100%);
+    var(--bg-primary);
 
-  --surface-panel-bg:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 24%),
-    linear-gradient(180deg, rgba(253, 249, 241, 0.98) 0%, rgba(242, 235, 224, 0.98) 100%);
-  --surface-panel-border: 2px solid rgba(90, 82, 74, 0.92);
-  --surface-panel-shadow: var(--shadow-panel);
+  --surface-panel-bg: var(--bg-primary);
+  --surface-panel-border: 1px solid var(--sketch-ink);
+  --surface-panel-shadow: none;
+  --surface-panel-radius: 120px 15px 100px 15px / 15px 20px 15px 25px;
 
-  --surface-floating-bg:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%),
-    linear-gradient(180deg, rgba(255, 252, 246, 0.99) 0%, rgba(244, 237, 227, 0.99) 100%);
-  --surface-floating-border-width: 2px;
-  --surface-floating-border-color: rgba(90, 82, 74, 0.96);
-  --surface-floating-border: 2px solid rgba(90, 82, 74, 0.96);
-  --surface-floating-shadow: var(--shadow-modal);
-  --surface-floating-inner-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
-  --surface-floating-sheen: var(--overlay-sheen);
+  --surface-floating-bg: var(--bg-primary);
+  --surface-floating-border: 1px solid var(--sketch-ink);
+  --surface-floating-shadow: none;
+  --surface-floating-radius: 120px 15px 100px 15px / 15px 20px 15px 25px;
 
-  --control-bg:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 26%),
-    linear-gradient(180deg, rgba(255, 251, 243, 1) 0%, rgba(243, 236, 225, 1) 100%);
+  --control-bg: var(--sketch-paper-bright);
   --control-color: var(--sketch-ink);
-  --control-border-width: 2px;
-  --control-border-color: rgba(96, 88, 80, 0.9);
-  --control-shadow: var(--shadow-sm);
-  --control-active-bg:
-    linear-gradient(180deg, rgba(255, 232, 205, 0.36) 0%, rgba(255, 232, 205, 0) 30%),
-    linear-gradient(180deg, rgba(247, 240, 228, 1) 0%, rgba(236, 229, 217, 1) 100%);
-  --control-active-shadow: 1px 1px 0 var(--sketch-charcoal-shadow-deep);
-  --control-active-transform: translate(1px, 1px) rotate(-0.35deg);
-  --control-quiet-bg: rgba(255, 249, 240, 0.78);
-  --control-quiet-color: var(--sketch-pencil);
-  --control-quiet-border-width: 2px;
-  --control-quiet-border-color: rgba(130, 120, 109, 0.5);
-  --control-quiet-shadow: 1px 2px 0 rgba(48, 39, 32, 0.1);
-  --control-quiet-active-bg: rgba(246, 239, 227, 0.92);
-  --control-quiet-active-shadow: 1px 1px 0 rgba(48, 39, 32, 0.08);
+  --control-border-width: 1px;
+  --control-border-color: var(--sketch-ink);
+  --control-shadow: none;
+  --control-radius: var(--radius-control);
 
-  --control-selected-bg:
-    linear-gradient(180deg, rgba(255, 206, 158, 0.54) 0%, rgba(255, 166, 104, 0.34) 100%),
-    linear-gradient(180deg, rgba(255, 251, 243, 1) 0%, rgba(244, 236, 225, 1) 100%);
-  --control-selected-color: var(--sketch-ink);
-  --control-selected-border-width: 2px;
-  --control-selected-border-color: rgba(218, 122, 44, 0.92);
-  --control-selected-shadow:
-    1px 2px 0 var(--sketch-charcoal-shadow), 0 0 0 2px var(--sketch-marker-orange-muted);
-  --control-quiet-selected-bg:
-    linear-gradient(180deg, rgba(255, 206, 158, 0.46) 0%, rgba(255, 166, 104, 0.24) 100%),
-    rgba(255, 249, 240, 0.94);
-  --control-quiet-selected-color: var(--sketch-ink);
-  --control-quiet-selected-border-width: 2px;
-  --control-quiet-selected-border-color: rgba(218, 122, 44, 0.86);
-  --control-quiet-selected-shadow:
-    1px 2px 0 rgba(48, 39, 32, 0.12), 0 0 0 2px var(--sketch-marker-orange-muted);
+  --control-active-bg: var(--sketch-marker-yellow);
+  --control-active-shadow: none;
+  --control-active-transform: none;
 
-  --action-outline-bg: var(--control-quiet-bg);
-  --action-outline-color: var(--control-quiet-color);
-  --action-outline-border-width: var(--control-quiet-border-width);
-  --action-outline-border-color: var(--control-quiet-border-color);
-  --action-outline-shadow: var(--control-quiet-shadow);
-  --action-outline-active-bg: var(--control-quiet-active-bg);
-  --action-outline-active-shadow: var(--control-quiet-active-shadow);
-  --action-outline-selected-bg: var(--control-quiet-selected-bg);
-  --action-outline-selected-color: var(--control-quiet-selected-color);
-  --action-outline-selected-border-width: var(--control-quiet-selected-border-width);
-  --action-outline-selected-border-color: var(--control-quiet-selected-border-color);
-  --action-outline-selected-shadow: var(--control-quiet-selected-shadow);
-  --action-ghost-selected-bg: rgba(255, 204, 154, 0.28);
-  --action-ghost-selected-color: var(--sketch-ink);
-  --action-ghost-selected-border-width: 2px;
-  --action-ghost-selected-border-color: rgba(218, 122, 44, 0.72);
-  --action-ghost-selected-shadow: 0 0 0 2px rgba(255, 143, 49, 0.12);
+  --control-selected-bg: var(--sketch-marker-cyan);
+  --control-selected-border-width: 1px;
+  --control-selected-border-color: var(--sketch-ink);
+  --control-selected-shadow: none;
 
-  --field-bg:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 28%),
-    linear-gradient(180deg, rgba(255, 251, 245, 1) 0%, rgba(241, 234, 223, 1) 100%);
-  --field-border: 2px solid rgba(95, 87, 79, 0.84);
-  --field-border-width: 2px;
-  --field-border-color: rgba(95, 87, 79, 0.84);
+  --control-quiet-bg: transparent;
+  --control-quiet-border-color: var(--sketch-pencil);
+  --control-quiet-selected-bg: var(--sketch-marker-amber);
+  --control-quiet-selected-border-width: 1px;
+  --control-quiet-selected-border-color: var(--sketch-ink);
+
+  --action-radius: var(--radius-control);
+  --action-active-transform: none;
+
+  --action-solid-selected-border-width: 1px;
+  --action-solid-selected-border-color: var(--sketch-ink);
+  --action-solid-selected-shadow: none;
+  --action-outline-selected-bg: var(--sketch-marker-cyan);
+  --action-outline-selected-color: var(--sketch-ink);
+  --action-outline-selected-border-width: 1px;
+  --action-outline-selected-border-color: var(--sketch-ink);
+  --action-outline-selected-shadow: none;
+  --action-ghost-selected-border-width: 1px;
+  --action-ghost-selected-border-color: var(--sketch-ink);
+  --action-ghost-selected-shadow: none;
+
+  --field-bg: var(--sketch-paper-bright);
+  --field-border: 1px solid var(--sketch-ink);
   --field-color: var(--sketch-ink);
-  --field-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  --field-focus-border: rgba(218, 122, 44, 0.92);
-  --field-focus-bg: rgba(255, 252, 246, 1);
+  --field-radius: var(--radius-control);
+  --field-shadow: none;
+  --field-focus-border: var(--sketch-ink);
+  --field-focus-bg: var(--sketch-paper-base);
 
   --readout-label-color: var(--sketch-pencil);
-  --readout-value-gradient: none;
   --readout-value-color: var(--sketch-ink);
-  --readout-value-weight: 800;
-  --readout-value-letter-spacing: -0.04em;
-  --readout-value-filter: none;
-  --readout-value-shadow: 2px 2px 0 rgba(255, 255, 255, 0.72), 4px 4px 0 rgba(48, 39, 32, 0.16);
-  --readout-blur-visibility: hidden;
+  --readout-value-shadow: 3px 3px 0 var(--sketch-marker-yellow), 1px 1px 0 var(--sketch-ink);
   --readout-input-color: var(--sketch-ink);
-  --readout-input-caret-color: var(--sketch-marker-orange);
-  --readout-input-selection: rgba(255, 184, 130, 0.52);
-  --readout-input-border: none;
-  --readout-controls-color: var(--sketch-pencil);
-  --readout-wheel-bg:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 0,
-      rgba(255, 255, 255, 0) 8px,
-      rgba(115, 109, 103, 0.06) 8px,
-      rgba(115, 109, 103, 0.06) 9px
-    ),
-    linear-gradient(180deg, rgba(255, 252, 246, 1) 0%, rgba(235, 228, 217, 1) 100%);
-  --readout-wheel-border: 2px solid rgba(95, 87, 79, 0.84);
-  --readout-wheel-shadow: 1px 2px 0 var(--sketch-charcoal-shadow);
-  --readout-wheel-active-shadow:
-    1px 2px 0 var(--sketch-charcoal-shadow), 0 0 0 2px var(--sketch-marker-orange-muted);
-  --readout-wheel-line: var(--sketch-marker-orange);
-  --readout-wheel-line-glow: transparent;
-  --readout-wheel-tick: rgba(115, 109, 103, 0.54);
+  --readout-input-caret-color: var(--sketch-marker-red);
+  --readout-input-selection: rgba(255, 217, 51, 0.35);
+  --readout-wheel-bg: var(--bg-primary);
+  --readout-wheel-border: 1px solid var(--sketch-ink);
+  --readout-wheel-radius: var(--radius-panel);
+  --readout-wheel-shadow: none;
+  --readout-wheel-line: var(--sketch-marker-red);
+  --readout-wheel-tick: var(--sketch-pencil);
 
-  --meter-block-radius: 9px;
-  --meter-block-bg:
-    linear-gradient(180deg, rgba(251, 246, 237, 1) 0%, rgba(236, 229, 218, 1) 100%);
-  --meter-block-empty:
-    linear-gradient(180deg, rgba(244, 238, 229, 1) 0%, rgba(232, 225, 214, 1) 100%);
-  --meter-block-empty-active: var(--sketch-marker-orange-muted);
-  --meter-block-border: 1px solid rgba(154, 145, 134, 0.88);
-  --meter-block-accent:
-    linear-gradient(180deg, rgba(108, 164, 214, 1) 0%, rgba(58, 132, 202, 1) 100%);
-  --meter-block-accent-dim:
-    linear-gradient(180deg, rgba(205, 227, 245, 1) 0%, rgba(145, 190, 228, 1) 100%);
-  --meter-block-shadow: 1px 1px 0 rgba(48, 39, 32, 0.08);
-  --meter-block-shadow-filled: 1px 2px 0 rgba(48, 39, 32, 0.16);
-  --meter-block-shadow-active:
-    1px 2px 0 rgba(48, 39, 32, 0.18), 0 0 0 2px rgba(58, 132, 202, 0.16);
+  --meter-block-radius: var(--radius-control);
+  --meter-block-bg: var(--sketch-paper-bright);
+  --meter-block-border: 1px solid var(--sketch-ink);
+  --meter-block-accent: var(--sketch-marker-rose);
+  --meter-block-accent-dim: var(--sketch-marker-cyan);
+  --meter-block-empty: var(--sketch-paper-dark);
+  --meter-block-shadow: none;
+  --meter-block-shadow-filled: none;
+  --meter-block-shadow-active: none;
+
+  --meter-controls-bg: var(--bg-surface);
+  --meter-controls-border: 1px solid var(--sketch-ink);
+  --meter-controls-radius: var(--radius-control);
+  --meter-controls-shadow: none;
+
   --meter-label-color: var(--sketch-pencil);
-  --meter-controls-bg: rgba(247, 241, 231, 0.96);
-  --meter-controls-border: 2px solid rgba(137, 127, 116, 0.4);
-  --meter-controls-shadow: 1px 2px 0 rgba(48, 39, 32, 0.08);
-  --meter-value-color: var(--sketch-pencil);
-  --meter-value-active-color: var(--sketch-marker-orange);
+  --meter-value-color: var(--sketch-ink);
+  --meter-value-active-color: var(--sketch-ink);
 
-  --control-handle-bg:
-    linear-gradient(180deg, rgba(255, 252, 246, 1) 0%, rgba(243, 236, 226, 1) 100%);
-  --control-handle-border-width: 2px;
-  --control-handle-border-color: rgba(95, 87, 79, 0.84);
-  --control-handle-shadow: 1px 2px 0 rgba(48, 39, 32, 0.18);
-  --control-handle-selected-bg:
-    linear-gradient(180deg, rgba(255, 251, 245, 1) 0%, rgba(245, 237, 226, 1) 100%);
-  --control-handle-selected-border-width: 2px;
-  --control-handle-selected-border-color: rgba(218, 122, 44, 0.74);
-  --control-handle-selected-shadow: 1px 2px 0 rgba(48, 39, 32, 0.2);
-  --control-handle-accent-bg:
-    linear-gradient(180deg, rgba(255, 197, 145, 1) 0%, rgba(255, 143, 49, 1) 100%);
-  --control-handle-accent-border-width: 2px;
-  --control-handle-accent-border-color: rgba(95, 87, 79, 0.84);
-  --control-handle-accent-shadow: 1px 2px 0 rgba(48, 39, 32, 0.18);
-
-  --switch-track-bg:
-    linear-gradient(180deg, rgba(244, 238, 228, 1) 0%, rgba(232, 225, 214, 1) 100%);
-  --switch-track-radius: 999px;
-  --switch-track-border-width: 2px;
-  --switch-track-border-color: rgba(95, 87, 79, 0.7);
-  --switch-track-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 1px 2px 0 rgba(48, 39, 32, 0.12);
-  --switch-track-selected-bg:
-    linear-gradient(180deg, rgba(255, 200, 151, 0.94) 0%, rgba(255, 157, 88, 0.96) 100%);
-  --switch-track-selected-border-color: rgba(218, 122, 44, 0.9);
-  --switch-track-selected-shadow:
-    inset 0 1px 0 rgba(255, 239, 218, 0.36), 1px 2px 0 rgba(48, 39, 32, 0.16);
-  --switch-thumb-bg: var(--control-handle-bg);
-  --switch-thumb-radius: 999px;
-  --switch-thumb-border-width: 2px;
-  --switch-thumb-border-color: rgba(95, 87, 79, 0.82);
-  --switch-thumb-shadow: var(--control-handle-shadow);
-  --switch-thumb-selected-bg: var(--control-handle-selected-bg);
-  --switch-thumb-selected-border-color: rgba(218, 122, 44, 0.74);
-  --switch-thumb-selected-shadow: var(--control-handle-selected-shadow);
-
-  --range-track-height: 10px;
-  --range-track-bg:
-    linear-gradient(180deg, rgba(239, 232, 221, 1) 0%, rgba(230, 223, 212, 1) 100%);
+  --range-track-bg: var(--sketch-paper-bright);
   --range-track-border-width: 2px;
-  --range-track-border-color: rgba(137, 127, 116, 0.4);
-  --range-track-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  --range-progress-bg:
-    linear-gradient(90deg, rgba(255, 197, 145, 1) 0%, rgba(255, 143, 49, 1) 100%);
-  --range-thumb-size: 20px;
-  --range-thumb-bg: var(--control-handle-accent-bg);
-  --range-thumb-radius: 999px;
-  --range-thumb-border-width: 2px;
-  --range-thumb-border-color: rgba(95, 87, 79, 0.84);
-  --range-thumb-shadow: 1px 2px 0 rgba(48, 39, 32, 0.18);
-  --range-focus-ring: rgba(255, 143, 49, 0.32);
+  --range-track-border-color: var(--sketch-ink);
+  --range-track-height: 12px;
+  --range-progress-bg: var(--sketch-marker-rose);
+  --range-thumb-bg: var(--sketch-paper-bright);
+  --range-thumb-border-color: var(--sketch-ink);
+  --range-thumb-border-width: 3px;
+  --range-thumb-shadow: 2px 2px 0 var(--sketch-ink);
+  --range-thumb-radius: 50% 45% 55% 48% / 48% 55% 45% 50%;
 
-  --select-label-ff: var(--font-display);
-  --select-label-fw: 700;
-  --select-label-transform: none;
-  --select-label-letter-spacing: 0.02em;
-  --select-dropdown-title-ff: var(--font-display);
-  --select-dropdown-title-fw: 700;
-  --select-dropdown-title-transform: none;
-  --select-dropdown-title-letter-spacing: 0.04em;
-  --select-dropdown-title-color: var(--sketch-pencil);
-  --select-scrollbar-color: rgba(137, 127, 116, 0.48);
-  --select-option-radius: 10px;
-  --select-option-color: var(--sketch-ink);
-  --select-option-ff: var(--font-app-sans);
-  --select-option-fw: 600;
-  --select-dot-color: var(--sketch-marker-red);
-  --select-dot-shadow: none;
+  --switch-track-bg: var(--sketch-paper-bright);
+  --switch-track-border-width: 1px;
+  --switch-track-border-color: var(--sketch-ink);
+  --switch-track-selected-bg: var(--sketch-marker-cyan);
+  --switch-track-selected-border-color: var(--sketch-ink);
+  --switch-track-radius: var(--radius-control);
+  --switch-track-shadow: none;
+  --switch-track-selected-shadow: none;
+
+  --switch-thumb-bg: var(--sketch-paper-bright);
+  --switch-thumb-border-width: 1px;
+  --switch-thumb-border-color: var(--sketch-ink);
+  --switch-thumb-radius: var(--radius-control);
+  --switch-thumb-shadow: none;
+  --switch-thumb-selected-shadow: none;
+
+  --select-option-radius: var(--radius-control);
+  --select-scrollbar-color: var(--sketch-ink-muted);
 
   --app-title-icon-color: var(--sketch-marker-red);
+
+  --ui-chrome-transform: none;
+  --ui-chrome-letter-spacing: 0.05em;
+  --ui-chrome-fw: 800;
+}
+
+.theme-sketch .dock,
+.theme-sketch .trainer-dock {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }

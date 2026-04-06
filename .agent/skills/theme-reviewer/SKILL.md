@@ -69,18 +69,21 @@ description: Metronome 单主题审查与视觉查漏补缺指南。用于审查
 
 - 先分辨问题来自 hue 还是材质语言。
 - 不要只查 `--text-*`；很多违和文字来自 `--action-*` / `--readout-*` / `--meter-*` / `--select-*`。
+- 字体审查不要只看 `--font-display` / `--font-app-sans`；要把 `--type-title-*` / `--type-body-*` / `--type-caption-*` / `--type-control-*` / `--type-readout-*` / `--type-metric-*` 一起过一遍，再回看 `Select` / `Input(font="metric")` / `BpmHistory` / `Visualizer` 是否还在吃默认 fallback。
 - 选中态同时检查底色、文字、边框、阴影。
 - 渐变前先确认该 token 是否被当成 `background-color` 使用。
 - 检查所有文本是否满足 16px (1rem) 的标准基准。若发现 14px (0.875rem)，应审视其是否属于受控的极小元数据，否则应收敛至 16px。
 - 不要假设常态 token 会自动覆盖状态 token；聚焦态、选中态、编辑态常常走的是另一组 token。
 - 主色轴要稳定；辅色不要争主导。
 - glow 不能降低可读性。
+- 如果只在某个主题里出现“右侧 / 底部被裁掉”“只有某个组件边框断掉”这类现象，先查该主题是否直接覆写了组件类名并加了 `transform`, `translateZ(0)`, `backface-visibility`, `width: calc(...)`, `overflow` 之类的渲染补丁；这类问题往往来自 theme-local override，而不是 token 本身
 - Modal backdrop 不要只看 `--bg-overlay`；要一起检查 `--modal-shell-overlay-blur` 是否真的接进 `ModalShell`，以及局部 modal / confirm overlay 有没有把 blur 覆盖回 `0px` 或 `none`
 - Readout wheel 不要只看 `line` 颜色；要一起检查 wheel 底材质、边框、tick 对比、active shadow，确认它读起来像该主题里的“标尺 / 滚轮 / 刻度件”，而不是普通深色控件或 HUD 发光条。
 - Visualizer / Meter block 先确认产品语义:
   “播放态”应该强调已有颜色的块（重音 / 次重音 / 普通音），不要默认给空块接 `empty-active`；先回到组件运行时分支确认 active 是否只落在 filled block 上
 - Switch / Checkbox 不要只看 `--control-*` 或 `--control-handle-*`；要显式检查 `--switch-track-*` 与 `--switch-thumb-*`，尤其是未选中轨道、选中轨道、未选中 knob、选中 knob 四组。
 - Input / Field 不要只看 `--field-border`；聚焦态要单独检查 `--field-focus-border` 与 `--field-focus-bg`
+- 数字输入若使用共享 `Input` 组件，不要把 `font="metric"` 当成视觉语义入口；默认仍应先回到 `--field-*`，只有在产品里确实存在第二套稳定的输入语义时，才考虑新增 variant / token 路由
 - Select Option 不要只看 `--select-option-radius` 或 `--select-*`；先确认它是否复用了 `Button` / `Action` recipe。像 `src/components/Select/styles.module.css` 这种包装层，radius fallback 应保持 `--select-option-radius` -> `--action-radius` -> `--control-radius`；如果主题希望 Select Option 跟按钮同半径，优先在主题文件里写 `--select-option-radius: var(--action-radius)`，不要在同一个元素里用 `--control-radius` 重写 `--action-radius`，否则主题里单独定义的按钮圆角会在 Select 里失效。
 - Slider / Range knob 不要只看 `--range-thumb-radius`；先回溯它是否来自 `--control-handle-radius`。如果主题想让 knob / thumb 比普通 control 更圆，优先在 handle 这一层表达，再让 `--range-*` / `--switch-*` 继承，不要每个组件各自写一份 radius。
 - 如果某个控件在主题立意里很敏感，但当前只是靠共享 `--control-*` 或 `--control-handle-*` 间接继承，优先考虑在主题文件里显式补齐该 recipe token，避免浏览器里落地效果偏到默认语义。

@@ -607,6 +607,7 @@ export default function MetronomeApp() {
 
               <Button
                 variant="outline"
+                size="icon"
                 isChecked={isPlaying}
                 onClick={() => setIsPlaying(!isPlaying)}
                 className={styles["play-btn"]}

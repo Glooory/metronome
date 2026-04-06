@@ -54,6 +54,7 @@
   font-weight: var(--type-metric-fw, 600);
   letter-spacing: var(--type-metric-letter-spacing, -0.02em);
   font-variant-numeric: tabular-nums;
+  caret-color: var(--field-color, var(--text-primary));
 }
 
 .align-left {

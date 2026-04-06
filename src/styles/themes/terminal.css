@@ -25,6 +25,11 @@
   --radius-modal: 0px;
   --radius-control: 0px;
   --radius-pill: 0px;
+  --radius-badge: var(--radius-pill);
+  --surface-panel-radius: var(--radius-panel);
+  --surface-floating-radius: var(--radius-modal);
+  --control-radius: var(--radius-control);
+  --field-radius: var(--control-radius);
 
   --text-primary: var(--terminal-green);
   --text-secondary: var(--terminal-green-soft);
@@ -45,8 +50,7 @@
   --accent-success: var(--terminal-green);
 
   --shadow-sm: none;
-  --shadow-panel:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.84), 0 0 0 1px var(--terminal-green-faint);
+  --shadow-panel: inset 0 0 0 1px rgba(0, 0, 0, 0.84), 0 0 0 1px var(--terminal-green-faint);
   --shadow-modal:
     inset 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 1px var(--terminal-green-dim),
     0 0 14px var(--terminal-green-glow);
@@ -78,24 +82,21 @@
   --ui-chrome-letter-spacing: 0.14em;
   --ui-chrome-title-letter-spacing: 0.2em;
   --control-focus-ring: rgba(98, 243, 139, 0.34);
-  --action-radius: 0px;
-  --control-handle-radius: 0px;
+  --action-radius: var(--control-radius);
+  --control-handle-radius: var(--control-radius);
 
   --app-bg-color: var(--bg-primary);
   --app-text-color: var(--text-primary);
   --app-title-icon-color: var(--terminal-green-soft);
-  --app-bg-gradient:
-    radial-gradient(circle at center, rgba(1, 10, 2, 1) 0%, rgba(0, 0, 0, 1) 72%);
+  --app-bg-gradient: radial-gradient(circle at center, rgba(1, 10, 2, 1) 0%, rgba(0, 0, 0, 1) 72%);
 
-  --surface-panel-bg:
-    linear-gradient(180deg, rgba(1, 8, 2, 0.96) 0%, rgba(0, 2, 0, 0.98) 100%);
+  --surface-panel-bg: linear-gradient(180deg, rgba(1, 8, 2, 0.96) 0%, rgba(0, 2, 0, 0.98) 100%);
   --surface-panel-border-width: 1px;
   --surface-panel-border-color: var(--terminal-green-faint);
   --surface-panel-border: 1px solid var(--terminal-green-faint);
   --surface-panel-shadow: var(--shadow-panel);
 
-  --surface-floating-bg:
-    linear-gradient(180deg, rgba(1, 11, 3, 0.98) 0%, rgba(0, 3, 0, 1) 100%);
+  --surface-floating-bg: linear-gradient(180deg, rgba(1, 11, 3, 0.98) 0%, rgba(0, 3, 0, 1) 100%);
   --surface-floating-border-width: 1px;
   --surface-floating-border-color: var(--terminal-green-dim);
   --surface-floating-border: 1px solid var(--terminal-green-dim);
@@ -178,8 +179,8 @@
     ),
     linear-gradient(180deg, rgba(0, 9, 1, 1) 0%, rgba(0, 2, 0, 1) 100%);
   --readout-wheel-border: 1px solid var(--terminal-green-dim);
-  --readout-wheel-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.84), 0 0 0 1px rgba(9, 47, 21, 0.96);
+  --readout-wheel-radius: var(--field-radius);
+  --readout-wheel-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.84), 0 0 0 1px rgba(9, 47, 21, 0.96);
   --readout-wheel-active-shadow:
     inset 0 0 0 1px rgba(0, 0, 0, 0.88), 0 0 0 1px var(--terminal-green),
     0 0 10px rgba(64, 204, 109, 0.18);
@@ -187,21 +188,23 @@
   --readout-wheel-line-glow: rgba(64, 204, 109, 0.2);
   --readout-wheel-tick: rgba(64, 204, 109, 0.2);
 
-  --meter-block-radius: 0px;
+  --meter-block-radius: var(--control-radius);
   --meter-block-border: 1px solid var(--terminal-green-faint);
   --meter-block-bg: rgba(0, 3, 0, 1);
   --meter-block-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.72);
   --meter-block-empty: rgba(0, 2, 0, 1);
   --meter-block-empty-active: rgba(0, 16, 1, 1);
   --meter-block-accent: var(--terminal-green);
-  --meter-block-accent-dim: rgba(31, 134, 67, 1);
+  --meter-block-accent-dim: rgba(31, 134, 67, 0.5);
   --meter-block-shadow-filled: inset 0 0 0 1px rgba(0, 0, 0, 0.78);
   --meter-block-shadow-active:
     inset 0 0 0 1px rgba(0, 0, 0, 0.86), 0 0 8px rgba(64, 204, 109, 0.16);
   --meter-label-color: var(--terminal-green-soft);
   --meter-controls-bg: rgba(0, 4, 0, 0.96);
+  --meter-controls-radius: var(--control-radius);
   --meter-controls-border: 1px solid var(--terminal-green-faint);
   --meter-controls-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.74);
+  --meter-indicator-radius: var(--radius-pill);
   --meter-value-color: var(--terminal-green-soft);
   --meter-value-active-color: var(--terminal-green-bright);
 
@@ -217,10 +220,9 @@
   --control-handle-accent-bg: var(--terminal-green);
   --control-handle-accent-border-width: 1px;
   --control-handle-accent-border-color: rgba(0, 0, 0, 0.88);
-  --control-handle-accent-shadow:
-    0 0 0 1px rgba(9, 47, 21, 0.96), 0 0 8px rgba(64, 204, 109, 0.14);
+  --control-handle-accent-shadow: 0 0 0 1px rgba(9, 47, 21, 0.96), 0 0 8px rgba(64, 204, 109, 0.14);
 
-  --switch-track-radius: 0px;
+  --switch-track-radius: var(--control-radius);
   --switch-track-bg: rgba(0, 4, 0, 1);
   --switch-track-border-width: 1px;
   --switch-track-border-color: var(--terminal-green-faint);
@@ -230,31 +232,33 @@
   --switch-track-selected-shadow:
     inset 0 0 0 1px rgba(0, 0, 0, 0.82), 0 0 8px rgba(64, 204, 109, 0.14);
   --switch-thumb-bg: var(--terminal-green-soft);
+  --switch-thumb-radius: var(--control-handle-radius);
   --switch-thumb-border-width: 1px;
   --switch-thumb-border-color: rgba(0, 0, 0, 0.86);
   --switch-thumb-shadow: 0 0 0 1px rgba(9, 47, 21, 0.96);
   --switch-thumb-selected-bg: var(--terminal-green-bright);
   --switch-thumb-selected-border-color: rgba(0, 0, 0, 0.9);
-  --switch-thumb-selected-shadow:
-    0 0 0 1px rgba(9, 47, 21, 0.96), 0 0 8px rgba(64, 204, 109, 0.14);
+  --switch-thumb-selected-shadow: 0 0 0 1px rgba(9, 47, 21, 0.96), 0 0 8px rgba(64, 204, 109, 0.14);
 
   --range-track-bg: rgba(0, 4, 0, 1);
   --range-track-border-width: 1px;
   --range-track-border-color: var(--terminal-green-faint);
   --range-track-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.74);
-  --range-progress-bg:
-    linear-gradient(90deg, rgba(31, 134, 67, 1) 0%, rgba(98, 243, 139, 0.94) 100%);
+  --range-progress-bg: linear-gradient(
+    90deg,
+    rgba(31, 134, 67, 1) 0%,
+    rgba(98, 243, 139, 0.94) 100%
+  );
   --range-thumb-bg: var(--terminal-green);
-  --range-thumb-radius: 0px;
+  --range-thumb-radius: var(--control-handle-radius);
   --range-thumb-border-width: 1px;
   --range-thumb-border-color: rgba(0, 0, 0, 0.88);
-  --range-thumb-shadow:
-    0 0 0 1px rgba(9, 47, 21, 0.96), 0 0 8px rgba(64, 204, 109, 0.14);
+  --range-thumb-shadow: 0 0 0 1px rgba(9, 47, 21, 0.96), 0 0 8px rgba(64, 204, 109, 0.14);
   --range-focus-ring: rgba(98, 243, 139, 0.34);
 
   --select-dropdown-title-color: var(--terminal-green-dim);
   --select-scrollbar-color: var(--terminal-green-soft);
-  --select-option-radius: 0px;
+  --select-option-radius: var(--action-radius);
   --select-option-color: var(--terminal-green);
   --select-option-fw: 700;
   --select-option-transform: uppercase;

@@ -87,6 +87,7 @@ description: Metronome 单主题审查与视觉查漏补缺指南。用于审查
 - Select Option 不要只看 `--select-option-radius` 或 `--select-*`；先确认它是否复用了 `Button` / `Action` recipe。像 `src/components/Select/styles.module.css` 这种包装层，radius fallback 应保持 `--select-option-radius` -> `--action-radius` -> `--control-radius`；如果主题希望 Select Option 跟按钮同半径，优先在主题文件里写 `--select-option-radius: var(--action-radius)`，不要在同一个元素里用 `--control-radius` 重写 `--action-radius`，否则主题里单独定义的按钮圆角会在 Select 里失效。
 - Slider / Range knob 不要只看 `--range-thumb-radius`；先回溯它是否来自 `--control-handle-radius`。如果主题想让 knob / thumb 比普通 control 更圆，优先在 handle 这一层表达，再让 `--range-*` / `--switch-*` 继承，不要每个组件各自写一份 radius。
 - 如果某个控件在主题立意里很敏感，但当前只是靠共享 `--control-*` 或 `--control-handle-*` 间接继承，优先考虑在主题文件里显式补齐该 recipe token，避免浏览器里落地效果偏到默认语义。
+- 如果主题立意是硬边 / 工业 / 终端 / 瑞士网格，不要只写基础 `--radius-*`；要顺手检查并尽量显式钉住 `--surface-panel-radius`, `--surface-floating-radius`, `--control-radius`, `--field-radius`, `--action-radius`, `--readout-wheel-radius`, `--switch-*`, `--range-thumb-radius`, `--meter-controls-radius`, `--meter-indicator-radius`, `--select-option-radius`。否则很容易出现“按钮是直角，但 dock / wheel / badge 还像默认控件”的混搭。
 
 ## Quick Mappings
 

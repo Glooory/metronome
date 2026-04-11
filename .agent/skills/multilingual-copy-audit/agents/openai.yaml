@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multilingual Copy Audit"
+  short_description: "Audit multilingual UI copy for clarity and consistency"
+  default_prompt: "Use $multilingual-copy-audit to review and refine the i18n copy in this project."

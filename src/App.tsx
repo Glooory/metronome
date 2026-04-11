@@ -477,6 +477,18 @@ export default function MetronomeApp() {
     setBeatsPerMeasure(nextBeatsPerMeasure);
   };
 
+  const semanticH1: Record<Language, string> = {
+    en: "Vibe Metronome - Free Online Metronome with Practice Tools",
+    zh: "Vibe Metronome 随变节拍器 - 免费在线节拍器与节奏练习工具",
+    ja: "Vibe Metronome - 練習ツール付きの無料オンラインメトロノーム",
+    ko: "Vibe Metronome - 연습 도구를 갖춘 무료 온라인 메트로놈",
+    de: "Vibe Metronome - Kostenloses Online-Metronom mit Übungsfunktionen",
+    fr: "Vibe Metronome - Métronome en ligne gratuit avec outils d'entraînement",
+    es: "Vibe Metronome - Metrónomo online gratuito con herramientas de práctica",
+    ru: "Vibe Metronome - Бесплатный онлайн-метроном с инструментами для занятий",
+    pt: "Vibe Metronome - Metrônomo online gratuito com ferramentas de estudo",
+  };
+
   return (
     <HelmetProvider>
       <SEO language={language} />
@@ -495,9 +507,7 @@ export default function MetronomeApp() {
             border: 0,
           }}
         >
-          {language === "zh"
-            ? "Vibe Metronome 随变节拍器 - 专业在线节拍与节奏训练工具"
-            : "Vibe Metronome - Professional Online Rhythm Trainer"}
+          {semanticH1[language]}
         </h1>
 
         <div className={styles["header-buttons"]}>

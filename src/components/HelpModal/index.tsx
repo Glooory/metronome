@@ -1,16 +1,19 @@
 import {
   Activity,
+  ArrowLeftRight,
   AudioWaveform,
   BarChart2,
   Command,
+  Drum,
   Gauge,
   Grid,
   HelpCircle,
   Keyboard,
+  type LucideIcon,
   ListMusic,
   MousePointerClick,
   Music,
-  Palette,
+  Play,
   Star,
   VolumeX,
 } from "lucide-react";
@@ -28,21 +31,29 @@ interface HelpModalProps {
 export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
   const common = translations.common;
   const t = translations.help;
+  const visualizer = translations.visualizer;
+  const dock = translations.dock;
+  const trainer = translations.trainer;
 
   const HelpRow = ({
     icon: Icon,
+    order,
     title,
     desc,
     legend,
   }: {
-    icon: any;
+    icon: LucideIcon;
+    order: number;
     title: string;
     desc: string;
     legend?: string;
   }) => (
     <div className={styles["help-modal__row"]}>
-      <div className={styles["help-modal__icon-box"]}>
-        <Icon size={20} />
+      <div className={styles["help-modal__row-header"]}>
+        <span className={styles["help-modal__order-badge"]}>{order}</span>
+        <div className={styles["help-modal__icon-box"]}>
+          <Icon size={18} />
+        </div>
       </div>
       <div className={styles["help-modal__section-body"]}>
         <h3 className={styles["section-title"]}>{title}</h3>
@@ -82,67 +93,111 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
             <Activity size={14} />
             {t.coreFeatures[language]}
           </h4>
-          <HelpRow
-            icon={Activity}
-            title={t.bpmControl[language]}
-            desc={t.bpmControlDesc[language]}
-          />
-          <HelpRow
-            icon={MousePointerClick}
-            title={t.tapTempo[language]}
-            desc={t.tapTempoDesc[language]}
-          />
-          <HelpRow
-            icon={Music}
-            title={t.bpmNote[language]}
-            desc={t.bpmNoteDesc[language]}
-          />
-          <HelpRow
-            icon={BarChart2}
-            title={t.beatBars[language]}
-            desc={t.beatBarsDesc[language]}
-            legend={t.beatBarsLegend[language]}
-          />
-          <HelpRow
-            icon={Grid}
-            title={t.subdivisions[language]}
-            desc={t.subdivisionsDesc[language]}
-          />
+          <div className={styles["help-modal__grid"]}>
+            <HelpRow
+              icon={Music}
+              order={1}
+              title={t.bpmNote[language]}
+              desc={t.bpmNoteDesc[language]}
+            />
+            <HelpRow
+              icon={Activity}
+              order={2}
+              title={t.bpmControl[language]}
+              desc={t.bpmControlDesc[language]}
+            />
+            <HelpRow
+              icon={Star}
+              order={3}
+              title={t.bpmMemory[language]}
+              desc={t.bpmMemoryDesc[language]}
+            />
+            <HelpRow
+              icon={MousePointerClick}
+              order={4}
+              title={t.tapTempo[language]}
+              desc={t.tapTempoDesc[language]}
+            />
+          </div>
+        </section>
+
+        <section className={styles["help-modal__section"]}>
+          <h4 className={styles["help-modal__section-heading"]}>
+            <Grid size={14} />
+            {t.trainingTools[language]}
+          </h4>
+          <div className={styles["help-modal__grid"]}>
+            <HelpRow
+              icon={ArrowLeftRight}
+              order={5}
+              title={visualizer.shift[language]}
+              desc={t.shiftDesc[language]}
+            />
+            <HelpRow
+              icon={BarChart2}
+              order={6}
+              title={t.beatBars[language]}
+              desc={t.beatBarsDesc[language]}
+              legend={t.beatBarsLegend[language]}
+            />
+            <HelpRow
+              icon={Grid}
+              order={7}
+              title={t.subdivisions[language]}
+              desc={t.subdivisionsDesc[language]}
+            />
+          </div>
         </section>
 
         <section className={styles["help-modal__section"]}>
           <h4 className={styles["help-modal__section-heading"]}>
             <Gauge size={14} />
-            {t.trainingTools[language]}
+            {t.bottomDock[language]}
           </h4>
-          <HelpRow
-            icon={Gauge}
-            title={t.speedTrainer[language]}
-            desc={t.speedTrainerDesc[language]}
-          />
-          <HelpRow
-            icon={VolumeX}
-            title={t.intervalTrainer[language]}
-            desc={t.intervalTrainerDesc[language]}
-          />
-          <HelpRow
-            icon={AudioWaveform}
-            title={t.swingTrainer[language]}
-            desc={t.swingTrainerDesc[language]}
-          />
-        </section>
-
-        <section className={styles["help-modal__section"]}>
-          <h4 className={styles["help-modal__section-heading"]}>
-            <Palette size={14} />
-            {t.managementAndCustom[language]}
-          </h4>
-          <HelpRow icon={Star} title={t.bpmMemory[language]} desc={t.bpmMemoryDesc[language]} />
-          <HelpRow
-            icon={ListMusic}
-            title={t.presetsFeature[language]}
-            desc={t.presetsDesc[language]}
-          />
+          <div className={styles["help-modal__grid"]}>
+            <HelpRow
+              icon={Gauge}
+              order={8}
+              title={t.speedTrainer[language]}
+              desc={t.speedTrainerDesc[language]}
+            />
+            <HelpRow
+              icon={VolumeX}
+              order={9}
+              title={t.intervalTrainer[language]}
+              desc={t.intervalTrainerDesc[language]}
+            />
+            <HelpRow
+              icon={AudioWaveform}
+              order={10}
+              title={trainer.swing[language]}
+              desc={t.swingDesc[language]}
+            />
+            <HelpRow
+              icon={ListMusic}
+              order={11}
+              title={t.presetsFeature[language]}
+              desc={t.presetsDesc[language]}
+            />
+            <HelpRow
+              icon={Music}
+              order={12}
+              title={dock.timeSignature[language]}
+              desc={t.timeSignatureDesc[language]}
+            />
+            <HelpRow
+              icon={Play}
+              order={13}
+              title={t.spaceKey[language]}
+              desc={t.playPauseDesc[language]}
+            />
+            <HelpRow
+              icon={Drum}
+              order={14}
+              title={dock.soundPreset[language]}
+              desc={t.soundPresetDesc[language]}
+            />
+          </div>
         </section>
 
         <section className={styles["help-modal__shortcuts-card"]}>

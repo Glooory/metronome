@@ -13,39 +13,39 @@ export const SEO = ({ language }: SEOProps) => {
 
   // Localized Strings
   const titles: Record<Language, string> = {
-    en: "Vibe Metronome | Professional Online Metronome with Training Tools",
-    zh: "Vibe Metronome | 随变节拍器 - 专业在线节拍与节奏训练工具",
-    ja: "Vibe Metronome | プロフェッショナルなオンラインメトロノーム＆リズムトレーニング",
-    ko: "Vibe Metronome | 전문 온라인 메트로놈 & 리듬 트레이너",
-    de: "Vibe Metronome | Professionelles Online-Metronom mit Trainingstools",
-    fr: "Vibe Metronome | Métronome en ligne professionnel et outils de rythme",
-    es: "Vibe Metronome | Metrónomo online profesional y entrenamiento de ritmo",
-    ru: "Vibe Metronome | Профессиональный онлайн-метроном и ритм-тренер",
-    pt: "Vibe Metronome | Metrônomo online profissional e treino de ritmo",
+    en: "Vibe Metronome | Free Online Metronome with Practice Tools",
+    zh: "Vibe Metronome | 随变节拍器 - 免费在线节拍器与节奏练习工具",
+    ja: "Vibe Metronome | 練習ツール付きの無料オンラインメトロノーム",
+    ko: "Vibe Metronome | 연습 도구를 갖춘 무료 온라인 메트로놈",
+    de: "Vibe Metronome | Kostenloses Online-Metronom mit Übungsfunktionen",
+    fr: "Vibe Metronome | Métronome en ligne gratuit avec outils d'entraînement",
+    es: "Vibe Metronome | Metrónomo online gratuito con herramientas de práctica",
+    ru: "Vibe Metronome | Бесплатный онлайн-метроном с инструментами для занятий",
+    pt: "Vibe Metronome | Metrônomo online gratuito com ferramentas de estudo",
   };
 
   const descriptions: Record<Language, string> = {
-    en: "Free online metronome with speed trainer, interval trainer, and preset management. Features adjustable BPM, time signatures, subdivisions, and multiple sound presets. Perfect for musicians.",
-    zh: "免费专业在线节拍器，内置速度渐变训练、间隔缺省训练及预设管理功能。支持多种拍号、细分节奏及高品质音色，专为音乐人打造的节奏练习工具。",
-    ja: "無料のオンラインメトロノーム。速度トレーナー、間隔トレーナー、プリセット管理機能を搭載。BPM、拍子、サブディビジョン、サウンドプリセットを調整可能。ミュージシャンに最適です。",
-    ko: "속도 트레이너, 간격 트레이너 및 프리셋 관리 기능을 갖춘 무료 온라인 메트로놈. BPM, 박자, 세분화 및 다양한 사운드 프리셋 조절 가능. 음악가에게 최적화된 도구입니다.",
-    de: "Kostenloses Online-Metronom mit Tempotrainer, Intervalltrainer und Preset-Verwaltung. Anpassbare BPM, Taktarten, Unterteilungen und Sound-Presets. Perfekt für Musiker.",
-    fr: "Métronome en ligne gratuit avec entraîneur de vitesse, entraîneur d'intervalles et gestion des préréglages. BPM, signatures rythmiques, subdivisions et sons ajustables. Parfait pour les musiciens.",
-    es: "Metrónomo online gratuito con entrenador de velocidad, intervalos y gestión de preajustes. BPM ajustable, compases, subdivisiones y múltiples sonidos. Perfecto para músicos.",
-    ru: "Бесплатный онлайн-метроном с тренировкой темпа и интервалов. Настраиваемый BPM, размеры, деления и звуковые пресеты. Идеально для музыкантов.",
-    pt: "Metrônomo online gratuito com treinador de velocidade, intervalos e gestão de predefinições. BPM ajustável, fórmulas de compasso, subdivisões e vários sons. Perfeito para músicos.",
+    en: "Free online metronome with speed training, interval training, presets, adjustable BPM, time signatures, subdivisions, and multiple click sounds. Built for daily practice.",
+    zh: "免费在线节拍器，支持速度训练、间隔训练、预设、可调 BPM、拍号、节拍细分和多种节拍音色，适合日常节奏练习。",
+    ja: "無料のオンラインメトロノーム。速度トレーニング、インターバルトレーニング、プリセット、BPM調整、拍子、細分化、複数のクリック音に対応。毎日の練習に使えます。",
+    ko: "무료 온라인 메트로놈입니다. 속도 훈련, 간격 훈련, 프리셋, BPM 조절, 박자표, 세분화, 다양한 클릭 사운드를 지원해 매일의 연습에 잘 맞습니다.",
+    de: "Kostenloses Online-Metronom mit Tempotraining, Intervalltraining, Presets, anpassbarem BPM, Taktarten, Unterteilungen und mehreren Klick-Sounds. Ideal für das tägliche Üben.",
+    fr: "Métronome en ligne gratuit avec entraînement de vitesse, entraînement par intervalles, préréglages, BPM réglable, signatures rythmiques, subdivisions et plusieurs sons de clic. Idéal pour la pratique quotidienne.",
+    es: "Metrónomo online gratuito con entrenamiento de velocidad, entrenamiento por intervalos, preajustes, BPM ajustable, compases, subdivisiones y varios sonidos de clic. Ideal para la práctica diaria.",
+    ru: "Бесплатный онлайн-метроном с тренировкой темпа, интервальной тренировкой, пресетами, настраиваемым BPM, размерами, делениями и несколькими звуками клика. Подходит для ежедневных занятий.",
+    pt: "Metrônomo online gratuito com treino de velocidade, treino de intervalos, predefinições, BPM ajustável, fórmulas de compasso, subdivisões e vários sons de clique. Ideal para a prática diária.",
   };
 
   const keywords: Record<Language, string> = {
-    en: "metronome, online metronome, speed trainer, interval trainer, BPM, rhythm trainer, music practice, free metronome",
-    zh: "节拍器, 在线节拍器, 随变节拍器, 速度训练, 节奏训练, 缺省练习, 音乐练习, 乐器练习, 钢琴, 吉他, 架子鼓",
-    ja: "メトロノーム, オンラインメトロノーム, 速度トレーナー, リズムトレーニング, BPM, 音楽練習, 無料メトロノーム",
-    ko: "메트로놈, 온라인 메트로놈, 박자기, 속도 트레이너, 리듬 트레이너, BPM, 음악 연습, 무료 메트로놈",
-    de: "Metronom, Online-Metronom, Tempotrainer, Rhythmustrainer, BPM, Musik üben, kostenloses Metronom",
-    fr: "métronome, métronome en ligne, entraîneur de vitesse, rythme, BPM, pratique musicale, gratuit",
-    es: "metrónomo, metrónomo online, entrenador de velocidad, ritmo, BPM, práctica musical, gratis",
-    ru: "метроном, онлайн метроном, тренировка темпа, ритм, BPM, музыкальная практика, бесплатно",
-    pt: "metrônomo, metrônomo online, treino de velocidade, ritmo, BPM, prática musical, grátis",
+    en: "metronome, online metronome, free metronome, speed trainer, interval trainer, presets, BPM, time signature, subdivisions, rhythm practice",
+    zh: "节拍器,在线节拍器,免费节拍器,速度训练,间隔训练,预设,BPM,拍号,节拍细分,节奏练习",
+    ja: "メトロノーム,オンラインメトロノーム,無料メトロノーム,速度トレーナー,間隔トレーナー,プリセット,BPM,拍子,サブディビジョン,リズム練習",
+    ko: "메트로놈,온라인 메트로놈,무료 메트로놈,속도 훈련,간격 훈련,프리셋,BPM,박자표,세분화,리듬 연습",
+    de: "Metronom,Online-Metronom,kostenloses Metronom,Tempotrainer,Intervalltrainer,Presets,BPM,Taktart,Unterteilungen,Rhythmusübung",
+    fr: "métronome,métronome en ligne,métronome gratuit,entraîneur de vitesse,entraîneur d'intervalles,préréglages,BPM,signature rythmique,subdivisions,travail du rythme",
+    es: "metrónomo,metrónomo online,metrónomo gratuito,entrenador de velocidad,entrenador de intervalos,preajustes,BPM,compás,subdivisiones,práctica rítmica",
+    ru: "метроном,онлайн-метроном,бесплатный метроном,тренировка темпа,интервальная тренировка,пресеты,BPM,размер,деления,ритмическая практика",
+    pt: "metrônomo,metrônomo online,metrônomo gratuito,treino de velocidade,treino de intervalos,predefinições,BPM,fórmula de compasso,subdivisões,prática de ritmo",
   };
 
   const title = titles[language];

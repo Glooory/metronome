@@ -56,76 +56,87 @@ export const TimeSignatureModal = ({
       panelClassName={styles["time-signature-modal__panel"]}
     >
       <div className={styles["time-signature-modal__content"]}>
-        <div className={styles["time-signature-modal__quick-signatures"]}>
-          {COMMON_TIME_SIGNATURES.map((signature) => {
-            const value = `${signature.numerator}/${signature.denominator}`;
-            const isSelected =
-              numerator === signature.numerator && denominator === signature.denominator;
+        <section className={styles["time-signature-modal__section"]}>
+          <div className={styles["time-signature-modal__section-title"]}>
+            <span>{t.commonSignatures[language]}</span>
+          </div>
+          <div className={styles["time-signature-modal__quick-signatures"]}>
+            {COMMON_TIME_SIGNATURES.map((signature) => {
+              const value = `${signature.numerator}/${signature.denominator}`;
+              const isSelected =
+                numerator === signature.numerator && denominator === signature.denominator;
 
-            return (
+              return (
+                <Button
+                  key={value}
+                  size="md"
+                  isChecked={isSelected}
+                  className={styles["time-signature-modal__quick-signature-btn"]}
+                  onClick={() => onTimeSignatureChange(signature.numerator, signature.denominator)}
+                >
+                  {value}
+                </Button>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className={styles["time-signature-modal__section"]}>
+          <div className={styles["time-signature-modal__section-title"]}>
+            <span>{t.customSignature[language]}</span>
+          </div>
+          <div className={styles["time-signature-modal__grid"]}>
+            <div className={styles["time-signature-modal__column"]}>
+              <div className={styles["time-signature-modal__label"]}>{t.numerator[language]}</div>
               <Button
-                key={value}
-                size="md"
-                isChecked={isSelected}
-                className={styles["time-signature-modal__quick-signature-btn"]}
-                onClick={() => onTimeSignatureChange(signature.numerator, signature.denominator)}
+                size="icon-sm"
+                className={styles["time-signature-modal__step-btn"]}
+                onClick={() => canIncreaseNumerator && onNumeratorChange(numerator + 1)}
+                disabled={!canIncreaseNumerator}
               >
-                {value}
+                <Plus size={18} />
               </Button>
-            );
-          })}
-        </div>
-        <div className={styles["time-signature-modal__grid"]}>
-          <div className={styles["time-signature-modal__column"]}>
-            <div className={styles["time-signature-modal__label"]}>{t.numerator[language]}</div>
-            <Button
-              size="icon-sm"
-              className={styles["time-signature-modal__step-btn"]}
-              onClick={() => canIncreaseNumerator && onNumeratorChange(numerator + 1)}
-              disabled={!canIncreaseNumerator}
-            >
-              <Plus size={18} />
-            </Button>
-            <div className={styles["time-signature-modal__value"]}>{numerator}</div>
-            <Button
-              size="icon-sm"
-              className={styles["time-signature-modal__step-btn"]}
-              onClick={() => canDecreaseNumerator && onNumeratorChange(numerator - 1)}
-              disabled={!canDecreaseNumerator}
-            >
-              <Minus size={18} />
-            </Button>
-          </div>
+              <div className={styles["time-signature-modal__value"]}>{numerator}</div>
+              <Button
+                size="icon-sm"
+                className={styles["time-signature-modal__step-btn"]}
+                onClick={() => canDecreaseNumerator && onNumeratorChange(numerator - 1)}
+                disabled={!canDecreaseNumerator}
+              >
+                <Minus size={18} />
+              </Button>
+            </div>
 
-          <div className={styles["time-signature-modal__slash"]}>/</div>
+            <div className={styles["time-signature-modal__slash"]}>/</div>
 
-          <div className={styles["time-signature-modal__column"]}>
-            <div className={styles["time-signature-modal__label"]}>{t.beatUnit[language]}</div>
-            <Button
-              size="icon-sm"
-              className={styles["time-signature-modal__step-btn"]}
-              onClick={() =>
-                canIncreaseDenominator &&
-                onDenominatorChange(TIME_SIGNATURE_DENOMINATORS[denominatorIndex + 1])
-              }
-              disabled={!canIncreaseDenominator}
-            >
-              <Plus size={18} />
-            </Button>
-            <div className={styles["time-signature-modal__value"]}>{denominator}</div>
-            <Button
-              size="icon-sm"
-              className={styles["time-signature-modal__step-btn"]}
-              onClick={() =>
-                canDecreaseDenominator &&
-                onDenominatorChange(TIME_SIGNATURE_DENOMINATORS[denominatorIndex - 1])
-              }
-              disabled={!canDecreaseDenominator}
-            >
-              <Minus size={18} />
-            </Button>
+            <div className={styles["time-signature-modal__column"]}>
+              <div className={styles["time-signature-modal__label"]}>{t.beatUnit[language]}</div>
+              <Button
+                size="icon-sm"
+                className={styles["time-signature-modal__step-btn"]}
+                onClick={() =>
+                  canIncreaseDenominator &&
+                  onDenominatorChange(TIME_SIGNATURE_DENOMINATORS[denominatorIndex + 1])
+                }
+                disabled={!canIncreaseDenominator}
+              >
+                <Plus size={18} />
+              </Button>
+              <div className={styles["time-signature-modal__value"]}>{denominator}</div>
+              <Button
+                size="icon-sm"
+                className={styles["time-signature-modal__step-btn"]}
+                onClick={() =>
+                  canDecreaseDenominator &&
+                  onDenominatorChange(TIME_SIGNATURE_DENOMINATORS[denominatorIndex - 1])
+                }
+                disabled={!canDecreaseDenominator}
+              >
+                <Minus size={18} />
+              </Button>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </ModalShell>
   );

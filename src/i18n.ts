@@ -226,6 +226,28 @@ export const translations = {
   },
 
   timeSignatureModal: {
+    commonSignatures: {
+      en: "Common Time Signatures",
+      zh: "常用拍号",
+      ja: "よく使う拍子",
+      ko: "자주 쓰는 박자표",
+      de: "Häufige Taktarten",
+      fr: "Mesures courantes",
+      es: "Compases comunes",
+      ru: "Популярные размеры",
+      pt: "Compassos comuns",
+    },
+    customSignature: {
+      en: "Custom Time Signature",
+      zh: "自定义拍号",
+      ja: "カスタム拍子",
+      ko: "사용자 지정 박자표",
+      de: "Benutzerdefinierte Taktart",
+      fr: "Mesure personnalisée",
+      es: "Compas personalizado",
+      ru: "Свой размер",
+      pt: "Compasso personalizado",
+    },
     numerator: {
       en: "Beats",
       zh: "拍数",

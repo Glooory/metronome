@@ -5,17 +5,19 @@ import {
   BarChart2,
   Command,
   Drum,
+  Equal,
   Gauge,
   Grid,
   HelpCircle,
   Keyboard,
-  type LucideIcon,
   ListMusic,
   MousePointerClick,
   Music,
   Play,
+  SplitSquareHorizontal,
   Star,
   VolumeX,
+  type LucideIcon,
 } from "lucide-react";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
@@ -95,7 +97,7 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
           </h4>
           <div className={styles["help-modal__grid"]}>
             <HelpRow
-              icon={Music}
+              icon={Equal}
               order={1}
               title={t.bpmNote[language]}
               desc={t.bpmNoteDesc[language]}
@@ -141,7 +143,7 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
               legend={t.beatBarsLegend[language]}
             />
             <HelpRow
-              icon={Grid}
+              icon={SplitSquareHorizontal}
               order={7}
               title={t.subdivisions[language]}
               desc={t.subdivisionsDesc[language]}

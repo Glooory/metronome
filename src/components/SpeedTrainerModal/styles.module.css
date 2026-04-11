@@ -67,3 +67,14 @@
   color: inherit;
   font-weight: 600;
 }
+
+.speed-trainer-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.speed-trainer-modal__confirm {
+  min-width: 5.5rem;
+}

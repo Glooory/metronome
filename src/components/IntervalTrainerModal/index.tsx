@@ -1,8 +1,10 @@
 import { clsx } from "clsx";
 import { VolumeX } from "lucide-react";
-import type { IntervalTrainerConfig } from "../../constants";
+import { KeyboardEvent, useEffect, useState } from "react";
+import { INTERVAL_TRAINER_LIMITS, type IntervalTrainerConfig } from "../../constants";
 import type { Language } from "../../i18n";
 import { translations } from "../../i18n";
+import { Button } from "../Button";
 import { Checkbox } from "../Checkbox";
 import { Input } from "../Input";
 import { ModalShell } from "../ModalShell";
@@ -29,20 +31,89 @@ export const IntervalTrainerModal = ({
 }: IntervalTrainerModalProps) => {
   const common = translations.common;
   const t = translations.intervalTrainer;
+  const playBarsRange = INTERVAL_TRAINER_LIMITS.playBars;
+  const muteBarsRange = INTERVAL_TRAINER_LIMITS.muteBars;
+  const [draftConfig, setDraftConfig] = useState({
+    enabled: config.enabled,
+    playBars: String(config.playBars),
+    muteBars: String(config.muteBars),
+  });
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    setDraftConfig({
+      enabled: config.enabled,
+      playBars: String(config.playBars),
+      muteBars: String(config.muteBars),
+    });
+  }, [config.enabled, config.playBars, config.muteBars, isOpen]);
 
   const handleToggle = () => {
-    onConfigChange({ ...config, enabled: !config.enabled });
+    setDraftConfig((prev) => ({ ...prev, enabled: !prev.enabled }));
   };
 
-  const handleChange = (key: keyof IntervalTrainerConfig, value: number) => {
-    onConfigChange({ ...config, [key]: value });
+  const updateDraftValue = (key: "playBars" | "muteBars", value: string) => {
+    setDraftConfig((prev) => ({ ...prev, [key]: value }));
   };
 
-  const cycleLength = config.playBars + config.muteBars;
+  const clampValue = (value: string, min: number, max: number, fallback: number) => {
+    const parsedValue = parseInt(value, 10);
+    if (Number.isNaN(parsedValue)) {
+      return fallback;
+    }
+
+    return Math.min(max, Math.max(min, parsedValue));
+  };
+
+  const getSanitizedConfig = (): IntervalTrainerConfig => {
+    const playBars = clampValue(
+      draftConfig.playBars,
+      playBarsRange.min,
+      playBarsRange.max,
+      playBarsRange.min
+    );
+    const muteBars = clampValue(
+      draftConfig.muteBars,
+      muteBarsRange.min,
+      muteBarsRange.max,
+      muteBarsRange.min
+    );
+
+    return {
+      enabled: draftConfig.enabled,
+      playBars,
+      muteBars,
+    };
+  };
+
+  const handleApply = () => {
+    const nextConfig = getSanitizedConfig();
+    onConfigChange(nextConfig);
+    setDraftConfig({
+      enabled: nextConfig.enabled,
+      playBars: String(nextConfig.playBars),
+      muteBars: String(nextConfig.muteBars),
+    });
+    onClose();
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleApply();
+    }
+  };
+
+  const previewConfig = getSanitizedConfig();
+  const cycleLength = previewConfig.playBars + previewConfig.muteBars;
   const positionInCycle = measureCount % cycleLength;
   const barsUntilChange = isMuted
-    ? config.muteBars - (positionInCycle - config.playBars)
-    : config.playBars - positionInCycle;
+    ? previewConfig.muteBars - (positionInCycle - previewConfig.playBars)
+    : previewConfig.playBars - positionInCycle;
+  const playBarsLabel = `${t.playBars[language]} (${playBarsRange.min}-${playBarsRange.max})`;
+  const muteBarsLabel = `${t.muteBars[language]} (${muteBarsRange.min}-${muteBarsRange.max})`;
 
   return (
     <ModalShell
@@ -59,7 +130,7 @@ export const IntervalTrainerModal = ({
             {t.enableTraining[language]}
           </span>
           <Checkbox
-            checked={config.enabled}
+            checked={draftConfig.enabled}
             onChange={handleToggle}
             aria-label={t.enableTraining[language]}
           />
@@ -68,7 +139,7 @@ export const IntervalTrainerModal = ({
         <div className={styles["interval-trainer-modal__divider"]} />
 
         <div className={styles["interval-trainer-modal__row"]}>
-          <span className={styles["interval-trainer-modal__label"]}>{t.playBars[language]}</span>
+          <span className={styles["interval-trainer-modal__label"]}>{playBarsLabel}</span>
           <Input
             type="number"
             className={styles["interval-trainer-modal__input"]}
@@ -76,15 +147,16 @@ export const IntervalTrainerModal = ({
             size="md"
             align="center"
             hideNumberSpinner
-            value={config.playBars}
-            min={1}
-            max={16}
-            onChange={(e) => handleChange("playBars", Math.max(1, parseInt(e.target.value) || 1))}
+            value={draftConfig.playBars}
+            min={playBarsRange.min}
+            max={playBarsRange.max}
+            onChange={(e) => updateDraftValue("playBars", e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
         <div className={styles["interval-trainer-modal__row"]}>
-          <span className={styles["interval-trainer-modal__label"]}>{t.muteBars[language]}</span>
+          <span className={styles["interval-trainer-modal__label"]}>{muteBarsLabel}</span>
           <Input
             type="number"
             className={styles["interval-trainer-modal__input"]}
@@ -92,14 +164,15 @@ export const IntervalTrainerModal = ({
             size="md"
             align="center"
             hideNumberSpinner
-            value={config.muteBars}
-            min={1}
-            max={16}
-            onChange={(e) => handleChange("muteBars", Math.max(1, parseInt(e.target.value) || 1))}
+            value={draftConfig.muteBars}
+            min={muteBarsRange.min}
+            max={muteBarsRange.max}
+            onChange={(e) => updateDraftValue("muteBars", e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
-        {config.enabled && (
+        {previewConfig.enabled && (
           <>
             <div className={styles["interval-trainer-modal__divider"]} />
             <div
@@ -131,6 +204,15 @@ export const IntervalTrainerModal = ({
             <p className={styles["interval-trainer-modal__hint"]}>{t.hint[language]}</p>
           </>
         )}
+        <div className={styles["interval-trainer-modal__actions"]}>
+          <Button
+            variant="filled"
+            className={styles["interval-trainer-modal__confirm"]}
+            onClick={handleApply}
+          >
+            {common.save[language]}
+          </Button>
+        </div>
       </div>
     </ModalShell>
   );

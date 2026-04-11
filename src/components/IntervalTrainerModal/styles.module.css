@@ -69,3 +69,14 @@
   text-align: center;
   line-height: 1.4;
 }
+
+.interval-trainer-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.interval-trainer-modal__confirm {
+  min-width: 5.5rem;
+}

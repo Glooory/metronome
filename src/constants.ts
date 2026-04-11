@@ -1,5 +1,14 @@
 export const MIN_BPM = 30;
 export const MAX_BPM = 300;
+export const SPEED_TRAINER_LIMITS = {
+  everyMeasures: { min: 1, max: 300 },
+  increment: { min: 1, max: 50 },
+  targetBpm: { min: MIN_BPM, max: MAX_BPM },
+} as const;
+export const INTERVAL_TRAINER_LIMITS = {
+  playBars: { min: 1, max: 40 },
+  muteBars: { min: 1, max: 10 },
+} as const;
 export const TAP_TIMEOUT = 2000;
 export const LOOKAHEAD = 25.0;
 export const SCHEDULE_AHEAD_TIME = 0.1;

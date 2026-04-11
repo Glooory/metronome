@@ -74,7 +74,10 @@
   font-size: var(--modal-shell-title-size, var(--type-title-size-md, 18px));
   font-weight: var(--modal-shell-title-weight, var(--type-title-fw, 600));
   text-transform: var(--modal-shell-title-transform, var(--type-title-transform, none));
-  letter-spacing: var(--modal-shell-title-letter-spacing, var(--type-title-letter-spacing, -0.02em));
+  letter-spacing: var(
+    --modal-shell-title-letter-spacing,
+    var(--type-title-letter-spacing, -0.02em)
+  );
   line-height: 1.1;
   color: var(--app-title-color, var(--text-primary));
 }

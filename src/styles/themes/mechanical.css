@@ -84,9 +84,8 @@
   --opacity-btn-active: 1;
   --opacity-disabled: 0.4;
   --transition-base:
-    transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out,
-    box-shadow 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out,
-    color 0.1s ease-out;
+    transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out, box-shadow 0.1s ease-out,
+    background-color 0.1s ease-out, border-color 0.1s ease-out, color 0.1s ease-out;
   --transition-fast:
     transform 0.05s ease-out, opacity 0.05s ease-out, filter 0.05s ease-out,
     box-shadow 0.05s ease-out, background-color 0.05s ease-out, border-color 0.05s ease-out,
@@ -112,92 +111,84 @@
     linear-gradient(180deg, rgba(49, 43, 38, 1) 0%, rgba(14, 11, 9, 1) 100%);
   --app-title-icon-color: var(--mech-brass-350);
 
-  --surface-panel-bg:
-    linear-gradient(
-      180deg,
-      rgba(70, 61, 54, 0.94) 0%,
-      rgba(42, 36, 32, 0.98) 48%,
-      rgba(22, 18, 15, 0.98) 100%
-    );
+  --surface-panel-bg: linear-gradient(
+    180deg,
+    rgba(70, 61, 54, 0.94) 0%,
+    rgba(42, 36, 32, 0.98) 48%,
+    rgba(22, 18, 15, 0.98) 100%
+  );
   --surface-panel-border: 1px solid var(--border-base);
   --surface-panel-shadow: var(--shadow-panel);
-  --surface-floating-bg:
-    linear-gradient(
-      180deg,
-      rgba(76, 67, 59, 0.98) 0%,
-      rgba(47, 40, 35, 0.98) 42%,
-      rgba(24, 19, 16, 0.99) 100%
-    );
+  --surface-floating-bg: linear-gradient(
+    180deg,
+    rgba(76, 67, 59, 0.98) 0%,
+    rgba(47, 40, 35, 0.98) 42%,
+    rgba(24, 19, 16, 0.99) 100%
+  );
   --surface-floating-border: 1px solid rgba(115, 105, 94, 1);
   --surface-floating-shadow: var(--shadow-modal);
   --surface-floating-inner-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.06), inset -1px -1px 0 rgba(0, 0, 0, 0.6);
   --surface-floating-sheen: var(--overlay-sheen);
 
-  --control-bg:
-    linear-gradient(
-      180deg,
-      rgba(69, 61, 54, 1) 0%,
-      rgba(49, 42, 37, 1) 46%,
-      rgba(29, 24, 21, 1) 100%
-    );
+  --control-bg: linear-gradient(
+    180deg,
+    rgba(69, 61, 54, 1) 0%,
+    rgba(49, 42, 37, 1) 46%,
+    rgba(29, 24, 21, 1) 100%
+  );
   --control-color: var(--text-primary);
   --control-border-width: 1px;
   --control-border-color: var(--border-base);
   --control-shadow: var(--shadow-sm);
-  --control-active-bg:
-    linear-gradient(
-      180deg,
-      rgba(26, 21, 18, 1) 0%,
-      rgba(33, 28, 24, 1) 44%,
-      rgba(22, 18, 15, 1) 100%
-    );
+  --control-active-bg: linear-gradient(
+    180deg,
+    rgba(26, 21, 18, 1) 0%,
+    rgba(33, 28, 24, 1) 44%,
+    rgba(22, 18, 15, 1) 100%
+  );
   --control-active-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.76),
     inset 0 2px 6px rgba(0, 0, 0, 0.52);
   --control-active-transform: translateY(1px);
 
-  --control-quiet-bg:
-    linear-gradient(
-      180deg,
-      rgba(71, 63, 56, 0.72) 0%,
-      rgba(42, 35, 31, 0.72) 42%,
-      rgba(24, 20, 17, 0.76) 100%
-    );
+  --control-quiet-bg: linear-gradient(
+    180deg,
+    rgba(71, 63, 56, 0.72) 0%,
+    rgba(42, 35, 31, 0.72) 42%,
+    rgba(24, 20, 17, 0.76) 100%
+  );
   --control-quiet-color: var(--text-secondary);
   --control-quiet-border-width: 1px;
   --control-quiet-border-color: rgba(95, 87, 78, 0.9);
   --control-quiet-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.05), inset -1px -1px 0 rgba(0, 0, 0, 0.56),
     0 1px 3px rgba(0, 0, 0, 0.28);
-  --control-quiet-active-bg:
-    linear-gradient(
-      180deg,
-      rgba(37, 31, 27, 0.9) 0%,
-      rgba(23, 19, 16, 0.94) 100%
-    );
+  --control-quiet-active-bg: linear-gradient(
+    180deg,
+    rgba(37, 31, 27, 0.9) 0%,
+    rgba(23, 19, 16, 0.94) 100%
+  );
   --control-quiet-active-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.72);
 
-  --control-selected-bg:
-    linear-gradient(
-      180deg,
-      rgba(122, 87, 31, 1) 0%,
-      rgba(93, 63, 20, 1) 46%,
-      rgba(58, 37, 10, 1) 100%
-    );
+  --control-selected-bg: linear-gradient(
+    180deg,
+    rgba(122, 87, 31, 1) 0%,
+    rgba(93, 63, 20, 1) 46%,
+    rgba(58, 37, 10, 1) 100%
+  );
   --control-selected-color: rgba(242, 234, 219, 1);
   --control-selected-border-width: 1px;
   --control-selected-border-color: rgba(235, 198, 123, 0.94);
   --control-selected-shadow:
     inset 1px 1px 0 rgba(255, 242, 211, 0.12), inset -1px -1px 0 rgba(45, 24, 0, 0.42),
     0 0 0 1px rgba(225, 181, 98, 0.22);
-  --control-quiet-selected-bg:
-    linear-gradient(
-      180deg,
-      rgba(82, 61, 27, 0.96) 0%,
-      rgba(57, 40, 14, 0.98) 100%
-    );
+  --control-quiet-selected-bg: linear-gradient(
+    180deg,
+    rgba(82, 61, 27, 0.96) 0%,
+    rgba(57, 40, 14, 0.98) 100%
+  );
   --control-quiet-selected-color: var(--mech-brass-250);
   --control-quiet-selected-border-width: 1px;
   --control-quiet-selected-border-color: rgba(225, 181, 98, 0.82);
@@ -236,12 +227,7 @@
   --action-ghost-selected-border-color: var(--control-quiet-selected-border-color);
   --action-ghost-selected-shadow: var(--control-quiet-selected-shadow);
 
-  --field-bg:
-    linear-gradient(
-      180deg,
-      rgba(28, 23, 20, 1) 0%,
-      rgba(18, 15, 13, 1) 100%
-    );
+  --field-bg: linear-gradient(180deg, rgba(28, 23, 20, 1) 0%, rgba(18, 15, 13, 1) 100%);
   --field-border: 1px solid var(--border-base);
   --field-border-width: 1px;
   --field-border-color: var(--border-base);
@@ -250,12 +236,7 @@
     inset 1px 1px 0 rgba(255, 255, 255, 0.04), inset -1px -1px 0 rgba(0, 0, 0, 0.72),
     inset 0 3px 7px rgba(0, 0, 0, 0.45);
   --field-focus-border: rgba(235, 198, 123, 0.94);
-  --field-focus-bg:
-    linear-gradient(
-      180deg,
-      rgba(35, 29, 25, 1) 0%,
-      rgba(22, 18, 15, 1) 100%
-    );
+  --field-focus-bg: linear-gradient(180deg, rgba(35, 29, 25, 1) 0%, rgba(22, 18, 15, 1) 100%);
 
   --readout-label-color: var(--text-muted);
   --readout-value-webkit-bg-clip: text;
@@ -275,13 +256,12 @@
   --readout-input-caret-color: var(--mech-brass-350);
   --readout-input-selection: rgba(225, 181, 98, 0.28);
   --readout-controls-color: var(--text-secondary);
-  --readout-wheel-bg:
-    linear-gradient(
-      180deg,
-      rgba(58, 51, 45, 1) 0%,
-      rgba(34, 29, 25, 1) 46%,
-      rgba(17, 14, 12, 1) 100%
-    );
+  --readout-wheel-bg: linear-gradient(
+    180deg,
+    rgba(58, 51, 45, 1) 0%,
+    rgba(34, 29, 25, 1) 46%,
+    rgba(17, 14, 12, 1) 100%
+  );
   --readout-wheel-border: 1px solid var(--border-base);
   --readout-wheel-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.74),
@@ -293,60 +273,51 @@
   --readout-wheel-line-glow: transparent;
   --readout-wheel-tick: rgba(120, 111, 101, 1);
 
-  --control-handle-bg:
-    linear-gradient(
-      180deg,
-      rgba(212, 206, 196, 1) 0%,
-      rgba(169, 157, 143, 1) 54%,
-      rgba(121, 110, 97, 1) 100%
-    );
+  --control-handle-bg: linear-gradient(
+    180deg,
+    rgba(212, 206, 196, 1) 0%,
+    rgba(169, 157, 143, 1) 54%,
+    rgba(121, 110, 97, 1) 100%
+  );
   --control-handle-border-width: 1px;
   --control-handle-border-color: rgba(229, 222, 210, 0.48);
   --control-handle-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.16), inset -1px -1px 0 rgba(0, 0, 0, 0.56),
     0 2px 4px rgba(0, 0, 0, 0.5);
-  --control-handle-selected-bg:
-    linear-gradient(
-      180deg,
-      rgba(233, 227, 216, 1) 0%,
-      rgba(191, 179, 162, 1) 58%,
-      rgba(137, 123, 108, 1) 100%
-    );
+  --control-handle-selected-bg: linear-gradient(
+    180deg,
+    rgba(233, 227, 216, 1) 0%,
+    rgba(191, 179, 162, 1) 58%,
+    rgba(137, 123, 108, 1) 100%
+  );
   --control-handle-selected-border-width: 1px;
   --control-handle-selected-border-color: rgba(238, 199, 121, 0.54);
   --control-handle-selected-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.18), inset -1px -1px 0 rgba(0, 0, 0, 0.56),
     0 2px 4px rgba(0, 0, 0, 0.52);
-  --control-handle-accent-bg:
-    linear-gradient(
-      180deg,
-      rgba(248, 225, 179, 1) 0%,
-      rgba(207, 156, 72, 1) 48%,
-      rgba(128, 83, 20, 1) 100%
-    );
+  --control-handle-accent-bg: linear-gradient(
+    180deg,
+    rgba(248, 225, 179, 1) 0%,
+    rgba(207, 156, 72, 1) 48%,
+    rgba(128, 83, 20, 1) 100%
+  );
   --control-handle-accent-border-width: 1px;
   --control-handle-accent-border-color: rgba(245, 216, 159, 0.58);
   --control-handle-accent-shadow:
     inset 1px 1px 0 rgba(255, 247, 229, 0.2), inset -1px -1px 0 rgba(79, 44, 0, 0.42),
     0 2px 4px rgba(0, 0, 0, 0.52);
 
-  --switch-track-bg:
-    linear-gradient(
-      180deg,
-      rgba(43, 37, 32, 1) 0%,
-      rgba(23, 19, 16, 1) 100%
-    );
+  --switch-track-bg: linear-gradient(180deg, rgba(43, 37, 32, 1) 0%, rgba(23, 19, 16, 1) 100%);
   --switch-track-border-width: 1px;
   --switch-track-border-color: rgba(98, 90, 81, 1);
   --switch-track-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.03), inset -1px -1px 0 rgba(0, 0, 0, 0.74),
     inset 0 2px 5px rgba(0, 0, 0, 0.42);
-  --switch-track-selected-bg:
-    linear-gradient(
-      180deg,
-      rgba(105, 75, 28, 1) 0%,
-      rgba(65, 43, 12, 1) 100%
-    );
+  --switch-track-selected-bg: linear-gradient(
+    180deg,
+    rgba(105, 75, 28, 1) 0%,
+    rgba(65, 43, 12, 1) 100%
+  );
   --switch-track-selected-border-color: rgba(225, 181, 98, 0.82);
   --switch-track-selected-shadow:
     inset 1px 1px 0 rgba(255, 242, 211, 0.08), inset -1px -1px 0 rgba(38, 22, 2, 0.48),
@@ -375,12 +346,7 @@
     inset 1px 1px 0 rgba(255, 246, 223, 0.12), inset -1px -1px 0 rgba(52, 30, 0, 0.34),
     0 0 0 1px rgba(225, 181, 98, 0.2);
   --meter-label-color: var(--text-secondary);
-  --meter-controls-bg:
-    linear-gradient(
-      180deg,
-      rgba(54, 47, 42, 1) 0%,
-      rgba(30, 26, 22, 1) 100%
-    );
+  --meter-controls-bg: linear-gradient(180deg, rgba(54, 47, 42, 1) 0%, rgba(30, 26, 22, 1) 100%);
   --meter-controls-radius: 2px;
   --meter-controls-border: 1px solid rgba(98, 90, 81, 1);
   --meter-controls-shadow:
@@ -388,24 +354,14 @@
   --meter-value-color: var(--text-secondary);
   --meter-value-active-color: var(--mech-brass-250);
 
-  --range-track-bg:
-    linear-gradient(
-      180deg,
-      rgba(28, 23, 20, 1) 0%,
-      rgba(16, 13, 11, 1) 100%
-    );
+  --range-track-bg: linear-gradient(180deg, rgba(28, 23, 20, 1) 0%, rgba(16, 13, 11, 1) 100%);
   --range-track-border-width: 1px;
   --range-track-border-color: rgba(98, 90, 81, 1);
   --range-track-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.04), inset -1px -1px 0 rgba(0, 0, 0, 0.74),
     inset 0 3px 6px rgba(0, 0, 0, 0.38);
   --range-track-height: 10px;
-  --range-progress-bg:
-    linear-gradient(
-      90deg,
-      rgba(128, 83, 20, 1) 0%,
-      rgba(225, 181, 98, 1) 100%
-    );
+  --range-progress-bg: linear-gradient(90deg, rgba(128, 83, 20, 1) 0%, rgba(225, 181, 98, 1) 100%);
   --range-thumb-size: 18px;
   --range-thumb-bg: var(--control-handle-accent-bg);
   --range-thumb-radius: 2px;

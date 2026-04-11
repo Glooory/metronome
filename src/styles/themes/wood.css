@@ -121,7 +121,11 @@
   --readout-input-caret-color: var(--wood-caramel);
   --readout-input-selection: rgba(196, 139, 73, 0.28);
   --readout-controls-color: var(--text-secondary);
-  --readout-wheel-bg: linear-gradient(to bottom, rgba(242, 218, 181, 1) 0%, rgba(231, 196, 150, 1) 100%);
+  --readout-wheel-bg: linear-gradient(
+    to bottom,
+    rgba(242, 218, 181, 1) 0%,
+    rgba(231, 196, 150, 1) 100%
+  );
   --readout-wheel-border: 1px solid var(--border-base);
   --readout-wheel-shadow:
     inset 0 1.5px 0 var(--wood-light-top), inset 0 -1.5px 0 var(--wood-shadow-base),
@@ -150,8 +154,7 @@
   --control-quiet-color: var(--text-secondary);
   --control-quiet-border-width: 1px;
   --control-quiet-border-color: rgba(146, 103, 59, 0.26);
-  --control-quiet-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 3px rgba(72, 43, 20, 0.12);
+  --control-quiet-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 3px rgba(72, 43, 20, 0.12);
   --control-quiet-active-bg: rgba(232, 202, 161, 0.82);
   --control-quiet-active-shadow:
     inset 0 2px 4px rgba(55, 29, 8, 0.14), inset 0 -1px 0 rgba(253, 252, 249, 0.28);
@@ -235,7 +238,11 @@
   --select-dot-color: var(--wood-caramel);
   --select-dot-shadow: 0 0 0 2px rgba(163, 104, 41, 0.16);
 
-  --meter-block-bg: linear-gradient(to bottom, rgba(228, 191, 142, 0.66) 0%, rgba(215, 173, 121, 0.72) 100%);
+  --meter-block-bg: linear-gradient(
+    to bottom,
+    rgba(228, 191, 142, 0.66) 0%,
+    rgba(215, 173, 121, 0.72) 100%
+  );
   --meter-block-empty: linear-gradient(
     to bottom,
     rgba(228, 191, 142, 0.56) 0%,
@@ -268,7 +275,11 @@
   --meter-value-color: var(--text-secondary);
   --meter-value-active-color: var(--wood-caramel);
 
-  --surface-panel-bg: linear-gradient(to bottom, rgba(246, 222, 184, 1) 0%, rgba(235, 204, 159, 1) 100%);
+  --surface-panel-bg: linear-gradient(
+    to bottom,
+    rgba(246, 222, 184, 1) 0%,
+    rgba(235, 204, 159, 1) 100%
+  );
   --surface-panel-border: 1px solid var(--border-base);
   --surface-panel-shadow: var(--shadow-panel);
 
@@ -278,7 +289,11 @@
   --range-track-height: 8px;
   --range-track-shadow:
     inset 0 1.5px 4px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.38);
-  --range-progress-bg: linear-gradient(to right, rgba(172, 114, 43, 1) 0%, rgba(154, 95, 30, 1) 100%);
+  --range-progress-bg: linear-gradient(
+    to right,
+    rgba(172, 114, 43, 1) 0%,
+    rgba(154, 95, 30, 1) 100%
+  );
   --range-thumb-size: 18px;
   --range-thumb-bg: var(--control-handle-accent-bg);
   --range-thumb-radius: var(--control-handle-radius, var(--radius-control));
@@ -297,7 +312,11 @@
     inset 0 1.5px 0 rgba(255, 255, 255, 0.32), inset 0 -1.5px 0 rgba(44, 19, 4, 0.26),
     0 3px 8px var(--wood-shadow-deep);
 
-  --switch-track-bg: linear-gradient(to bottom, rgba(221, 182, 132, 0.88) 0%, rgba(201, 157, 104, 0.92) 100%);
+  --switch-track-bg: linear-gradient(
+    to bottom,
+    rgba(221, 182, 132, 0.88) 0%,
+    rgba(201, 157, 104, 0.92) 100%
+  );
   --switch-track-border-width: 1px;
   --switch-track-border-color: rgba(117, 78, 39, 0.32);
   --switch-track-radius: 999px;
@@ -312,7 +331,11 @@
   --switch-track-selected-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(44, 19, 4, 0.28),
     0 0 0 1px rgba(163, 104, 41, 0.14);
-  --control-handle-bg: linear-gradient(to bottom, rgba(250, 248, 244, 1) 0%, rgba(231, 209, 175, 1) 100%);
+  --control-handle-bg: linear-gradient(
+    to bottom,
+    rgba(250, 248, 244, 1) 0%,
+    rgba(231, 209, 175, 1) 100%
+  );
   --control-handle-border-width: 1px;
   --control-handle-border-color: rgba(253, 252, 249, 0.55);
   --control-handle-shadow:
@@ -339,7 +362,11 @@
     inset 0 1.5px 0 rgba(255, 255, 255, 0.72), inset 0 -1px 0 rgba(103, 60, 18, 0.2),
     0 3px 7px rgba(49, 24, 7, 0.3);
 
-  --field-bg: linear-gradient(to bottom, rgba(224, 185, 136, 0.72) 0%, rgba(209, 166, 115, 0.82) 100%);
+  --field-bg: linear-gradient(
+    to bottom,
+    rgba(224, 185, 136, 0.72) 0%,
+    rgba(209, 166, 115, 0.82) 100%
+  );
   --field-border-width: 1px;
   --field-border-color: rgba(117, 78, 39, 0.28);
   --field-border: 1px solid var(--field-border-color);
@@ -347,8 +374,11 @@
   --field-shadow:
     inset 0 2px 4px var(--wood-shadow-inset), inset 0 -1px 0 rgba(253, 252, 249, 0.38);
   --field-focus-border: rgba(163, 104, 41, 0.52);
-  --field-focus-bg:
-    linear-gradient(180deg, rgba(236, 205, 164, 0.92) 0%, rgba(223, 185, 136, 0.96) 100%);
+  --field-focus-bg: linear-gradient(
+    180deg,
+    rgba(236, 205, 164, 0.92) 0%,
+    rgba(223, 185, 136, 0.96) 100%
+  );
 
   --opacity-btn-active: 0.8;
   --transition-base:

@@ -26,7 +26,10 @@
 .bpm-display__section-label {
   font-weight: var(--readout-label-weight, 600);
   font-size: var(--type-body-size-sm);
-  letter-spacing: var(--readout-label-letter-spacing, var(--type-control-title-letter-spacing, 0.08em));
+  letter-spacing: var(
+    --readout-label-letter-spacing,
+    var(--type-control-title-letter-spacing, 0.08em)
+  );
   color: var(--readout-label-color);
   opacity: 0.6;
   text-transform: var(--type-control-transform, none);

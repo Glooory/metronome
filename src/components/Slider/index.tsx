@@ -4,7 +4,10 @@ import styles from "./styles.module.css";
 
 export type SliderProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "type">;
 
-const toNumber = (value: React.InputHTMLAttributes<HTMLInputElement>["value"], fallback: number) => {
+const toNumber = (
+  value: React.InputHTMLAttributes<HTMLInputElement>["value"],
+  fallback: number
+) => {
   const next = typeof value === "number" ? value : Number(value);
   return Number.isFinite(next) ? next : fallback;
 };

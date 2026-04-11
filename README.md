@@ -37,11 +37,11 @@ Screenshots below show a subset of the available built-in themes.
 
 ### 🚀 Training Tools
 
-| Feature              | Description                                                                 |
-| -------------------- | --------------------------------------------------------------------------- |
-| **Speed Trainer**    | Auto-increment BPM every N measures until a target BPM is reached           |
-| **Interval Trainer** | Play X bars, mute Y bars, while the visualizer keeps running                |
-| **Swing & Shift**    | Add groove/shuffle feel and offset the step pattern start                   |
+| Feature              | Description                                                                              |
+| -------------------- | ---------------------------------------------------------------------------------------- |
+| **Speed Trainer**    | Auto-increment BPM every N measures until a target BPM is reached                        |
+| **Interval Trainer** | Play X bars, mute Y bars, while the visualizer keeps running                             |
+| **Swing & Shift**    | Add groove/shuffle feel and offset the step pattern start                                |
 | **Presets**          | Save/load BPM, meter, beat note, BPM note, subdivision, sound, pattern, swing, and shift |
 
 ### 🌈 Themes & Persistence

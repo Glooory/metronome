@@ -198,11 +198,7 @@
   --readout-input-selection: rgba(126, 220, 248, 0.24);
   --readout-controls-color: var(--text-secondary);
   --readout-wheel-bg:
-    linear-gradient(
-      180deg,
-      rgba(22, 63, 104, 0.96) 0%,
-      rgba(10, 44, 80, 0.96) 100%
-    ),
+    linear-gradient(180deg, rgba(22, 63, 104, 0.96) 0%, rgba(10, 44, 80, 0.96) 100%),
     repeating-linear-gradient(
       to bottom,
       rgba(126, 220, 248, 0.06) 0,

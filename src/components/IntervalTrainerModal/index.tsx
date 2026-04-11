@@ -58,7 +58,11 @@ export const IntervalTrainerModal = ({
           <span className={styles["interval-trainer-modal__label"]}>
             {t.enableTraining[language]}
           </span>
-          <Checkbox checked={config.enabled} onChange={handleToggle} aria-label={t.enableTraining[language]} />
+          <Checkbox
+            checked={config.enabled}
+            onChange={handleToggle}
+            aria-label={t.enableTraining[language]}
+          />
         </div>
 
         <div className={styles["interval-trainer-modal__divider"]} />

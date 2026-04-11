@@ -37,8 +37,7 @@
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   border-radius: var(--control-radius, var(--radius-control));
-  border: var(--control-border-width, 1px) solid
-    var(--control-border-color, var(--border-subtle));
+  border: var(--control-border-width, 1px) solid var(--control-border-color, var(--border-subtle));
   background-color: var(--control-bg, var(--fill-subtle));
   color: var(--text-secondary);
   display: flex;
@@ -56,11 +55,7 @@
 
 .history-bar__item--active {
   background-color: var(--control-selected-bg, transparent);
-  border: var(
-      --control-selected-border-width,
-      var(--control-border-width, 1px)
-    )
-    solid
+  border: var(--control-selected-border-width, var(--control-border-width, 1px)) solid
     var(--control-selected-border-color, var(--accent-primary));
   color: var(--control-selected-color, var(--accent-primary));
   font-weight: bold;

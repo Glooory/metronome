@@ -109,7 +109,9 @@ export const PresetsModal = ({
                   <div className={styles["presets-modal__item-name"]}>{preset.name}</div>
                   <div className={styles["presets-modal__item-meta"]}>
                     <span>{preset.bpm} BPM</span>
-                    <span>{preset.beatsPerMeasure}/{preset.beatUnit ?? 4}</span>
+                    <span>
+                      {preset.beatsPerMeasure}/{preset.beatUnit ?? 4}
+                    </span>
                     <span>{formatDate(preset.createdAt)}</span>
                   </div>
                 </div>

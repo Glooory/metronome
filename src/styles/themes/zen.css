@@ -45,8 +45,7 @@
   --shadow-modal:
     0 1px 0 rgba(13, 56, 73, 0.06) inset, 0 32px 80px rgba(1, 30, 40, 0.1),
     0 4px 16px rgba(1, 30, 40, 0.05);
-  --shadow-active-item:
-    0 0 0 1.5px rgba(46, 87, 70, 0.3), 0 4px 14px rgba(46, 87, 70, 0.08);
+  --shadow-active-item: 0 0 0 1.5px rgba(46, 87, 70, 0.3), 0 4px 14px rgba(46, 87, 70, 0.08);
   --shadow-glow: 0 0 12px rgba(46, 87, 70, 0.09);
   --shadow-glow-primary: 0 0 12px rgba(46, 87, 70, 0.09);
   --shadow-glow-warning: 0 0 8px rgba(178, 119, 68, 0.16);
@@ -95,7 +94,11 @@
   --readout-input-color: var(--readout-value-color);
   --readout-input-caret-color: var(--accent-primary);
   --readout-input-selection: rgba(46, 87, 70, 0.18);
-  --readout-wheel-bg: linear-gradient(180deg, rgba(251, 253, 253, 1) 0%, rgba(236, 242, 243, 1) 100%);
+  --readout-wheel-bg: linear-gradient(
+    180deg,
+    rgba(251, 253, 253, 1) 0%,
+    rgba(236, 242, 243, 1) 100%
+  );
   --readout-wheel-border: 1px solid rgba(13, 56, 73, 0.1);
   --readout-wheel-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 -1px 0 rgba(13, 56, 73, 0.03),
@@ -165,7 +168,8 @@
   --action-solid-border-color: rgba(13, 56, 73, 0.06);
   --action-solid-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 1px 3px rgba(13, 56, 73, 0.05);
   --action-solid-active-bg: rgba(232, 239, 240, 1);
-  --action-solid-active-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 2px rgba(13, 56, 73, 0.04);
+  --action-solid-active-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 2px rgba(13, 56, 73, 0.04);
   --action-outline-bg: rgba(250, 252, 253, 0.56);
   --action-outline-color: var(--text-secondary);
   --action-outline-border-width: 1px;
@@ -217,8 +221,7 @@
   --range-thumb-bg: linear-gradient(180deg, rgba(251, 253, 252, 1) 0%, rgba(229, 236, 233, 1) 100%);
   --range-thumb-border-width: 1px;
   --range-thumb-border-color: rgba(46, 87, 70, 0.24);
-  --range-thumb-shadow:
-    0 2px 8px rgba(13, 56, 73, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.68);
+  --range-thumb-shadow: 0 2px 8px rgba(13, 56, 73, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.68);
 
   --select-option-radius: var(--action-radius);
   --select-dropdown-title-color: rgba(76, 97, 94, 0.78);

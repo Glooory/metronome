@@ -33,7 +33,7 @@ Screenshots below show a subset of the available built-in themes.
 - Click beat bars to cycle states: Normal → Sub-accent → Accent → Mute → Normal
 - Visual feedback uses stacked blocks (`3 = accent`, `2 = sub-accent`, `1 = normal`, `0 = muted`)
 - Shift controls move the pattern start by step and can be reset to center
-- BPM memory bar stores up to 20 tempos for quick recall
+- Favorite BPM bar stores up to 20 tempos for quick recall
 
 ### 🚀 Training Tools
 
@@ -98,7 +98,7 @@ npm run build
 src/
 ├── components/
 │   ├── BpmDisplay/            # BPM readout, drag wheel, note binding
-│   ├── BpmHistoryBar/         # Saved BPM chips + tap tempo
+│   ├── BpmFavoritesBar/       # Favorite BPM chips + tap tempo
 │   ├── Button/                # Button primitive
 │   ├── Checkbox/              # Toggle primitive
 │   ├── ControlDock/           # Bottom playback dock

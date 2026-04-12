@@ -111,8 +111,8 @@ export const HelpModal = ({ isOpen, onClose, language }: HelpModalProps) => {
             <HelpRow
               icon={Star}
               order={3}
-              title={t.bpmMemory[language]}
-              desc={t.bpmMemoryDesc[language]}
+              title={t.bpmFavorites[language]}
+              desc={t.bpmFavoritesDesc[language]}
             />
             <HelpRow
               icon={MousePointerClick}

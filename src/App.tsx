@@ -5,7 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import styles from "./App.module.css";
 import { STORAGE_KEY_LANGUAGE, type Language } from "./i18n";
 
-import { BpmHistoryBar } from "./components/BpmHistoryBar";
+import { BpmFavoritesBar } from "./components/BpmFavoritesBar";
 import { ControlDock } from "./components/ControlDock";
 import { HelpModal } from "./components/HelpModal";
 import { IntervalTrainerModal } from "./components/IntervalTrainerModal";
@@ -41,7 +41,7 @@ import {
   STORAGE_KEY_BPM_BIND_NOTE,
   STORAGE_KEY_INTERVAL_TRAINER,
   STORAGE_KEY_PRESETS,
-  STORAGE_KEY_SAVED_BPMS,
+  STORAGE_KEY_FAVORITE_BPMS,
   STORAGE_KEY_SHIFT,
   STORAGE_KEY_SOUND,
   STORAGE_KEY_SPEED_TRAINER,
@@ -135,8 +135,8 @@ export default function MetronomeApp() {
   const [soundPreset, setSoundPreset] = useState<string>(() =>
     getStorageItem(STORAGE_KEY_SOUND, SOUND_SINE)
   );
-  const [savedBpms, setSavedBpms] = useState<number[]>(() =>
-    getStorageItem(STORAGE_KEY_SAVED_BPMS, [], JSON.parse)
+  const [favoriteBpms, setFavoriteBpms] = useState<number[]>(() =>
+    getStorageItem(STORAGE_KEY_FAVORITE_BPMS, [], JSON.parse)
   );
 
   const [stepStates, setStepStates] = useState<number[]>(() => {
@@ -235,7 +235,7 @@ export default function MetronomeApp() {
     setStorageItem(STORAGE_KEY_SWING, swing);
     setStorageItem(STORAGE_KEY_SHIFT, shift);
     setStorageItem(STORAGE_KEY_SOUND, soundPreset);
-    setStorageItem(STORAGE_KEY_SAVED_BPMS, savedBpms);
+    setStorageItem(STORAGE_KEY_FAVORITE_BPMS, favoriteBpms);
     setStorageItem(STORAGE_KEY_SPEED_TRAINER, speedTrainer);
     setStorageItem(STORAGE_KEY_INTERVAL_TRAINER, intervalTrainer);
     setStorageItem(STORAGE_KEY_PRESETS, presets);
@@ -260,7 +260,7 @@ export default function MetronomeApp() {
     swing,
     shift,
     soundPreset,
-    savedBpms,
+    favoriteBpms,
     speedTrainer,
     intervalTrainer,
     presets,
@@ -557,11 +557,11 @@ export default function MetronomeApp() {
               setBpmBindNote={setBpmBindNote}
               language={language}
             />
-            <BpmHistoryBar
+            <BpmFavoritesBar
               currentBpm={bpm}
               setBpm={setBpm}
-              savedBpms={savedBpms}
-              setSavedBpms={setSavedBpms}
+              favoriteBpms={favoriteBpms}
+              setFavoriteBpms={setFavoriteBpms}
               onTap={handleTap}
               language={language}
             />
